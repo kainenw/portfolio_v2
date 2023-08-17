@@ -1,5 +1,6 @@
-html {
+body {
   background-color: #101010;
+  width: 100%;
 }
 
 .App {

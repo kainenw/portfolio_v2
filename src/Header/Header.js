@@ -8,9 +8,7 @@ function Header() {
 
   const handleClick = (e) => {
     page && page.classList.remove("active");
-    console.log(e);
     setPage(e.target);
-    console.log(page)
     e.target.classList.add("active");
   };
 
