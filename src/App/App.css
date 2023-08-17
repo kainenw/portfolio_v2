@@ -1,15 +1,14 @@
 body {
-  background-color: #101010;
-  width: 100%;
+  background-color: var(--off-black);
 }
 
 .App {
-  background-color: #171717;
+  background-color: var(--dark-gray);
   margin: 0 auto;
   max-width: 1000px;
   min-width: 500px;
-  height: 100vh;
-  border-left: 1px solid #404040;
-  border-right: 1px solid #404040;
+  min-height: 100%;
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
   text-align: center;
 }

@@ -4,9 +4,9 @@ function Projects() {
   return (
     <main className="Projects">
       <div className="row">
-        <img src="../sam" alt="project 1" />
+        <img src={require("../img/projects/reddit.png")} alt="project 1" />
         <div>
-          <h2>Project 1: [Project Name]</h2>
+          <h2>Project 1: Reddit App</h2>
           <p>
             Briefly introduce the project, explaining its purpose and your role.
             Highlight the technologies and tools you employed, showcasing how
@@ -15,9 +15,9 @@ function Projects() {
         </div>
       </div>
       <div className="row">
-        <img src="../sam" alt="project 2" />
+        <img src={require("../img/projects/scalc.png")} alt="project 2" />
         <div>
-          <h2>Project 2: [Project Name]</h2>
+          <h2>Project 2: Savings Calculator</h2>
           <p>
             Present another project, demonstrating your versatility and
             creativity. Discuss the design considerations, responsive elements,
@@ -26,7 +26,7 @@ function Projects() {
         </div>
       </div>
       <div className="row">
-        <img src="../sam" alt="project 3" />
+        <img src={require("../img/projects/TonnetzTorus.gif")} alt="project 3" />
         <div>
           <h2>Project 3: [Project Name]</h2>
           <p>
@@ -36,22 +36,22 @@ function Projects() {
           </p>
         </div>
       </div>
-        <div>
-          <ul>
-            <li>
-              Showcase your recent web development projects with brief
-              descriptions for each.{" "}
-            </li>
-            <li>
-              Include project screenshots, links to live demos, and GitHub
-              repositories if applicable.{" "}
-            </li>
-            <li>
-              Highlight projects that demonstrate your creativity,
-              problem-solving skills, and knowledge of front-end technologies.
-            </li>
-          </ul>
-        </div>
+      <div>
+        <ul>
+          <li>
+            Showcase your recent web development projects with brief
+            descriptions for each.{" "}
+          </li>
+          <li>
+            Include project screenshots, links to live demos, and GitHub
+            repositories if applicable.{" "}
+          </li>
+          <li>
+            Highlight projects that demonstrate your creativity, problem-solving
+            skills, and knowledge of front-end technologies.
+          </li>
+        </ul>
+      </div>
     </main>
   );
 }

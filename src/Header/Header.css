@@ -1,15 +1,16 @@
 header {
   position: relative;
   top: 5%;
-  margin: 0 auto;
+  margin: 1rem auto;
   max-width: 80%;
   min-width: 80%;
   min-height: 10%;
-  border: 1px solid #404040;
+  border: 1px solid var(--gray);
   border-radius: 20px;
   box-shadow: 10px 10px 60px black;
+  padding: 0.5rem;
   font-size: calc(10px + 2vmin);
-  background-color: #101010;
+  background-color: var(--off-black);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -23,11 +24,11 @@ header a {
 }
 
 header a:not(.active) {
-  border: 1px solid #101010;
+  border: 1px solid var(--off-black);
 }
 
 header a.active {
-  border: 1px solid #404040;
+  border: 1px solid var(--gray);
   background-color:#171717;
   border-radius: 12.5px;
   box-shadow: inset 1.5px 1.5px 3px black;

@@ -1,19 +1,21 @@
 main {
   position: relative;
   top: 5rem;
-  width: 80%
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 main .row {
   min-height: 7rem;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 2fr;
   margin-bottom: 3.5rem;
 }
 
 main .row img {
-  height: 7rem;
-  width: auto;
+  height: auto;
+  width: 7rem;
   border-radius: 20px;
   justify-self: right;
   grid-column: 1;
@@ -23,4 +25,12 @@ main .row div {
   text-align: left;
   padding-left: 1rem;
   grid-column: 2;
+}
+
+main h1 {
+  margin-bottom: 2rem;
+}
+
+main h2 {
+  margin: .75rem;
 }

@@ -5,7 +5,7 @@ function Contact() {
     <main className="Contact">
       <h1>Get in Touch</h1>
       <p>
-        Get in Touch I value connections and collaboration. Whether you're
+        I value connections and collaboration. Whether you're
         interested in discussing potential projects, seeking advice, or just
         want to chat about the latest industry trends, I'd love to hear from
         you. You can find me on LinkedIn, GitHub, and Twitter. Feel free to drop

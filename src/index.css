@@ -1,6 +1,32 @@
+:root {
+  --off-white: #DDDDDD;
+  --off-black: #101010;
+  --dark-gray: #171717;
+  --gray: #404040;
+}
+
 * {
   margin: 0;
   font-size: 18px;
-  color: #DDDDDD;
+  color: var(--off-white);
   font-family: 'nunito sans', 'avenir', 'sans serif';
+}
+
+html {
+  min-height: 100vh;
+}
+
+div#root {
+  min-height: 100vh;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
