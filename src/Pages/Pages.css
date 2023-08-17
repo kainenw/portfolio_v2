@@ -1,0 +1,25 @@
+main {
+  position: relative;
+  top: 5rem;
+  min-width: 80%;
+}
+
+main .row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+main .row img {
+  height: 7rem;
+  width: auto;
+  border-radius: 20px;
+  justify-self: right;
+  grid-column: 1;
+}
+
+main .row div {
+  text-align: left;
+  padding-left: 1rem;
+  grid-column: 2;
+  height: 7rem;
+}
