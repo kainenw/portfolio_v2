@@ -38,13 +38,11 @@ function Projects() {
       </div>
       <div>
         <ul>
-          <li>
-            Showcase your recent web development projects with brief
-            descriptions for each.{" "}
+          <li>Showcase your recent web development projects with brief descriptions for each.
           </li>
           <li>
             Include project screenshots, links to live demos, and GitHub
-            repositories if applicable.{" "}
+            repositories if applicable.
           </li>
           <li>
             Highlight projects that demonstrate your creativity, problem-solving
