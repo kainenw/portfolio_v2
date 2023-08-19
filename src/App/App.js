@@ -6,10 +6,12 @@ import Blog from "../Pages/Blog";
 import Projects from "../Pages/Projects";
 import Resources from "../Pages/Resources";
 import Contact from "../Pages/Contact";
+import ThemeButton from "../ThemeButton/ThemeButton";
 
 function App() {
   return (
     <div className="App">
+      <ThemeButton />
       <Header />
       <Routes>
         <Route path="/contact" element={<Contact />} />

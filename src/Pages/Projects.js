@@ -4,7 +4,7 @@ function Projects() {
   return (
     <main className="Projects">
       <div className="row">
-        <img src={require("../img/projects/reddit.png")} alt="project 1" />
+        <img className="themed_icon" src={""} value="../img/projects/reddit" alt="project 1" />
         <div>
           <h2>Project 1: Reddit App</h2>
           <p>
