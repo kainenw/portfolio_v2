@@ -7,19 +7,34 @@ import Projects from "../Pages/Projects";
 import Resources from "../Pages/Resources";
 import Contact from "../Pages/Contact";
 import ThemeButton from "../ThemeButton/ThemeButton";
+import { useState } from "react";
 
 function App() {
+
+  /* move this once redux store is built */
+  const [theme, setTheme] = useState(localStorage.getItem("__theme"));
+  if (!theme) {
+    setTheme("dark")
+    localStorage.setItem("__theme", "dark");
+  }
+
+  const changeTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next)
+    localStorage.setItem("__theme", theme);
+  }
+
   return (
     <div className="App">
-      <ThemeButton />
       <Header />
       <Routes>
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/" element={<About />} />
+        <Route path="/contact" element={<Contact theme={theme} />} />
+        <Route path="/resources" element={<Resources theme={theme} />} />
+        <Route path="/projects" element={<Projects theme={theme} />} />
+        <Route path="/blog" element={<Blog theme={theme} />} />
+        <Route path="/" element={<About theme={theme} />} />
       </Routes>
+      <button onClick={changeTheme}></button>
     </div>
   );
 }
