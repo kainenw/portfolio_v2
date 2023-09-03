@@ -1,14 +1,15 @@
 :root {
   --off-white: #DDDDDD;
-  --off-black: #101010;
-  --dark-gray: #171717;
+  --light-gray: #C0C0C0;
   --gray: #404040;
+  --dark-gray: #171717;
+  --off-black: #101010;
 }
 
 * {
   margin: 0;
   font-size: 18px;
-  color: var(--off-white);
+  
   font-family: 'nunito sans', 'avenir', 'sans serif';
 }
 

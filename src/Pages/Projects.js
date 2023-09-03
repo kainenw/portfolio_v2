@@ -1,10 +1,15 @@
-import "./Pages.css";
+import "./_Pages.css";
 
-function Projects() {
+function Projects(props) {
+  /* let theme = props.theme; */
   return (
     <main className="Projects">
       <div className="row">
-        <img className="themed_icon" src={""} value="../img/projects/reddit" alt="project 1" />
+        <img
+          className="icon"
+          src={require("../Images/projects/reddit.png")}
+          alt="project 1"
+        />
         <div>
           <h2>Project 1: Reddit App</h2>
           <p>
@@ -15,7 +20,11 @@ function Projects() {
         </div>
       </div>
       <div className="row">
-        <img src={require("../img/projects/scalc.png")} alt="project 2" />
+        <img
+          className="icon"
+          src={require("../Images/projects/scalc.png")}
+          alt="project 2"
+        />
         <div>
           <h2>Project 2: Savings Calculator</h2>
           <p>
@@ -26,7 +35,11 @@ function Projects() {
         </div>
       </div>
       <div className="row">
-        <img src={require("../img/projects/TonnetzTorus.gif")} alt="project 3" />
+        <img
+          className="icon"
+          src={require("../Images/projects/TonnetzTorus.gif")}
+          alt="project 3"
+        />
         <div>
           <h2>Project 3: [Project Name]</h2>
           <p>
@@ -38,7 +51,9 @@ function Projects() {
       </div>
       <div>
         <ul>
-          <li>Showcase your recent web development projects with brief descriptions for each.
+          <li>
+            Showcase your recent web development projects with brief
+            descriptions for each.
           </li>
           <li>
             Include project screenshots, links to live demos, and GitHub

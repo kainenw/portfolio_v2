@@ -12,12 +12,20 @@ main .row {
   margin-bottom: 3.5rem;
 }
 
-main .row img {
+main img {
   height: auto;
   width: 7rem;
   border-radius: 20px;
   justify-self: right;
   grid-column: 1;
+}
+
+.App[data-theme="dark"] .icon {
+  filter: brightness(1);
+}
+
+.App[data-theme="light"] .icon {
+  filter: brightness(.25);
 }
 
 main .row div {
@@ -37,3 +45,8 @@ main h1 {
 main h2 {
   margin-bottom: .75rem;
 }
+
+.ThemeMenu {
+  position: absolute;
+  bottom: 10%;
+  right: 7%;
