@@ -1,5 +1,3 @@
-/* import ThemeCss from "./ThemeCss"; */
-
 function ThemeMenu(props) {
   const { theme, changeTheme } = props;
 
