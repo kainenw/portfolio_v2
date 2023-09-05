@@ -47,6 +47,23 @@ main h2 {
 }
 
 .ThemeMenu {
-  position: absolute;
+  position: fixed;
+  border-radius: 20px;
   bottom: 10%;
   right: 7%;
+  border: 1px solid var(--gray);
+}
+
+.App[data-theme="dark"] .ThemeMenu {
+  background-color: var(--off-black);
+}
+
+.App[data-theme="light"] .ThemeMenu {
+  background-color: var(--light-gray);
+}
+
+.ThemeMenu img {
+  margin: 1rem;
+  height: 2rem;
+  width: auto;
+}
