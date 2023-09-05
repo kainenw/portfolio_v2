@@ -4,7 +4,7 @@ function About() {
   return (
     <main className="About">
       <div className="row">
-        <img src={require("../Images/headshot.png")} alt="Kainen's headshot" />
+        <img src={require("../images/headshot.png")} alt="Kainen's headshot" />
         <div>
           <h1>Welcome to my web development portfolio!</h1>
           <h2>**Introduction:**</h2>

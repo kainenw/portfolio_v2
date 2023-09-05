@@ -1,4 +1,7 @@
-import ThemeCss from "./ThemeCss";
+/* import ThemeCss from "./ThemeCss"; */
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react'
 
 function ThemeMenu(props) {
   const { theme, changeTheme } = props;
@@ -11,9 +14,26 @@ function ThemeMenu(props) {
   };
 
   return (
-    <div className="ThemeMenu">
-      <button onClick={handleClick}>toggle theme</button>
-      <ThemeCss theme={theme} />
+    <div 
+      css={css`
+        position: fixed,
+        borderRadius:20px,
+        bottom: 10 %,
+        right: 7 %,
+        border: 1px solid #404040,
+      `}
+      >
+      <img
+        onClick={handleClick}
+        src={require(`../images/themed/${theme}/theme-icon.png`)}
+        alt="toggle theme button"
+        css={css`
+          margin: 1rem,
+          height: 2rem,
+          width: auto,
+        `}
+      />
+      {/* <ThemeCss theme={theme} /> */}
     </div>
   );
 }

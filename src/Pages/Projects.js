@@ -7,7 +7,7 @@ function Projects(props) {
       <div className="row">
         <img
           className="icon"
-          src={require("../Images/projects/reddit.png")}
+          src={require("../images/projects/reddit.png")}
           alt="project 1"
         />
         <div>
@@ -22,7 +22,7 @@ function Projects(props) {
       <div className="row">
         <img
           className="icon"
-          src={require("../Images/projects/scalc.png")}
+          src={require("../images/projects/scalc.png")}
           alt="project 2"
         />
         <div>
@@ -37,7 +37,7 @@ function Projects(props) {
       <div className="row">
         <img
           className="icon"
-          src={require("../Images/projects/TonnetzTorus.gif")}
+          src={require("../images/projects/TonnetzTorus.gif")}
           alt="project 3"
         />
         <div>
