@@ -1,4 +1,4 @@
-import ThemeCss from "./ThemeCss";
+/* import ThemeCss from "./ThemeCss"; */
 
 function ThemeMenu(props) {
   const { theme, changeTheme } = props;
@@ -12,8 +12,12 @@ function ThemeMenu(props) {
 
   return (
     <div className="ThemeMenu">
-      <button onClick={handleClick}>toggle theme</button>
-      <ThemeCss theme={theme} />
+      <img
+        onClick={handleClick}
+        src={require(`../images/themed/${theme}/theme-icon.png`)}
+        alt="toggle theme button"
+      />
+      {/* <ThemeCss theme={theme} /> */}
     </div>
   );
 }
