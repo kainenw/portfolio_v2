@@ -2,7 +2,7 @@ import "./_Pages.css";
 
 function Resources() {
   return (
-    <main className="Resources">
+    <div className="Resources">
       <h1>The web’s best resources for web development</h1>
       <h2>Learning Journey</h2>
       <p>
@@ -63,7 +63,7 @@ function Resources() {
           have a specific error code
         </li>
       </ul>
-    </main>
+    </div>
   );
 }
 

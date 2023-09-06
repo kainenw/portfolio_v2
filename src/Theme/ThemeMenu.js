@@ -1,3 +1,5 @@
+import themes from "./themes";
+
 function ThemeMenu(props) {
   const { theme, changeTheme } = props;
 
@@ -9,11 +11,28 @@ function ThemeMenu(props) {
   };
 
   return (
-    <div className="ThemeMenu">
+    <div 
+      style={{
+        backgroundColor: themes[theme].background,
+        position: "fixed",
+        borderRadius: "20px",
+        bottom: "10%",
+        right: "7%",
+        height: "4rem",
+        width: "4rem",
+        border: "1px solid #404040",
+      }}
+      >
       <img
         onClick={handleClick}
         src={require(`../images/themed/${theme}/theme-icon.png`)}
         alt="toggle theme button"
+        style={{
+          margin: "1rem",
+          height: "2rem",
+          width: "2rem",
+          cursor: "pointer",
+        }}
       />
       {/* <ThemeCss theme={theme} /> */}
     </div>

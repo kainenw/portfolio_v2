@@ -2,7 +2,7 @@ import "./_Pages.css";
 
 function Blog() {
   return (
-    <main className="Blog">
+    <div className="Blog">
       <h1>blog</h1>
       <p>
         Much of my blog content can be found elsewhere on this site. The posts
@@ -35,7 +35,7 @@ function Blog() {
           another time about why.
         </p>
       </div>
-    </main>
+    </div>
   );
 }
 

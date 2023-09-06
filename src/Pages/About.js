@@ -2,7 +2,7 @@ import "./_Pages.css";
 
 function About() {
   return (
-    <main className="About">
+    <div className="About">
       <div className="row">
         <img src={require("../images/headshot.png")} alt="Kainen's headshot" />
         <div>
@@ -55,7 +55,7 @@ function About() {
           </ul>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 export default About;

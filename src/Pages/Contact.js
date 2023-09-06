@@ -2,7 +2,7 @@ import "./_Pages.css";
 
 function Contact() {
   return (
-    <main className="Contact">
+    <div className="Contact">
       <h1>Get in Touch</h1>
       <p>
         I value connections and collaboration. Whether you're
@@ -16,7 +16,7 @@ function Contact() {
         possibilities our digital world offers. Let's embark on a journey of
         innovation and creativity together!
       </p>
-    </main>
+    </div>
   );
 }
 

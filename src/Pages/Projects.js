@@ -3,7 +3,7 @@ import "./_Pages.css";
 function Projects(props) {
   /* let theme = props.theme; */
   return (
-    <main className="Projects">
+    <div className="Projects">
       <div className="row">
         <img
           className="icon"
@@ -65,7 +65,7 @@ function Projects(props) {
           </li>
         </ul>
       </div>
-    </main>
+    </div>
   );
 }
 
