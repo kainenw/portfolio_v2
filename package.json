@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "@emotion/react": "^11.11.1",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "webpack": "^5.88.2"

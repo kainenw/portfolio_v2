@@ -33,6 +33,7 @@ function Header(props) {
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
+        zIndex: "20",
       }}
       >
       <NavLink to="/" onClick={handleClick}>

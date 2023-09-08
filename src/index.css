@@ -4,6 +4,7 @@
   --gray: #404040;
   --dark-gray: #171717;
   --off-black: #101010;
+  
 }
 
 * {
@@ -15,6 +16,7 @@
 html {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    height: 100vh;
 }
 
 html::-webkit-scrollbar { 
