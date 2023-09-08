@@ -9,7 +9,7 @@ import Contact from "../Pages/Contact";
 /* import ThemeButton from "../ThemeButton/ThemeButton"; */
 import { useState } from "react";
 import ThemeMenu from "../Theme/ThemeMenu";
-import themes from "../Theme/themes";
+import themeStyles from "../Theme/themeStyles";
 
 function App() {
   /* if no local theme, set as "dark" */
@@ -28,27 +28,12 @@ function App() {
       className="App"
       data-theme={theme}
       style={{
-        backgroundColor: themes[theme].foreground,
-        color: themes[theme].textColor,
-        borderLeft: "1px solid #404040",
-        borderRight: "1px solid #404040",
-        padding: "1.5rem",
-        margin: "0 auto",
-        maxWidth: "1000px",
-        minWidth: "500px",
-        height: "100%",
-        top: "0",
-        textAlign: "center",
+        backgroundColor: themeStyles[theme].foreground,
+        color: themeStyles[theme].textColor,
         }}
       >
       <Header theme={theme} />
-      <main
-        style={{
-          width: "80%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingTop: "5rem",
-        }}>
+      <main>
       <Routes>
         <Route path="/contact" element={<Contact theme={theme} />} />
         <Route path="/resources" element={<Resources theme={theme} />} />

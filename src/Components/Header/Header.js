@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Header.css";
 /* import "./HeaderStyles" */
 import { NavLink } from "react-router-dom";
-import themes from "../../Theme/themes";
+import themes from "../../Theme/themeStyles";
 
 function Header(props) {
   const [page, setPage] = useState(null);
@@ -19,23 +19,8 @@ function Header(props) {
       className="App-header"
       style={{
         backgroundColor: themes[theme].background,
-        color: "inherit",
-        position: "fixed",
-        left: "50%",
-        transform: "translate(-50%)",
-        maxWidth: "60%",
-        minWidth: "60%",
-        border: "1px solid var(--gray)",
-        borderRadius: "20px",
-        boxShadow: "10px 10px 60px black",
-        padding: "0.5rem",
-        fontSize: "calc(10px + 2vmin)",
-        display: "flex",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        zIndex: "20",
       }}
-      >
+    >
       <NavLink to="/" onClick={handleClick}>
         about
       </NavLink>

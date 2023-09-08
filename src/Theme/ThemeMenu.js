@@ -1,4 +1,4 @@
-import themes from "./themes";
+import themes from "./themeStyles";
 
 function ThemeMenu(props) {
   const { theme, changeTheme } = props;
@@ -11,7 +11,7 @@ function ThemeMenu(props) {
   };
 
   return (
-    <div 
+    <div
       style={{
         backgroundColor: themes[theme].background,
         position: "fixed",
@@ -22,7 +22,7 @@ function ThemeMenu(props) {
         width: "4rem",
         border: "1px solid #404040",
       }}
-      >
+    >
       <img
         onClick={handleClick}
         src={require(`../images/themed/${theme}/theme-icon.png`)}
