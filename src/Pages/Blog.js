@@ -2,7 +2,7 @@ import "./_Pages.css";
 
 function Blog() {
   return (
-    <div className="Blog">
+    <div className="Blog Page">
       <h1>blog</h1>
       <p>
         Much of my blog content can be found elsewhere on this site. The posts

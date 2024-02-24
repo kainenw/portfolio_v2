@@ -25,7 +25,7 @@ function ThemeMenu(props) {
     >
       <img
         onClick={handleClick}
-        src={require(`../images/themed/${theme}/theme-icon.png`)}
+        src={require(`../img/themed/${theme}/theme-icon.png`)}
         alt="toggle theme button"
         style={{
           margin: "1rem",

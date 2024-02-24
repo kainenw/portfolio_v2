@@ -1,22 +1,25 @@
-main {
+.Page {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 5rem;
+  min-height: 100dvh;
 }
 
-main .row {
+.Page .row {
   min-height: 7rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin-bottom: 3.5rem;
+  margin-bottom: 5rem;
+  justify-self: right;
 }
 
-main img {
+.Page img {
   height: auto;
   width: 7rem;
   border-radius: 20px;
   justify-self: right;
+  align-self: end;
   grid-column: 1;
 }
 
@@ -28,22 +31,27 @@ main img {
   filter: brightness(.25);
 }
 
-main .row div {
+.Page div {
   text-align: left;
   padding-left: 1rem;
   grid-column: 2;
+  align-self: end;
 }
 
-main li {
+.Page li {
   text-align: left;
 }
 
-main h1 {
+.Page h1 {
   margin-bottom: 2rem;
 }
 
-main h2 {
+.Page h2 {
   margin-bottom: .75rem;
+}
+
+.Page ul {
+  margin-bottom: 2.5rem;
 }
 
 .ThemeMenu {

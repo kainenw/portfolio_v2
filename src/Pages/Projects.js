@@ -3,11 +3,11 @@ import "./_Pages.css";
 function Projects(props) {
   /* let theme = props.theme; */
   return (
-    <div className="Projects">
+    <div className="Projects Page">
       <div className="row">
         <img
           className="icon"
-          src={require("../images/projects/reddit.png")}
+          src={require("../img/projects/reddit.png")}
           alt="project 1"
         />
         <div>
@@ -22,7 +22,7 @@ function Projects(props) {
       <div className="row">
         <img
           className="icon"
-          src={require("../images/projects/scalc.png")}
+          src={require("../img/projects/scalc.png")}
           alt="project 2"
         />
         <div>
@@ -37,7 +37,7 @@ function Projects(props) {
       <div className="row">
         <img
           className="icon"
-          src={require("../images/projects/TonnetzTorus.gif")}
+          src={require("../img/projects/TonnetzTorus.gif")}
           alt="project 3"
         />
         <div>

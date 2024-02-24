@@ -1,9 +1,14 @@
+html, body, div.App {
+  height: 100%;
+  min-height: 100%;
+}
+
 div:has(.App[data-theme="dark"]) {
-  background-color: var(--off-black)
+  background-color: var(--off-black);
 }
 
 div:has(.App[data-theme="light"]) {
-  background-color: var(--light-gray)
+  background-color: var(--light-gray);
 }
 
 .App {
@@ -16,7 +21,6 @@ div:has(.App[data-theme="light"]) {
   min-width: 500px;
   height: 100%;
   top: 0;
-  
   text-align: center;
 }
 
@@ -39,4 +43,5 @@ main {
   margin-left: auto;
   margin-right: auto;
   padding-top: 5rem;
+  top: 15rem;
 }

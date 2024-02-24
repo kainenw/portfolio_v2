@@ -2,19 +2,18 @@ import "./_Pages.css";
 
 function Contact() {
   return (
-    <div className="Contact">
-      <h1>Get in Touch</h1>
+    <div className="Contact Page"> 
+      <h1>
+        Let's connect and create something amazing together!
+      </h1>
       <p>
-        I value connections and collaboration. Whether you're
-        interested in discussing potential projects, seeking advice, or just
-        want to chat about the latest industry trends, I'd love to hear from
-        you. You can find me on LinkedIn, GitHub, and Twitter. Feel free to drop
-        me a line at [your@email.com].
+        I'm open to new opportunities and collaborations. Feel free to connect
+        with me on LinkedIn, GitHub, and Twitter. You can also reach out via
+        email at <a href="mailto:kainen.white@gmail.com">kainen.white@gmail.com</a>
       </p>
       <p>
-        Thank you for visiting my portfolio, and I look forward to the exciting
-        possibilities our digital world offers. Let's embark on a journey of
-        innovation and creativity together!
+        Thank you for visiting my portfolio! I'm excited to continue learning and
+        growing in the web development field.
       </p>
     </div>
   );
