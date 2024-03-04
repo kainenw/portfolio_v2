@@ -3,7 +3,12 @@ import "./_Pages.css";
 function Resources() {
   return (
     <div className="Resources Page">
-      <h1>Resources for development and design</h1>
+      <h1>
+        Resources{" "}
+        <span>
+          <em>for development and design</em>
+        </span>
+      </h1>
       <div>
         <h2>Learning Journey</h2>
         <p>
@@ -12,12 +17,9 @@ function Resources() {
           have contributed to your skill set.
         </p>
         <p>
-          I have been learning
+          I have been learning web development for a few years now. I started
+          with HTML and CSS and then moved on to Javascript.
           <ol>
-            <li>
-              web development for a few years now. I started with HTML and CSS
-              and then moved on to Javascript.
-            </li>
             <li>PHP and SQL</li>
             <li>React and Vue for the past year</li>
             <li>Node and Express for the past few months</li>
@@ -67,6 +69,7 @@ function Resources() {
           bookmarks, they need to be.
         </p>
         <div>
+          <h2>Documentation</h2>
           <div>
             <h4>HTML</h4>
             <div>

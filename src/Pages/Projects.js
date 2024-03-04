@@ -4,6 +4,7 @@ function Projects(props) {
   /* let theme = props.theme; */
   return (
     <div className="Projects Page">
+      <h1>Projects</h1>
       <div className="row">
         <img
           className="icon"
