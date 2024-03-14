@@ -1,37 +1,41 @@
 # Kainen's Portfolio Redesign
 
-A showcase of my design and development skills, featuring a refreshed user experience, modern aesthetics, and a seamless navigation.
+A refreshed showcase of my design and development skills, emphasizing clean aesthetics, seamless navigation, and user-centered improvements.
 
 ## Overview
 
-* **Purpose:**  I redesigned my portfolio to highlight my progress as a designer and a developer. I created the design following the Design Thinking process and the principles of clean code. The site are meant to present my work to potential recruiters or employers.Briefly state why you redesigned your portfolio (e.g., to attract new clients, demonstrate growth, better reflect your current brand).
-* **Key Improvements:** 
-1. New navigation options.
-2. New work presented.
-3. Orieted around user flows
+* **Purpose:** I redesigned my portfolio to demonstrate my growth as a designer and developer, attracting potential clients and employers. The redesign follows Design Thinking principles and clean coding practices.
+* **Key Improvements:**
+    * **Intuitive Navigation:** Enhanced navigation for smooth exploration.
+    * **Updated Showcase:**  Features my latest and best projects.
+    * **User-Focused Design:**  Prioritizes user experience throughout.
 
 ## Technologies Used
 
 * **Design Tools:**
-    * Figma, VS Code
+    * Figma 
+    * VS Code
 * **Frontend:** 
-    * HTML, CSS/Sass/Less, JavaScript, React
-* **Other:** Netlify, Github,
+    * HTML, CSS/Sass/Less 
+    * JavaScript, React
+* **Other:**
+    * Netlify (deployment)
+    * GitHub
 
 ## Project Highlights
 
-* **[Design Choice]:** Explain the reasoning behind a significant design change - color scheme, typography, layout, etc.
-* **[Technical Challenge]:** The site theme (light/dark modes) is applied automatically according to the preferences of the user.
-* **[Responsive Design]:**  Redesigned menu for mobile users
+* **Minimalist Aesthetic:** Emphasizes a clean and focused design.
+* **Adaptive Theme:** Automatically switches between light/dark modes based on user preferences, demonstrating technical skill.
+* **Responsive Redesign:** Optimized the menu and layout for all devices, ensuring a positive mobile experience.
 
 ## Viewing the Portfolio
 
-* **Live Demo:** kainen.dev.
+* **Live Demo:** kainen.dev
 
 ## Feedback Welcome!
 
-If you have suggestions or spot any issues, please feel free to open an issue on GitHub / email me at... / use the contact form on my websie. 
+If you have suggestions or feedback, please feel free to open an issue on GitHub, email me directly, or use my website's contact form. 
 
 ## Acknowledgments
 
-* **Inspiration:** Many articles about UX portfolios aided in the process of redesigning.. 
+* **Inspiration:** I drew valuable insights from articles about crafting effective UX portfolios. 
