@@ -1,4 +1,4 @@
-# [Your Name]'s Portfolio Redesign
+# Kainen's Portfolio Redesign
 
 A showcase of my design and development skills, featuring a refreshed user experience, modern aesthetics, and a seamless navigation.
 
