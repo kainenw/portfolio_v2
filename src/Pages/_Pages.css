@@ -6,6 +6,12 @@
   min-height: 100dvh;
 }
 
+.Page #section2 {
+  margin-top: 5rem;
+  background-color: black;
+  width: 80vw;
+}
+
 .Page .row {
   min-height: 7rem;
   display: grid;
@@ -33,9 +39,9 @@
 
 .Page div {
   text-align: left;
-  padding-left: 1rem;
-  grid-column: 2;
-  align-self: end;
+
+
+
 }
 
 .Page li {
@@ -54,6 +60,7 @@
 }
 
 .Page h2 {
+  text-align: left;
   margin-bottom: .75rem;
 }
 

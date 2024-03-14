@@ -4,7 +4,7 @@ function Resources() {
   return (
     <div className="Resources Page">
       <h1>
-        Resources{" "}
+        Resources
         <span>
           <em>for development and design</em>
         </span>

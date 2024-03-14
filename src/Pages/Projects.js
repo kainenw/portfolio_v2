@@ -5,6 +5,7 @@ function Projects(props) {
   return (
     <div className="Projects Page">
       <h1>Projects</h1>
+      <h2>Design</h2>
       <div className="row">
         <img
           className="icon"

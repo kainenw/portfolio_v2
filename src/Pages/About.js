@@ -3,11 +3,9 @@ import "./_Pages.css";
 function About() {
   return (
     <div className="About Page">
-      <div>
-        <h1>
-          Welcome <span> to my web development portfolio!</span>
-        </h1>
-      </div>
+      <h1>
+        Welcome <span> <em>to my web development portfolio!</em></span>
+      </h1>
       <div className="row">
         <img src={require("../img/headshot.png")} alt="Kainen's headshot" />
         <div>
@@ -38,7 +36,11 @@ function About() {
               reflect my love for design and user experience.
             </p>
           </div>
-          <div>
+        </div>
+      </div>
+      <div>
+        <div id="section2">
+        <div>
             <h2>**Skills:**</h2>
             <p>
               I'm proficient in HTML, CSS, JavaScript, responsive design, and
@@ -51,10 +53,7 @@ function About() {
               and web sociology.
             </p>
           </div>
-        </div>
-      </div>
-      <div>
-        <div>
+          <div>
           <h2>**Education:**</h2>
           <p>
             I'm a self-taught developer who has completed various online courses
@@ -82,14 +81,14 @@ function About() {
             music theory through interactive exercises and quizzes.
           </p>
         </div>
-        <div>
+      </div>
+      <div>
           <h2>**Contact:**</h2>
           <p>
             I'm open to new opportunities and collaborations. Feel free to
             connect with me on LinkedIn, GitHub, and Twitter. You can also reach
             out via email at <a href="mailto:kainen.white@gmail.com" />
           </p>
-        </div>
       </div>
       <div>
         <h2>**Conclusion:**</h2>
@@ -99,6 +98,7 @@ function About() {
           something amazing together!
         </p>
       </div>
+    </div>
     </div>
   );
 }
