@@ -4,101 +4,70 @@ function About() {
   return (
     <div className="About Page">
       <h1>
-        Welcome <span> <em>to my web development portfolio!</em></span>
-      </h1>
+      Kainen <span>|| Nashville-Based UX Designer with a development background
+      </span></h1>
       <div className="row">
         <img src={require("../img/headshot.png")} alt="Kainen's headshot" />
         <div>
-          <h2>**Introduction:**</h2>
+          <h2>About Me</h2>
           <p>
-            Hi, I'm Kainen, a passionate web developer and aspiring UX designer
-            based in Nashville, TN. I'm excited to share my journey and projects
-            with you!
+          I'm a UX/UI designer who bridges the gap between design and development. With my understanding of coding principles, I create designs that are both beautiful and technically feasible. Let's collaborate to build user-focused experiences that seamlessly transition from concept to reality.
           </p>
         </div>
       </div>
       <div>
-        <div>
-          <div>
-            <h2>**Objective:**</h2>
-            <p>
-              I'm eager to contribute to the web development community and
-              create accessible, user-friendly websites. My objective is to
-              secure a role that allows me to apply my skills and continue
-              growing in the industry.
-            </p>
-          </div>
-          <div>
-            <h2>**About Me:**</h2>
-            <p>
-              I'm a musician with a background in music theory and philosophy.
-              I'm passionate about creating inclusive, accessible websites that
-              reflect my love for design and user experience.
-            </p>
-          </div>
-        </div>
+        <ul>
+          <h2>My Work</h2>
+          <li>
+            <ul>
+              <h3>Design</h3>
+              <li>Sushi App: User-friendly interface designed to simplify the food ordering process for a local restaurant.</li>
+              <li>Portfolio v2: Redesign of my personal portfolio, showcasing my best work and demonstrating my evolving design skills.</li>
+              <li>Voting App: Intuitive app to guide voters through the election process, promoting engagement.</li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <h3>Development</h3>
+              <li>Portfolio v2: Building the redesign for my portfolio page, including developing a react app and deploying it with a personal domain name kainen.dev.</li>
+              <li>Reddit App: Streamlined Reddit browsing experience for improved efficiency and enjoyment, built with React and Redux.</li>
+              <li>Tonnetz Visualizer: Interactive application that visualizes harmonic concepts for musicians, enhancing their understanding.</li>
+              <li>Savings Calculator: Financial planning tool empowering users to achieve their financial goals, built with javascript and jquery.</li>
+            </ul>
+          </li>
+        </ul>
       </div>
       <div>
         <div id="section2">
-        <div>
-            <h2>**Skills:**</h2>
-            <p>
-              I'm proficient in HTML, CSS, JavaScript, responsive design, and
-              accessible design.
-            </p>
-            <p>
-              I'm also familiar with web hosting, version control, web
-              standards, web technologies, web trends, web communities, web
-              ethics, web culture, web history, web philosophy, web psychology,
-              and web sociology.
-            </p>
-          </div>
-          <div>
-          <h2>**Education:**</h2>
-          <p>
-            I'm a self-taught developer who has completed various online courses
-            and tutorials. I'm also pursuing a degree in computer science to
-            deepen my understanding of programming and software development.
-          </p>
+          <ul>
+          <h2>Skills:</h2>
+            <li>Empathizing with users by creating empathy maps, personas, user stories, and user journey maps</li>
+            <li>Defining user pain points</li>
+            <li>Ideating design solutions using Crazy Eights, How Might We, and competitive audits</li>
+            <li>Creating wireframes and prototypes on paper and digitally</li>
+            <li>Developing mockups using visual design elements and principles</li>
+            <li>Designing in Figma and Adobe XD</li>
+            <li>Conducting interviews and usability studies</li>
+            <li>Considering accessibility at every point in the design process</li>
+            <li>Front-End: HTML, CSS, JavaScript, Responsive Design, Accessibility Standards</li>
+            <li>Additional: Version Control, Web Hosting, Familiarity with broader web development concepts</li>
+          </ul>
         </div>
         <div>
-          <h2>**Experience:**</h2>
-          <p>
-            I've worked on several freelance projects and collaborated with
-            local businesses to enhance their online presence. I'm eager to
-            expand my portfolio and contribute to innovative projects.
-          </p>
-        </div>
-        <div>
-          <h2>**Projects:**</h2>
-          <p>
-            I've developed a Reddit app, a savings calculator, and a music
-            theory tool. I'm currently working on a personal blog and a
-            portfolio website to showcase my work.
-          </p>
-          <p>
-            I'm also working on a web application that helps musicians learn
-            music theory through interactive exercises and quizzes.
-          </p>
+          <ul>
+          <h2>Experience:</h2>
+            <li>Freelance Work: Collaborated with local businesses to improve their websites through both design and development.</li>
+            <li>Self-Directed Learning: Completed online courses and actively pursuing a deeper understanding of UX design and web development. </li>
+          </ul>
         </div>
       </div>
       <div>
-          <h2>**Contact:**</h2>
+          <h2>Let's Build Something Amazing Together!</h2>
           <p>
-            I'm open to new opportunities and collaborations. Feel free to
-            connect with me on LinkedIn, GitHub, and Twitter. You can also reach
-            out via email at <a href="mailto:kainen.white@gmail.com" />
+          Interested in collaborating on design-focused projects? Let's connect! Reach me on LinkedIn, GitHub, and Twitter. You can also reach
+            out via email at <a href="mailto:kainen.white@gmail.com">kainen.white@gmail.com</a>
           </p>
       </div>
-      <div>
-        <h2>**Conclusion:**</h2>
-        <p>
-          Thank you for visiting my portfolio! I'm excited to continue learning
-          and growing in the web development field. Let's connect and create
-          something amazing together!
-        </p>
-      </div>
-    </div>
     </div>
   );
 }

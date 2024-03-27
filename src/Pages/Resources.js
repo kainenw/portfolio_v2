@@ -9,220 +9,72 @@ function Resources() {
           <em>for development and design</em>
         </span>
       </h1>
+      <h2>Elevate Your UX Design & Web Development Skills</h2>
+      <h3>Explore a curated collection of top-tier resources to fuel your growth</h3>
       <div>
         <h2>Learning Journey</h2>
         <p>
-          Highlight your commitment to growth and improvement by sharing
-          insights from online courses, workshops, or personal projects that
-          have contributed to your skill set.
+        Embrace continuous improvement! Share valuable documentation, articles, videos, courses, workshops, or projects that have boosted your design and development expertise.
         </p>
-        <p>
-          I have been learning web development for a few years now. I started
-          with HTML and CSS and then moved on to Javascript.
-          <ol>
-            <li>PHP and SQL</li>
-            <li>React and Vue for the past year</li>
-            <li>Node and Express for the past few months</li>
-            <li>design tools like Adobe XD and Figma</li>
-            <li>design principles and user experience</li>
-            <li>accessibility and how to make my sites more accessible</li>
-            <li>SEO and how to make my sites more visible on search engines</li>
-            <li>web security and how to make my sites more secure</li>
-            <li>web performance and how to make my sites faster</li>
-            <li>web analytics and how to track user behavior</li>
-            <li>web hosting and how to deploy my sites</li>
-            <li>version control and how to manage my code</li>
-            <li>web standards and how to make my sites more compliant</li>
-            <li>web technologies and how to make my sites more interactive</li>
-            <li>web trends and how to make my sites more modern</li>
-            <li>web communities and how to make my sites more engaging</li>
-            <li>web ethics and how to make my sites more responsible</li>
-            <li>web culture and how to make my sites more inclusive</li>
-            <li>web history and how to make my sites more informed</li>
-            <li>web philosophy and how to make my sites more thoughtful</li>
-            <li>web psychology and how to make my sites more persuasive</li>
-            <li>web sociology and how to make my sites more empathetic</li>
-          </ol>
-        </p>
-      </div>
       <div>
         <h2>Blog & Resources</h2>
         <p>
-          Engage with visitors by sharing your thoughts, tutorials, and helpful
-          resources related to front-end development. This section showcases
-          your willingness to contribute to the community's knowledge pool.
+        Discover actionable insights, tutorials, and essential tools to enhance your front-end development journey.
+
         </p>
-        <p>Most of the content of this site is elaborated in my blog</p>
       </div>
       <div>
-        <h2>Documentation</h2>
+        <h2>Essential Documentation</h2>
         <p>
-          Since web development is a collaborative field, our work is
-          extensively shaped by others. Any problem you might run into has
-          probably already been solved many different ways. Frameworks and
-          libraries provide a set of solutions for others to access. This leads
-          us to rely heavily on documentation. Any framework or library worth
-          using has documentation worth reading. <br />
-          <br />
-          The following list contains resources for understanding and making use
-          of a wide variety of web technologies. If these aren’t already in your
-          bookmarks, they need to be.
+          <em>Your Web Development Powerhouses:</em> The best tools often have the most robust documentation. Bookmark these for quick troubleshooting and to master new features:
         </p>
-        <div>
-          <h2>Documentation</h2>
-          <div>
-            <h4>HTML</h4>
-            <div>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
-                HTML
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4>CSS</h4>
-            <div>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
-            </div>
-          </div>
-          <div>
-            <h4>JavaScript</h4>
-            <div>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                JavaScript
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4>PHP</h4>
-            <div>
-              <a href="https://www.php.net/manual/en/">PHP</a>
-            </div>
-          </div>
-          <div>
-            <h4>DevDocs</h4>
-            <div>
-              <a href="https://devdocs.io/">DevDocs</a>
-            </div>
-          </div>
-          <div>
-            <h4>MDN</h4>
-            <div>
-              <a href="https://developer.mozilla.org/">MDN</a>
-            </div>
-          </div>
+        <ul>
+          <li><em>HTML:</em> MDN: 'https://developer.mozilla.org/en-US/docs/Web/HTML'</li>
+          <li><em>CSS:</em> MDN: 'https://developer.mozilla.org/en-US/docs/Web/CSS'</li>
+          <li><em>JavaScript:</em> MDN: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'</li>
+          <li><em>PHP:</em> PHP Manual: 'https://www.php.net/manual/en/'</li>
+          <li><em>DevDocs:</em> 'https://devdocs.io/' – Your offline documentation sidekick</li>
+        </ul>
         </div>
         <div>
-          <h3>Frameworks and Libraries</h3>
-          <div>
-            <h4>React</h4>
-            <div>
-              <a href="https://reactjs.org/docs/getting-started.html">React</a>
-            </div>
-          </div>
-          <div>
-            <h4>Vue</h4>
-            <div>
-              <a href="https://vuejs.org/v2/guide/">Vue</a>
-            </div>
-          </div>
-          <div>
-            <h4>Angular</h4>
-            <div>
-              <a href="https://angular.io/docs">Angular</a>
-            </div>
-          </div>
-          <div>
-            <h4>Bootstrap</h4>
-            <div>
-              <a href="https://getbootstrap.com/docs/">Bootstrap</a>
-            </div>
-          </div>
-          <div>
-            <h4>jQuery</h4>
-            <div>
-              <a href="https://api.jquery.com/">jQuery</a>
-            </div>
-          </div>
-          <div>
-            <h4>Express</h4>
-            <div>
-              <a href="https://expressjs.com/en/4x/api.html">Express</a>
-            </div>
-          </div>
-          <div>
-            <h4>Node</h4>
-            <div>
-              <a href="https://nodejs.org/en/docs/">Node</a>
-            </div>
-          </div>
+          <h3>Frameworks & Libraries: Master the Tools of the Trade</h3>
+          <p>Streamline your development with these popular choices:</p>
+          <ul>
+            <li><em>React:</em> 'https://reactjs.org/'</li>
+            <li><em>Vue:</em> 'https://vuejs.org/'</li>
+            <li><em>Angular:</em> 'https://angular.io/'</li>
+            <li><em>jQuery:</em> 'https://jquery.com/'</li>
+            <li><em>Bootstrap:</em> 'https://getbootstrap.com/'</li>
+            <li><em>Express:</em> 'https://www.expressjs.com/'</li>
+            <li><em>Node:</em> 'https://nodejs.org/'</li>
+          </ul>
         </div>
         <div>
-          <h3>Design</h3>
-          <div>
-            <h4>Adobe XD</h4>
-            <div>
-              <a href="https://helpx.adobe.com/xd/user-guide.html">Adobe XD</a>
-            </div>
-          </div>
-          <div>
-            <h4>Figma</h4>
-            <div>
-              <a href="https://help.figma.com/hc/en-us">Figma</a>
-            </div>
-          </div>
-          <div>
-            <h4>Sketch</h4>
-            <div>
-              <a href="https://www.sketch.com/docs/">Sketch</a>
-            </div>
-          </div>
+          <h3>Design: Where Innovation Meets Aesthetics</h3>
+          <p>Unleash your creativity with these leading design tools:</p>
+          <li><em>Figma:</em> 'https://www.figma.com/'</li>
+          <li><em>Sketch:</em> 'https://www.sketch.com/'</li>
+          <li><em>Adobe XD</em> 'https://www.adobe.com/products/xd.html'</li>
         </div>
         <div>
-          <h3>Other</h3>
-          <div>
-            <h4>GitHub</h4>
-            <div>
-              <a href="https://docs.github.com/en">GitHub</a>
-            </div>
-          </div>
-          <div>
-            <h4>Git</h4>
-            <div>
-              <a href="https://git-scm.com/doc">Git</a>
-            </div>
-          </div>
-          <div>
-            <h4>npm</h4>
-            <div>
-              <a href="https://docs.npmjs.com/">npm</a>
-            </div>
-          </div>
+          <h3>Additional Resources</h3>
+          <p>Collaboration and Version Control:</p>
+          <li><em>Git:</em> 'https://git-scm.com/'</li>
+          <li><em>Github:</em> 'https://github.com'</li>
         </div>
         <div>
-          <h2>Free Educational Material</h2>
-          <div>
-            <h3>Guides</h3>
-            <div>
-              <h4>W3Schools</h4>
-              <div>
-                <a href="https://www.w3schools.com/">W3Schools</a>,
-              </div>
-            </div>
-            <div>
-              <h4>Codecademy Free Courses</h4>
-              <div>
-                <a href="https://www.w3schools.com/">Codecademy Free Courses</a>
-              </div>
-            </div>
-            <div>
-              <h4>MDN Web Development Guides</h4>
-              <div>
-                <a href="https://developer.mozilla.org/en-US/docs/Learn">
-                  MDN Web Development Guides
-                </a>
-              </div>
-            </div>
-          </div>
+          <h3>Free Learning Paths</h3>
+          <p>Collaboration and Version Control:</p>
+          <li><em>W3Schools:</em> 'https://www.w3schools.com/'</li>
+          <li><em>MDN Web Development Guides:</em> 'https://developer.mozilla.org/en-US/docs/Web/Guide'</li>
+          <li><em>Codecademy (Free Courses):</em> 'https://www.codecademy.com/'</li>
+        </div>
+        <div>
+          <h3>Common Web Development Challenges (and How to Overcome Them)</h3>
+          <li><em>Browser Compatibility:</em> Stay ahead of the curve with cross-browser testing tools like BrowserStack https://www.browserstack.com/.</li>
+          <li><em>Performance Optimization: </em> Dive into page speed analysis with tools like Google's Lighthouse https://developers.google.com/web/tools/lighthouse.</li>
+          <li><em>Progressive Enhancement:</em> Build experiences that work for everyone using a layered approach.</li>
+          <li><em>Accessibility:</em> Prioritize inclusive design. Use an accessibility checker like WAVE https://wave.webaim.org/.</li>
         </div>
       </div>
     </div>
