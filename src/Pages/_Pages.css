@@ -12,12 +12,16 @@
   width: 80vw;
 }
 
+.Page .presentation,
 .Page .row {
-  min-height: 7rem;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  margin-bottom: 5rem;
-  justify-self: right;
+  grid-template-columns: 10% 1fr;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.Page .presentation {
+  grid-template-rows: 1fr 1fr;
 }
 
 .Page img {
@@ -25,9 +29,13 @@
   width: 7rem;
   border-radius: 20px;
   justify-self: right;
-  align-self: end;
+  align-self: start;
   grid-column: 1;
+  grid-row: 1;
+  margin-right: 1rem;
 }
+
+
 
 .App[data-theme="dark"] .icon {
   filter: brightness(1);
@@ -65,7 +73,7 @@
 }
 
 .Page ul {
-  margin-bottom: 2.5rem;
+  
 }
 
 .ThemeMenu {
@@ -88,4 +96,11 @@
   margin: 1rem;
   height: 2rem;
   width: auto;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  grid-row: 2;
+  grid-column: 1 / 3;
 }
