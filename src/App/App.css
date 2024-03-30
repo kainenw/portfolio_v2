@@ -1,6 +1,14 @@
+* {
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 22px;
+  margin: 0 auto;
+}
+
 html, body, div.App {
   height: 100%;
   min-height: 100%;
+  text-align: left;
 }
 
 div:has(.App[data-theme="dark"]) {
@@ -14,14 +22,11 @@ div:has(.App[data-theme="light"]) {
 .App {
   border-left: 1px solid #404040;
   border-right: 1px solid #404040;
-  text-align: center;
+  
   padding: 1.5rem;
-  margin: 0 auto;
+  
   max-width: 1000px;
   min-width: 500px;
-  height: 100%;
-  top: 0;
-  text-align: center;
 }
 
 .App[data-theme="dark"] {
@@ -38,10 +43,29 @@ div:has(.App[data-theme="light"]) {
   border-right: 1px solid var(--gray);
 }
 
+.contrast-section {
+  padding: 1.5rem;
+  border: 1px solid #404040;
+  border-radius: 20px;
+
+}
+
+.App[data-theme="dark"] .contrast-section {
+  background-color: black;
+}
+
+.App[data-theme="light"] .contrast-section {
+  background-color: white;
+}
+
 main {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 5rem;
   top: 15rem;
+}
+
+.App a {
+  color: inherit;
 }

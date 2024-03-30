@@ -3,78 +3,158 @@ import "./_Pages.css";
 function Resources() {
   return (
     <div className="Resources Page">
-      <h1>
-        Resources
-        <span>
-          <em>for development and design</em>
-        </span>
-      </h1>
-      <h2>Elevate Your UX Design & Web Development Skills</h2>
-      <h3>Explore a curated collection of top-tier resources to fuel your growth</h3>
-      <div>
-        <h2>Learning Journey</h2>
-        <p>
-        Embrace continuous improvement! Share valuable documentation, articles, videos, courses, workshops, or projects that have boosted your design and development expertise.
-        </p>
-      <div>
-        <h2>Blog & Resources</h2>
-        <p>
-        Discover actionable insights, tutorials, and essential tools to enhance your front-end development journey.
+      <h1>Resources</h1>
+      <p>
+        Elevate Your UX Design & Web Development Skills. aDiscover a curated
+        selection of top resources to accelerate your learning.
+      </p>
 
-        </p>
-      </div>
-      <div>
-        <h2>Essential Documentation</h2>
-        <p>
-          <em>Your Web Development Powerhouses:</em> The best tools often have the most robust documentation. Bookmark these for quick troubleshooting and to master new features:
-        </p>
-        <ul>
-          <li><em>HTML:</em> MDN: 'https://developer.mozilla.org/en-US/docs/Web/HTML'</li>
-          <li><em>CSS:</em> MDN: 'https://developer.mozilla.org/en-US/docs/Web/CSS'</li>
-          <li><em>JavaScript:</em> MDN: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'</li>
-          <li><em>PHP:</em> PHP Manual: 'https://www.php.net/manual/en/'</li>
-          <li><em>DevDocs:</em> 'https://devdocs.io/' – Your offline documentation sidekick</li>
-        </ul>
-        </div>
+      <div className="info-group contrast-section">
+        <img className="icon" src={require("../img/mdn.png")} alt="mdn logo" />
         <div>
-          <h3>Frameworks & Libraries: Master the Tools of the Trade</h3>
-          <p>Streamline your development with these popular choices:</p>
+          <h3>Master the Fundamentals:</h3>
+          <p>Bookmark the best documentation for:</p>
           <ul>
-            <li><em>React:</em> 'https://reactjs.org/'</li>
-            <li><em>Vue:</em> 'https://vuejs.org/'</li>
-            <li><em>Angular:</em> 'https://angular.io/'</li>
-            <li><em>jQuery:</em> 'https://jquery.com/'</li>
-            <li><em>Bootstrap:</em> 'https://getbootstrap.com/'</li>
-            <li><em>Express:</em> 'https://www.expressjs.com/'</li>
-            <li><em>Node:</em> 'https://nodejs.org/'</li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+                HTML (MDN)
+              </a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+                CSS (MDN)
+              </a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                JavaScript (MDN)
+              </a>
+            </li>
+            <li>
+              <a href="https://www.php.net/manual/en/">PHP (PHP Manual)</a>
+            </li>
+            <li>
+              <a href="https://devdocs.io/">DevDocs</a>
+            </li>
           </ul>
         </div>
+      </div>
+      <div className="info-group">
+        <img
+          className="icon"
+          src={require("../img/nodejs.png")}
+          alt="nodejs logo"
+        />
         <div>
-          <h3>Design: Where Innovation Meets Aesthetics</h3>
-          <p>Unleash your creativity with these leading design tools:</p>
-          <li><em>Figma:</em> 'https://www.figma.com/'</li>
-          <li><em>Sketch:</em> 'https://www.sketch.com/'</li>
-          <li><em>Adobe XD</em> 'https://www.adobe.com/products/xd.html'</li>
+          <h3>Popular Frameworks & Libraries:</h3>
+          <ul>
+            <li>
+              <a href="https://reactjs.org/">React</a>
+            </li>
+            <li>
+              <a href="https://vuejs.org/">Vue</a>
+            </li>
+            <li>
+              <a href="https://angular.io/">Angular</a>
+            </li>
+            <li>
+              <a href="https://jquery.com/">jQuery</a>
+            </li>
+            <li>
+              <a href="https://getbootstrap.com/">Bootstrap</a>
+            </li>
+            <li>
+              <a href="https://www.expressjs.com/">Express</a>
+            </li>
+            <li>
+              <a href="https://nodejs.org/">Node</a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <div className="info-group contrast-section">
+        <img src={require("../img/figma.png")} alt="figma logo" />
         <div>
-          <h3>Additional Resources</h3>
-          <p>Collaboration and Version Control:</p>
-          <li><em>Git:</em> 'https://git-scm.com/'</li>
-          <li><em>Github:</em> 'https://github.com'</li>
+          <h3>Design Powerhouses:</h3>
+          <ul>
+            <li>
+              <a href="https://www.figma.com/">Figma</a>
+            </li>
+            <li>
+              <a href="https://www.sketch.com/">Sketch</a>
+            </li>
+            <li>
+              <a href="https://www.adobe.com/products/xd.html">Adobe XD</a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <div className="info-group">
+        <img className="icon" src={require("../img/git.png")} alt="Git logo" />
+        <div>
+          <h3>Collaboration and Version Control</h3>
+          <ul>
+            <li>
+              <a href="https://github.com/">Github</a>
+            </li>
+            <li>
+              <a href="https://git-scm.com/">Git</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="info-group contrast-section">
+        <img className="icon" src={require("../img/mdn.png")} alt="MDN logo" />
         <div>
           <h3>Free Learning Paths</h3>
-          <p>Collaboration and Version Control:</p>
-          <li><em>W3Schools:</em> 'https://www.w3schools.com/'</li>
-          <li><em>MDN Web Development Guides:</em> 'https://developer.mozilla.org/en-US/docs/Web/Guide'</li>
-          <li><em>Codecademy (Free Courses):</em> 'https://www.codecademy.com/'</li>
+          <p>
+            Articles, videos, courses, workshops, and projects to boost your
+            expertise.
+          </p>
+          <ul>
+            <li>
+              <a href="https://www.w3schools.com/">W3Schools</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/Guide">
+                MDN Web Development Guides
+              </a>
+            </li>
+            <li>
+              <a href="https://www.codecademy.com/">
+                Codecademy (Free Courses)
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <div className="info-group">
+        <img
+          className="icon"
+          src={require("../img/dev.png")}
+          alt="Lorem Ipsum or whatever"
+        />
         <div>
           <h3>Common Web Development Challenges (and How to Overcome Them)</h3>
-          <li><em>Browser Compatibility:</em> Stay ahead of the curve with cross-browser testing tools like BrowserStack https://www.browserstack.com/.</li>
-          <li><em>Performance Optimization: </em> Dive into page speed analysis with tools like Google's Lighthouse https://developers.google.com/web/tools/lighthouse.</li>
-          <li><em>Progressive Enhancement:</em> Build experiences that work for everyone using a layered approach.</li>
-          <li><em>Accessibility:</em> Prioritize inclusive design. Use an accessibility checker like WAVE https://wave.webaim.org/.</li>
+          <ul>
+            <li>
+              Browser Compatibility:
+              <a href="https://www.browserstack.com/">Test with BrowserStack</a>
+            </li>
+            <li>
+              Performance Optimization:
+              <a href="https://developers.google.com/web/tools/lighthouse">
+                Analyze with Lighthouse
+              </a>
+            </li>
+            <li>
+              Progressive Enhancement: Build experiences that work for everyone.
+            </li>
+            <li>
+              Accessibility Checks:{" "}
+              <a href="https://wave.webaim.org/">Use WAVE</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
