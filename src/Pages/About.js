@@ -4,13 +4,13 @@ function About() {
   return (
     <div className="About Page">
       <h1>Kainen White</h1>
-      <h2>Nashville-Based UX Designer & Front-End Developer</h2>
+      <h2>UX Designer</h2>
       <div className="info-group">
         <img src={require("../img/headshot.png")} alt="Kainen's headshot" />
         <div>
           <h3>About Me</h3>
           <p>
-            I'm a UX/UI designer who bridges the gap between design and
+            I'm a UX/UI designer based in Nashville who bridges the gap between design and
             development. With my understanding of coding principles, I create
             designs that are both beautiful and technically feasible. Let's
             collaborate to build user-focused experiences that seamlessly
