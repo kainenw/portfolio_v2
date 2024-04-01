@@ -5,7 +5,7 @@ function Resources() {
     <div className="Resources Page">
       <h1>Resources</h1>
       <p>
-        Elevate Your UX Design & Web Development Skills. aDiscover a curated
+        Elevate Your UX Design & Web Development Skills. Discover a curated
         selection of top resources to accelerate your learning.
       </p>
 
