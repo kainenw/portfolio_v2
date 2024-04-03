@@ -10,10 +10,10 @@ function About() {
         <div>
           <h3>About Me</h3>
           <p>
-            I'm a UX/UI designer based in Nashville who bridges the gap between design and
-            development. With my understanding of coding principles, I create
-            designs that are both beautiful and technically feasible. Let's
-            collaborate to build user-focused experiences that seamlessly
+            I'm a UX/UI designer based in Nashville who bridges the gap between
+            design and development. With my understanding of coding principles,
+            I create designs that are both beautiful and technically feasible.
+            Let's collaborate to build user-focused experiences that seamlessly
             transition from concept to reality.
           </p>
         </div>
@@ -58,8 +58,8 @@ function About() {
                 including several portfolio projects.
               </li>
               <li>
-                Reddit App: Streamlined Reddit binfo-groupsing experience for
-                improved efficiency and enjoyment, built with React and Redux.
+                Reddit App: Streamlined Reddit browsing experience for improved
+                efficiency and enjoyment, built with React and Redux.
               </li>
               <li>
                 Tonnetz Visualizer: Interactive application that visualizes

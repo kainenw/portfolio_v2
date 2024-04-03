@@ -5,7 +5,7 @@ function Projects(props) {
   let handleClick = (e) => {
     let className = e.target.className;
     /* console.log(className); */
-    console.log(e.target.src)
+    console.log(e.target.src);
     let iframe = document.querySelector(`iframe.${className}`);
     if (iframe.classList.contains("active")) {
       iframe.classList.remove("active");
@@ -91,10 +91,7 @@ function Projects(props) {
           />
         </div>
         <div className="info-group">
-          <img
-            src={require("../img/projects/sushi.png")}
-            alt="project 3"
-          />
+          <img src={require("../img/projects/sushi.png")} alt="project 3" />
           <div>
             <h3>Sushi App:</h3>
             <p>
@@ -148,8 +145,8 @@ function Projects(props) {
           <div>
             <h3>Reddit App:</h3>
             <p>
-              Streamlined Reddit binfo-groupsing experience for improved
-              efficiency and enjoyment, built with React and Redux.
+              Streamlined Reddit browsing experience for improved efficiency and
+              enjoyment, built with React and Redux.
             </p>
             <a href="https://github.com/kainenw/reddit">Github Repo</a>
           </div>
