@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Kainen's Portfolio Redesign
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A refreshed showcase of my design and development skills, emphasizing clean aesthetics, seamless navigation, and user-centered improvements.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+* **Purpose:** I redesigned my portfolio to demonstrate my growth as a designer and developer, attracting potential clients and employers. The redesign follows Design Thinking principles and clean coding practices.
+* **Key Improvements:**
+    * **Intuitive Navigation:** Enhanced navigation for smooth exploration.
+    * **Updated Showcase:**  Features my latest and best projects.
+    * **User-Focused Design:**  Prioritizes user experience throughout.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Design Tools:**
+    * Figma 
+    * VS Code
+* **Frontend:** 
+    * HTML, CSS/Sass/Less 
+    * JavaScript, React
+* **Other:**
+    * Netlify (deployment)
+    * GitHub
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Highlights
 
-### `npm test`
+* **Minimalist Aesthetic:** Emphasizes a clean and focused design.
+* **Adaptive Theme:** Automatically switches between light/dark modes based on user preferences, demonstrating technical skill.
+* **Responsive Redesign:** Optimized the menu and layout for all devices, ensuring a positive mobile experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Viewing the Portfolio
 
-### `npm run build`
+* **Live Demo:** kainen.dev
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Feedback Welcome!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you have suggestions or feedback, please feel free to open an issue on GitHub, email me directly, or use my website's contact form. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Acknowledgments
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Inspiration:** I drew valuable insights from articles about crafting effective UX portfolios. 
