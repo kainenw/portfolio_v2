@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .Page {
   /* width: 80%; */
   /* margin-left: auto;
@@ -18,14 +19,35 @@
 }
 
 .Page img {
+=======
+main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5rem;
+}
+
+main .row {
+  min-height: 7rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-bottom: 3.5rem;
+}
+
+main img {
+>>>>>>> implement_css-in-js
   height: auto;
   width: 7rem;
   border-radius: 20px;
   justify-self: right;
+<<<<<<< HEAD
   align-self: start;
   grid-column: 1;
   grid-row: 1;
   margin-right: 1rem;
+=======
+  grid-column: 1;
+>>>>>>> implement_css-in-js
 }
 
 .App[data-theme="dark"] .icon {
@@ -36,6 +58,7 @@
   filter: brightness(.25);
 }
 
+<<<<<<< HEAD
 .Page h1 {
   font-size: 3rem;
   margin-bottom: 2rem;
@@ -49,6 +72,24 @@
 .Page h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
+=======
+main .row div {
+  text-align: left;
+  padding-left: 1rem;
+  grid-column: 2;
+}
+
+main li {
+  text-align: left;
+}
+
+main h1 {
+  margin-bottom: 2rem;
+}
+
+main h2 {
+  margin-bottom: .75rem;
+>>>>>>> implement_css-in-js
 }
 
 .ThemeMenu {
@@ -72,6 +113,7 @@
   height: 2rem;
   width: auto;
 }
+<<<<<<< HEAD
 
 .toggle img {
   height: 1.5rem;
@@ -102,3 +144,5 @@ iframe.active {
 iframe :not(.active) {
   display: none;
 }
+=======
+>>>>>>> implement_css-in-js

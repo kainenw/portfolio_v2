@@ -4,19 +4,29 @@
   --gray: #404040;
   --dark-gray: #171717;
   --off-black: #101010;
+<<<<<<< HEAD
   
+=======
+>>>>>>> implement_css-in-js
 }
 
 * {
   margin: 0;
   font-size: 18px;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> implement_css-in-js
   font-family: 'nunito sans', 'avenir', 'sans serif';
 }
 
 html {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+<<<<<<< HEAD
     height: 100vh;
+=======
+>>>>>>> implement_css-in-js
 }
 
 html::-webkit-scrollbar { 

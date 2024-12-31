@@ -2,7 +2,11 @@ import "./_Pages.css";
 
 function Blog() {
   return (
+<<<<<<< HEAD
     <div className="Blog Page">
+=======
+    <main className="Blog">
+>>>>>>> implement_css-in-js
       <h1>blog</h1>
       <p>
         Much of my blog content can be found elsewhere on this site. The posts
@@ -35,7 +39,11 @@ function Blog() {
           another time about why.
         </p>
       </div>
+<<<<<<< HEAD
     </div>
+=======
+    </main>
+>>>>>>> implement_css-in-js
   );
 }
 
