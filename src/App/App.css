@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 22px;
+  margin: 0 auto;
+}
+
+html, body, div.App {
+  height: 100%;
+  min-height: 100%;
+  text-align: left;
+}
+
+div:has(.App[data-theme="dark"]) {
+  background-color: var(--off-black);
+}
+
+div:has(.App[data-theme="light"]) {
+  background-color: var(--light-gray);
+}
+
+.App {
+  border-left: 1px solid #404040;
+  border-right: 1px solid #404040;
+  
+  padding: 1.5rem;
+  
+  max-width: 1000px;
+  min-width: 500px;
+}
+
+.App[data-theme="dark"] {
+  background-color: var(--dark-gray);
+  color: var(--off-white);
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
+}
+
+.App[data-theme="light"] {
+  background-color: var(--off-white);
+  color: var(--off-black);
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
+}
+
+.contrast-section {
+  padding: 1.5rem;
+  border: 1px solid #404040;
+  border-radius: 20px;
+
+}
+
+.App[data-theme="dark"] .contrast-section {
+  background-color: black;
+}
+
+.App[data-theme="light"] .contrast-section {
+  background-color: white;
+}
+
+main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5rem;
+  top: 15rem;
+}
+
+.App a {
+  color: inherit;
+}
