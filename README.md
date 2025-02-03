@@ -18,8 +18,8 @@ A refreshed showcase of my design and development skills, emphasizing clean aest
 * **Frontend:** 
     * HTML, CSS/Sass/Less 
     * JavaScript, React
-* **Other:**
-    * Netlify (deployment)
+* **Deployment:**
+    * Netlify
     * GitHub
 
 ## Project Highlights
