@@ -13,10 +13,10 @@ A refreshed showcase of my design and development skills, emphasizing clean aest
 ## Technologies Used
 
 * **Design Tools:**
-    * Figma 
+    * Figma
     * VS Code
 * **Frontend:** 
-    * HTML, CSS/Sass/Less 
+    * HTML, CSS/Sass/Less
     * JavaScript, React
 * **Deployment:**
     * Netlify
@@ -30,7 +30,7 @@ A refreshed showcase of my design and development skills, emphasizing clean aest
 
 ## Viewing the Portfolio
 
-* **Live Demo:** kainen.dev
+* **Live Demo:** kainen.netlify.app
 
 ## Feedback Welcome!
 
