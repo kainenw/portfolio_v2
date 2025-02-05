@@ -22,10 +22,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-<<<<<<< HEAD
   z-index: 20;
-=======
->>>>>>> implement_css-in-js
 }
 
 header a {

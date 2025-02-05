@@ -16,21 +16,24 @@ function ThemeMenu(props) {
   return (
     <div 
       css={css`
-        position: fixed,
-        borderRadius:20px,
-        bottom: 10 %,
-        right: 7 %,
-        border: 1px solid #404040,
+        position: fixed;
+        bottom: 10%;
+        right: 7%;
+        height: 4rem;
+        width: 4rem;
+        border: 1px solid #404040;
+        border-radius: 20px;
+        cursor: pointer;
       `}
+      onClick={handleClick}
       >
       <img
-        onClick={handleClick}
-        src={require(`../images/themed/${theme}/theme-icon.png`)}
+        src={require(`../img/themed/${theme}/theme-icon.png`)}
         alt="toggle theme button"
         css={css`
-          margin: 1rem,
-          height: 2rem,
-          width: auto,
+          margin: 1rem;
+          height: 2rem;
+          width: 2rem;
         `}
       />
       {/* <ThemeCss theme={theme} /> */}
