@@ -6,7 +6,7 @@ import { css, jsx } from '@emotion/react'
 function ThemeMenu(props) {
   const { theme, changeTheme } = props;
 
-  const handleClick = (props) => {
+  const handleClick = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", nextTheme);
     changeTheme(nextTheme);

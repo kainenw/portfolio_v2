@@ -1,6 +1,6 @@
 import "./_Pages.css";
 
-function Projects(props) {
+function Projects() {
   /* let theme = props.theme; */
   let handleClick = (e) => {
     let className = e.target.className;
@@ -50,7 +50,6 @@ function Projects(props) {
             className="voting"
             src="https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000"
             title="uxdproject3"
-            frameborder="0"
             width="960"
             height="569"
             allowfullscreen="true"
@@ -110,7 +109,6 @@ function Projects(props) {
             className="sushi"
             src="https://docs.google.com/presentation/d/e/2PACX-1vRcI5sv8eHU2oQbEUZTQFbUkB74zvDGRAK0zn850VpRaTmKhODP61ik8ePNw9PnqV1hRPQlLQpgHGyP/embed?start=false&loop=false&delayms=3000"
             title="uxdproject1"
-            frameborder="0"
             width="960"
             height="569"
             allowfullscreen="true"
