@@ -11,8 +11,9 @@ header {
   position: fixed;
   left: 50%;
   transform: translate(-50%);
-  max-width: 60%;
-  min-width: 60%;
+  max-width: 800px;
+  width: 60%;
+  min-width: 400%;
   border: 1px solid var(--gray);
   border-radius: 20px;
   box-shadow: 10px 10px 60px black;
