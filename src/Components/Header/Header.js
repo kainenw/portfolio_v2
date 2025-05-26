@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom'
 import styled from '@emotion/styled'
 
 const StyledHeader = styled.header`
-  ${() => `
+  ${(props) => `
     &.App-header {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.7) !important; /* Adjust alpha for desired base translucency */
+      backdrop-filter: blur(10px) !important; /* Adjust blur radius for desired frostiness */
+      position: fixed;
+      z-index: 1;
     }
 
     color: inherit;
@@ -30,7 +33,7 @@ const StyledHeader = styled.header`
       padding: 0.25em 0.5em;
       cursor: pointer;
       text-decoration: none;
-      background-color: inherit; /* Inherit background from header */
+      background-color: none; /* Inherit background from header */
     }
 
     a.active {
@@ -41,24 +44,26 @@ const StyledHeader = styled.header`
   `}
 
   ${(props) =>
-    props.theme === 'dark' &&
+    props.theme === "dark" &&
     `
       &.App-header {
-        background-color: var(--off-black);
+        background-color: rgba(0, 0, 0, 0.7) !important; /* Dark translucent background */
+        backdrop-filter: blur(10px) !important; /* Apply blur for frosted glass effect */
       }
     `}
 
   ${(props) =>
-    props.theme === 'light' &&
+    props.theme === "light" &&
     `
        &.App-header {
-        background-color: var(--light-gray);
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        backdrop-filter: blur(10px) !important;
       }
     `}
-`
-
-function Header() {
+`;
+function Header(props) {
   const [page, setPage] = useState(null)
+  const { theme } = props
 
   const handleClick = (e) => {
     page && page.classList.remove('active')
@@ -67,7 +72,7 @@ function Header() {
   }
 
   return (
-    <StyledHeader className="App-header">
+    <StyledHeader className="App-header" theme={theme}>
       <NavLink to="/" onClick={handleClick}>
         about
       </NavLink>

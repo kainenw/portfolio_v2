@@ -15,9 +15,7 @@ div:has(.App[data-theme="dark"]) {
   background-color: var(--off-black);
 }
 
-div:has(.App[data-theme="light"]) {
-  background-color: var(--light-gray);
-}
+
 
 .App {
   border-left: 1px solid #404040;
@@ -83,4 +81,9 @@ main {
 
 .App a {
   color: inherit;
+}
+
+.App-header {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
 }

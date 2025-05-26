@@ -1,20 +1,22 @@
-/* import ThemeCss from "./ThemeCss"; */
 /** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react'
+import React from 'react'
+import { css } from '@emotion/react'
 
 function ThemeMenu(props) {
-  const { theme, changeTheme } = props;
+  const { theme, changeTheme } = props
 
   const handleClick = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    changeTheme(nextTheme);
-    localStorage.setItem("__theme", nextTheme);
-  };
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    changeTheme(nextTheme)
+    localStorage.setItem('__theme', nextTheme)
+  }
 
   return (
-    <div 
+    <div
+      onKeyDown={handleClick}
+      onClick={handleClick}
+      role="button"
+      tabIndex="0"
       css={css`
         position: fixed;
         bottom: 10%;
@@ -25,20 +27,10 @@ function ThemeMenu(props) {
         border-radius: 20px;
         cursor: pointer;
       `}
-      onClick={handleClick}
-      >
-      <img
-        src={require(`../img/themed/${theme}/theme-icon.png`)}
-        alt="toggle theme button"
-        css={css`
-          margin: 1rem;
-          height: 2rem;
-          width: 2rem;
-        `}
-      />
-      {/* <ThemeCss theme={theme} /> */}
+    >
+      <img src={require(`../img/themed/${theme}/theme-icon.png`)} alt="toggle theme button" />
     </div>
-  );
+  )
 }
 
-export default ThemeMenu;
+export default ThemeMenu
