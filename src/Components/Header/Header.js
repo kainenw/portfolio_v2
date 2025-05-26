@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import styled from '@emotion/styled'
 
 const StyledHeader = styled.header`
-  ${(props) => `
+  ${() => `
     &.App-header {
       background-color: rgba(255, 255, 255, 0.7) !important; /* Adjust alpha for desired base translucency */
       backdrop-filter: blur(10px) !important; /* Adjust blur radius for desired frostiness */
