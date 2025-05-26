@@ -3,11 +3,13 @@ import "./_Pages.css";
 function Resources() {
   return (
     <div className="Resources Page">
-      <h1>Resources</h1>
-      <p>
-        Elevate Your UX Design & Web Development Skills. Discover a curated
-        selection of top resources to accelerate your learning.
-      </p>
+      <div className="non-contrast-section">
+        <h1>Resources</h1>
+        <p>
+          Elevate Your UX Design & Web Development Skills. Discover a curated
+          selection of top resources to accelerate your learning.
+        </p>
+      </div>
 
       <div className="info-group contrast-section">
         <img className="icon" src={require("../img/mdn.png")} alt="mdn logo" />
@@ -39,7 +41,7 @@ function Resources() {
           </ul>
         </div>
       </div>
-      <div className="info-group">
+      <div className="info-group non-contrast-section">
         <img
           className="icon"
           src={require("../img/nodejs.png")}
@@ -89,7 +91,7 @@ function Resources() {
           </ul>
         </div>
       </div>
-      <div className="info-group">
+      <div className="info-group non-contrast-section">
         <img className="icon" src={require("../img/git.png")} alt="Git logo" />
         <div>
           <h3>Collaboration and Version Control</h3>
@@ -128,7 +130,7 @@ function Resources() {
           </ul>
         </div>
       </div>
-      <div className="info-group">
+      <div className="info-group non-contrast-section">
         <img
           className="icon"
           src={require("../img/dev.png")}

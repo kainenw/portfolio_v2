@@ -3,17 +3,19 @@ import './_Pages.css'
 function About() {
   return (
     <div className="About Page">
-      <h1>Kainen White</h1>
-      <h2>UX Designer</h2>
-      <div className="info-group">
-        <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
-        <div>
-          <h3>About Me</h3>
-          <p>
-            I&apos;m a UX/UI designer based in Nashville who bridges the gap between design and development. With my
-            understanding of coding principles, I create designs that are both beautiful and technically feasible.
-            Let&apos;s collaborate to build user-focused experiences that seamlessly transition from concept to reality.
-          </p>
+      <div className="non-contrast-section">
+        <h1>Kainen White</h1>
+        <h2>UX Designer</h2>
+        <div className="info-group">
+          <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
+          <div>
+            <h3>About Me</h3>
+            <p>
+              I&apos;m a UX/UI designer based in Nashville who bridges the gap between design and development. With my
+              understanding of coding principles, I create designs that are both beautiful and technically feasible.
+              Let&apos;s collaborate to build user-focused experiences that seamlessly transition from concept to reality.
+            </p>
+          </div>
         </div>
       </div>
       <div className="contrast-section">
@@ -61,7 +63,7 @@ function About() {
         </div>
       </div>
       <div>
-        <div>
+        <div className="non-contrast-section">
           <h2>Skills:</h2>
           <div className="info-group">
             <img className="icon" src={require('../img/designthinking.png')} alt="design icon" />
@@ -109,7 +111,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="info-group">
+      <div className="info-group non-contrast-section">
         <img src={require('../img/headshot.png')} alt="Headshot of Kainen White" />
         <div>
           <h3>Let&apos;s Build Something Amazing Together!</h3>

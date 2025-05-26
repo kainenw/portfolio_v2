@@ -3,7 +3,9 @@ import "./_Pages.css";
 function Contact() {
   return (
     <div className="Contact Page">
-      <h1>Contact</h1>
+      <div className="non-contrast-section">
+        <h1>Contact</h1>
+      </div>
       <div className="info-group contrast-section">
         <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
         <div>
@@ -15,7 +17,9 @@ function Contact() {
           </p>
         </div>
       </div>
-      <p>Thank you for visiting my portfolio! I&apos;m excited to continue learning and growing in the field.</p>
+      <div className="non-contrast-section">
+        <p>Thank you for visiting my portfolio! I&apos;m excited to continue learning and growing in the field.</p>
+      </div>
     </div>
   )
 }

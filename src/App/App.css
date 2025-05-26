@@ -57,11 +57,18 @@ div:has(.App[data-theme="light"]) {
   border-right: 1px solid var(--gray);
 }
 
-.contrast-section {
+.contrast-section,
+.non-contrast-section {
   padding: 1.5rem;
-  border: 1px solid #404040;
   border-radius: 20px;
 }
+
+.contrast-section {
+  border: 1px solid #404040;
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
 
 .App[data-theme="dark"] .contrast-section {
   background-color: black;

@@ -18,7 +18,9 @@ function Projects() {
 
   return (
     <div className="Projects Page">
-      <h1>Projects</h1>
+      <div className="non-contrast-section">
+        <h1>Projects</h1>
+      </div>
       <div className="Design contrast-section">
         <h2>Design</h2>
         <p>
@@ -90,7 +92,7 @@ function Projects() {
           />
         </div>
       </div>
-      <div className="Development">
+      <div className="Development non-contrast-section">
         <h2>Development</h2>
         <div className="info-group">
           <img className="icon" src={require('../img/projects/portfolio.png')} alt="project 4" />
@@ -120,15 +122,16 @@ function Projects() {
             <a href="https://github.com/kainenw/tonnetz">Github Repo</a>
           </div>
         </div>
-      </div>
-      <div className="info-group">
-        <img className="icon" src={require('../img/projects/scalc.png')} alt="project 7" />
-        <div>
-          <h3>Savings Calculator:</h3>
-          <p>
-            Financial planning tool empowering users to achieve their financial goals, built with javascript and jquery.
-          </p>
-          <a href="https://github.com/kainenw/scalc">Github Repo</a>
+        <div className="info-group">
+          <img className="icon" src={require('../img/projects/scalc.png')} alt="project 7" />
+          <div>
+            <h3>Savings Calculator:</h3>
+            <p>
+              Financial planning tool empowering users to achieve their financial goals, built with javascript and
+              jquery.
+            </p>
+            <a href="https://github.com/kainenw/scalc">Github Repo</a>
+          </div>
         </div>
       </div>
     </div>
