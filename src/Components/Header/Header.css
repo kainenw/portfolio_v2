@@ -14,7 +14,6 @@ header {
   max-width: 800px;
   width: 60%;
   min-width: 400%;
-  border: 1px solid var(--gray);
   border-radius: 20px;
   box-shadow: 10px 10px 60px black;
   padding: 0.5rem;
@@ -43,18 +42,15 @@ header a {
 
 .App[data-theme="dark"] header a.active {
   background-color: var(--dark-gray);
-  border: 1px solid var(--gray);
 }
 
 .App[data-theme="light"] header a.active {
   background-color: var(--light-gray);
-  border: 1px solid var(--gray);
+  border-radius: 12.5px;
+  box-shadow: inset 1.5px 1.5px 3px black;
 }
 
 header a.active {
-  border: 1px solid var(--gray);
-  border-radius: 12.5px;
-  box-shadow: inset 1.5px 1.5px 3px black;
 }
 
 .App-header {

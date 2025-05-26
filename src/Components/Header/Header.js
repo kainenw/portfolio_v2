@@ -3,10 +3,11 @@ import { NavLink } from 'react-router-dom'
 import styled from '@emotion/styled'
 
 const StyledHeader = styled.header`
-  ${() => `
+  ${(props) => `
     &.App-header {
-      background-color: rgba(255, 255, 255, 0.7) !important; /* Adjust alpha for desired base translucency */
-      backdrop-filter: blur(10px) !important; /* Adjust blur radius for desired frostiness */
+
+
+
       position: fixed;
       z-index: 1;
     }
@@ -17,9 +18,7 @@ const StyledHeader = styled.header`
     transform: translate(-50%);
     max-width: 60%;
     min-width: 60%;
-    border: 1px solid var(--gray);
     border-radius: 20px;
-    box-shadow: 10px 10px 60px black;
     padding: 0.5rem;
     font-size: calc(10px + 2vmin);
     z-index: 50;
@@ -33,34 +32,49 @@ const StyledHeader = styled.header`
       padding: 0.25em 0.5em;
       cursor: pointer;
       text-decoration: none;
+
+
+
+
+
+
+
       background-color: none; /* Inherit background from header */
     }
 
+
     a.active {
-      border: 1px solid var(--gray);
       border-radius: 12.5px;
       box-shadow: inset 1.5px 1.5px 3px black;
     }
   `}
 
   ${(props) =>
-    props.theme === "dark" &&
+    props.theme === 'dark' &&
     `
       &.App-header {
-        background-color: rgba(0, 0, 0, 0.7) !important; /* Dark translucent background */
+        background-color: rgba(0, 0, 0, 0.5) !important; /* Dark translucent background */
         backdrop-filter: blur(10px) !important; /* Apply blur for frosted glass effect */
       }
+      a.active {
+      border-radius: 12.5px;
+      box-shadow: inset 1.5px 1.5px 3px gray;
+    }
     `}
 
   ${(props) =>
-    props.theme === "light" &&
+    props.theme === 'light' &&
     `
        &.App-header {
-        background-color: rgba(255, 255, 255, 0.7) !important;
+        background-color: rgba(255, 255, 255, 0.5) !important;
         backdrop-filter: blur(10px) !important;
       }
+      a.active {
+      border-radius: 12.5px;
+      box-shadow: inset 1.5px 1.5px 3px black;
+    }
     `}
-`;
+`
 function Header(props) {
   const [page, setPage] = useState(null)
   const { theme } = props

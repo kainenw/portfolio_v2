@@ -90,7 +90,12 @@ main {
   color: inherit;
 }
 
-.App-header {
+.App-header[data-theme="dark"] {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.App-header[data-theme="light"] {
   background-color: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px) !important;
 }
