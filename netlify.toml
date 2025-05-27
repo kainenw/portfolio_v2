@@ -6,3 +6,13 @@
   framework = "#custom"
   command = "npm start"
   port = 3000
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store"

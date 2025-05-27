@@ -69,10 +69,18 @@ div:has(.App[data-theme="light"]) {
   border-radius: 20px;
 }
 
+.App[data-theme="dark"] .contrast-section {
+  background-color: var(--off-black);
+  color: var(--off-white);
+}
+.App[data-theme="light"] .contrast-section {
+  background-color: var(--light-gray);
+  color: var(--off-black);
+}
+
 main {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 5rem;
   top: 15rem;
 }
