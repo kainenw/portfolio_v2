@@ -69,33 +69,10 @@ div:has(.App[data-theme="light"]) {
   border-radius: 20px;
 }
 
-
-.App[data-theme="dark"] .contrast-section {
-  background-color: black;
-}
-
-.App[data-theme="light"] .contrast-section {
-  background-color: white;
-}
-
 main {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 5rem;
   top: 15rem;
-}
-
-.App a {
-  color: inherit;
-}
-
-.App-header[data-theme="dark"] {
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-.App-header[data-theme="light"] {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(10px) !important;
 }

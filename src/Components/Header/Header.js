@@ -1,106 +1,25 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from '@emotion/styled'
+import './Header.css'
 
-const StyledHeader = styled.header`
-  ${(props) => `
-    &.App-header {
-
-
-
-      position: fixed;
-      z-index: 1;
-    }
-
-    color: inherit;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%);
-    max-width: 60%;
-    min-width: 60%;
-    border-radius: 20px;
-    padding: 0.5rem;
-    font-size: calc(10px + 2vmin);
-    z-index: 50;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    z-index: 20;
-
-    a {
-      color: inherit;
-      padding: 0.25em 0.5em;
-      cursor: pointer;
-      text-decoration: none;
-
-
-
-
-
-
-
-      background-color: none; /* Inherit background from header */
-    }
-
-
-    a.active {
-      border-radius: 12.5px;
-      box-shadow: inset 1.5px 1.5px 3px black;
-    }
-  `}
-
-  ${(props) =>
-    props.theme === 'dark' &&
-    `
-      &.App-header {
-        background-color: rgba(0, 0, 0, 0.5) !important; /* Dark translucent background */
-        backdrop-filter: blur(10px) !important; /* Apply blur for frosted glass effect */
-      }
-      a.active {
-      border-radius: 12.5px;
-      box-shadow: inset 1.5px 1.5px 3px gray;
-    }
-    `}
-
-  ${(props) =>
-    props.theme === 'light' &&
-    `
-       &.App-header {
-        background-color: rgba(255, 255, 255, 0.5) !important;
-        backdrop-filter: blur(10px) !important;
-      }
-      a.active {
-      border-radius: 12.5px;
-      box-shadow: inset 1.5px 1.5px 3px black;
-    }
-    `}
-`
 function Header(props) {
-  const [page, setPage] = useState(null)
   const { theme } = props
-
-  const handleClick = (e) => {
-    page && page.classList.remove('active')
-    setPage(e.target)
-    e.target.classList.add('active')
-  }
-
+  // NavLink handles active class automatically
   return (
-    <StyledHeader className="App-header" theme={theme}>
-      <NavLink to="/" onClick={handleClick}>
+    <header className="App-header" data-theme={theme}>
+      <NavLink to="/" end>
         about
       </NavLink>
-      {/*<nav onClick={handleClick}>blog</nav>*/}
-      <NavLink to="/projects" onClick={handleClick}>
+      {/*<nav>blog</nav>*/}
+      <NavLink to="/projects">
         projects
       </NavLink>
-      <NavLink to="/resources" onClick={handleClick}>
+      <NavLink to="/resources">
         resources
       </NavLink>
-      <NavLink to="/contact" onClick={handleClick}>
+      <NavLink to="/contact">
         contact
       </NavLink>
-    </StyledHeader>
+    </header>
   )
 }
 
