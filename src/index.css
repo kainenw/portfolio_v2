@@ -15,7 +15,15 @@
 html {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
-    height: 100vh;
+    min-height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
 }
 
 html::-webkit-scrollbar { 

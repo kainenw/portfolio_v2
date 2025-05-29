@@ -5,32 +5,21 @@
   margin: 0 auto;
 }
 
-html, body, div.App {
-  height: 100%;
-  min-height: 100%;
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   text-align: left;
 }
 
 div:has(.App[data-theme="dark"]) {
   background-color: var(--off-black);
-}
-
-
-
-.App {
-  border-left: 1px solid #404040;
-  border-right: 1px solid #404040;
-  padding: 1.5rem;
-  max-width: 1000px;
-  min-width: 500px;
-}
-
-div:has(.App[data-theme="dark"]) {
-  background-color: var(--off-black)
+  min-height: 100vh;
 }
 
 div:has(.App[data-theme="light"]) {
-  background-color: var(--light-gray)
+  background-color: var(--light-gray);
+  min-height: 100vh;
 }
 
 .App {
@@ -38,9 +27,11 @@ div:has(.App[data-theme="light"]) {
   margin: 0 auto;
   max-width: 1000px;
   min-width: 500px;
-  height: 100%;
-  top: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App[data-theme="dark"] {
@@ -82,5 +73,7 @@ main {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  top: 15rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

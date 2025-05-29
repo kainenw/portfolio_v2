@@ -20,7 +20,7 @@ function App() {
 
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
-    localStorage.setItem("__theme", theme);
+    localStorage.setItem("__theme", newTheme);
   }
 
   return (

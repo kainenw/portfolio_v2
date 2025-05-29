@@ -3,7 +3,7 @@
 margin-right: auto; */
 .Page {
   padding-top: 5rem;
-  min-height: 100dvh;
+  flex: 1;
 }
 
 .info-group {
@@ -106,4 +106,120 @@ iframe :not(.active) {
 .Page a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Projects Tab Toggle Switch */
+.projects-tab-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.projects-tab-switch {
+  position: relative;
+  display: flex;
+  background: var(--border-color, #e0e0e0);
+  border-radius: 30px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tab-button {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 26px;
+  min-width: 120px;
+  color: var(--secondary-text-color, #666666);
+}
+
+.tab-button:hover {
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  color: var(--background-color, #ffffff);
+}
+
+.tab-slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
+  border-radius: 26px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
+}
+
+.tab-slider.left {
+  width: 35%; /* Smaller width for "Design" */
+  transform: translateX(4px);
+}
+
+.tab-slider.right {
+  width: 55%; /* Larger width for "Development" */
+  transform: translateX(calc(100% - 20% - 8px));
+}
+
+/* Dark theme support for tab switch */
+[data-theme="dark"] .projects-tab-switch {
+  background: var(--card-background, #2a2a2a);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .tab-button {
+  color: var(--secondary-text-color, #999999);
+}
+
+[data-theme="dark"] .tab-button.active {
+  color: var(--background-color, #ffffff);
+}
+
+[data-theme="dark"] .tab-slider {
+  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.4);
+}
+
+/* Responsive design for tab switch */
+@media (max-width: 768px) {
+  .projects-tab-switch {
+    margin: 0 20px;
+  }
+  
+  .tab-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+}
+
+/* Animation for section transitions */
+.Design.contrast-section,
+.Development.non-contrast-section {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
