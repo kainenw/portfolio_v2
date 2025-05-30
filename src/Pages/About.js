@@ -179,7 +179,6 @@ function About() {
         role="dialog"
         aria-modal="true"
         aria-label="Start a Project Contact Modal"
-        tabIndex={-1}
         style={{
           position: 'fixed',
           top: 0,
@@ -193,13 +192,28 @@ function About() {
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        onClick={() => setModalOpen(false)}
-        onKeyDown={e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            setModalOpen(false);
-          }
-        }}
       >
+        <div
+          className="modal-overlay-interactive"
+          role="button"
+          tabIndex={0}
+          aria-label="Close modal"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0,0,0,0)',
+            zIndex: 1001,
+          }}
+          onClick={() => setModalOpen(false)}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              setModalOpen(false);
+            }
+          }}
+        />
         <div
           className="contrast-section modal-contact"
           role="presentation"
