@@ -226,18 +226,18 @@ function Projects() {
       
       {/* Design Projects Section */}
       {activeTab === 'design' && (
-        <div className="Design contrast-section">
-          <h2>Design Projects</h2>
-          <p>User-centered design solutions focusing on research, iteration, and impact.</p>
+        <div className="Design contrast-section no-side-padding">
+          <h2 className="left-right-padding">Design Projects</h2>
+          <p className='left-right-padding'>User-centered design solutions focusing on research, iteration, and impact.</p>
           <Carousel items={designProjects} autoAdvanceInterval={8000} />
         </div>
       )}
       
       {/* Development Projects Section */}
       {activeTab === 'development' && (
-        <div className="Development non-contrast-section">
-          <h2>Development Projects</h2>
-          <p>Full-stack development work showcasing technical skills and problem-solving.</p>
+        <div className="Development contrast-section no-side-padding">
+          <h2 className="left-right-padding">Development Projects</h2>
+          <p className='left-right-padding'>Full-stack development work showcasing technical skills and problem-solving.</p>
           <Carousel items={developmentProjects} autoAdvanceInterval={8000} />
         </div>
       )}

@@ -1,11 +1,44 @@
+
 import './_Pages.css'
+import React, { useState } from 'react';
 
 function About() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // Contact form copied from Contact.js
+  const contactForm = (
+    <form
+      action="mailto:kainen.white@gmail.com"
+      method="POST"
+      encType="text/plain"
+      style={{ display: "flex", flexDirection: "column", gap: 12 }}
+    >
+      <input
+        name="name"
+        placeholder="Your Name"
+        required
+      />
+      <input
+        name="email"
+        type="email"
+        placeholder="Your Email"
+        required
+      />
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        required
+      />
+      <button type="submit">Send</button>
+    </form>
+  );
+
   return (
     <div className="About Page">
-      <div className="non-contrast-section">
+      <div className="non-contrast-section" style={{ position: 'relative' }}>
         <h1>Kainen White</h1>
         <h2>UX Designer</h2>
+        
         <div className="info-group">
           <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
           <div>
@@ -17,6 +50,23 @@ function About() {
             </p>
           </div>
         </div>
+        <button
+          className="contrast-button tab-button active"
+          style={{
+            background: 'var(--accent, #2196f3)',
+            border: 'none',
+            borderRadius: '26px',
+            padding: '12px 24px',
+            margin: '0 auto',
+            fontWeight: '600',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+          }}
+          onClick={() => setModalOpen(true)}
+        >
+          Start a Project
+        </button>
       </div>
       <div className="contrast-section">
         <h2>My Work</h2>
@@ -122,6 +172,73 @@ function About() {
           </p>
         </div>
       </div>
+    {/* Modal Contact Window */}
+    {modalOpen && (
+      <div
+        className="modal-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Start a Project Contact Modal"
+        tabIndex={-1}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          margin: '0 auto',
+          background: 'rgba(0,0,0,0.35)',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        onClick={() => setModalOpen(false)}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            setModalOpen(false);
+          }
+        }}
+      >
+        <div
+          className="contrast-section modal-contact"
+          role="presentation"
+          tabIndex={-1}
+          style={{
+            minWidth: 320,
+            maxWidth: 400,
+            width: '90vw',
+            padding: '2rem',
+            borderRadius: 12,
+            boxShadow: '0 4px 32px rgba(0,0,0,0.18)',
+            position: 'relative',
+            transform: 'translateY(-1px)',
+          }}
+          onClick={e => e.stopPropagation()}
+        >
+          <button
+            aria-label="Close"
+            onClick={() => setModalOpen(false)}
+            style={{
+              position: 'absolute',
+              top: 12,
+              right: 12,
+              background: 'none',
+              border: 'none',
+              fontSize: 24,
+              color: 'var(--contrast-fg)',
+              cursor: 'pointer',
+              fontWeight: 700,
+              lineHeight: 1
+            }}
+          >
+            ×
+          </button>
+          <h2 style={{ marginTop: 0 }}>Start a Project</h2>
+          {contactForm}
+        </div>
+      </div>
+    )}
     </div>
   )
 }

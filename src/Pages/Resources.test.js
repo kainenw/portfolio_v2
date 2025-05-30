@@ -1,10 +1,13 @@
 import { render, screen } from '@testing-library/react'
+import { act } from 'react'
 import Resources from './Resources'
 
 describe('Resources', () => {
   it('renders the Resources page with key sections', () => {
-    render(<Resources />)
-    expect(screen.getByText(/Resources/i)).toBeInTheDocument()
+    act(() => {
+      render(<Resources />)
+    })
+    expect(screen.getAllByText(/Resources/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/Master the Fundamentals/i)).toBeInTheDocument()
     expect(screen.getByText(/Popular Frameworks & Libraries/i)).toBeInTheDocument()
     expect(screen.getByText(/Design Powerhouses/i)).toBeInTheDocument()

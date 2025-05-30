@@ -1,10 +1,18 @@
 import React from 'react'
-import { test, expect } from '@testing-library/react'
 import { render } from '@testing-library/react'
-import App from '../App'
+import { act } from 'react'
+import App from '../App/App'
+import { MemoryRouter } from 'react-router-dom';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />)
-  const linkElement = getByText(/learn react/i)
-  expect(linkElement).toBeInTheDocument()
+it('renders about link', () => {
+  let getAllByText;
+  act(() => {
+    ({ getAllByText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    ));
+  });
+  // There may be multiple 'about' (nav and heading)
+  expect(getAllByText(/about/i).length).toBeGreaterThan(0)
 })

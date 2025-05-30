@@ -60,6 +60,10 @@ div:has(.App[data-theme="light"]) {
   border-radius: 20px;
 }
 
+.contrast-section.no-side-padding {
+  padding: 1.5rem 0 !important;
+}
+
 .App[data-theme="dark"] .contrast-section {
   background-color: var(--off-black);
   color: var(--off-white);

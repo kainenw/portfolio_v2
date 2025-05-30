@@ -1,4 +1,5 @@
 import "./_Pages.css";
+import React from "react";
 
 function Contact() {
   return (
@@ -20,8 +21,35 @@ function Contact() {
       <div className="non-contrast-section">
         <p>Thank you for visiting my portfolio! I&apos;m excited to continue learning and growing in the field.</p>
       </div>
+      <div className="contrast-section" style={{ maxWidth: 400, margin: "2rem auto" }}>
+        <h2>Contact Form</h2>
+        <form
+          action="mailto:kainen.white@gmail.com"
+          method="POST"
+          encType="text/plain"
+          style={{ display: "flex", flexDirection: "column", gap: 12 }}
+        >
+          <input
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Contact;

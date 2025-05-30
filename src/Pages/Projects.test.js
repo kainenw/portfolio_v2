@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+import { act } from 'react'
 import '@testing-library/jest-dom'
 import Projects from './Projects'
 
@@ -19,7 +20,9 @@ jest.mock('../Components/Carousel/Carousel', () => {
 
 describe('Projects', () => {
   it('renders the Projects page with key elements', () => {
-    render(<Projects />)
+    act(() => {
+      render(<Projects />)
+    })
     
     // Check main heading and description
     expect(screen.getByText('Projects')).toBeInTheDocument()
@@ -57,13 +60,14 @@ describe('Projects', () => {
   })
 
   it('switches to development tab when clicked', () => {
-    render(<Projects />)
-    
+    act(() => {
+      render(<Projects />)
+    })
     const developmentButton = screen.getByRole('button', { name: /development/i })
-    
     // Click development tab
-    fireEvent.click(developmentButton)
-    
+    act(() => {
+      fireEvent.click(developmentButton)
+    })
     // Check tab states
     expect(developmentButton).toHaveClass('active')
     expect(screen.getByRole('button', { name: /design/i })).not.toHaveClass('active')
@@ -72,11 +76,13 @@ describe('Projects', () => {
   })
 
   it('displays development projects when development tab is active', () => {
-    render(<Projects />)
-    
+    act(() => {
+      render(<Projects />)
+    })
     const developmentButton = screen.getByRole('button', { name: /development/i })
-    fireEvent.click(developmentButton)
-    
+    act(() => {
+      fireEvent.click(developmentButton)
+    })
     // Should show development section and projects
     expect(screen.getByText('Development Projects')).toBeInTheDocument()
     expect(screen.getByText(/Full-stack development work/i)).toBeInTheDocument()
@@ -84,41 +90,43 @@ describe('Projects', () => {
     expect(screen.getByTestId('project-reddit-app')).toBeInTheDocument()
     expect(screen.getByTestId('project-tonnetz-visualizer')).toBeInTheDocument()
     expect(screen.getByTestId('project-savings-calculator')).toBeInTheDocument()
-    
     // Should not show design section
     expect(screen.queryByText('Design Projects')).not.toBeInTheDocument()
   })
 
   it('switches back to design tab when clicked', () => {
-    render(<Projects />)
-    
+    act(() => {
+      render(<Projects />)
+    })
     const designButton = screen.getByRole('button', { name: /design/i })
     const developmentButton = screen.getByRole('button', { name: /development/i })
-    
     // Click development tab first
-    fireEvent.click(developmentButton)
+    act(() => {
+      fireEvent.click(developmentButton)
+    })
     expect(developmentButton).toHaveClass('active')
-    
     // Click design tab again
-    fireEvent.click(designButton)
+    act(() => {
+      fireEvent.click(designButton)
+    })
     expect(designButton).toHaveClass('active')
     expect(developmentButton).not.toHaveClass('active')
-    
     // Should show design projects again
     expect(screen.getByText('Design Projects')).toBeInTheDocument()
     expect(screen.queryByText('Development Projects')).not.toBeInTheDocument()
   })
 
   it('renders carousel components for both sections', () => {
-    render(<Projects />)
-    
+    act(() => {
+      render(<Projects />)
+    })
     // Design section should have carousel
     expect(screen.getByTestId('carousel')).toBeInTheDocument()
-    
     // Switch to development and check carousel
     const developmentButton = screen.getByRole('button', { name: /development/i })
-    fireEvent.click(developmentButton)
-    
+    act(() => {
+      fireEvent.click(developmentButton)
+    })
     expect(screen.getByTestId('carousel')).toBeInTheDocument()
   })
 

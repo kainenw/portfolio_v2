@@ -7,14 +7,14 @@ const Carousel = ({ items, autoAdvanceInterval = 5000 }) => {
 
   // Auto-advance functionality
   useEffect(() => {
-    if (!isAutoAdvancing || items.length <= 1) return;
+    if (!isAutoAdvancing || !items || !Array.isArray(items) || items.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
     }, autoAdvanceInterval);
 
     return () => clearInterval(interval);
-  }, [isAutoAdvancing, items.length, autoAdvanceInterval]);
+  }, [isAutoAdvancing, items && items.length, autoAdvanceInterval]);
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
@@ -24,16 +24,19 @@ const Carousel = ({ items, autoAdvanceInterval = 5000 }) => {
   };
 
   const goToPrevious = () => {
+    if (!items || !items.length) return;
     const newIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
     goToSlide(newIndex);
   };
 
   const goToNext = () => {
+    if (!items || !items.length) return;
     const newIndex = (currentIndex + 1) % items.length;
     goToSlide(newIndex);
   };
 
   const getSlidePosition = (index) => {
+    if (!items || !items.length) return 'hidden';
     const diff = index - currentIndex;
     if (diff === 0) return 'center';
     if (diff === 1 || diff === -(items.length - 1)) return 'right';
