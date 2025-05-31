@@ -18,12 +18,6 @@ function About() {
         placeholder="Your Name"
         required
       />
-      <input
-        name="email"
-        type="email"
-        placeholder="Your Email"
-        required
-      />
       <textarea
         name="message"
         placeholder="Your Message"
@@ -36,32 +30,40 @@ function About() {
   return (
     <div className="About Page">
       <div className="non-contrast-section" style={{ position: 'relative' }}>
-        <h1>Kainen White</h1>
-        <h2>UX Designer</h2>
+        <h1>Design With Purpose. Built for Results.</h1>
+        <h2>User-centered thinking meets measurable impact.</h2>
         
         <div className="info-group">
           <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
           <div>
-            <h3>About Me</h3>
+            {/* <h3>About Me</h3> */}
             <p>
-              I&apos;m a UX/UI designer based in Nashville who bridges the gap between design and development. With my
-              understanding of coding principles, I create designs that are both beautiful and technically feasible.
-              Let&apos;s collaborate to build user-focused experiences that seamlessly transition from concept to reality.
+              I&apos;m Kainen. I design intuitive, conversion-focused experiences that solve real user problems and drive business outcomes. With a process grounded in strategy, research, and iterative testing, every project is crafted to deliver value—both to users and stakeholders.
             </p>
           </div>
         </div>
         <button
           className="contrast-button tab-button active"
           style={{
-            background: 'var(--accent, #2196f3)',
+            background: 'linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3))',
+            color: '#fff',
             border: 'none',
             borderRadius: '26px',
-            padding: '12px 24px',
+            padding: '0.75rem 1.5rem',
             margin: '0 auto',
-            fontWeight: '600',
             fontSize: '1rem',
+            fontWeight: '600',
             cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+            transition: 'background 0.2s, transform 0.2s'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'linear-gradient(135deg, var(--accent-hover-color, #005fa3), var(--accent-color, #007acc))';
+            e.target.style.transform = 'translateY(-2px) scale(1.03)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3))';
+            e.target.style.transform = 'translateY(0) scale(1)';
           }}
           onClick={() => setModalOpen(true)}
         >
@@ -161,24 +163,13 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="info-group non-contrast-section">
-        <img src={require('../img/headshot.png')} alt="Headshot of Kainen White" />
-        <div>
-          <h3>Let&apos;s Build Something Amazing Together!</h3>
-          <p>
-            Interested in collaborating on design-focused projects? Let&apos;s connect! Reach me on LinkedIn, GitHub,
-            and Twitter. You can also reach out via email at{' '}
-            <a href="mailto:kainen.white@gmail.com">kainen.white@gmail.com</a>
-          </p>
-        </div>
-      </div>
     {/* Modal Contact Window */}
     {modalOpen && (
       <div
         className="modal-overlay"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Start a Project Contact Modal"
+        role="button"
+        aria-label="Close modal by clicking outside"
+        tabIndex={0}
         style={{
           position: 'fixed',
           top: 0,
@@ -192,32 +183,25 @@ function About() {
           alignItems: 'center',
           justifyContent: 'center',
         }}
+        onClick={(e) => {
+          // Only close if clicking the overlay itself, not its children
+          if (e.target === e.currentTarget) {
+            setModalOpen(false);
+          }
+        }}
+        onKeyDown={(e) => {
+          // Close modal on Escape key or Enter/Space when focused on overlay
+          if (e.key === 'Escape' || (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' '))) {
+            e.preventDefault();
+            setModalOpen(false);
+          }
+        }}
       >
         <div
-          className="modal-overlay-interactive"
-          role="button"
-          tabIndex={0}
-          aria-label="Close modal"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            background: 'rgba(0,0,0,0)',
-            zIndex: 1001,
-          }}
-          onClick={() => setModalOpen(false)}
-          onKeyDown={e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              setModalOpen(false);
-            }
-          }}
-        />
-        <div
           className="contrast-section modal-contact"
-          role="presentation"
-          tabIndex={-1}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Start a Project Contact Modal"
           style={{
             minWidth: 320,
             maxWidth: 400,
@@ -228,7 +212,6 @@ function About() {
             position: 'relative',
             transform: 'translateY(-1px)',
           }}
-          onClick={e => e.stopPropagation()}
         >
           <button
             aria-label="Close"

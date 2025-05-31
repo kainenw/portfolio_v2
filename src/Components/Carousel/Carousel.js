@@ -1,26 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Carousel.css';
 
-const Carousel = ({ items, autoAdvanceInterval = 5000 }) => {
+const Carousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoAdvancing, setIsAutoAdvancing] = useState(true);
-
-  // Auto-advance functionality
-  useEffect(() => {
-    if (!isAutoAdvancing || !items || !Array.isArray(items) || items.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-    }, autoAdvanceInterval);
-
-    return () => clearInterval(interval);
-  }, [isAutoAdvancing, items && items.length, autoAdvanceInterval]);
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
-    setIsAutoAdvancing(false);
-    // Resume auto-advance after 10 seconds of inactivity
-    setTimeout(() => setIsAutoAdvancing(true), 10000);
   };
 
   const goToPrevious = () => {
@@ -156,16 +141,6 @@ const Carousel = ({ items, autoAdvanceInterval = 5000 }) => {
             aria-label={`Go to project ${index + 1}`}
           />
         ))}
-      </div>
-
-      <div className="carousel-controls">
-        <button
-          className={`auto-advance-toggle ${isAutoAdvancing ? 'active' : ''}`}
-          onClick={() => setIsAutoAdvancing(!isAutoAdvancing)}
-          aria-label={isAutoAdvancing ? 'Pause auto-advance' : 'Resume auto-advance'}
-        >
-          {isAutoAdvancing ? '⏸️' : '▶️'}
-        </button>
       </div>
     </div>
   );

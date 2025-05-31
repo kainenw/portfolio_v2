@@ -229,7 +229,7 @@ function Projects() {
         <div className="Design contrast-section no-side-padding">
           <h2 className="left-right-padding">Design Projects</h2>
           <p className='left-right-padding'>User-centered design solutions focusing on research, iteration, and impact.</p>
-          <Carousel items={designProjects} autoAdvanceInterval={8000} />
+          <Carousel items={designProjects} />
         </div>
       )}
       
@@ -238,7 +238,7 @@ function Projects() {
         <div className="Development contrast-section no-side-padding">
           <h2 className="left-right-padding">Development Projects</h2>
           <p className='left-right-padding'>Full-stack development work showcasing technical skills and problem-solving.</p>
-          <Carousel items={developmentProjects} autoAdvanceInterval={8000} />
+          <Carousel items={developmentProjects} />
         </div>
       )}
     </div>

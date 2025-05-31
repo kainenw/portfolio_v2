@@ -29,3 +29,16 @@ body {
 html::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+
+/* Global button cursor style - ensure all buttons have pointer cursor */
+/* This rule must come last to override component-specific styles */
+body button,
+body .tab-button,
+body .ThemeMenu,
+body .carousel-nav,
+body input[type="button"],
+body input[type="submit"],
+body input[type="reset"],
+body [role="button"] {
+  cursor: pointer !important;
+}

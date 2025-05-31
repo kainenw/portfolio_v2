@@ -34,12 +34,6 @@ function Contact() {
             placeholder="Your Name"
             required
           />
-          <input
-            name="email"
-            type="email"
-            placeholder="Your Email"
-            required
-          />
           <textarea
             name="message"
             placeholder="Your Message"
