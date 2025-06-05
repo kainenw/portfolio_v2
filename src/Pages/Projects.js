@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './_Pages.css'
 // import Carousel from '../Components/Carousel/Carousel'
 import Deck from '../Components/Deck/Deck'
-import { FolderOpen } from 'lucide-react';
 
 export const designProjects = [
     {
@@ -209,7 +208,6 @@ function Projects() {
   return (
     <div className="Projects Page">
       <div className="non-contrast-section hero">
-        <FolderOpen size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
         <h1>Projects</h1>
         <p>Explore my work in design and development through interactive case studies.</p>
         {/* Tab Toggle Switch */}
@@ -235,27 +233,29 @@ function Projects() {
       </div>
       {/* Design Projects Section */}
       {activeTab === 'design' && (
-        <section className="Design contrast-section no-side-padding">
+        <div className="Design contrast-section no-side-padding">
           <h2 className="left-right-padding">Design Projects</h2>
           <p className='left-right-padding'>User-centered design solutions focusing on research, iteration, and impact.</p>
           {/* Deck of Cards */}
           <Deck
             items={designProjects}
-            actionType="caseStudy"
+            actionType="caseStudy, demo"
           />
-        </section>
+          {/* Carousel removed */}
+        </div>
       )}
       {/* Development Projects Section */}
       {activeTab === 'development' && (
-        <section className="Development contrast-section no-side-padding">
+        <div className="Development contrast-section no-side-padding">
           <h2 className="left-right-padding">Development Projects</h2>
           <p className='left-right-padding'>Full-stack development work showcasing technical skills and problem-solving.</p>
           {/* Deck of Cards */}
           <Deck
             items={developmentProjects}
-            actionType="caseStudy"
+            actionType="github"
           />
-        </section>
+          {/* Carousel removed */}
+        </div>
       )}
     </div>
   )
