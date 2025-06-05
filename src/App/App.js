@@ -35,8 +35,8 @@ function App() {
         color: themeStyles[theme].textColor,
         }}
       >
-      <Header theme={theme} />
       <main>
+      <Header theme={theme} />
       <Routes>
         {/* <Route path="/resources" element={<Resources theme={theme} />} /> */}
         <Route path="/projects" element={<Projects theme={theme} />} />

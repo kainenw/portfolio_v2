@@ -7,9 +7,7 @@ function Contact() {
     <div className="Contact Page">
       <div className="non-contrast-section hero">
         <Mail size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
-        <h1>Contact</h1>
-        <h2>Let&apos;s Connect!</h2>
-        <p>I&apos;m always open to discussing new projects and opportunities.</p>
+        <h1>Let&apos;s Connect!</h1>
       </div>
       <div className="contrast-section" style={{ maxWidth: 400, margin: "2rem auto" }}>
         <form
@@ -17,20 +15,21 @@ function Contact() {
           method="POST"
           encType="text/plain"
           style={{ display: "flex", flexDirection: "column", gap: 12 }}
-        >
+          >
           <input
             name="name"
             placeholder="Your Name"
             required
-          />
+            />
           <textarea
             name="message"
             placeholder="Your Message"
             required
-          />
+            />
           <button type="submit">Send</button>
         </form>
       </div>
+      <p>I&apos;m always open to discussing new projects and opportunities.</p>
       <div className="info-group contrast-section">
         <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
         <div>
