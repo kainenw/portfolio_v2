@@ -9,6 +9,7 @@
   margin: 1rem;
   max-width: 320px;
   transition: box-shadow 0.2s;
+  padding-bottom: 1rem;
 }
 
 .project-card:hover {
