@@ -4,7 +4,7 @@ import Header from "../Components/Header/Header";
 import About from "../Pages/About";
 /* import Blog from "../Pages/Blog"; */
 import Projects from "../Pages/Projects";
-import Resources from "../Pages/Resources";
+/* import Resources from "../Pages/Resources"; */
 import Contact from "../Pages/Contact";
 import Homepage from "../Pages/Homepage";
 import CaseStudyWrapper from "../Pages/CaseStudyWrapper";

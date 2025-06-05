@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-function Card({ image, title, description, actions = [], problem, process, solution, technologies }) {
+function Card({ image, title, description, actions = [] }) {
   return (
     <div className="project-card">
       <div className="card-image">
