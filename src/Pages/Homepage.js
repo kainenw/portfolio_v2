@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import Deck from '../Components/Deck/Deck';
 import { featuredProjects } from './featuredProjectsData';
 import { Sparkle, FolderOpen, Handshake } from 'lucide-react';
@@ -11,9 +12,9 @@ function Homepage() {
         <h1>Crafting <span className="highlight">User-Centric</span> Digital Experiences</h1>
         <p>I&apos;m a passionate designer transforming complex problems into intuitive and engaging solutions. Explore my work to see how I blend creativity with strategy to deliver impactful results.</p>
         <div className="hero-actions">
-          <a href="/projects" className="cta-btn">View Projects</a>
-          <a href="#my-process" className="cta-btn">My Process</a>
-          <a href="/contact" className="cta-btn">Get in Touch</a>
+          <Link to="/projects" className="cta-btn">View Projects</Link> {/* Changed to Link */}
+          <Link to="/about#my-process" className="cta-btn">My Process</Link> {/* Changed to Link */}
+          <Link to="/contact" className="cta-btn">Get in Touch</Link> {/* Changed to Link */}
         </div>
       </div>
 
@@ -22,7 +23,7 @@ function Homepage() {
         <h2 className="left-right-padding">Featured Projects</h2>
         <Deck items={featuredProjects} actionType="caseStudy" />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <a href="/projects" className="cta-btn view-all">View All Projects</a>
+          <Link to="/projects" className="cta-btn view-all">View All Projects</Link> {/* Also change this one for consistency */}
         </div>
       </section>
 
@@ -31,7 +32,7 @@ function Homepage() {
         <h2>Ready to build something great together?</h2>
         <p>Whether you have a project in mind, need a design consultation, or just want to connect, I&apos;d love to hear from you.</p>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <a href="/contact" className="cta-btn">Get in Touch</a>
+          <Link to="/contact" className="cta-btn">Get in Touch</Link> {/* Also change this one for consistency */}
         </div>
       </section>
     </div>
