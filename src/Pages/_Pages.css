@@ -1,3 +1,190 @@
+/* ---- Project Card Styles (from Carousel) ---- */
+.project-card {
+  background: var(--card-background, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color, #e0e0e0);
+  height: auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 56px rgba(0, 0, 0, 0.2);
+}
+
+.App[data-theme="dark"] .project-card,
+[data-theme="dark"] .project-card {
+  background: var(--dark-gray) !important;
+  border-color: var(--gray);
+}
+.App[data-theme="light"] .project-card,
+[data-theme="light"] .project-card {
+  background: var(--light-gray) !important;
+  border-color: var(--gray);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.App[data-theme="light"] .project-image img {
+  filter: brightness(0.34);
+}
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+.project-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.project-content h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color, #333333);
+}
+.project-description {
+  margin: 0 0 20px 0;
+  color: var(--secondary-text-color, #666666);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tech-tag {
+  background: var(--accent-color, #007acc);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.tech-tag:hover {
+  background: var(--accent-hover-color, #005fa3);
+  transform: translateY(-1px);
+}
+@media (max-width: 768px) {
+  .project-image {
+    height: 200px;
+  }
+  .project-content {
+    padding: 16px;
+  }
+  .project-content h3 {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .project-image {
+    height: 150px;
+  }
+  .project-content {
+    padding: 12px;
+  }
+  .project-content h3 {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 600px) {
+  .project-card .card-image img,
+  .project-image img {
+    height: 140px !important;
+    min-height: 80px !important;
+    max-height: 180px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .project-card .card-image img,
+  .project-image img {
+    height: 100px !important;
+    min-height: 60px !important;
+    max-height: 120px !important;
+  }
+}
+/* ---- End Project Card Styles ---- */
+/* Homepage Hero Action Buttons */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Homepage and global CTA button styles */
+.cta-btn {
+  background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, var(--accent-hover-color, #005fa3), var(--accent-color, #007acc));
+  transform: translateY(-2px) scale(1.03);
+  color: #fff;
+}
+
+/* Back to Projects Button (Case Study) */
+.back-to-projects-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--off-white); /* or the Projects page background */
+  color: var(--accent-color, #005A9C);
+  border: 2px solid var(--accent-color, #005A9C);
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  cursor: pointer;
+  gap: 0.5em;
+}
+
+.back-to-projects-btn:hover {
+  background: var(--accent-color, #005A9C);
+  color: #fff;
+  border-color: var(--accent-hover-color, #007BFF);
+}
+
+.back-to-projects-btn .back-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5em;
+}
 /* Modal Contact Styles */
 .modal-contact {
   background: var(--off-white);
@@ -119,8 +306,12 @@ button[type="submit"] {
 /* margin-left: auto;
 margin-right: auto; */
 .Page {
-  padding-top: 5rem;
-  flex: 1;
+  width: 100%;
+  max-width: var(--site-max-width, 1200px); /* Define site max-width, e.g., 1200px */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--page-gutter, 1rem); /* Consistent side gutters, e.g., 1rem */
+  box-sizing: border-box;
 }
 
 .info-group {
@@ -154,17 +345,34 @@ img {
   filter: brightness(.25);
 }
 
+
+
 .Page h1 {
   font-size: 2rem;
 }
 
-.Page h1 span, 
+.Page h1,
+.Page h2,
+.Page h3 {
+  text-align: center;
+}
+
 .Page h2 {
   font-size: 1rem;
 }
 
 .Page h2 {
   margin-bottom: 1rem;
+}
+
+.Page p {
+  text-align: center;
+}
+
+.highlight {
+  color: #005A9C;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .ThemeMenu {
@@ -330,6 +538,7 @@ iframe :not(.active) {
 .non-contrast-section {
   animation: fadeInUp 0.5s ease-out;
   transform: translateY(-1px);
+  padding-top: 2rem;
 }
 
 .left-right-padding {
@@ -346,4 +555,323 @@ iframe :not(.active) {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Homepage button alignment and min width */
+.featured-projects .cta-btn.view-all,
+.homepage-cta .cta-btn {
+  min-width: 160px;
+  text-align: center;
+}
+
+.featured-projects .cta-btn.view-all,
+.homepage-cta .cta-btn {
+  display: inline-block;
+}
+
+.featured-projects .cta-btn.view-all {
+  margin-top: 16px;
+}
+
+.homepage-cta .cta-btn {
+  margin-top: 16px;
+}
+
+.featured-projects .cta-btn.view-all,
+.homepage-cta .cta-btn {
+  justify-content: center;
+}
+
+.case-study {
+  padding-top: 8rem;
+}
+
+/* Responsive fixes for Contact page and info-group */
+@media (max-width: 600px) {
+  .Contact .contrast-section {
+    max-width: 98vw !important;
+    margin: 1rem auto !important;
+    padding: 1rem !important;
+  }
+  .Contact form {
+    padding: 1rem !important;
+    font-size: 0.95rem;
+  }
+  .Contact input,
+  .Contact textarea {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .info-group {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+    text-align: center;
+  }
+  .info-group img {
+    justify-self: center;
+    margin: 0 auto 1rem auto;
+    width: 5rem;
+    min-width: 60px;
+    max-width: 100px;
+  }
+  .info-group div {
+    margin: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .Contact .contrast-section {
+    padding: 0.5rem !important;
+  }
+  .Contact form {
+    padding: 0.5rem !important;
+    font-size: 0.9rem;
+  }
+  .Contact input,
+  .Contact textarea {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+/* Responsive fixes for Homepage hero, featured projects, and CTA sections */
+@media (max-width: 600px) {
+  .Homepage .hero,
+  .homepage-cta,
+  .featured-projects {
+    padding: 1rem !important;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  .featured-projects .deck-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .featured-projects .cta-btn.view-all {
+    min-width: 120px;
+    width: 100%;
+    margin-top: 12px;
+  }
+  .homepage-cta .cta-btn {
+    min-width: 120px;
+    width: 100%;
+    margin-top: 12px;
+  }
+  .Homepage h1 {
+    font-size: 1.3rem;
+  }
+  .Homepage h2 {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .Homepage .hero,
+  .homepage-cta,
+  .featured-projects {
+    padding: 0.5rem !important;
+  }
+  .Homepage h1 {
+    font-size: 1.1rem;
+  }
+  .Homepage h2 {
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive fixes for Projects page sections */
+@media (max-width: 600px) {
+  .Projects .hero,
+  .Design.contrast-section,
+  .Development.contrast-section {
+    padding: 1rem !important;
+  }
+  .projects-tab-container {
+    margin: 1rem 0;
+  }
+  .projects-tab-switch {
+    margin: 0 8px;
+  }
+  .deck-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .left-right-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .Projects h1 {
+    font-size: 1.3rem;
+  }
+  .Projects h2 {
+    font-size: 1rem;
+  }
+  .Projects p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .Projects .hero,
+  .Design.contrast-section,
+  .Development.contrast-section {
+    padding: 0.5rem !important;
+  }
+  .Projects h1 {
+    font-size: 1.1rem;
+  }
+  .Projects h2 {
+    font-size: 0.95rem;
+  }
+  .Projects p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Fix centering and overflow for Projects page on small screens */
+@media (max-width: 600px) {
+  .Projects.Page {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+    overflow-x: hidden !important;
+  }
+  .Design.contrast-section,
+  .Development.contrast-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+  .deck-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+  .project-card {
+    width: 95vw !important;
+    max-width: 400px !important;
+    min-width: 0 !important;
+    margin: 0 auto 1rem auto !important;
+    left: unset !important;
+    right: unset !important;
+    position: static !important;
+    box-sizing: border-box;
+  }
+}
+
+/* Unify responsive section padding and heading styles for all main pages */
+@media (max-width: 600px) {
+  .Projects .hero,
+  .Design.contrast-section,
+  .Development.contrast-section,
+  .About .hero,
+  .About .contrast-section,
+  .Contact .hero,
+  .Contact .contrast-section {
+    padding: 1rem !important;
+  }
+  .Projects h1, .About h1, .Contact h1 {
+    font-size: 1.3rem;
+  }
+  .Projects h2, .About h2, .Contact h2 {
+    font-size: 1rem;
+  }
+  .Projects p, .About p, .Contact p {
+    font-size: 0.95rem;
+  }
+  .left-right-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .Projects .hero,
+  .Design.contrast-section,
+  .Development.contrast-section,
+  .About .hero,
+  .About .contrast-section,
+  .Contact .hero,
+  .Contact .contrast-section {
+    padding: 0.5rem !important;
+  }
+  .Projects h1, .About h1, .Contact h1 {
+    font-size: 1.1rem;
+  }
+  .Projects h2, .About h2, .Contact h2 {
+    font-size: 0.95rem;
+  }
+  .Projects p, .About p, .Contact p {
+    font-size: 0.9rem;
+  }
+  .left-right-padding {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Restore normal page constraints on larger screens */
+@media (min-width: 601px) {
+  .Projects.Page {
+    width: 100%;
+    max-width: var(--site-max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--page-gutter, 1rem);
+    box-sizing: border-box;
+    overflow-x: visible;
+  }
+}
+
+/* About page headshot image sizing (reference):
+.info-group img, .About .info-group img {
+  width: 5rem !important;
+  min-width: 60px !important;
+  max-width: 100px !important;
+  height: auto !important;
+  border-radius: 20px !important;
+  margin: 0 auto 1rem auto !important;
+  display: block !important;
+}
+
+/* Unify project card and homepage/featured project images to match About page on mobile */
+@media (max-width: 600px) {
+  .project-card .card-image img,
+  .project-image img,
+  .featured-projects .card-image img {
+    width: 5rem !important;
+    min-width: 60px !important;
+    max-width: 100px !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    margin: 0 auto 1rem auto !important;
+    display: block !important;
+    object-fit: cover !important;
+  }
+}
+
+/* Utility class to remove side padding */
+.no-side-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.left-right-padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

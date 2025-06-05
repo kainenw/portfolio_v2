@@ -7,14 +7,17 @@ function Header(props) {
   return (
     <header className="App-header" data-theme={theme}>
       <NavLink to="/" end>
-        about
+        home
       </NavLink>
-      {/*<nav>blog</nav>*/}
+      {/* <nav>blog</nav> */}
       <NavLink to="/projects">
         projects
       </NavLink>
-      <NavLink to="/resources">
+      {/* <NavLink to="/resources">
         resources
+      </NavLink> */}
+      <NavLink to="/about">
+        about
       </NavLink>
       <NavLink to="/contact">
         contact

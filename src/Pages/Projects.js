@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import './_Pages.css'
-import Carousel from '../Components/Carousel/Carousel'
+// import Carousel from '../Components/Carousel/Carousel'
+import Deck from '../Components/Deck/Deck'
+import { FolderOpen } from 'lucide-react';
 
-function Projects() {
-  const [activeTab, setActiveTab] = useState('design');
-
-  const handleTabSwitch = (tab) => {
-    setActiveTab(tab);
-  };
-  const designProjects = [
+export const designProjects = [
     {
       title: "Voting App",
       description: "An intuitive app designed to guide users through the voting process, increasing engagement and confidence in elections.",
@@ -32,7 +28,8 @@ function Projects() {
       ],
       technologies: ["Figma", "User Research", "Prototyping", "UX Design"],
       links: {
-        demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000"
+        demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000",
+        caseStudy: "/projects/voting-app-case-study"
       }
     },
     {
@@ -58,7 +55,8 @@ function Projects() {
       ],
       technologies: ["Figma", "Responsive Design", "UX Research", "Prototyping"],
       links: {
-        demo: "https://docs.google.com/presentation/d/e/2PACX-1vQgeh1fdcX2zunOIxK9VxjGgWX5kHayIw13Eo9_m0ptGNNgRgYTvJmsjl_ru0ZMavnQC7LzevOV29AZ/embed?start=false&loop=false&delayms=3000"
+        demo: "https://docs.google.com/presentation/d/e/2PACX-1vQgeh1fdcX2zunOIxK9VxjGgWX5kHayIw13Eo9_m0ptGNNgRgYTvJmsjl_ru0ZMavnQC7LzevOV29AZ/embed?start=false&loop=false&delayms=3000",
+        caseStudy: "/projects/portfolio-v2-case-study"
       }
     },
     {
@@ -84,12 +82,13 @@ function Projects() {
       ],
       technologies: ["Figma", "User Research", "Mobile Design", "Prototyping"],
       links: {
-        demo: "https://docs.google.com/presentation/d/e/2PACX-1vRcI5sv8eHU2oQbEUZTQFbUkB74zvDGRAK0zn850VpRaTmKhODP61ik8ePNw9PnqV1hRPQlLQpgHGyP/embed?start=false&loop=false&delayms=3000"
+        demo: "https://docs.google.com/presentation/d/e/2PACX-1vRcI5sv8eHU2oQbEUZTQFbUkB74zvDGRAK0zn850VpRaTmKhODP61ik8ePNw9PnqV1hRPQlLQpgHGyP/embed?start=false&loop=false&delayms=3000",
+        caseStudy: "/projects/sushi-app-case-study"
       }
     }
   ];
 
-  const developmentProjects = [
+export const developmentProjects = [
     {
       title: "Portfolio v2 (Development)",
       description: "A maintainable, scalable portfolio site with improved performance and developer experience.",
@@ -113,7 +112,8 @@ function Projects() {
       ],
       technologies: ["React", "JavaScript", "CSS", "Git"],
       links: {
-        github: "https://github.com/kainenw/portfolio_v2"
+        github: "https://github.com/kainenw/portfolio_v2",
+        caseStudy: "/projects/portfolio-v2-dev-case-study"
       }
     },
     {
@@ -139,7 +139,8 @@ function Projects() {
       ],
       technologies: ["React", "Redux", "JavaScript", "CSS", "API Integration"],
       links: {
-        github: "https://github.com/kainenw/reddit"
+        github: "https://github.com/kainenw/reddit",
+        caseStudy: "/projects/reddit-app-case-study"
       }
     },
     {
@@ -165,7 +166,8 @@ function Projects() {
       ],
       technologies: ["React", "JavaScript", "Canvas API", "Music Theory"],
       links: {
-        github: "https://github.com/kainenw/tonnetz"
+        github: "https://github.com/kainenw/tonnetz",
+        caseStudy: "/projects/tonnetz-visualizer-case-study"
       }
     },
     {
@@ -191,17 +193,25 @@ function Projects() {
       ],
       technologies: ["JavaScript", "jQuery", "HTML", "CSS", "Chart.js"],
       links: {
-        github: "https://github.com/kainenw/scalc"
+        github: "https://github.com/kainenw/scalc",
+        caseStudy: "/projects/savings-calculator-case-study"
       }
     }
   ];
 
+function Projects() {
+  const [activeTab, setActiveTab] = useState('design');
+
+  const handleTabSwitch = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div className="Projects Page">
-      <div className="non-contrast-section">
+      <div className="non-contrast-section hero">
+        <FolderOpen size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
         <h1>Projects</h1>
         <p>Explore my work in design and development through interactive case studies.</p>
-        
         {/* Tab Toggle Switch */}
         <div className="projects-tab-container">
           <div className="projects-tab-switch">
@@ -223,23 +233,29 @@ function Projects() {
           </div>
         </div>
       </div>
-      
       {/* Design Projects Section */}
       {activeTab === 'design' && (
-        <div className="Design contrast-section no-side-padding">
+        <section className="Design contrast-section no-side-padding">
           <h2 className="left-right-padding">Design Projects</h2>
           <p className='left-right-padding'>User-centered design solutions focusing on research, iteration, and impact.</p>
-          <Carousel items={designProjects} />
-        </div>
+          {/* Deck of Cards */}
+          <Deck
+            items={designProjects}
+            actionType="caseStudy"
+          />
+        </section>
       )}
-      
       {/* Development Projects Section */}
       {activeTab === 'development' && (
-        <div className="Development contrast-section no-side-padding">
+        <section className="Development contrast-section no-side-padding">
           <h2 className="left-right-padding">Development Projects</h2>
           <p className='left-right-padding'>Full-stack development work showcasing technical skills and problem-solving.</p>
-          <Carousel items={developmentProjects} />
-        </div>
+          {/* Deck of Cards */}
+          <Deck
+            items={developmentProjects}
+            actionType="caseStudy"
+          />
+        </section>
       )}
     </div>
   )

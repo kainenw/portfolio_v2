@@ -29,7 +29,7 @@ function About() {
 
   return (
     <div className="About Page">
-      <div className="non-contrast-section" style={{ position: 'relative' }}>
+      <div className="non-contrast-section hero" style={{ position: 'relative' }}>
         <h1>Design With Purpose. Built for Results.</h1>
         <h2>User-centered thinking meets measurable impact.</h2>
         
