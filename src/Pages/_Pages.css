@@ -532,6 +532,28 @@ iframe :not(.active) {
   }
 }
 
+/* Responsive slider adjustments */
+@media (max-width: 600px) {
+  .projects-tab-switch {
+    padding: 4px;
+  }
+  .tab-button {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .tab-slider {
+    width: 50% !important;
+    transition: transform 0.3s ease;
+  }
+  .tab-slider.left {
+    transform: translateX(0) !important;
+  }
+  .tab-slider.right {
+    transform: translateX(100%) !important;
+  }
+}
 
 /* Animation and translation for all main sections */
 .contrast-section,
