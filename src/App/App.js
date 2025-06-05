@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "../Components/Header/Header";
@@ -7,11 +8,11 @@ import Projects from "../Pages/Projects";
 /* import Resources from "../Pages/Resources"; */
 import Contact from "../Pages/Contact";
 import Homepage from "../Pages/Homepage";
-import CaseStudyWrapper from "../Pages/CaseStudyWrapper";
 /* import ThemeButton from "../ThemeButton/ThemeButton"; */
 import { useState } from "react";
 import ThemeMenu from "../Theme/ThemeMenu";
 import themeStyles from "../Theme/themeStyles";
+import CaseStudyWrapper from "../Pages/CaseStudyWrapper";
 
 function App() {
   /* if no local theme, set as "dark" */

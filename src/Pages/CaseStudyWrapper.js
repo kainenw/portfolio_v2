@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import CaseStudy from './CaseStudy';
-import { designProjects, developmentProjects } from './Projects';
+import { designProjects, developmentProjects } from './projectsData';
 
 // Combine only projects with full data for lookup
 const allProjects = [
@@ -20,8 +20,12 @@ function CaseStudyWrapper() {
     return <div style={{ padding: '2rem' }}>Case study not found.</div>;
   }
 
-  // Pass all project data as props to CaseStudy
-  return <CaseStudy {...project} />;
+  // Pass all project data as props to CaseStudy, wrapped in Page container for consistent layout
+  return (
+    <div className="CaseStudy Page">
+      <CaseStudy {...project} />
+    </div>
+  );
 }
 
 export default CaseStudyWrapper;

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function CaseStudy({ title, description, problem, process, solution, technologies, image }) {
+  const navigate = useNavigate();
   return (
     <div className="case-study">
-      <a href="/projects" className="back-to-projects-btn">
+      <button onClick={() => navigate('/projects')} className="back-to-projects-btn">
         <span className="back-icon" aria-hidden="true" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '0.5em' }}>
           {/* Simple left arrow SVG icon */}
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ verticalAlign: 'middle' }}>
@@ -12,7 +14,7 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           </svg>
         </span>
         Back to All Projects
-      </a>
+      </button>
       <h1>{title}</h1>
 
       {image && (

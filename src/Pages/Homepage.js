@@ -17,7 +17,7 @@ function Homepage() {
         </div>
       </div>
 
-      <section className="featured-projects contrast-section no-side-padding" id="my-process">
+      <section className="featured-projects contrast-section" id="my-process">
         <FolderOpen size={32} style={{ display: 'block', margin: '0 auto 8px' }} />
         <h2 className="left-right-padding">Featured Projects</h2>
         <Deck items={featuredProjects} actionType="caseStudy" />
