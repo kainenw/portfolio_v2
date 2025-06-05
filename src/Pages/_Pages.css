@@ -333,7 +333,7 @@ img {
   align-self: start;
   grid-column: 1;
   grid-row: 1;
-  margin-right: 1rem;
+
 }
 
 .App[data-theme="dark"] .icon {
@@ -373,34 +373,6 @@ img {
   color: #005A9C;
   font-size: 2rem;
   font-weight: bold;
-}
-
-.ThemeMenu {
-  position: fixed;
-  border-radius: 20px;
-  bottom: 10%;
-  right: 7%;
-  border: 1px solid var(--gray);
-}
-
-.App[data-theme="dark"] .ThemeMenu {
-  background-color: var(--off-black);
-}
-
-.App[data-theme="light"] .ThemeMenu {
-  background-color: var(--light-gray);
-}
-
-.ThemeMenu img {
-  margin: 1rem;
-  height: 2rem;
-  width: auto;
-}
-
-.toggle img {
-  height: 1.5rem;
-  width: auto;
-  cursor: pointer;
 }
 
 iframe {

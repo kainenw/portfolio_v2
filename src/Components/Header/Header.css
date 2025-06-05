@@ -6,17 +6,24 @@
   transform: translate(-50%);
   max-width: 800px;
   width: 60%;
-  min-width: 400px;
+  min-width: 450px; /* Adjusted min-width to better accommodate items */
   border-radius: 20px;
-  padding: 0.5rem;
+  padding: 0.5rem; /* Padding for the header bar itself */
   font-size: calc(10px + 2vmin);
   z-index: 50;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between; /* Space between nav-links and ThemeMenu */
   align-items: center;
+  gap: 0.5rem; /* Adjust gap as needed for spacing between nav items and button */
   
   backdrop-filter: blur(10px);
 
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Maintain gap between NavLinks */
 }
 
 .App-header a {
@@ -50,14 +57,72 @@
   box-shadow: inset 1.5px 1.5px 3px black;
 }
 
+/* ThemeMenu button styles */
+.ThemeMenu { /* Corrected class name to match JSX */
+  border: 1px solid #404040;
+  border-radius: 20px;
+  cursor: pointer !important; 
+  background-color: transparent;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid var(--gray);
+}
+
+.App[data-theme="dark"] .ThemeMenu {
+  background-color: var(--off-black);
+}
+
+.App[data-theme="light"] .ThemeMenu {
+  background-color: var(--light-gray);
+}
+
+.toggle img {
+  height: 1.5rem;
+  width: auto;
+  cursor: pointer;
+}
+
+.ThemeMenu img { /* Corrected class name */
+  height: 24px;
+  width: 24px;
+  filter: brightness(1);
+  transition: filter 0.2s;
+}
+
+.App[data-theme="light"] .ThemeMenu img { /* Corrected class name */
+  filter: brightness(0.25);
+}
+
+/* Shared styling for NavLinks and ThemeMenu button */
+.App-header a,
+.ThemeMenu { /* Corrected class name */
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Prevent items from shrinking if space is tight */
+}
+
+.App-header a:hover,
+.ThemeMenu:hover { /* Corrected class name */
+  color: var(--accent-color, #007acc);
+}
+
 @media (max-width: 500px) {
   .App-header {
     min-width: unset;
-
+    width: 90%;
     transform: translate(-50%, 0);
     border-radius: 20px;
     padding: 0.5rem 0.25rem;
-    font-size: 1rem;
+    font-size: 2rem;
     margin: 0 auto;
   }
   .App-header a {
@@ -70,7 +135,8 @@
   .App-header {
     top: unset;
     bottom: 1rem;
-
+    width: 90%;
+    font-size: 2rem;
     padding: 0.25rem 0.1rem;
     margin: 0 auto;
   }

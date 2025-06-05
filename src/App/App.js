@@ -10,7 +10,6 @@ import Contact from "../Pages/Contact";
 import Homepage from "../Pages/Homepage";
 /* import ThemeButton from "../ThemeButton/ThemeButton"; */
 import { useState } from "react";
-import ThemeMenu from "../Theme/ThemeMenu";
 import themeStyles from "../Theme/themeStyles";
 import CaseStudyWrapper from "../Pages/CaseStudyWrapper";
 
@@ -33,20 +32,19 @@ function App() {
       style={{
         backgroundColor: themeStyles[theme].foreground,
         color: themeStyles[theme].textColor,
-        }}
-      >
+      }}
+    >
       <main>
-      <Header theme={theme} />
-      <Routes>
-        {/* <Route path="/resources" element={<Resources theme={theme} />} /> */}
-        <Route path="/projects" element={<Projects theme={theme} />} />
-        <Route path="/projects/:caseStudyId" element={<CaseStudyWrapper />} />
-        <Route path="/about" element={<About theme={theme} />} />
-        {/* <Route path="/blog" element={<Blog theme={theme} />} /> */}
-        <Route path="/contact" element={<Contact theme={theme} />} />
-        <Route path="/" element={<Homepage theme={theme} />} />
-      </Routes>
-      <ThemeMenu theme={theme} changeTheme={changeTheme}>toggle theme</ThemeMenu>
+        <Header theme={theme} changeTheme={changeTheme} />
+        <Routes>
+          {/* <Route path="/resources" element={<Resources theme={theme} />} /> */}
+          <Route path="/projects" element={<Projects theme={theme} />} />
+          <Route path="/projects/:caseStudyId" element={<CaseStudyWrapper />} />
+          <Route path="/about" element={<About theme={theme} />} />
+          {/* <Route path="/blog" element={<Blog theme={theme} />} /> */}
+          <Route path="/contact" element={<Contact theme={theme} />} />
+          <Route path="/" element={<Homepage theme={theme} />} />
+        </Routes>
       </main>
     </div>
   );
