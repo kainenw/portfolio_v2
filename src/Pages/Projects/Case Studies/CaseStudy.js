@@ -27,9 +27,25 @@ function CaseStudy({ title, description, problem, process, solution, technologie
       {businessImpact && (
         <div className="case-study-section">
           <h2>Business Impact</h2>
-          <ul>
-            {businessImpact.map((item, idx) => <li key={idx}>{item}</li>)}
-          </ul>
+          <div className="case-study-metrics-row">
+            {businessImpact.map((item, idx) => {
+              // Extract the first number (with optional +/- and %) for color logic
+              const match = item.match(/([-+]?\d+\.?\d*)%?/);
+              let isPositive = null;
+              if (match) {
+                const num = parseFloat(match[1]);
+                isPositive = num > 0;
+              }
+              return (
+                <div
+                  key={idx}
+                  className={`case-study-metric-box ${isPositive === true ? 'metric-positive' : isPositive === false ? 'metric-negative' : ''}`}
+                >
+                  {item}
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
       {/* Role & Team */}
@@ -101,7 +117,7 @@ function CaseStudy({ title, description, problem, process, solution, technologie
       {prototypeEmbed && (
         <div className="case-study-section">
           <h2>Interactive Prototype</h2>
-          <div className="case-study-prototype-embed">
+          <div className="case-study-prototype-embed" style={{margin: '1.5rem 0'}}>
             {/* Accepts a string of HTML/iframe or a React node */}
             {typeof prototypeEmbed === 'string' ? (
               <div dangerouslySetInnerHTML={{ __html: prototypeEmbed }} />

@@ -50,33 +50,6 @@ export const designProjects = [
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000",
         caseStudy: "/projects/voting-app-case-study"
       }
-    },  
-  {
-      title: "Voting App",
-      description: "An intuitive app designed to guide users through the voting process, increasing engagement and confidence in elections.",
-      image: require('../img/projects/vote.png'),
-      problem: [
-        "Voters often find the election process confusing and disengaging",
-        "Low participation rates due to complexity",
-        "Lack of confidence in the voting process"
-      ],
-      process: [
-        "Conducted comprehensive user research and interviews",
-        "Created detailed user personas and journey maps",
-        "Designed wireframes and prototypes in Figma",
-        "Iterated based on user feedback and usability testing"
-      ],
-      solution: [
-        "Developed an intuitive app that guides users step-by-step",
-        "Increased user engagement and confidence",
-        "Simplified the voting process with clear visual cues",
-        "Improved accessibility for all user groups"
-      ],
-      technologies: ["Figma", "User Research", "Prototyping", "UX Design"],
-      links: {
-        demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000",
-        caseStudy: "/projects/voting-app-case-study"
-      }
     },
     {
       title: "Portfolio v2",
@@ -99,7 +72,30 @@ export const designProjects = [
         "Enhanced user engagement",
         "Better accessibility and performance"
       ],
-      technologies: ["Figma", "Responsive Design", "UX Research", "Prototyping"],
+      businessImpact: [
+        "Portfolio engagement rate increased by 55% after redesign",
+        "Average session duration improved from 1:10 to 2:05",
+        "Received 3x more client inquiries within 2 months of launch"
+      ],
+      role: "Sole Designer & Developer",
+      team: "Individual project (with feedback from 2 mentors)",
+      processDocs: (
+        <div>
+          <img src={require('../img/projects/portfolio.png')} alt="Portfolio wireframe" style={{maxWidth: 300}} />
+          <p>Wireframe for the homepage redesign. <a href="https://www.figma.com/file/abc" target="_blank" rel="noopener noreferrer">View Figma prototype</a></p>
+        </div>
+      ),
+      technologies: ["Figma", "Responsive Design", "UX Research", "Prototyping", "React", "CSS"],
+      testimonials: [
+        {
+          quote: "The new portfolio site is clean, fast, and easy to navigate. It made it much easier for us to evaluate Kainen's work.",
+          name: "Brad Smith",
+          company: "Smith Digital",
+          title: "CEO",
+          photo: "https://randomuser.me/api/portraits/men/32.jpg"
+        }
+      ],
+      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/abc" allowfullscreen></iframe>`,
       links: {
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vQgeh1fdcX2zunOIxK9VxjGgWX5kHayIw13Eo9_m0ptGNNgRgYTvJmsjl_ru0ZMavnQC7LzevOV29AZ/embed?start=false&loop=false&delayms=3000",
         caseStudy: "/projects/portfolio-v2-case-study"
@@ -126,7 +122,30 @@ export const designProjects = [
         "Improved customer satisfaction",
         "Reduced order errors and confusion"
       ],
-      technologies: ["Figma", "User Research", "Mobile Design", "Prototyping"],
+      businessImpact: [
+        "Order completion rate increased by 30% after launch",
+        "Customer satisfaction scores improved from 3.8 to 4.6/5",
+        "Order error rate dropped by 60%"
+      ],
+      role: "UX/UI Designer",
+      team: "1 designer, 2 developers, 1 restaurant manager",
+      processDocs: (
+        <div>
+          <img src={require('../img/projects/sushi.png')} alt="Sushi App wireframe" style={{maxWidth: 300}} />
+          <p>Annotated wireframe for the mobile ordering flow. <a href="https://www.figma.com/file/def" target="_blank" rel="noopener noreferrer">View Figma prototype</a></p>
+        </div>
+      ),
+      technologies: ["Figma", "User Research", "Mobile Design", "Prototyping", "React Native"],
+      testimonials: [
+        {
+          quote: "The new app made ordering so much easier for our customers. We saw fewer mistakes and happier guests right away!",
+          name: "Priya Patel",
+          company: "StartupX",
+          title: "Founder",
+          photo: "https://randomuser.me/api/portraits/women/68.jpg"
+        }
+      ],
+      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/def" allowfullscreen></iframe>`,
       links: {
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vRcI5sv8eHU2oQbEUZTQFbUkB74zvDGRAK0zn850VpRaTmKhODP61ik8ePNw9PnqV1hRPQlLQpgHGyP/embed?start=false&loop=false&delayms=3000",
         caseStudy: "/projects/sushi-app-case-study"

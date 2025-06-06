@@ -1,6 +1,6 @@
 import '../_Pages.css';
 import React, { useState } from "react";
-import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
 import headshot from '../../img/headshot.png';
 
 function Contact() {
@@ -145,24 +145,38 @@ function Contact() {
           </button>
         </form>
       </div>
-      {/* Hidden static form for Netlify build-time detection */}
-      <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-      </form>
       <p>I&apos;m always open to discussing new projects and opportunities.</p>
       <div className="info-group contrast-section">
         <img src={headshot} alt="Headshot of Kainen" />
         <div>
           <h3>Let&apos;s Build Something Amazing Together!</h3>
-          Interested in collaborating on design-focused projects? Reach me on LinkedIn, GitHub, and Twitter. You can also reach out via email at{' '}
-          <a href="mailto:kainen.white@gmail.com">kainen.white@gmail.com</a>
+          Interested in collaborating on design-focused projects? Reach me on LinkedIn, GitHub, and Twitter.
         </div>
       </div>
       <div className="non-contrast-section">
         <p>Thank you for visiting my portfolio! I&apos;m excited to continue learning and growing in the field.</p>
       </div>
+      <section className="contact-info-section contrast-section" style={{ maxWidth: 400, margin: '2rem auto 3rem auto', borderRadius: 16, boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Contact Information</h2>
+        <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>You can also reach me through these channels.</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', textAlign: 'left', padding: '1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 0  }}>
+            <Mail size={22} style={{ verticalAlign: 'middle', minWidth: 22}} aria-label="Email" />
+            <span>Email</span>
+            <a href="mailto:hello@example.com" style={{ marginLeft: 'auto', color: 'var(--accent-color, #005A9C)', fontWeight: 500 }}>hello@example.com</a>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 0  }}>
+            <Phone size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-label="Phone" />
+            <span>Phone</span>
+            <a href="tel:+1234567890" style={{ marginLeft: 'auto', color: 'var(--accent-color, #005A9C)', fontWeight: 500 }}>+1 (234) 567-890</a>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <MapPin size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-label="Location" />
+            <span>Location</span>
+            <span style={{ marginLeft: 'auto', color: '#444', fontWeight: 500 }}> Nashville, TN, USA <span style={{ fontStyle: 'italic', color: '#888' }}>(Remote Friendly)</span></span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
