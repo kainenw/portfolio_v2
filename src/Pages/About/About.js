@@ -1,6 +1,10 @@
-
-import './_Pages.css'
+import '../_Pages.css'
 import React, { useState } from 'react';
+import headshot from '../../img/headshot.png';
+import design from '../../img/design.png';
+import dev from '../../img/dev.png';
+import designthinking from '../../img/designthinking.png';
+import portfolio from '../../img/projects/portfolio.png';
 
 function About() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -34,7 +38,7 @@ function About() {
         <h2>User-centered thinking meets measurable impact.</h2>
         
         <div className="info-group">
-          <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
+          <img src={headshot} alt="Headshot of Kainen" />
           <div>
             {/* <h3>About Me</h3> */}
             <p>
@@ -73,7 +77,7 @@ function About() {
       <div className="contrast-section">
         <h2>My Work</h2>
         <div className="info-group">
-          <img className="icon" src={require('../img/design.png')} alt="project 2" />
+          <img className="icon" src={design} alt="project 2" />
           <div>
             <ul>
               <h3>Design</h3>
@@ -93,7 +97,7 @@ function About() {
           </div>
         </div>
         <div className="info-group">
-          <img className="icon" src={require('../img/dev.png')} alt="programming icon" />
+          <img className="icon" src={dev} alt="programming icon" />
           <div>
             <ul>
               <h3>Development</h3>
@@ -118,7 +122,7 @@ function About() {
         <div className="non-contrast-section">
           <h2>Skills:</h2>
           <div className="info-group">
-            <img className="icon" src={require('../img/designthinking.png')} alt="design icon" />
+            <img className="icon" src={designthinking} alt="design icon" />
             <div>
               <h3>Design Thinking Process</h3>
               <ul>
@@ -134,7 +138,7 @@ function About() {
             </div>
           </div>
           <div className="info-group">
-            <img className="icon" src={require('../img/dev.png')} alt="programming icon" />
+            <img className="icon" src={dev} alt="programming icon" />
             <div>
               <h3>Front-End</h3>
               <ul>
@@ -147,7 +151,7 @@ function About() {
         <div className="contrast-section">
           <h2>Experience:</h2>
           <div className="info-group">
-            <img className="icon" src={require('../img/projects/portfolio.png')} alt="portfolio icon" />
+            <img className="icon" src={portfolio} alt="portfolio icon" />
             <div>
               <ul>
                 <li>

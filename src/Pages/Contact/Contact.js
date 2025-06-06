@@ -1,6 +1,7 @@
-import "./_Pages.css";
+import '../_Pages.css';
 import React from "react";
 import { Mail } from 'lucide-react';
+import headshot from '../../img/headshot.png';
 
 function Contact() {
   return (
@@ -31,10 +32,10 @@ function Contact() {
       </div>
       <p>I&apos;m always open to discussing new projects and opportunities.</p>
       <div className="info-group contrast-section">
-        <img src={require('../img/headshot.png')} alt="Headshot of Kainen" />
+        <img src={headshot} alt="Headshot of Kainen" />
         <div>
           <h3>Let&apos;s Build Something Amazing Together!</h3>
-            Interested in collaborating on design-focused projects? Let&apos;s connect! Reach me on LinkedIn, GitHub,
+            Interested in collaborating on design-focused projects? Reach me on LinkedIn, GitHub,
             and Twitter. You can also reach out via email at{' '}
             <a href="mailto:kainen.white@gmail.com">kainen.white@gmail.com</a>
         </div>

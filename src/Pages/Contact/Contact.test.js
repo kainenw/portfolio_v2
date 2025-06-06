@@ -1,14 +1,18 @@
 import { render, screen } from '@testing-library/react'
 import { act } from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import Contact from './Contact'
 
 describe('Contact', () => {
   it('renders the Contact page with key sections', () => {
     act(() => {
-      render(<Contact />)
+      render(
+        <MemoryRouter>
+          <Contact />
+        </MemoryRouter>
+      )
     })
-    // Use getAllByText for 'Contact' since it appears multiple times
-    expect(screen.getAllByText(/Contact/i).length).toBeGreaterThan(0)
+    expect(screen.getByText(/Let's Connect!/i)).toBeInTheDocument()
     expect(screen.getByText(/Let's Build Something Amazing Together!/i)).toBeInTheDocument()
     expect(screen.getByText(/Thank you for visiting my portfolio!/i)).toBeInTheDocument()
   })

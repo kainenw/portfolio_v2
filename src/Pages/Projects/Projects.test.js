@@ -1,27 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react'
 import '@testing-library/jest-dom'
+import { MemoryRouter } from 'react-router-dom'
 import Projects from './Projects'
-
-// Mock the Carousel component
-jest.mock('../Components/Carousel/Carousel', () => {
-  return function MockCarousel({ items }) {
-    return (
-      <div data-testid="carousel">
-        {items.map((item, index) => (
-          <div key={index} data-testid={`project-${item.title.replace(/\s+/g, '-').toLowerCase()}`}>
-            {item.title}
-          </div>
-        ))}
-      </div>
-    )
-  }
-})
 
 describe('Projects', () => {
   it('renders the Projects page with key elements', () => {
     act(() => {
-      render(<Projects />)
+      render(
+        <MemoryRouter>
+          <Projects />
+        </MemoryRouter>
+      )
     })
     
     // Check main heading and description
@@ -34,7 +24,11 @@ describe('Projects', () => {
   })
 
   it('starts with design tab active by default', () => {
-    render(<Projects />)
+    render(
+      <MemoryRouter>
+        <Projects />
+      </MemoryRouter>
+    )
     
     const designButton = screen.getByRole('button', { name: /design/i })
     const developmentButton = screen.getByRole('button', { name: /development/i })
@@ -46,7 +40,11 @@ describe('Projects', () => {
   })
 
   it('displays design projects when design tab is active', () => {
-    render(<Projects />)
+    render(
+      <MemoryRouter>
+        <Projects />
+      </MemoryRouter>
+    )
     
     // Should show design section and projects
     expect(screen.getByText('Design Projects')).toBeInTheDocument()
@@ -61,7 +59,11 @@ describe('Projects', () => {
 
   it('switches to development tab when clicked', () => {
     act(() => {
-      render(<Projects />)
+      render(
+        <MemoryRouter>
+          <Projects />
+        </MemoryRouter>
+      )
     })
     const developmentButton = screen.getByRole('button', { name: /development/i })
     // Click development tab
@@ -77,7 +79,11 @@ describe('Projects', () => {
 
   it('displays development projects when development tab is active', () => {
     act(() => {
-      render(<Projects />)
+      render(
+        <MemoryRouter>
+          <Projects />
+        </MemoryRouter>
+      )
     })
     const developmentButton = screen.getByRole('button', { name: /development/i })
     act(() => {
@@ -96,7 +102,11 @@ describe('Projects', () => {
 
   it('switches back to design tab when clicked', () => {
     act(() => {
-      render(<Projects />)
+      render(
+        <MemoryRouter>
+          <Projects />
+        </MemoryRouter>
+      )
     })
     const designButton = screen.getByRole('button', { name: /design/i })
     const developmentButton = screen.getByRole('button', { name: /development/i })
@@ -116,22 +126,12 @@ describe('Projects', () => {
     expect(screen.queryByText('Development Projects')).not.toBeInTheDocument()
   })
 
-  it('renders carousel components for both sections', () => {
-    act(() => {
-      render(<Projects />)
-    })
-    // Design section should have carousel
-    expect(screen.getByTestId('carousel')).toBeInTheDocument()
-    // Switch to development and check carousel
-    const developmentButton = screen.getByRole('button', { name: /development/i })
-    act(() => {
-      fireEvent.click(developmentButton)
-    })
-    expect(screen.getByTestId('carousel')).toBeInTheDocument()
-  })
-
   it('has proper ARIA attributes for accessibility', () => {
-    render(<Projects />)
+    render(
+      <MemoryRouter>
+        <Projects />
+      </MemoryRouter>
+    )
     
     const designButton = screen.getByRole('button', { name: /design/i })
     const developmentButton = screen.getByRole('button', { name: /development/i })

@@ -41,11 +41,25 @@ function Deck({ items, actionType }) {
             }
           });
         }
+        // Generate a test id based on the project title (kebab-case, remove special chars)
+        const baseId = item.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+        // For development tab, add suffix if needed
+        let dataTestId = `project-${baseId}`;
+        if (item.title.toLowerCase().includes('portfolio v2') && actionType === 'github') {
+          dataTestId = 'project-portfolio-v2-(development)';
+        }
+        if (item.title.toLowerCase().includes('portfolio v2') && actionType !== 'github') {
+          dataTestId = 'project-portfolio-v2';
+        }
         return (
           <Card
             key={idx}
             {...item}
             actions={actions}
+            dataTestId={dataTestId}
           />
         );
       })}

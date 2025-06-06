@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import CaseStudy from './CaseStudy';
-import { designProjects, developmentProjects } from './projectsData';
+import { designProjects, developmentProjects } from '../../projectsData';
 
 // Combine only projects with full data for lookup
 const allProjects = [

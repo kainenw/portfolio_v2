@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import './_Pages.css'
-// import Carousel from '../Components/Carousel/Carousel'
-import Deck from '../Components/Deck/Deck';
+import '../_Pages.css';
+import Deck from '../../Components/Deck/Deck';
 import { FolderOpen } from 'lucide-react';
-// Removed internal case study rendering; routing handled in App.js
-import { designProjects, developmentProjects } from './projectsData';
+import { designProjects, developmentProjects } from '../projectsData';
 
 function Projects() {
   const [activeTab, setActiveTab] = useState('design');

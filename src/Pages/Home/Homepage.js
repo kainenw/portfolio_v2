@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
-import Deck from '../Components/Deck/Deck';
-import { featuredProjects } from './featuredProjectsData';
+import Deck from '../../Components/Deck/Deck';
+import { featuredProjects } from '../featuredProjectsData';
 import { Sparkle, FolderOpen, Handshake } from 'lucide-react';
 
 function Homepage() {

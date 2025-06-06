@@ -1,11 +1,16 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import About from './About'
 
 describe('About', () => {
   it('renders the About page with key sections', () => {
     act(() => {
-      render(<About />)
+      render(
+        <MemoryRouter>
+          <About />
+        </MemoryRouter>
+      )
     })
     expect(screen.getByText(/Design With Purpose/i)).toBeInTheDocument()
     expect(screen.getByText(/User-centered thinking meets measurable impact/i)).toBeInTheDocument()
@@ -17,14 +22,22 @@ describe('About', () => {
 
   it('renders the Start a Project button', () => {
     act(() => {
-      render(<About />)
+      render(
+        <MemoryRouter>
+          <About />
+        </MemoryRouter>
+      )
     })
     expect(screen.getByRole('button', { name: /start a project/i })).toBeInTheDocument()
   })
 
   it('opens the modal with contact form when Start a Project is clicked', () => {
     act(() => {
-      render(<About />)
+      render(
+        <MemoryRouter>
+          <About />
+        </MemoryRouter>
+      )
     })
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: /start a project/i }))
@@ -36,26 +49,37 @@ describe('About', () => {
 
   it('closes the modal when overlay is clicked', () => {
     act(() => {
-      render(<About />)
+      render(
+        <MemoryRouter>
+          <About />
+        </MemoryRouter>
+      )
     })
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: /start a project/i }))
     })
-    // Click the overlay (dialog background)
+    // Click the overlay (not the dialog)
+    const overlay = screen.getByRole('button', { name: /close modal by clicking outside/i })
     act(() => {
-      fireEvent.click(screen.getByRole('dialog'))
+      fireEvent.click(overlay)
     })
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('closes the modal when close button is clicked', () => {
     act(() => {
-      render(<About />)
+      render(
+        <MemoryRouter>
+          <About />
+        </MemoryRouter>
+      )
     })
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: /start a project/i }))
     })
-    const closeBtn = screen.getByLabelText(/close/i)
+    // Only select the close button inside the dialog
+    const dialog = screen.getByRole('dialog')
+    const closeBtn = screen.getByRole('button', { name: /^close$/i, hidden: true })
     act(() => {
       fireEvent.click(closeBtn)
     })

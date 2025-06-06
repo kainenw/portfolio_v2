@@ -2,16 +2,16 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "../Components/Header/Header";
-import About from "../Pages/About";
-/* import Blog from "../Pages/Blog"; */
-import Projects from "../Pages/Projects";
-/* import Resources from "../Pages/Resources"; */
-import Contact from "../Pages/Contact";
-import Homepage from "../Pages/Homepage";
+import About from "../Pages/About/About";
+/* import Blog from "../Pages/Blog/Blog"; */
+import Projects from "../Pages/Projects/Projects";
+/* import Resources from "../Pages/Resources/Resources"; */
+import Contact from "../Pages/Contact/Contact";
+import Homepage from "../Pages/Home/Homepage";
 /* import ThemeButton from "../ThemeButton/ThemeButton"; */
 import { useState } from "react";
 import themeStyles from "../Theme/themeStyles";
-import CaseStudyWrapper from "../Pages/CaseStudyWrapper";
+import CaseStudyWrapper from "../Pages/Projects/Case Studies/CaseStudyWrapper";
 
 function App() {
   /* if no local theme, set as "dark" */

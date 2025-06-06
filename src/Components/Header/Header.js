@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Home, FolderOpen, User, Mail } from 'lucide-react'
 import './Header.css'
 
 function Header(props) {
@@ -17,20 +18,32 @@ function Header(props) {
     <header className="App-header" data-theme={theme}>
       <div className="nav-links">
         <NavLink to="/" end>
-          home
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Home size={20} style={{ marginBottom: '2px' }} />
+            <span>home</span>
+          </span>
         </NavLink>
         {/* <nav>blog</nav> */}
         <NavLink to="/projects">
-          projects
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <FolderOpen size={20} style={{ marginBottom: '2px' }} />
+            <span>projects</span>
+          </span>
         </NavLink>
         {/* <NavLink to="/resources">
           resources
         </NavLink> */}
         <NavLink to="/about">
-          about
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <User size={20} style={{ marginBottom: '2px' }} />
+            <span>about</span>
+          </span>
         </NavLink>
         <NavLink to="/contact">
-          contact
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Mail size={20} style={{ marginBottom: '2px' }} />
+            <span>contact</span>
+          </span>
         </NavLink>
         <button
           className="ThemeMenu"

@@ -1,4 +1,4 @@
-import "./_Pages.css";
+import "../_Pages.css";
 
 function Blog() {
   return (

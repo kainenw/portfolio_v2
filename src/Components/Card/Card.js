@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Card.css';
 
-function Card({ image, title, description, actions = [] }) {
+function Card({ image, title, description, actions = [], dataTestId }) {
   const navigate = useNavigate();
 
   return (
-    <div className="project-card">
+    <div className="project-card" data-testid={dataTestId}>
       <div className="card-image">
         <img src={image} alt={title} />
       </div>
