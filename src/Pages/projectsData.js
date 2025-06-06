@@ -22,6 +22,56 @@ export const designProjects = [
         "Simplified the voting process with clear visual cues",
         "Improved accessibility for all user groups"
       ],
+      businessImpact: [
+        "User engagement increased by 40% after launch",
+        "Voter completion rate improved from 62% to 88%",
+        "Support requests related to voting process dropped by 70%"
+      ],
+      role: "Lead UX Designer & Frontend Developer",
+      team: "2 designers, 3 developers, 1 project manager",
+      processDocs: (
+        <div>
+          <img src={require('../img/projects/vote.png')} alt="Wireframe" style={{maxWidth: 300}} />
+          <p>Early wireframe showing the step-by-step voting flow. <a href="https://www.figma.com/file/xyz" target="_blank" rel="noopener noreferrer">View Figma prototype</a></p>
+        </div>
+      ),
+      technologies: ["Figma", "User Research", "Prototyping", "UX Design", "React"],
+      testimonials: [
+        {
+          quote: "The new voting app made the process so much easier for our users. We saw a huge jump in engagement and positive feedback.",
+          name: "Sarah Lee",
+          company: "Acme Corp",
+          title: "Product Manager",
+          photo: "https://randomuser.me/api/portraits/women/44.jpg"
+        }
+      ],
+      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/xyz" allowfullscreen></iframe>`,
+      links: {
+        demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000",
+        caseStudy: "/projects/voting-app-case-study"
+      }
+    },  
+  {
+      title: "Voting App",
+      description: "An intuitive app designed to guide users through the voting process, increasing engagement and confidence in elections.",
+      image: require('../img/projects/vote.png'),
+      problem: [
+        "Voters often find the election process confusing and disengaging",
+        "Low participation rates due to complexity",
+        "Lack of confidence in the voting process"
+      ],
+      process: [
+        "Conducted comprehensive user research and interviews",
+        "Created detailed user personas and journey maps",
+        "Designed wireframes and prototypes in Figma",
+        "Iterated based on user feedback and usability testing"
+      ],
+      solution: [
+        "Developed an intuitive app that guides users step-by-step",
+        "Increased user engagement and confidence",
+        "Simplified the voting process with clear visual cues",
+        "Improved accessibility for all user groups"
+      ],
       technologies: ["Figma", "User Research", "Prototyping", "UX Design"],
       links: {
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000",
