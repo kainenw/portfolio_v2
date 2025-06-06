@@ -145,6 +145,12 @@ function Contact() {
           </button>
         </form>
       </div>
+      {/* Hidden static form for Netlify build-time detection */}
+      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+      </form>
       <p>I&apos;m always open to discussing new projects and opportunities.</p>
       <div className="info-group contrast-section">
         <img src={headshot} alt="Headshot of Kainen" />
