@@ -21,7 +21,7 @@ function Homepage() {
       <section className="featured-projects contrast-section" id="my-process">
         <FolderOpen size={32} style={{ display: 'block', margin: '0 auto 8px' }} />
         <h2 className="left-right-padding">Featured Projects</h2>
-        <Deck items={featuredProjects} actionType="caseStudy" />
+        <Deck items={featuredProjects} actionType="caseStudy, demo" />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Link to="/projects" className="cta-btn view-all">View All Projects</Link> {/* Also change this one for consistency */}
         </div>

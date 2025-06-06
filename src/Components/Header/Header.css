@@ -12,7 +12,7 @@
   font-size: calc(10px + 2vmin);
   z-index: 50;
   display: flex;
-  justify-content: space-between; /* Space between nav-links and ThemeMenu */
+  justify-content: space-evenly; /* Space nav-links and ThemeMenu evenly */
   align-items: center;
   gap: 0.5rem; /* Adjust gap as needed for spacing between nav items and button */
   
@@ -68,25 +68,16 @@
 
 /* ThemeMenu button styles */
 .ThemeMenu { /* Corrected class name to match JSX */
-  border: 1px solid #404040;
-  border-radius: 20px;
+  border: none;
+  background: transparent;
   cursor: pointer !important; 
-  background-color: transparent;
   outline: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border: 1px solid var(--gray);
 }
 
-.App[data-theme="dark"] .ThemeMenu {
-  background-color: var(--off-black);
-}
-
-.App[data-theme="light"] .ThemeMenu {
-  background-color: var(--light-gray);
-}
 
 .toggle img {
   height: 1.5rem;
