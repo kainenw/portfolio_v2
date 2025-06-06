@@ -146,7 +146,7 @@ function Contact() {
         </form>
       </div>
       {/* Hidden static form for Netlify build-time detection */}
-      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
         <input type="text" name="name" />
         <input type="email" name="email" />
         <textarea name="message"></textarea>
