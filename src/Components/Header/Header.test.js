@@ -17,7 +17,8 @@ describe('Header', () => {
     expect(screen.getByText(/home/i)).toBeInTheDocument()
     expect(screen.getByText(/projects/i)).toBeInTheDocument()
     expect(screen.getByText(/about/i)).toBeInTheDocument()
-    expect(screen.getByText(/contact/i)).toBeInTheDocument()
+    // Check that we have the navigation links
+    expect(screen.getAllByText(/contact/i)).toHaveLength(2) // One in nav, one CTA
   })
 
   it('renders the theme toggle button', () => {

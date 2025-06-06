@@ -1,9 +1,54 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
+import './CaseStudy.css';
 
 
 function CaseStudy({ title, description, problem, process, solution, technologies, image, businessImpact, role, team, processDocs, testimonials, prototypeEmbed }) {
   const navigate = useNavigate();
+  
+  // Convert businessImpact strings to MetricsDisplay format
+  const parseBusinessImpactToMetrics = (impacts) => {
+    if (!impacts || !Array.isArray(impacts)) return null;
+    
+    return impacts.map((impact) => {
+      // Extract numbers and determine type
+      const percentMatch = impact.match(/(\d+\.?\d*)%/);
+      const ratingMatch = impact.match(/(\d+\.?\d*)\s*\/\s*(\d+)/);
+      const timeMatch = impact.match(/(\d+):(\d+)/);
+      const numberMatch = impact.match(/(\d+\.?\d*)/);
+      
+      let value, type, icon = 'increase';
+      
+      if (percentMatch) {
+        value = parseFloat(percentMatch[1]);
+        type = 'percentage';
+        icon = impact.toLowerCase().includes('increase') || impact.toLowerCase().includes('improve') ? 'increase' : 'target';
+      } else if (ratingMatch) {
+        value = parseFloat(ratingMatch[1]);
+        type = 'rating';
+        icon = 'award';
+      } else if (timeMatch) {
+        value = `${timeMatch[1]}:${timeMatch[2]}`;
+        type = 'time';
+        icon = 'target';
+      } else if (numberMatch) {
+        value = parseFloat(numberMatch[1]);
+        type = 'number';
+        icon = 'users';
+      }
+      
+      return {
+        value,
+        type,
+        label: impact,
+        icon
+      };
+    });
+  };
+
+  const businessMetrics = parseBusinessImpactToMetrics(businessImpact);
+
   return (
     <div className="case-study">
       <button onClick={() => navigate('/projects')} className="back-to-projects-btn">
@@ -24,28 +69,10 @@ function CaseStudy({ title, description, problem, process, solution, technologie
       )}
       <p className="case-study-description">{description}</p>
       {/* Quantified Business Impact */}
-      {businessImpact && (
+      {businessImpact && businessMetrics && (
         <div className="case-study-section">
           <h2>Business Impact</h2>
-          <div className="case-study-metrics-row">
-            {businessImpact.map((item, idx) => {
-              // Extract the first number (with optional +/- and %) for color logic
-              const match = item.match(/([-+]?\d+\.?\d*)%?/);
-              let isPositive = null;
-              if (match) {
-                const num = parseFloat(match[1]);
-                isPositive = num > 0;
-              }
-              return (
-                <div
-                  key={idx}
-                  className={`case-study-metric-box ${isPositive === true ? 'metric-positive' : isPositive === false ? 'metric-negative' : ''}`}
-                >
-                  {item}
-                </div>
-              );
-            })}
-          </div>
+          <MetricsDisplay metrics={businessMetrics} layout="row" />
         </div>
       )}
       {/* Role & Team */}

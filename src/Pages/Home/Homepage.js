@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Deck from '../../Components/Deck/Deck';
+import MetricsDisplay from '../../Components/MetricsDisplay/MetricsDisplay';
+import CTAButton from '../../Components/CTAButton/CTAButton';
 import { featuredProjects } from '../featuredProjectsData';
 import { Sparkle, FolderOpen, Handshake, Quote } from 'lucide-react';
 
@@ -28,6 +30,38 @@ const testimonials = [
   }
 ];
 
+// Portfolio metrics data
+const portfolioMetrics = [
+  {
+    value: 55,
+    type: 'percentage',
+    label: 'Average Engagement Increase',
+    description: 'Across completed projects',
+    icon: 'increase'
+  },
+  {
+    value: 8,
+    type: 'number',
+    label: 'Projects Completed',
+    description: 'Design & development work',
+    icon: 'target'
+  },
+  {
+    value: 95,
+    type: 'percentage',
+    label: 'Client Satisfaction',
+    description: 'Based on project feedback',
+    icon: 'award'
+  },
+  {
+    value: 40,
+    type: 'percentage',
+    label: 'Average User Engagement Boost',
+    description: 'Measured post-launch',
+    icon: 'users'
+  }
+];
+
 function Homepage() {
   return (
     <div className="Homepage Page">
@@ -36,9 +70,9 @@ function Homepage() {
         <h1>Crafting <span className="highlight">User-Centric</span> Digital Experiences</h1>
         <p>I&apos;m a passionate designer transforming complex problems into intuitive and engaging solutions. Explore my work to see how I blend creativity with strategy to deliver impactful results.</p>
         <div className="hero-actions">
-          <Link to="/projects" className="cta-btn">View Projects</Link> {/* Changed to Link */}
-          <Link to="/about#my-process" className="cta-btn">My Process</Link> {/* Changed to Link */}
-          <Link to="/contact" className="cta-btn">Get in Touch</Link> {/* Changed to Link */}
+          <CTAButton href="/projects" variant="primary" size="medium">View Projects</CTAButton>
+          <CTAButton href="/about#my-process" variant="secondary" size="medium">My Process</CTAButton>
+          <CTAButton href="/contact" variant="primary" size="medium">Get in Touch</CTAButton>
         </div>
       </div>
 
@@ -47,7 +81,7 @@ function Homepage() {
         <h2 className="left-right-padding">Featured Projects</h2>
         <Deck items={featuredProjects} actionType="caseStudy, demo" />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Link to="/projects" className="cta-btn view-all">View All Projects</Link> {/* Also change this one for consistency */}
+          <CTAButton href="/projects" variant="secondary" size="medium">View All Projects</CTAButton>
         </div>
       </section>
 
@@ -78,12 +112,25 @@ function Homepage() {
         </div>
       </section>
 
+      {/* Portfolio Metrics Section */}
+      <section className="portfolio-metrics non-contrast-section" style={{ margin: '4rem 0', textAlign: 'center' }}>
+        <h2 style={{ marginBottom: '1rem' }}>Results That Matter</h2>
+        <p style={{ marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem', color: 'var(--secondary-text-color, #666)' }}>
+          Numbers that showcase the impact of user-centered design and strategic thinking.
+        </p>
+        <MetricsDisplay 
+          metrics={portfolioMetrics} 
+          layout="horizontal" 
+          variant="highlight" 
+        />
+      </section>
+
       <section className="homepage-cta non-contrast-section">
         <Handshake size={32} style={{ display: 'block', margin: '0 auto 8px' }} />
         <h2>Ready to build something great together?</h2>
         <p>Whether you have a project in mind, need a design consultation, or just want to connect, I&apos;d love to hear from you.</p>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Link to="/contact" className="cta-btn">Get in Touch</Link> {/* Also change this one for consistency */}
+          <CTAButton href="/contact" variant="primary" size="large">Get in Touch</CTAButton>
         </div>
       </section>
     </div>

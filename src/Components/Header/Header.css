@@ -4,26 +4,81 @@
   top: 1rem;
   left: 50%;
   transform: translate(-50%);
-  max-width: 800px;
-  width: 60%;
-  min-width: 450px; /* Adjusted min-width to better accommodate items */
+  max-width: 1000px;
+  width: 70%;
+  min-width: 600px; /* Increased to accommodate new layout */
   border-radius: 20px;
-  padding: 0.5rem; /* Padding for the header bar itself */
+  padding: 0.5rem 1rem; /* Increased horizontal padding */
   font-size: calc(10px + 2vmin);
   z-index: 50;
   display: flex;
-  justify-content: space-evenly; /* Space nav-links and ThemeMenu evenly */
+  justify-content: space-between; /* Changed to space-between for 3-section layout */
   align-items: center;
-  gap: 0.5rem; /* Adjust gap as needed for spacing between nav items and button */
+  gap: 1rem; /* Increased gap */
   
   backdrop-filter: blur(10px);
+}
 
+/* Logo/Brand Styles */
+.header-logo {
+  color: inherit !important;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent-color, #007acc);
+  padding: 0.5rem;
+  border: 2px solid var(--accent-color, #007acc);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.header-logo:hover .logo-text {
+  background: var(--accent-color, #007acc);
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 0.5rem; /* Maintain gap between NavLinks */
+  flex: 1;
+  justify-content: center;
+}
+
+/* Header Controls (CTA + Theme Toggle) */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Header CTA Button */
+.header-cta {
+  background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header-cta:hover {
+  background: linear-gradient(135deg, var(--accent-hover-color, #005fa3), var(--accent-color, #007acc));
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
 }
 
 .App-header a {
@@ -110,19 +165,93 @@
 }
 
 
+@media (max-width: 768px) {
+  .App-header {
+    width: 85%;
+    min-width: 500px;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .header-cta {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .logo-text {
+    font-size: 1.3rem;
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .App-header {
+    width: 90%;
+    min-width: 400px;
+    padding: 0.4rem 0.6rem;
+    gap: 0.5rem;
+  }
+  
+  .nav-links {
+    gap: 0.3rem;
+  }
+  
+  .App-header a {
+    font-size: 0.8rem;
+    padding: 0.2em 0.3em;
+  }
+  
+  .header-cta {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+    padding: 0.3rem;
+  }
+}
+
 @media (max-width: 500px) {
   .App-header {
     min-width: unset;
-    width: 90%;
+    width: 95%;
     transform: translate(-50%, 0);
     border-radius: 20px;
-    padding: 0.5rem 0.25rem;
+    padding: 0.3rem 0.5rem;
     font-size: 2rem;
     margin: 0 auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
   }
+  
+  .header-logo {
+    order: 1;
+  }
+  
+  .nav-links {
+    order: 2;
+    gap: 0.25rem;
+  }
+  
+  .header-controls {
+    order: 3;
+    gap: 0.5rem;
+  }
+  
   .App-header a {
-    font-size: 2rem;
-    padding: 0.25em 0.25em;
+    font-size: 1.8rem;
+    padding: 0.15em 0.2em;
+  }
+  
+  .header-cta {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .logo-text {
+    font-size: 1rem;
+    padding: 0.25rem;
   }
 }
 
@@ -130,13 +259,24 @@
   .App-header {
     top: unset;
     bottom: 1rem;
-    width: 90%;
-    font-size: 2rem;
-    padding: 0.25rem 0.1rem;
+    width: 95%;
+    font-size: 1.8rem;
+    padding: 0.5rem 0.3rem;
     margin: 0 auto;
   }
+  
   .App-header a {
-    font-size: 2rem;
-    padding: 0.15em 0.15em;
+    font-size: 1.6rem;
+    padding: 0.1em 0.15em;
+  }
+  
+  .header-cta {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  
+  .logo-text {
+    font-size: 0.9rem;
+    padding: 0.2rem;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { Home, FolderOpen, User, Mail } from 'lucide-react'
 import './Header.css'
 
@@ -16,6 +16,11 @@ function Header(props) {
   // NavLink handles active class automatically
   return (
     <header className="App-header" data-theme={theme}>
+      {/* Logo/Brand - Left side */}
+      <Link to="/" className="header-logo">
+        <span className="logo-text">KW</span>
+      </Link>
+
       <div className="nav-links">
         <NavLink to="/" end>
           <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -45,6 +50,13 @@ function Header(props) {
             <span>contact</span>
           </span>
         </NavLink>
+      </div>
+
+      {/* Right side controls */}
+        <div className="header-controls">
+        <Link to="/contact" className="header-cta">
+          Contact Me
+        </Link>
         <button
           className="ThemeMenu"
           onClick={handleThemeToggle}

@@ -165,22 +165,24 @@ This section details the step-by-step user journeys for key tasks performed by t
 The portfolio's design will be polished, professional, and visually appealing, projecting credibility and competence. It must adhere to established UI aesthetics, ensuring a clean, intuitive, and modern user experience. Consistency in the defined color scheme and typography across the entire site is crucial for a cohesive brand presentation. Effective use of negative space is key.
 
 ### 5.2 Color Palette (Unified Design System)
-The design will feature two distinct color modes: a default Light Mode and a user-selectable Dark Mode. Both modes are based on the core brand color of blue to ensure a consistent identity. The system should be designed to remember the user's choice on subsequent visits.
+The design will feature two distinct color modes: a Light Mode and a Dark Mode. The website will **default to the user's system preference** (e.g., as set in their operating system or browser). A theme toggle will be provided to allow the user to manually override this setting. The system should remember the user's manual choice on subsequent visits.
 
-* **5.2a Light Mode (Default)**
-    * **Description:** This palette is designed to be clean, professional, and highly readable in standard lighting conditions. It establishes trust through a classic, corporate-friendly aesthetic.
-    * **Background:** `#F8F9FA` (Light Gray)
-    * **Text/Dark Elements:** `#343A40` (Charcoal)
+* **5.2a Light Mode**
+    * **Description:** This palette is designed to be clean, professional, and highly readable. It uses a layered gray and white background to create depth and separate content areas.
+    * **Page Background:** `#DDDDDD` (Light Gray)
+    * **Card/Section Backgrounds:** `#FFFFFF` (White)
+    * **Text Color:** `#343A40` (Charcoal)
     * **Primary Accent:** `#005A9C` (Strong Blue)
-    * **Secondary Accent/Subtle Highlight:** `#778899` (Light Slate Gray)
+    * **Secondary Accent:** `#778899` (Light Slate Gray)
     * **Call to Action:** `#007BFF` (Bright, Active Blue)
 
 * **5.2b Dark Mode**
-    * **Description:** This palette reduces eye strain in low-light environments. It's designed to be modern, sophisticated, and high-contrast, allowing visual assets in the case studies to stand out dramatically.
-    * **Background:** `#1A202C` (Dark Desaturated Blue/Charcoal)
-    * **Text/Light Elements:** `#F7FAFC` (Very Light Gray/Off-White)
+    * **Description:** This palette reduces eye strain in low-light environments. It's designed to be modern and sophisticated, using layered dark grays to create a clear visual hierarchy.
+    * **Page Background:** `#101010` (Very Dark Gray)
+    * **Card/Section Backgrounds:** `#171717` (Slightly Lighter Gray)
+    * **Text Color:** `#F7FAFC` (Off-White)
     * **Primary Accent:** `#2B6CB0` (Medium Blue)
-    * **UI Elements / Card Backgrounds:** `#2D3748` (Dark Slate)
+    * **Secondary Accent:** `#4A5568` (Dark Slate Gray)
     * **Call to Action:** `#4299E1` (Bright, Accessible Blue)
 
 ### 5.3 Typography (Unified Design System)

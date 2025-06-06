@@ -1,0 +1,113 @@
+/* Download Resume Button Styles */
+.download-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* Primary variant (default) */
+.download-resume-btn.primary {
+  background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
+  color: #fff;
+}
+
+.download-resume-btn.primary:hover {
+  background: linear-gradient(135deg, var(--accent-hover-color, #005fa3), var(--accent-color, #007acc));
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.download-resume-btn.primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Secondary variant */
+.download-resume-btn.secondary {
+  background: var(--off-white, #f8f9fa);
+  color: var(--accent-color, #005A9C);
+  border: 2px solid var(--accent-color, #005A9C);
+}
+
+.download-resume-btn.secondary:hover {
+  background: var(--accent-color, #005A9C);
+  color: #fff;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.download-resume-btn.secondary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Outline variant */
+.download-resume-btn.outline {
+  background: transparent;
+  color: var(--accent-color, #005A9C);
+  border: 2px solid var(--accent-color, #005A9C);
+}
+
+.download-resume-btn.outline:hover {
+  background: var(--accent-color, #005A9C);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled state */
+.download-resume-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Focus states for accessibility */
+.download-resume-btn:focus {
+  outline: 2px solid var(--accent-color, #005A9C);
+  outline-offset: 2px;
+}
+
+.download-resume-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .download-resume-btn.secondary {
+    background: var(--contrast-bg, #2a2a2a);
+    border-color: var(--accent-color, #4a9eff);
+    color: var(--accent-color, #4a9eff);
+  }
+  
+  .download-resume-btn.outline {
+    border-color: var(--accent-color, #4a9eff);
+    color: var(--accent-color, #4a9eff);
+  }
+  
+  .download-resume-btn.outline:hover {
+    background: var(--accent-color, #4a9eff);
+    color: #000;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .download-resume-btn {
+    min-width: 160px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

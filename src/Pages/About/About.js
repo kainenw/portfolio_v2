@@ -5,6 +5,7 @@ import design from '../../img/design.png';
 import dev from '../../img/dev.png';
 import designthinking from '../../img/designthinking.png';
 import portfolio from '../../img/projects/portfolio.png';
+import DownloadResumeButton from '../../Components/DownloadResumeButton/DownloadResumeButton';
 
 function About() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -73,7 +74,101 @@ function About() {
         >
           Start a Project
         </button>
+        
+        {/* Download Resume Button in Hero Section */}
+        <div style={{ marginTop: '1rem' }}>
+          <DownloadResumeButton variant="secondary" />
+        </div>
       </div>
+
+      {/* Services Section */}
+      <div className="contrast-section" id="services">
+        <h2>Services I Offer</h2>
+        <div className="services-grid">
+          <div className="service-card">
+            <div className="service-icon">
+              <img className="icon" src={designthinking} alt="UX Design icon" />
+            </div>
+            <h3>UX/UI Design</h3>
+            <p>User research, wireframing, prototyping, and visual design that creates intuitive and engaging experiences.</p>
+            <ul>
+              <li>User research & personas</li>
+              <li>Wireframes & prototypes</li>
+              <li>Visual design & branding</li>
+              <li>Usability testing</li>
+            </ul>
+          </div>
+          
+          <div className="service-card">
+            <div className="service-icon">
+              <img className="icon" src={dev} alt="Development icon" />
+            </div>
+            <h3>Frontend Development</h3>
+            <p>Responsive, accessible websites and applications built with modern technologies and best practices.</p>
+            <ul>
+              <li>React & JavaScript development</li>
+              <li>Responsive design implementation</li>
+              <li>Performance optimization</li>
+              <li>Accessibility compliance</li>
+            </ul>
+          </div>
+          
+          <div className="service-card">
+            <div className="service-icon">
+              <img className="icon" src={design} alt="Consultation icon" />
+            </div>
+            <h3>Design Consultation</h3>
+            <p>Strategic guidance to improve your digital presence and user experience through expert analysis and recommendations.</p>
+            <ul>
+              <li>UX audits & analysis</li>
+              <li>Design system creation</li>
+              <li>Conversion optimization</li>
+              <li>Strategy & planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* How I Work Section */}
+      <div className="non-contrast-section" id="how-i-work">
+        <h2>How I Work</h2>
+        <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 2rem' }}>
+          My process is collaborative, iterative, and always focused on solving real user problems while achieving business goals.
+        </p>
+        
+        <div className="process-steps">
+          <div className="process-step">
+            <div className="step-number">1</div>
+            <h3>Discovery & Research</h3>
+            <p>I start by understanding your users, business goals, and constraints through research, interviews, and competitive analysis.</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">2</div>
+            <h3>Strategy & Planning</h3>
+            <p>Based on research insights, I develop a clear strategy and project plan that aligns user needs with business objectives.</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">3</div>
+            <h3>Design & Prototype</h3>
+            <p>I create wireframes, prototypes, and high-fidelity designs, iterating based on feedback and testing throughout.</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">4</div>
+            <h3>Build & Test</h3>
+            <p>I develop responsive, accessible solutions and conduct usability testing to ensure the best possible user experience.</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">5</div>
+            <h3>Launch & Optimize</h3>
+            <p>After launch, I monitor performance, gather user feedback, and make data-driven improvements to maximize results.</p>
+          </div>
+        </div>
+      </div>
+
       <div className="contrast-section">
         <h2>My Work</h2>
         <div className="info-group">
@@ -148,6 +243,46 @@ function About() {
             </div>
           </div>
         </div>
+        
+        {/* Download Resume CTA Section */}
+        <div className="contrast-section" style={{ textAlign: 'center', padding: '3rem 1rem' }}>
+          <h2>Ready to Work Together?</h2>
+          <p style={{ marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
+            Download my resume to see my full experience and qualifications, or start a conversation about your next project.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <DownloadResumeButton variant="primary" />
+            <button
+              className="cta-btn outline"
+              onClick={() => setModalOpen(true)}
+              style={{
+                background: 'transparent',
+                color: 'var(--accent-color, #005A9C)',
+                border: '2px solid var(--accent-color, #005A9C)',
+                borderRadius: '8px',
+                padding: '0.75rem 1.5rem',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                minWidth: '180px'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'var(--accent-color, #005A9C)';
+                e.target.style.color = '#fff';
+                e.target.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'transparent';
+                e.target.style.color = 'var(--accent-color, #005A9C)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+            >
+              Start a Project
+            </button>
+          </div>
+        </div>
+        
         <div className="contrast-section">
           <h2>Experience:</h2>
           <div className="info-group">

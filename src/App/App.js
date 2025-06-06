@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 import About from "../Pages/About/About";
 /* import Blog from "../Pages/Blog/Blog"; */
 import Projects from "../Pages/Projects/Projects";
 /* import Resources from "../Pages/Resources/Resources"; */
 import Contact from "../Pages/Contact/Contact";
 import Homepage from "../Pages/Home/Homepage";
+import NotFound from "../Pages/NotFound/NotFound";
 /* import ThemeButton from "../ThemeButton/ThemeButton"; */
 import { useState } from "react";
 import themeStyles from "../Theme/themeStyles";
@@ -46,7 +48,10 @@ function App() {
           {/* <Route path="/blog" element={<Blog theme={theme} />} /> */}
           <Route path="/contact" element={<Contact theme={theme} />} />
           <Route path="/" element={<Homepage theme={theme} />} />
+          {/* 404 Catch-all route - must be last */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </main>
     </div>
   );

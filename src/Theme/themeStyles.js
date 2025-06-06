@@ -1,6 +1,6 @@
 const themeStyles = {
   light: {
-    background: "#F8F9FA", // Light Gray per spec
+    background: "#DDDDDD", // Light Gray per spec
     foreground: "#FFFFFF", // White for cards/sections
     textColor: "#343A40", // Charcoal per spec
     primaryAccent: "#005A9C", // Strong Blue per spec
@@ -8,8 +8,8 @@ const themeStyles = {
     ctaColor: "#007BFF", // Bright Active Blue per spec
   },
   dark: {
-    background: "#1A202C", // Dark Desaturated Blue/Charcoal per spec
-    foreground: "#2D3748", // Dark Slate for cards per spec
+    background: "#101010", // Very Dark Gray per spec
+    foreground: "#171717", // Slightly lighter gray for cards/sections
     textColor: "#F7FAFC", // Very Light Gray/Off-White per spec
     primaryAccent: "#2B6CB0", // Medium Blue per spec
     secondaryAccent: "#4A5568", // Darker secondary for dark mode
