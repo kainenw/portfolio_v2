@@ -25,6 +25,8 @@ function App() {
     localStorage.setItem("__theme", newTheme);
   }
 
+  usePageTracking();
+
   return (
     <div
       className="App"
