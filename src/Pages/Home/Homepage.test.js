@@ -5,7 +5,12 @@ import Homepage from './Homepage'
 describe('Homepage', () => {
   it('renders hero section with headline and actions', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Homepage />
       </MemoryRouter>
     )
@@ -24,7 +29,12 @@ describe('Homepage', () => {
 
   it('renders featured projects section and at least one project card', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Homepage />
       </MemoryRouter>
     )
@@ -37,7 +47,12 @@ describe('Homepage', () => {
 
   it('renders homepage CTA section with correct text and button', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Homepage />
       </MemoryRouter>
     )

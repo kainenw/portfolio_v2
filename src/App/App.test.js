@@ -7,7 +7,12 @@ describe('App', () => {
   it('renders without crashing and shows header', () => {
     act(() => {
       render(
-        <MemoryRouter>
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
           <App />
         </MemoryRouter>
       )

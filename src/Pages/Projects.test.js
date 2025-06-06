@@ -4,6 +4,21 @@ import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom'
 import Projects from './Projects'
 
+// Mock the Deck component
+jest.mock('../Components/Deck/Deck', () => {
+  return function MockDeck({ items }) {
+    return (
+      <div data-testid="deck">
+        {items.map((item, index) => (
+          <div key={index} data-testid={`project-${item.title.replace(/\s+/g, '-').toLowerCase()}`}>
+            {item.title}
+          </div>
+        ))}
+      </div>
+    )
+  }
+})
+
 describe('Projects', () => {
   it('renders the Projects page with key elements', () => {
     act(() => {
@@ -154,6 +169,29 @@ describe('Projects', () => {
     // Should show design projects again
     expect(screen.getByText('Design Projects')).toBeInTheDocument()
     expect(screen.queryByText('Development Projects')).not.toBeInTheDocument()
+  })
+
+  it('renders deck components for both sections', () => {
+    act(() => {
+      render(
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <Projects />
+        </MemoryRouter>
+      )
+    })
+    // Design section should have deck
+    expect(screen.getByTestId('deck')).toBeInTheDocument()
+    // Switch to development and check deck
+    const developmentButton = screen.getByRole('button', { name: /development/i })
+    act(() => {
+      fireEvent.click(developmentButton)
+    })
+    expect(screen.getByTestId('deck')).toBeInTheDocument()
   })
 
   it('has proper ARIA attributes for accessibility', () => {

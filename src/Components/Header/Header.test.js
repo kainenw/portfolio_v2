@@ -5,7 +5,12 @@ import Header from './Header'
 describe('Header', () => {
   it('renders all navigation links', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Header theme="light" changeTheme={jest.fn()} />
       </MemoryRouter>
     )
@@ -17,7 +22,12 @@ describe('Header', () => {
 
   it('renders the theme toggle button', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Header theme="dark" changeTheme={jest.fn()} />
       </MemoryRouter>
     )
@@ -27,7 +37,12 @@ describe('Header', () => {
   it('calls changeTheme with the next theme', () => {
     const changeTheme = jest.fn()
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Header theme="dark" changeTheme={changeTheme} />
       </MemoryRouter>
     )

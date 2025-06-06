@@ -1,21 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { act } from 'react'
-import { MemoryRouter } from 'react-router-dom'
 import Blog from './Blog'
 
 describe('Blog', () => {
   it('renders the Blog page with key sections', () => {
     act(() => {
-      render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <Blog />
-        </MemoryRouter>
-      )
+      render(<Blog />)
     })
     // Use getAllByText for 'blog' since it appears multiple times
     expect(screen.getAllByText(/blog/i).length).toBeGreaterThan(0)

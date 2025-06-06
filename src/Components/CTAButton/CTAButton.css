@@ -1,0 +1,94 @@
+/* CTA Button Component Styles - Per Design Spec Section 6.6 */
+
+.cta-button {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+  text-align: center;
+}
+
+/* Size variants */
+.cta-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.cta-medium {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.cta-large {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+/* Primary variant - high-priority actions */
+[data-theme="light"] .cta-primary {
+  background-color: var(--cta-light, #007BFF);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+[data-theme="light"] .cta-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+[data-theme="dark"] .cta-primary {
+  background-color: var(--cta-dark, #4299E1);
+  color: white;
+  box-shadow: 0 2px 8px rgba(66, 153, 225, 0.2);
+}
+
+[data-theme="dark"] .cta-primary:hover {
+  background-color: #3182ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+/* Secondary variant - less critical actions */
+[data-theme="light"] .cta-secondary {
+  background-color: transparent;
+  color: var(--primary-accent, #005A9C);
+  border: 2px solid var(--primary-accent, #005A9C);
+}
+
+[data-theme="light"] .cta-secondary:hover {
+  background-color: var(--primary-accent, #005A9C);
+  color: white;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .cta-secondary {
+  background-color: transparent;
+  color: var(--cta-dark, #4299E1);
+  border: 2px solid var(--cta-dark, #4299E1);
+}
+
+[data-theme="dark"] .cta-secondary:hover {
+  background-color: var(--cta-dark, #4299E1);
+  color: var(--dark-bg, #1A202C);
+  transform: translateY(-1px);
+}
+
+/* Disabled state */
+.cta-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.cta-button:disabled:hover {
+  transform: none !important;
+}

@@ -1,21 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react'
-import { MemoryRouter } from 'react-router-dom'
 import About from './About'
 
 describe('About', () => {
   it('renders the About page with key sections', () => {
     act(() => {
-      render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
-      )
+      render(<About />)
     })
     expect(screen.getByText(/Design With Purpose/i)).toBeInTheDocument()
     expect(screen.getByText(/User-centered thinking meets measurable impact/i)).toBeInTheDocument()
@@ -27,32 +17,14 @@ describe('About', () => {
 
   it('renders the Start a Project button', () => {
     act(() => {
-      render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
-      )
+      render(<About />)
     })
     expect(screen.getByRole('button', { name: /start a project/i })).toBeInTheDocument()
   })
 
   it('opens the modal with contact form when Start a Project is clicked', () => {
     act(() => {
-      render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
-      )
+      render(<About />)
     })
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: /start a project/i }))
@@ -64,47 +36,27 @@ describe('About', () => {
 
   it('closes the modal when overlay is clicked', () => {
     act(() => {
-      render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
-      )
+      render(<About />)
     })
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: /start a project/i }))
     })
-    // Click the overlay (not the dialog)
-    const overlay = screen.getByRole('button', { name: /close modal by clicking outside/i })
+    // Click the overlay (button element with "Close modal by clicking outside" label)
     act(() => {
-      fireEvent.click(overlay)
+      fireEvent.click(screen.getByLabelText(/close modal by clicking outside/i))
     })
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('closes the modal when close button is clicked', () => {
     act(() => {
-      render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
-      )
+      render(<About />)
     })
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: /start a project/i }))
     })
-    // Only select the close button inside the dialog
-    const dialog = screen.getByRole('dialog')
-    const closeBtn = screen.getByRole('button', { name: /^close$/i, hidden: true })
+    // Get the close button specifically with aria-label="Close"
+    const closeBtn = screen.getByRole('button', { name: 'Close' })
     act(() => {
       fireEvent.click(closeBtn)
     })

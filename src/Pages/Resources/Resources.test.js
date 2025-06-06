@@ -5,7 +5,12 @@ import Header from '../../Components/Header/Header'
 describe('Resources', () => {
   it('is not rendered or linked in the navigation', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Header theme="light" changeTheme={jest.fn()} />
       </MemoryRouter>
     )

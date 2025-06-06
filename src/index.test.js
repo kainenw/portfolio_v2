@@ -7,7 +7,12 @@ describe('index.js', () => {
   it('renders App without crashing', () => {
     act(() => {
       render(
-        <MemoryRouter>
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
           <App />
         </MemoryRouter>
       )

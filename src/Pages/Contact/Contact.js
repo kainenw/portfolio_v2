@@ -2,6 +2,7 @@ import '../_Pages.css';
 import React, { useState } from "react";
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
 import headshot from '../../img/headshot.png';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [formStatus, setFormStatus] = useState(''); // '', 'success', 'error', 'submitting'
@@ -24,56 +25,56 @@ function Contact() {
     return newErrors;
   };
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
-  };
+  const EMAILJS_SERVICE_ID = 'service_aq31ryq';
+  const EMAILJS_TEMPLATE_ID = 'template_i6hf19e';
+  const EMAILJS_PUBLIC_KEY = 'TVAPL6E8ACT_xqRDP';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const newErrors = validateForm();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
+    
+    // Check if EmailJS is properly configured
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error('EmailJS is not properly configured. Missing credentials.');
+      setFormStatus('error');
+      return;
+    }
+    
     setFormStatus('submitting');
     setErrors({});
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'contact',
-          ...formData
-        })
-      });
-      if (response.ok) {
-        setFormStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        // Google Analytics conversion tracking for successful submission
-        if (window.gtag) {
-          window.gtag('event', 'conversion', {
-            send_to: ' G-EV8432PHGL', // Replace with your GA4 Measurement ID or Google Ads conversion ID
-            event_category: 'Contact',
-            event_label: 'Contact Form Submitted',
-            value: 1
-          });
-        }
-      } else {
-        setFormStatus('error');
-        // Google Analytics event for failed submission
-        if (window.gtag) {
-          window.gtag('event', 'conversion_failed', {
-            event_category: 'Contact',
-            event_label: 'Contact Form Failed',
-            value: 0
-          });
-        }
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Kainen', // Adding recipient name for EmailJS template
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      console.log('EmailJS Success:', result);
+      setFormStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      // Google Analytics conversion tracking for successful submission
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'G-EV8432PHGL', // Replace with your GA4 Measurement ID or Google Ads conversion ID
+          event_category: 'Contact',
+          event_label: 'Contact Form Submitted',
+          value: 1
+        });
       }
     } catch (err) {
+      console.error('EmailJS Error:', err);
       setFormStatus('error');
-      // Google Analytics event for failed submission (network or other error)
+      // Google Analytics event for failed submission
       if (window.gtag) {
         window.gtag('event', 'conversion_failed', {
           event_category: 'Contact',
@@ -100,21 +101,15 @@ function Contact() {
         {formStatus === 'error' && (
           <div className="form-notification error">
             <AlertCircle size={20} />
-            <span>Sorry, there was an error sending your message. Please try again or email me directly.</span>
+            <span>Sorry, there was an error sending your message. Please try again, or email me directly at <a href="mailto:hello@example.com" style={{color:'#005A9C',textDecoration:'underline'}}>hello@example.com</a>.</span>
           </div>
         )}
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: 16 }}
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <p style={{ display: 'none' }}>
-            <label>Don’t fill this out if you&apos;re human: <input name="bot-field" /></label>
-          </p>
           <div>
             <input
               type="text"
@@ -164,9 +159,24 @@ function Contact() {
             type="submit"
             className="cta-btn"
             disabled={formStatus === 'submitting'}
-            style={{ opacity: formStatus === 'submitting' ? 0.7 : 1, cursor: formStatus === 'submitting' ? 'not-allowed' : 'pointer' }}
+            style={{ opacity: formStatus === 'submitting' ? 0.7 : 1, cursor: formStatus === 'submitting' ? 'not-allowed' : 'pointer', position: 'relative' }}
           >
-            {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+            {formStatus === 'submitting' ? (
+              <>
+                <span className="spinner" style={{
+                  display: 'inline-block',
+                  width: 18,
+                  height: 18,
+                  border: '2px solid #fff',
+                  borderTop: '2px solid #005A9C',
+                  borderRadius: '50%',
+                  animation: 'spin 1s linear infinite',
+                  marginRight: 8,
+                  verticalAlign: 'middle',
+                }} />
+                Sending...
+              </>
+            ) : 'Send Message'}
           </button>
         </form>
       </div>
