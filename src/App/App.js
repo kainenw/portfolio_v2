@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import About from "../Pages/About/About";
 /* import Blog from "../Pages/Blog/Blog"; */
@@ -48,6 +48,18 @@ function App() {
       </main>
     </div>
   );
+}
+
+function usePageTracking() {
+  const location = useLocation();
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_title: document.title,
+      });
+    }
+  }, [location]);
 }
 
 export default App;

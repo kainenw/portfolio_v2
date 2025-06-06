@@ -51,11 +51,36 @@ function Contact() {
       if (response.ok) {
         setFormStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        // Google Analytics conversion tracking for successful submission
+        if (window.gtag) {
+          window.gtag('event', 'conversion', {
+            send_to: ' G-EV8432PHGL', // Replace with your GA4 Measurement ID or Google Ads conversion ID
+            event_category: 'Contact',
+            event_label: 'Contact Form Submitted',
+            value: 1
+          });
+        }
       } else {
         setFormStatus('error');
+        // Google Analytics event for failed submission
+        if (window.gtag) {
+          window.gtag('event', 'conversion_failed', {
+            event_category: 'Contact',
+            event_label: 'Contact Form Failed',
+            value: 0
+          });
+        }
       }
     } catch (err) {
       setFormStatus('error');
+      // Google Analytics event for failed submission (network or other error)
+      if (window.gtag) {
+        window.gtag('event', 'conversion_failed', {
+          event_category: 'Contact',
+          event_label: 'Contact Form Failed',
+          value: 0
+        });
+      }
     }
   };
 
