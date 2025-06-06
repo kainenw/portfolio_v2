@@ -30,7 +30,7 @@ function Contact() {
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          action="/contact?success=true"
+          action="/contact"
           style={{ display: "flex", flexDirection: "column", gap: 16 }}
         >
           {/* Honeypot field for bots */}
