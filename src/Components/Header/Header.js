@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom'; // Import useNavigate
-import { FolderOpen, User } from 'lucide-react';
+import { FolderOpen, User, Mail } from 'lucide-react'; // Import Mail icon
 import './Header.css';
 
 function Header(props) {
@@ -42,7 +42,8 @@ function Header(props) {
 
       {/* Contact CTA Button - Directly in App-header */}
       <button onClick={handleContactClick} className="header-cta header-nav-item">
-        Contact Me
+        <Mail size={20} className="contact-icon" /> 
+        <span className="contact-text">Contact Me</span>
       </button>
 
       {/* Theme Toggle Button - Directly in App-header */}

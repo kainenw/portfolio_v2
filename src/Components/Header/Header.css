@@ -159,6 +159,11 @@
   flex-shrink: 0; /* Prevent items from shrinking if space is tight */
 }
 
+.header-cta .contact-icon {
+  display: none; /* Hide icon by default */
+  color: #fff; /* Ensure icon color matches button text color */
+}
+
 @media (max-width: 768px) {
   .App-header {
     width: 85%;
@@ -242,7 +247,7 @@
   }
   
   .header-cta {
-    padding: 0.25rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     font-size: 0.75rem;
   }
   
@@ -265,8 +270,14 @@
     /* flex-wrap: wrap; */ /* Example: allow wrapping */ 
   }
 
-  .header-nav-item .nav-link-text { /* Target the text span within nav items */
+  .header-nav-item .nav-link-text, /* Target the text span within nav items */
+  .header-cta .contact-text { /* Also hide contact text */
     display: none; /* Hide text labels */
+  }
+
+  .header-cta .contact-icon {
+    display: inline-block; /* Show contact icon */
+    margin-right: 0; /* Remove margin if text is hidden */
   }
 
   .header-nav-item span:first-child { /* Assuming icon is the first child span */
@@ -283,16 +294,23 @@
     height: 22px; /* Adjust icon size */
   }
   
-  .App-header button.header-nav-item { /* Target buttons like Contact and Theme toggle */
+  .App-header button.header-nav-item, /* Target buttons like Contact and Theme toggle */
+  .App-header button.header-cta { /* Ensure CTA button is also targeted for icon sizing */
     font-size: 0.8rem; /* Adjust font-size for buttons if they have text or need resizing */
     padding: 0.3rem 0.5rem; /* Adjust padding for buttons */
+    line-height: 1; /* Ensure icon is centered if text is removed */
   }
 
-  .header-cta { /* Specifically for Contact Me button text */
-    padding: 0.2rem 0.4rem;
-    font-size: 0.7rem; /* Reduced font size for "Contact Me" text */
+  .header-cta { /* Specifically for Contact Me button adjustments */
+    padding: 0.3rem 0.5rem; /* Adjust padding for icon-only button */
+    /* font-size will be inherited from .App-header button.header-nav-item or can be set here if needed */
   }
   
+  .header-cta svg { /* Style for the contact icon itself */
+    width: 22px;
+    height: 22px;
+  }
+
   .logo-text {
     font-size: 0.9rem;
     padding: 0.2rem;
