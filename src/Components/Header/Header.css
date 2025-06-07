@@ -6,7 +6,6 @@
   transform: translate(-50%);
   max-width: 1000px;
   width: 70%;
-  min-width: 600px; /* Increased to accommodate new layout */
   border-radius: 20px;
   padding: 0.5rem 1rem; /* Increased horizontal padding */
   font-size: calc(10px + 2vmin);
@@ -167,7 +166,6 @@
 @media (max-width: 768px) {
   .App-header {
     width: 85%;
-    min-width: 500px;
     padding: 0.5rem 0.75rem;
   }
   
@@ -185,7 +183,6 @@
 @media (max-width: 600px) {
   .App-header {
     width: 90%;
-    min-width: 400px;
     padding: 0.4rem 0.6rem;
     gap: 0.5rem;
   }
@@ -216,7 +213,6 @@
 
 @media (max-width: 500px) {
   .App-header {
-    min-width: unset;
     width: 95%;
     transform: translate(-50%, 0);
     border-radius: 20px;
@@ -262,15 +258,16 @@
   .App-header {
     top: unset;
     bottom: 1rem;
-    width: 95%;
-    font-size: 1.8rem; /* This applies to text within .App-header, but icons/buttons might override */
-    padding: 0.5rem 0.3rem;
+    width: 98%; /* Increased width slightly to use more space */
+    font-size: 1rem; /* Reduced base font size for the header at this breakpoint */
+    padding: 0.3rem 0.2rem; /* Reduced padding */
     margin: 0 auto;
+    gap: 0.2rem; /* Reduced gap between items */
     /* For mobile, you might want to ensure items wrap or scroll if they overflow */
     /* flex-wrap: wrap; */ /* Example: allow wrapping */ 
   }
 
-  .header-nav-item .nav-link-text, /* Target the text span within nav items */
+  .header-nav-item .nav-link-text,
   .header-cta .contact-text { /* Also hide contact text */
     display: none; /* Hide text labels */
   }
@@ -286,38 +283,37 @@
   
   /* Adjust icon size and container padding for icon-only nav links */
   .App-header a.header-nav-item { /* Be more specific for NavLink items */
-    padding: 0.2em 0.3em; /* Adjust padding around icons */
+    padding: 0.2em 0.25em; /* Reduced padding around icons */
   }
 
   .App-header a.header-nav-item svg { /* Target SVGs (lucide-react icons) */
-    width: 22px; /* Adjust icon size */
-    height: 22px; /* Adjust icon size */
+    width: 20px; /* Slightly reduced icon size */
+    height: 20px; /* Slightly reduced icon size */
   }
   
-  .App-header button.header-nav-item, /* Target buttons like Contact and Theme toggle */
-  .App-header button.header-cta { /* Ensure CTA button is also targeted for icon sizing */
-    font-size: 0.8rem; /* Adjust font-size for buttons if they have text or need resizing */
-    padding: 0.3rem 0.5rem; /* Adjust padding for buttons */
-    line-height: 1; /* Ensure icon is centered if text is removed */
+  .App-header button.header-nav-item,
+  .App-header button.header-cta {
+    padding: 0.25rem 0.35rem; /* Reduced padding for buttons */
+    line-height: 1; 
   }
 
-  .header-cta { /* Specifically for Contact Me button adjustments */
-    padding: 0.3rem 0.5rem; /* Adjust padding for icon-only button */
-    /* font-size will be inherited from .App-header button.header-nav-item or can be set here if needed */
+  .header-cta { 
+    padding: 0.25rem 0.35rem; /* Ensured padding consistency */
   }
   
-  .header-cta svg { /* Style for the contact icon itself */
-    width: 22px;
-    height: 22px;
+  .header-cta svg { 
+    width: 20px; /* Slightly reduced icon size */
+    height: 20px; /* Slightly reduced icon size */
   }
 
   .logo-text {
-    font-size: 0.9rem;
-    padding: 0.2rem;
+    font-size: 0.8rem; /* Reduced logo text size */
+    padding: 0.15rem 0.25rem; /* Reduced logo padding */
+    border-width: 1px; /* Thinner border for logo */
   }
 
   .ThemeMenu img { /* Adjust theme toggle icon size */
-    height: 22px;
-    width: 22px;
+    height: 20px; /* Slightly reduced icon size */
+    width: 20px; /* Slightly reduced icon size */
   }
 }

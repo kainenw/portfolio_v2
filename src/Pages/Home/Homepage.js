@@ -5,6 +5,7 @@ import MetricsDisplay from '../../Components/MetricsDisplay/MetricsDisplay';
 import CTAButton from '../../Components/CTAButton/CTAButton';
 import { featuredProjects } from '../featuredProjectsData';
 import { Sparkle, FolderOpen, Handshake, Quote } from 'lucide-react';
+import './Homepage.css'; // Import the new CSS file
 
 const testimonials = [
 	{
@@ -128,50 +129,28 @@ function Homepage() {
 					<Quote size={32} style={{ verticalAlign: 'middle', marginRight: 8 }} />
 					What Clients Say
 				</h2>
-				<div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
+				<div className="testimonials-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
 					{testimonials.map((t, i) => (
 						<div
 							key={i}
-							className="testimonial-card"
-							style={{
-								background: 'var(--off-white, #fff)',
-								borderRadius: 16,
-								boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-								border: '1px solid var(--gray, #e0e0e0)',
-								maxWidth: 340,
-								minWidth: 260,
-								padding: '2rem 1.5rem',
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'center',
-								textAlign: 'center',
-								flex: '1 1 260px',
-							}}
+							className="testimonial-card" // Use CSS class
+							// Removed inline styles
 						>
 							<img
 								src={t.photo}
 								alt={t.name}
-								style={{
-									width: 64,
-									height: 64,
-									borderRadius: '50%',
-									objectFit: 'cover',
-									marginBottom: 16,
-									border: '3px solid var(--accent-color, #007acc)',
-								}}
+								className="testimonial-photo" // Use CSS class for img if defined, or rely on .testimonial-card img
 								loading="lazy"
+								// Removed inline styles
 							/>
 							<p
-								style={{
-									fontStyle: 'italic',
-									color: 'var(--secondary-text-color, #555)',
-									marginBottom: 16,
-								}}
+								className="quote" // Use CSS class
+								// Removed inline styles
 							>
 								&ldquo;{t.quote}&rdquo;
 							</p>
-							<div style={{ fontWeight: 600, color: 'var(--text-color, #222)' }}>{t.name}</div>
-							<div style={{ fontSize: '0.95rem', color: 'var(--secondary-text-color, #888)' }}>
+							<div className="name" /* Use CSS class */>{t.name}</div>
+							<div className="title-company" /* Use CSS class */>
 								{t.title}, {t.company}
 							</div>
 						</div>
