@@ -1,20 +1,23 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import About from './About'
 
 describe('About', () => {
   it('renders the About page with key sections', () => {
     act(() => {
       render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
+        <HelmetProvider> {/* Wrap with HelmetProvider */}
+          <MemoryRouter
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <About />
+          </MemoryRouter>
+        </HelmetProvider>
       )
     })
     expect(screen.getByText(/Design With Purpose/i)).toBeInTheDocument()
@@ -28,14 +31,16 @@ describe('About', () => {
   it('renders the Start a Project button', () => {
     act(() => {
       render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
+        <HelmetProvider> {/* Wrap with HelmetProvider */}
+          <MemoryRouter
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <About />
+          </MemoryRouter>
+        </HelmetProvider>
       )
     })
     expect(screen.getAllByRole('button', { name: /start a project/i })[0]).toBeInTheDocument()
@@ -44,14 +49,16 @@ describe('About', () => {
   it('opens the modal with contact form when Start a Project is clicked', () => {
     act(() => {
       render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
+        <HelmetProvider> {/* Wrap with HelmetProvider */}
+          <MemoryRouter
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <About />
+          </MemoryRouter>
+        </HelmetProvider>
       )
     })
     act(() => {
@@ -65,14 +72,16 @@ describe('About', () => {
   it('closes the modal when overlay is clicked', () => {
     act(() => {
       render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
+        <HelmetProvider> {/* Wrap with HelmetProvider */}
+          <MemoryRouter
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <About />
+          </MemoryRouter>
+        </HelmetProvider>
       )
     })
     act(() => {
@@ -89,14 +98,16 @@ describe('About', () => {
   it('closes the modal when close button is clicked', () => {
     act(() => {
       render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <About />
-        </MemoryRouter>
+        <HelmetProvider> {/* Wrap with HelmetProvider */}
+          <MemoryRouter
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <About />
+          </MemoryRouter>
+        </HelmetProvider>
       )
     })
     act(() => {

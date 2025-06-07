@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import About from "../Pages/About/About";
-/* import Blog from "../Pages/Blog/Blog"; */
 import Projects from "../Pages/Projects/Projects";
-/* import Resources from "../Pages/Resources/Resources"; */
 import Contact from "../Pages/Contact/Contact";
 import Homepage from "../Pages/Home/Homepage";
 import NotFound from "../Pages/NotFound/NotFound";
-/* import ThemeButton from "../ThemeButton/ThemeButton"; */
 import { useState } from "react";
 import themeStyles from "../Theme/themeStyles";
 import CaseStudyWrapper from "../Pages/Projects/Case Studies/CaseStudyWrapper";
@@ -22,12 +20,20 @@ function App() {
   let localTheme = localStorage.getItem("__theme");
   const [theme, setTheme] = useState(localTheme);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    const metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", themeStyles[theme].backgroundColor);
+    }
+  }, [theme]);
+
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
     localStorage.setItem("__theme", newTheme);
   }
 
-  usePageTracking();
+  usePageTracking(); // Google Analytics
 
   return (
     <div
@@ -38,14 +44,17 @@ function App() {
         color: themeStyles[theme].textColor,
       }}
     >
-      <main>
-        <Header theme={theme} changeTheme={changeTheme} />
+      <Helmet>
+        <title>Kainen White | Product & UX Designer</title>
+        <meta name="description" content="The design portfolio of Kainen White, a product and UX designer creating user-centered digital experiences that drive business growth. View case studies." />
+        {/* Add other global meta tags here if needed */}
+      </Helmet>
+      <Header theme={theme} changeTheme={changeTheme} />
+      <main id="main-content">
         <Routes>
-          {/* <Route path="/resources" element={<Resources theme={theme} />} /> */}
           <Route path="/projects" element={<Projects theme={theme} />} />
           <Route path="/projects/:caseStudyId" element={<CaseStudyWrapper />} />
           <Route path="/about" element={<About theme={theme} />} />
-          {/* <Route path="/blog" element={<Blog theme={theme} />} /> */}
           <Route path="/contact" element={<Contact theme={theme} />} />
           <Route path="/" element={<Homepage theme={theme} />} />
           {/* 404 Catch-all route - must be last */}

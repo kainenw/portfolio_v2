@@ -1,10 +1,41 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
 import './CaseStudy.css';
 
+// Helper function to render list items
+const renderListItems = (items, type) => {
+  if (!items || items.length === 0) return <p>No {type} information available.</p>;
+  return (
+    <ul>
+      {items.map((item, index) => <li key={index}>{item}</li>)}
+    </ul>
+  );
+};
 
-function CaseStudy({ title, description, problem, process, solution, technologies, image, businessImpact, role, team, processDocs, testimonials, prototypeEmbed }) {
+// Helper function to render testimonials
+const renderTestimonials = (testimonials) => {
+  if (!testimonials || testimonials.length === 0) return null;
+  return (
+    <div className="testimonials-section">
+      <h3>Testimonials</h3>
+      {testimonials.map((testimonial, index) => (
+        <blockquote key={index} className="testimonial-item">
+          <p>{`"${testimonial.quote}"`}</p>
+          <footer>
+            {testimonial.photo && <img src={testimonial.photo} alt={`${testimonial.name}, ${testimonial.title}`} className="testimonial-photo" loading="lazy" />}
+            <cite>
+              <strong>{testimonial.name}</strong>, {testimonial.title} at {testimonial.company}
+            </cite>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  );
+};
+
+function CaseStudy({ title, description, problem, process, solution, technologies, image, businessImpact, role, team, processDocs, testimonials, prototypeEmbed, links, galleryImages }) {
   const navigate = useNavigate();
   
   // Convert businessImpact strings to MetricsDisplay format
@@ -52,12 +83,7 @@ function CaseStudy({ title, description, problem, process, solution, technologie
   return (
     <div className="case-study">
       <button onClick={() => navigate('/projects')} className="back-to-projects-btn">
-        <span className="back-icon" aria-hidden="true" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '0.5em' }}>
-          {/* Simple left arrow SVG icon */}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ verticalAlign: 'middle' }}>
-            <path d="M12.5 15L8 10L12.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </span>
+        <ArrowLeft size={20} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
         Back to All Projects
       </button>
       <h1>{title}</h1>
@@ -68,14 +94,14 @@ function CaseStudy({ title, description, problem, process, solution, technologie
         </div>
       )}
       <p className="case-study-description">{description}</p>
-      {/* Quantified Business Impact */}
+      
       {businessImpact && businessMetrics && (
         <div className="case-study-section">
           <h2>Business Impact</h2>
           <MetricsDisplay metrics={businessMetrics} layout="row" />
         </div>
       )}
-      {/* Role & Team */}
+      
       {(role || team) && (
         <div className="case-study-section">
           <h2>Role & Team</h2>
@@ -83,75 +109,64 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           {team && <p><strong>Team:</strong> {team}</p>}
         </div>
       )}
-      {/* Problem */}
+      
       <div className="case-study-section">
-        <h2>Problem</h2>
-        <ul>
-          {problem && problem.map((item, idx) => <li key={idx}>{item}</li>)}
-        </ul>
+        <h2>The Problem</h2>
+        {renderListItems(problem, 'problem')}
       </div>
-      {/* Process */}
+      
       <div className="case-study-section">
-        <h2>Process</h2>
-        <ul>
-          {process && process.map((item, idx) => <li key={idx}>{item}</li>)}
-        </ul>
-        {/* Detailed process documentation (optional) */}
+        <h2>The Process</h2>
+        {renderListItems(process, 'process')}
         {processDocs && (
           <div className="case-study-process-docs">
-            {processDocs}
+            {typeof processDocs === 'function' ? processDocs() : processDocs}
           </div>
         )}
       </div>
-      {/* Solution */}
-      <div className="case-study-section">
-        <h2>Solution</h2>
-        <ul>
-          {solution && solution.map((item, idx) => <li key={idx}>{item}</li>)}
-        </ul>
-      </div>
-      {/* Technologies */}
-      {technologies && (
-        <div className="case-study-section">
-          <h2>Technologies</h2>
-          <div className="case-study-technologies">
-            {technologies.map((tech, idx) => (
-              <span key={idx} className="case-study-tech-tag">{tech}</span>
-            ))}
-          </div>
-        </div>
-      )}
-      {/* Client Testimonials */}
-      {testimonials && testimonials.length > 0 && (
-        <div className="case-study-section">
-          <h2>Client Testimonial{testimonials.length > 1 ? 's' : ''}</h2>
-          <div className="case-study-testimonials">
-            {testimonials.map((t, idx) => (
-              <div key={idx} className="testimonial-block">
-                <blockquote>“{t.quote}”</blockquote>
-                <div className="testimonial-client">
-                  {t.photo && <img src={t.photo} alt={t.name + ' photo'} className="testimonial-photo" />}
-                  <span className="testimonial-name">{t.name}</span>
-                  {t.company && <span className="testimonial-company">{t.company}</span>}
-                  {t.title && <span className="testimonial-title">{t.title}</span>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      {/* Interactive Prototype */}
+
       {prototypeEmbed && (
-        <div className="case-study-section">
+        <div className="case-study-section" id="interactive-prototype">
           <h2>Interactive Prototype</h2>
           <div className="case-study-prototype-embed" style={{margin: '1.5rem 0'}}>
-            {/* Accepts a string of HTML/iframe or a React node */}
             {typeof prototypeEmbed === 'string' ? (
               <div dangerouslySetInnerHTML={{ __html: prototypeEmbed }} />
             ) : prototypeEmbed}
           </div>
         </div>
       )}
+      
+      <div className="case-study-section">
+        <h2>The Solution</h2>
+        {renderListItems(solution, 'solution')}
+      </div>
+      
+      {technologies && technologies.length > 0 && (
+        <div className="case-study-section">
+          <h2>Technologies Used</h2>
+          <ul className="technologies-list">
+            {technologies.map((tech, index) => <li key={index}>{tech}</li>)}
+          </ul>
+        </div>
+      )}
+      
+      {renderTestimonials(testimonials)}
+
+      {links && (links.demo || links.github) && (
+        <div className="case-study-section cta-section" id="project-links" style={{ textAlign: 'center', marginTop: '3rem', padding: '2rem', background: 'var(--bg-color-non-contrast)', borderRadius: '8px' }}>
+          <h2>Explore Further</h2>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+            {links.demo && <a href={links.demo} target="_blank" rel="noopener noreferrer" className="cta-btn primary">View Live Demo</a>}
+            {links.github && <a href={links.github} target="_blank" rel="noopener noreferrer" className="cta-btn secondary">View on GitHub</a>}
+          </div>
+        </div>
+      )}
+
+      <div className="case-study-gallery">
+        {galleryImages && galleryImages.map((image, index) => (
+          <img key={index} src={image} alt={`${title} gallery ${index + 1}`} loading="lazy" />
+        ))}
+      </div>
     </div>
   );
 }

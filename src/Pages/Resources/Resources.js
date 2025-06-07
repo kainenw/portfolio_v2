@@ -12,7 +12,7 @@ function Resources() {
       </div>
 
       <div className="info-group contrast-section">
-        <img className="icon" src={require("../../img/mdn.png")} alt="mdn logo" />
+        <img className="icon" src={require("../../img/mdn.webp")} alt="mdn logo" loading="lazy" />
         <div>
           <h3>Master the Fundamentals:</h3>
           <p>Bookmark the best documentation for:</p>
@@ -44,8 +44,9 @@ function Resources() {
       <div className="info-group non-contrast-section">
         <img
           className="icon"
-          src={require("../../img/nodejs.png")}
+          src={require("../../img/nodejs.webp")}
           alt="nodejs logo"
+          loading="lazy"
         />
         <div>
           <h3>Popular Frameworks & Libraries:</h3>
@@ -75,7 +76,7 @@ function Resources() {
         </div>
       </div>
       <div className="info-group contrast-section">
-        <img src={require("../../img/figma.png")} alt="figma logo" />
+        <img className="icon" src={require("../../img/figma.webp")} alt="figma logo" loading="lazy" />
         <div>
           <h3>Design Powerhouses:</h3>
           <ul>
@@ -92,7 +93,7 @@ function Resources() {
         </div>
       </div>
       <div className="info-group non-contrast-section">
-        <img className="icon" src={require("../../img/git.png")} alt="Git logo" />
+        <img className="icon" src={require("../../img/git.webp")} alt="Git logo" loading="lazy" />
         <div>
           <h3>Collaboration and Version Control</h3>
           <ul>
@@ -106,7 +107,7 @@ function Resources() {
         </div>
       </div>
       <div className="info-group contrast-section">
-        <img className="icon" src={require("../img/mdn.png")} alt="MDN logo" />
+        <img className="icon" src={require("../../img/mdn.webp")} alt="MDN logo" loading="lazy" />
         <div>
           <h3>Free Learning Paths</h3>
           <p>
@@ -133,8 +134,9 @@ function Resources() {
       <div className="info-group non-contrast-section">
         <img
           className="icon"
-          src={require("../../img/dev.png")}
-          alt="Lorem Ipsum or whatever"
+          src={require("../../img/dev.webp")}
+          alt="Smashing Magazine logo"
+          loading="lazy"
         />
         <div>
           <h3>Common Web Development Challenges (and How to Overcome Them)</h3>

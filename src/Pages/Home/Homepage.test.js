@@ -1,18 +1,21 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import Homepage from './Homepage'
 
 describe('Homepage', () => {
   it('renders hero section with headline and actions', () => {
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <Homepage />
-      </MemoryRouter>
+      <HelmetProvider> {/* Wrap with HelmetProvider */}
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <Homepage />
+        </MemoryRouter>
+      </HelmetProvider>
     )
     expect(screen.getByRole('heading', { level: 1, name: /user-centric/i })).toBeInTheDocument()
     expect(screen.getByText(/passionate designer/i)).toBeInTheDocument()
@@ -29,14 +32,16 @@ describe('Homepage', () => {
 
   it('renders featured projects section and at least one project card', () => {
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <Homepage />
-      </MemoryRouter>
+      <HelmetProvider> {/* Wrap with HelmetProvider */}
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <Homepage />
+        </MemoryRouter>
+      </HelmetProvider>
     )
     expect(screen.getByRole('heading', { level: 2, name: /featured projects/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /view all projects/i })).toHaveAttribute('href', '/projects')
@@ -47,14 +52,16 @@ describe('Homepage', () => {
 
   it('renders homepage CTA section with correct text and button', () => {
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <Homepage />
-      </MemoryRouter>
+      <HelmetProvider> {/* Wrap with HelmetProvider */}
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <Homepage />
+        </MemoryRouter>
+      </HelmetProvider>
     )
     expect(screen.getByRole('heading', { level: 2, name: /ready to build/i })).toBeInTheDocument()
     expect(screen.getByText(/i'd love to hear from you/i)).toBeInTheDocument()

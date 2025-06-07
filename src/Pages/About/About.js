@@ -1,10 +1,11 @@
 import '../_Pages.css'
 import React, { useState } from 'react';
-import headshot from '../../img/headshot.png';
-import design from '../../img/design.png';
-import dev from '../../img/dev.png';
-import designthinking from '../../img/designthinking.png';
-import portfolio from '../../img/projects/portfolio.png';
+import { Helmet } from 'react-helmet-async';
+import headshot from '../../img/headshot.webp';
+import design from '../../img/design.webp';
+import dev from '../../img/dev.webp';
+import designthinking from '../../img/designthinking.webp';
+import portfolio from '../../img/projects/portfolio.webp';
 import DownloadResumeButton from '../../Components/DownloadResumeButton/DownloadResumeButton';
 
 function About() {
@@ -32,14 +33,50 @@ function About() {
     </form>
   );
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kainen White",
+    "jobTitle": "Product & UX Designer",
+    "url": "https://www.yourdomain.com/about", // Replace with actual URL
+    "sameAs": [
+      "https://www.linkedin.com/in/yourprofile" // Replace with actual LinkedIn profile
+      // Add other relevant professional profiles here (e.g., GitHub, Dribbble)
+    ],
+    "image": "https://www.yourdomain.com/headshot.jpg" // Replace with actual headshot URL
+  };
+
   return (
-    <div className="About Page">
+    <>
+      <Helmet>
+        <title>About | Kainen White</title>
+        <meta name="description" content="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered." />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="About | Kainen White" />
+        <meta property="og:description" content="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered." />
+        <meta property="og:url" content="https://www.yourdomain.com/about" /> {/* Replace with actual URL */}
+        <meta property="og:image" content="https://www.yourdomain.com/og-image-about.png" /> {/* Replace with actual image URL */}
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About | Kainen White" />
+        <meta name="twitter:description" content="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered." />
+        <meta name="twitter:image" content="https://www.yourdomain.com/twitter-image-about.png" /> {/* Replace with actual image URL */}
+
+        {/* Schema.org JSON-LD for Person */}
+        <script type="application/ld+json">
+          {JSON.stringify(personSchema)}
+        </script>
+      </Helmet>
+      <div className="About Page">
       <div className="non-contrast-section hero" style={{ position: 'relative' }}>
         <h1>Design With Purpose. Built for Results.</h1>
         <h2>User-centered thinking meets measurable impact.</h2>
         
         <div className="info-group">
-          <img src={headshot} alt="Headshot of Kainen" />
+          <img src={headshot} alt="Headshot of Kainen" loading="lazy" />
           <div>
             {/* <h3>About Me</h3> */}
             <p>
@@ -87,7 +124,7 @@ function About() {
         <div className="services-grid">
           <div className="service-card">
             <div className="service-icon">
-              <img className="icon" src={designthinking} alt="UX Design icon" />
+              <img className="icon" src={designthinking} alt="UX Design icon" loading="lazy" />
             </div>
             <h3>UX/UI Design</h3>
             <p>User research, wireframing, prototyping, and visual design that creates intuitive and engaging experiences.</p>
@@ -101,7 +138,7 @@ function About() {
           
           <div className="service-card">
             <div className="service-icon">
-              <img className="icon" src={dev} alt="Development icon" />
+              <img className="icon" src={dev} alt="Development icon" loading="lazy" />
             </div>
             <h3>Frontend Development</h3>
             <p>Responsive, accessible websites and applications built with modern technologies and best practices.</p>
@@ -115,7 +152,7 @@ function About() {
           
           <div className="service-card">
             <div className="service-icon">
-              <img className="icon" src={design} alt="Consultation icon" />
+              <img className="icon" src={design} alt="Consultation icon" loading="lazy" />
             </div>
             <h3>Design Consultation</h3>
             <p>Strategic guidance to improve your digital presence and user experience through expert analysis and recommendations.</p>
@@ -168,56 +205,11 @@ function About() {
           </div>
         </div>
       </div>
-
-      <div className="contrast-section">
-        <h2>My Work</h2>
-        <div className="info-group">
-          <img className="icon" src={design} alt="project 2" />
-          <div>
-            <ul>
-              <h3>Design</h3>
-              <li>
-                Voting Preparation Service: Intuitive app to guide voters through the election process, promoting
-                engagement.
-              </li>
-              <li>
-                Portfolio v2: Redesign of my personal portfolio, showcasing my best work and demonstrating my evolving
-                design skills.
-              </li>
-              <li>
-                Sushi App: User-friendly interface designed to simplify the food ordering process for a local
-                restaurant.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="info-group">
-          <img className="icon" src={dev} alt="programming icon" />
-          <div>
-            <ul>
-              <h3>Development</h3>
-              <li>Portfolio v2: Building the redesign for my portfolio page, including several portfolio projects.</li>
-              <li>
-                Reddit App: Streamlined Reddit browsing experience for improved efficiency and enjoyment, built with
-                React and Redux.
-              </li>
-              <li>
-                Tonnetz Visualizer: Interactive application that visualizes harmonic concepts for musicians, enhancing
-                their understanding.
-              </li>
-              <li>
-                Savings Calculator: Financial planning tool empowering users to achieve their financial goals, built
-                with javascript and jquery.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <div>
         <div className="non-contrast-section">
           <h2>Skills:</h2>
           <div className="info-group">
-            <img className="icon" src={designthinking} alt="design icon" />
+            <img className="icon" src={designthinking} alt="design icon" loading="lazy" />
             <div>
               <h3>Design Thinking Process</h3>
               <ul>
@@ -233,7 +225,7 @@ function About() {
             </div>
           </div>
           <div className="info-group">
-            <img className="icon" src={dev} alt="programming icon" />
+            <img className="icon" src={dev} alt="programming icon" loading="lazy" />
             <div>
               <h3>Front-End</h3>
               <ul>
@@ -286,7 +278,7 @@ function About() {
         <div className="contrast-section">
           <h2>Experience:</h2>
           <div className="info-group">
-            <img className="icon" src={portfolio} alt="portfolio icon" />
+            <img className="icon" src={portfolio} alt="portfolio icon" loading="lazy" />
             <div>
               <ul>
                 <li>
@@ -376,6 +368,7 @@ function About() {
       </div>
     )}
     </div>
+    </>
   )
 }
 export default About

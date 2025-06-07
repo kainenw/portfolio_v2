@@ -4,7 +4,7 @@ export const designProjects = [
     {
       title: "Voting App",
       description: "An intuitive app designed to guide users through the voting process, increasing engagement and confidence in elections.",
-      image: require('../img/projects/vote.png'),
+      image: require('../img/projects/vote.webp'),
       problem: [
         "Voters often find the election process confusing and disengaging",
         "Low participation rates due to complexity",
@@ -31,7 +31,7 @@ export const designProjects = [
       team: "2 designers, 3 developers, 1 project manager",
       processDocs: (
         <div>
-          <img src={require('../img/projects/vote.png')} alt="Wireframe" style={{maxWidth: 300}} />
+          <img src={require('../img/projects/vote.webp')} alt="Wireframe" style={{maxWidth: 300}} />
           <p>Early wireframe showing the step-by-step voting flow. <a href="https://www.figma.com/file/xyz" target="_blank" rel="noopener noreferrer">View Figma prototype</a></p>
         </div>
       ),
@@ -45,7 +45,7 @@ export const designProjects = [
           photo: "https://randomuser.me/api/portraits/women/44.jpg"
         }
       ],
-      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/xyz" allowfullscreen></iframe>`,
+      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/xyz" allowfullscreen loading="lazy"></iframe>`,
       links: {
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vQuML0B_NIOFOHzWFC7PDCfCe-cVadFESsRBgGD1QGkSmDoSO_YdG6I40m__aZV42uH5bJPLwoymawz/embed?start=false&loop=false&delayms=3000",
         caseStudy: "/projects/voting-app-case-study"
@@ -54,7 +54,7 @@ export const designProjects = [
     {
       title: "Portfolio v2",
       description: "A modern, responsive portfolio that highlights my skills and projects, improving engagement with potential clients and employers.",
-      image: require('../img/projects/portfolio.png'),
+      image: require('../img/projects/portfolio.webp'),
       problem: [
         "Previous portfolio did not effectively showcase growth",
         "Failed to highlight best work as designer and developer",
@@ -81,7 +81,7 @@ export const designProjects = [
       team: "Individual project (with feedback from 2 mentors)",
       processDocs: (
         <div>
-          <img src={require('../img/projects/portfolio.png')} alt="Portfolio wireframe" style={{maxWidth: 300}} />
+          <img src={require('../img/projects/portfolio.webp')} alt="Portfolio wireframe" style={{maxWidth: 300}} />
           <p>Wireframe for the homepage redesign. <a href="https://www.figma.com/file/abc" target="_blank" rel="noopener noreferrer">View Figma prototype</a></p>
         </div>
       ),
@@ -95,7 +95,7 @@ export const designProjects = [
           photo: "https://randomuser.me/api/portraits/men/32.jpg"
         }
       ],
-      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/abc" allowfullscreen></iframe>`,
+      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/abc" allowfullscreen loading="lazy"></iframe>`,
       links: {
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vQgeh1fdcX2zunOIxK9VxjGgWX5kHayIw13Eo9_m0ptGNNgRgYTvJmsjl_ru0ZMavnQC7LzevOV29AZ/embed?start=false&loop=false&delayms=3000",
         caseStudy: "/projects/portfolio-v2-case-study"
@@ -104,7 +104,7 @@ export const designProjects = [
     {
       title: "Sushi App",
       description: "A user-friendly app that simplifies the food ordering process, improving customer satisfaction and order accuracy.",
-      image: require('../img/projects/sushi.png'),
+      image: require('../img/projects/sushi.webp'),
       problem: [
         "Ordering food online was confusing and inefficient",
         "Poor user experience at local restaurants",
@@ -131,7 +131,7 @@ export const designProjects = [
       team: "1 designer, 2 developers, 1 restaurant manager",
       processDocs: (
         <div>
-          <img src={require('../img/projects/sushi.png')} alt="Sushi App wireframe" style={{maxWidth: 300}} />
+          <img src={require('../img/projects/sushi.webp')} alt="Sushi App wireframe" style={{maxWidth: 300}} />
           <p>Annotated wireframe for the mobile ordering flow. <a href="https://www.figma.com/file/def" target="_blank" rel="noopener noreferrer">View Figma prototype</a></p>
         </div>
       ),
@@ -145,7 +145,7 @@ export const designProjects = [
           photo: "https://randomuser.me/api/portraits/women/68.jpg"
         }
       ],
-      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/def" allowfullscreen></iframe>`,
+      prototypeEmbed: `<iframe style="border:1px solid #ccc;border-radius:8px" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/def" allowfullscreen loading="lazy"></iframe>`,
       links: {
         demo: "https://docs.google.com/presentation/d/e/2PACX-1vRcI5sv8eHU2oQbEUZTQFbUkB74zvDGRAK0zn850VpRaTmKhODP61ik8ePNw9PnqV1hRPQlLQpgHGyP/embed?start=false&loop=false&delayms=3000",
         caseStudy: "/projects/sushi-app-case-study"
@@ -157,7 +157,7 @@ export const developmentProjects = [
     {
       title: "Portfolio v2 (Development)",
       description: "A maintainable, scalable portfolio site with improved performance and developer experience.",
-      image: require('../img/projects/portfolio.png'),
+      image: require('../img/projects/portfolio.webp'),
       problem: [
         "Previous portfolio site was not maintainable",
         "Lacked modern features and performance",
@@ -184,7 +184,7 @@ export const developmentProjects = [
     {
       title: "Reddit App",
       description: "A custom Reddit client that improves browsing efficiency and user enjoyment with a streamlined interface.",
-      image: require('../img/projects/reddit.png'),
+      image: require('../img/projects/reddit.webp'),
       problem: [
         "Reddit browsing was cluttered and inefficient",
         "Power users needed better navigation",
@@ -238,7 +238,7 @@ export const developmentProjects = [
     {
       title: "Savings Calculator",
       description: "A financial tool that empowers users to set and achieve their savings targets with clear visualization and planning.",
-      image: require('../img/projects/scalc.png'),
+      image: require('../img/projects/scalc.webp'),
       problem: [
         "Users needed simple savings goal planning",
         "Lack of clear visualization of financial progress",

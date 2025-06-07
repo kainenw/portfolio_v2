@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Deck from '../../Components/Deck/Deck';
 import MetricsDisplay from '../../Components/MetricsDisplay/MetricsDisplay';
 import CTAButton from '../../Components/CTAButton/CTAButton';
@@ -64,6 +65,31 @@ const portfolioMetrics = [
 function Homepage() {
 	return (
 		<div className="Homepage Page">
+			<Helmet>
+				<title>Kainen White | Product & UX Designer</title>
+				<meta
+					name="description"
+					content="The design portfolio of Kainen White, a product and UX designer creating user-centered digital experiences that drive business growth. View case studies."
+				/>
+				{/* Open Graph tags */}
+				<meta property="og:title" content="Kainen White | Product & UX Designer" />
+				<meta
+					property="og:description"
+					content="The design portfolio of Kainen White, a product and UX designer creating user-centered digital experiences that drive business growth. View case studies."
+				/>
+				<meta property="og:url" content="https://www.kainenwhite.com/" /> {/* Replace with actual domain */}
+				<meta property="og:image" content="https://www.kainenwhite.com/og-image.png" /> {/* Replace with actual image URL */}
+				<meta property="og:type" content="website" />
+				{/* Twitter Card tags */}
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="Kainen White | Product & UX Designer" />
+				<meta
+					name="twitter:description"
+					content="The design portfolio of Kainen White, a product and UX designer creating user-centered digital experiences that drive business growth. View case studies."
+				/>
+				<meta name="twitter:image" content="https://www.kainenwhite.com/twitter-image.png" /> {/* Replace with actual image URL */}
+				{/* Add other homepage-specific meta tags here if needed */}
+			</Helmet>
 			<div className="hero non-contrast-section" id="hero">
 				<Sparkle size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
 				<h1>
@@ -133,6 +159,7 @@ function Homepage() {
 									marginBottom: 16,
 									border: '3px solid var(--accent-color, #007acc)',
 								}}
+								loading="lazy"
 							/>
 							<p
 								style={{

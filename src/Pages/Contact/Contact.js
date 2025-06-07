@@ -1,7 +1,7 @@
 import '../_Pages.css';
 import React, { useState } from "react";
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
-import headshot from '../../img/headshot.png';
+import headshot from '../../img/headshot.webp';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
@@ -182,7 +182,7 @@ function Contact() {
       </div>
       <p>I&apos;m always open to discussing new projects and opportunities.</p>
       <div className="info-group contrast-section">
-        <img src={headshot} alt="Headshot of Kainen" />
+        <img src={headshot} alt="Headshot of Kainen" loading="lazy" />
         <div>
           <h3>Let&apos;s Build Something Amazing Together!</h3>
           Interested in collaborating on design-focused projects? Reach me on LinkedIn, GitHub, and Twitter.
