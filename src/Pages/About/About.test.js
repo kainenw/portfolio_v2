@@ -22,7 +22,7 @@ describe('About', () => {
     })
     expect(screen.getByText(/Design With Purpose/i)).toBeInTheDocument()
     expect(screen.getByText(/User-centered thinking meets measurable impact/i)).toBeInTheDocument()
-    expect(screen.getByText(/My Work/i)).toBeInTheDocument()
+    expect(screen.getByText(/Services I Offer/i)).toBeInTheDocument()
     expect(screen.getByText(/Skills:/i)).toBeInTheDocument()
     expect(screen.getByText(/Experience:/i)).toBeInTheDocument()
     expect(screen.getByText(/I'm Kainen/i)).toBeInTheDocument()

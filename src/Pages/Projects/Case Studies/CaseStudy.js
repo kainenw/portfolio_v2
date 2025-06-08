@@ -35,63 +35,6 @@ const renderTestimonials = (testimonials) => {
   );
 };
 
-<<<<<<< HEAD
-
-// Helper to parse business impact into metrics for MetricsDisplay (from /Pages/CaseStudy.js)
-const parseBusinessImpactToMetrics = (impacts) => {
-  if (!impacts || !Array.isArray(impacts)) return null;
-  return impacts.map((impact) => {
-    const percentMatch = impact.match(/(\d+\.?\d*)%/);
-    const ratingMatch = impact.match(/(\d+\.?\d*)\s*\/\s*(\d+)/);
-    const timeMatch = impact.match(/(\d+):(\d+)/);
-    const numberMatch = impact.match(/(\d+\.?\d*)/);
-    let value, type, icon = 'increase';
-    if (percentMatch) {
-      value = parseFloat(percentMatch[1]);
-      type = 'percentage';
-      icon = impact.toLowerCase().includes('increase') || impact.toLowerCase().includes('improve') ? 'increase' : 'target';
-    } else if (ratingMatch) {
-      value = parseFloat(ratingMatch[1]);
-      type = 'rating';
-      icon = 'award';
-    } else if (timeMatch) {
-      value = `${timeMatch[1]}:${timeMatch[2]}`;
-      type = 'time';
-      icon = 'target';
-    } else if (numberMatch) {
-      value = parseFloat(numberMatch[1]);
-      type = 'number';
-      icon = 'users';
-    }
-    return {
-      value,
-      type,
-      label: impact,
-      icon
-    };
-  });
-};
-
-function CaseStudy({
-  title,
-  description,
-  problem,
-  process,
-  solution,
-  technologies,
-  image,
-  businessImpact,
-  role,
-  team,
-  processDocs,
-  testimonials,
-  prototypeEmbed,
-  links,
-  galleryImages
-}) {
-  const navigate = useNavigate();
-  const businessMetrics = parseBusinessImpactToMetrics(businessImpact);
-=======
 function CaseStudy({ title, description, problem, process, solution, technologies, image, businessImpact, role, team, processDocs, testimonials, prototypeEmbed, links, galleryImages }) {
   const navigate = useNavigate();
   
@@ -137,7 +80,6 @@ function CaseStudy({ title, description, problem, process, solution, technologie
 
   const businessMetrics = parseBusinessImpactToMetrics(businessImpact);
 
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
   return (
     <div className="case-study">
       <button onClick={() => navigate('/projects')} className="back-to-projects-btn">
@@ -145,30 +87,21 @@ function CaseStudy({ title, description, problem, process, solution, technologie
         Back to All Projects
       </button>
       <h1>{title}</h1>
-<<<<<<< HEAD
-=======
 
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       {image && (
         <div className="case-study-image">
           <img src={image} alt={title} />
         </div>
       )}
       <p className="case-study-description">{description}</p>
-<<<<<<< HEAD
-=======
       
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       {businessImpact && businessMetrics && (
         <div className="case-study-section">
           <h2>Business Impact</h2>
           <MetricsDisplay metrics={businessMetrics} layout="row" />
         </div>
       )}
-<<<<<<< HEAD
-=======
       
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       {(role || team) && (
         <div className="case-study-section">
           <h2>Role & Team</h2>
@@ -176,18 +109,12 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           {team && <p><strong>Team:</strong> {team}</p>}
         </div>
       )}
-<<<<<<< HEAD
-=======
       
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       <div className="case-study-section">
         <h2>The Problem</h2>
         {renderListItems(problem, 'problem')}
       </div>
-<<<<<<< HEAD
-=======
       
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       <div className="case-study-section">
         <h2>The Process</h2>
         {renderListItems(process, 'process')}
@@ -197,10 +124,7 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           </div>
         )}
       </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       {prototypeEmbed && (
         <div className="case-study-section" id="interactive-prototype">
           <h2>Interactive Prototype</h2>
@@ -211,18 +135,12 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           </div>
         </div>
       )}
-<<<<<<< HEAD
-=======
       
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       <div className="case-study-section">
         <h2>The Solution</h2>
         {renderListItems(solution, 'solution')}
       </div>
-<<<<<<< HEAD
-=======
       
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       {technologies && technologies.length > 0 && (
         <div className="case-study-section">
           <h2>Technologies Used</h2>
@@ -231,13 +149,9 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           </ul>
         </div>
       )}
-<<<<<<< HEAD
-      {renderTestimonials(testimonials)}
-=======
       
       {renderTestimonials(testimonials)}
 
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       {links && (links.demo || links.github) && (
         <div className="case-study-section cta-section" id="project-links" style={{ textAlign: 'center', marginTop: '3rem', padding: '2rem', background: 'var(--bg-color-non-contrast)', borderRadius: '8px' }}>
           <h2>Explore Further</h2>
@@ -247,10 +161,7 @@ function CaseStudy({ title, description, problem, process, solution, technologie
           </div>
         </div>
       )}
-<<<<<<< HEAD
-=======
 
->>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
       <div className="case-study-gallery">
         {galleryImages && galleryImages.map((image, index) => (
           <img key={index} src={image} alt={`${title} gallery ${index + 1}`} loading="lazy" />

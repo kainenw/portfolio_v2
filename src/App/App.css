@@ -57,7 +57,6 @@ div:has(.App[data-theme="light"]) {
 .non-contrast-section {
   padding: 1.5rem;
   border-radius: 20px;
-  margin: 4rem 0;
 }
 
 .contrast-section {
