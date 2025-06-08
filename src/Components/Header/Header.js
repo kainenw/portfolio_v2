@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FolderOpen, User, Mail } from 'lucide-react'; // Import Mail icon
+import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
 import './Header.css';
 
 function Header(props) {
@@ -41,10 +42,10 @@ function Header(props) {
       </NavLink>
 
       {/* Contact CTA Button - Directly in App-header */}
-      <button onClick={handleContactClick} className="header-cta header-nav-item">
+      <CTAButton variant="primary" size="medium" className="header-nav-item">
         <Mail size={20} className="contact-icon" /> 
         <span className="contact-text">Contact Me</span>
-      </button>
+      </CTAButton>
 
       {/* Theme Toggle Button - Directly in App-header */}
       <button

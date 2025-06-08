@@ -7,6 +7,7 @@ import dev from '../../img/dev.webp';
 import designthinking from '../../img/designthinking.webp';
 import portfolio from '../../img/projects/portfolio.webp';
 import DownloadResumeButton from '../../Components/DownloadResumeButton/DownloadResumeButton';
+import CTAButton from '../../Components/CTAButton/CTAButton';
 
 function About() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -84,33 +85,9 @@ function About() {
             </p>
           </div>
         </div>
-        <button
-          className="contrast-button tab-button active"
-          style={{
-            background: 'linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3))',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '26px',
-            padding: '0.75rem 1.5rem',
-            margin: '0 auto',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-            transition: 'background 0.2s, transform 0.2s'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'linear-gradient(135deg, var(--accent-hover-color, #005fa3), var(--accent-color, #007acc))';
-            e.target.style.transform = 'translateY(-2px) scale(1.03)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3))';
-            e.target.style.transform = 'translateY(0) scale(1)';
-          }}
-          onClick={() => setModalOpen(true)}
-        >
+        <CTAButton variant="primary" size="medium" className="tab-button active" onClick={() => setModalOpen(true)}>
           Start a Project
-        </button>
+        </CTAButton>
         
         {/* Download Resume Button in Hero Section */}
         <div style={{ marginTop: '1rem' }}>

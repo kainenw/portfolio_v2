@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Card.css';
+import CTAButton from '../CTAButton/CTAButton';
 
 function Card({ image, title, description, actions = [], dataTestId }) {
   const navigate = useNavigate();
@@ -18,25 +19,29 @@ function Card({ image, title, description, actions = [], dataTestId }) {
             const isInternal = action.href.startsWith('/') && !action.newTab;
             if (isInternal) {
               return (
-                <button
+                <CTAButton
                   key={idx}
-                  className="card-action-btn"
+                  variant="primary"
+                  size="medium"
                   onClick={() => navigate(action.href)}
+                  className="card-action-btn"
                 >
                   {action.label}
-                </button>
+                </CTAButton>
               );
             }
             return (
-              <a
+              <CTAButton
                 key={idx}
                 href={action.href}
-                className="card-action-btn"
+                variant="secondary"
+                size="medium"
                 target={action.newTab ? '_blank' : undefined}
                 rel={action.newTab ? 'noopener noreferrer' : undefined}
+                className="card-action-btn"
               >
                 {action.label}
-              </a>
+              </CTAButton>
             );
           })}
         </div>
