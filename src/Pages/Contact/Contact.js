@@ -90,6 +90,7 @@ function Contact() {
       <div className="non-contrast-section hero">
         <Mail size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
         <h1>Let&apos;s Connect!</h1>
+        <p>I&apos;m always open to discussing new projects and opportunities.</p>
       </div>
       <div className="contrast-section" style={{ maxWidth: 400, margin: "2rem auto" }}>
         {formStatus === 'success' && (
@@ -179,14 +180,6 @@ function Contact() {
             ) : 'Send Message'}
           </button>
         </form>
-      </div>
-      <p>I&apos;m always open to discussing new projects and opportunities.</p>
-      <div className="info-group contrast-section">
-        <img src={headshot} alt="Headshot of Kainen" loading="lazy" />
-        <div>
-          <h3>Let&apos;s Build Something Amazing Together!</h3>
-          Interested in collaborating on design-focused projects? Reach me on LinkedIn, GitHub, and Twitter.
-        </div>
       </div>
       <div className="non-contrast-section">
         <p>Thank you for visiting my portfolio! I&apos;m excited to continue learning and growing in the field.</p>

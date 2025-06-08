@@ -54,7 +54,7 @@ function Projects() {
       </div>
       {/* Design Projects Section */}
       {activeTab === 'design' && (
-        <div className="Design contrast-section no-side-padding">
+        <div className="Design contrast-section">
           <h2 className="left-right-padding">Design Projects</h2>
           <p className='left-right-padding'>User-centered design solutions focusing on research, iteration, and impact.</p>
           {/* Deck of Cards */}
@@ -67,7 +67,7 @@ function Projects() {
       )}
       {/* Development Projects Section */}
       {activeTab === 'development' && (
-        <div className="Development contrast-section no-side-padding">
+        <div className="Development contrast-section">
           <h2 className="left-right-padding">Development Projects</h2>
           <p className='left-right-padding'>Full-stack development work showcasing technical skills and problem-solving.</p>
           {/* Deck of Cards */}

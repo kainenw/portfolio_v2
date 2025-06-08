@@ -116,11 +116,17 @@
 }
 
 /* ---- CTA and Hero Action Buttons ---- */
+.hero {
+  margin: 30vh auto;
+}
+
 .hero-actions {
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center; /* Centers the buttons vertically */
 }
 .cta-btn {
   background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
@@ -287,6 +293,7 @@ button[type="submit"]:hover,
 
 /* ---- Page Layout ---- */
 .Page {
+  margin-top: 4rem;
   width: 100%;
   max-width: var(--site-max-width, 1200px);
   margin-left: auto;
@@ -615,10 +622,6 @@ iframe :not(.active) { display: none; }
   border: 1px solid var(--gray);
 }
 
-.App[data-theme="dark"] .Contact .contrast-section {
-  background: var(--dark-gray);
-  border-color: var(--gray);
-}
 
 @media (max-width: 600px) {
   .Contact .contrast-section {
