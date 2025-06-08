@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[dev]
+  framework = "#custom"
+  command = "npm start"
+  port = 3000
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[redirects]]
+  from = "/projects/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/projects/:caseStudyId"
+  to = "/index.html"
+  status = 200

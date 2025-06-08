@@ -1,0 +1,114 @@
+/* filepath: /Users/kainenwhite/Documents/GitHub/portfolio_v2/src/App/App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  text-align: left;
+  font-size: 18px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+div:has(.App[data-theme="dark"]) {
+  background-color: var(--off-black);
+  min-height: 100vh;
+}
+
+div:has(.App[data-theme="light"]) {
+  background-color: var(--light-gray);
+  min-height: 100vh;
+}
+
+.App {
+  padding: 1.5rem; /* Restored base padding */
+  margin: 0 auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw; /* Ensures it doesn't exceed viewport */
+  min-width: 0; /* Allows shrinking */
+}
+
+.App[data-theme="dark"] {
+  background-color: var(--dark-gray);
+  color: var(--off-white);
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
+}
+
+.App[data-theme="light"] {
+  background-color: var(--off-white);
+  color: var(--off-black);
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
+}
+
+.contrast-section,
+.non-contrast-section {
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin: 4rem 0;
+}
+
+.contrast-section {
+  border: 1px solid #404040;
+}
+
+.contrast-section.no-side-padding {
+  padding: 1.5rem 0 !important;
+}
+
+.App[data-theme="dark"] .contrast-section {
+  background-color: var(--off-black);
+  color: var(--off-white);
+}
+.App[data-theme="light"] .contrast-section {
+  background-color: var(--light-gray);
+  color: var(--off-black);
+}
+
+main {
+  width: 100%;
+  /* margin-left: auto; */ /* Keep removed */
+  /* margin-right: auto; */ /* Keep removed */
+  flex: 1;
+  flex-direction: column;
+  min-width: 0 !important; /* Keep this as it's often helpful */
+  box-sizing: border-box; /* Keep this */
+}
+
+@media (max-width: 480px) {
+  html, body, #root, .App, main {
+    font-size: 15px !important;
+  }
+
+  .App {
+    padding: 0.5rem !important; /* Restored padding */
+    min-width: 0 !important;
+    max-width: 100vw !important;
+  }
+
+  main {
+    width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  html, body, #root, .App, main {
+    font-size: 13px !important;
+  }
+  
+  /* Header a { 
+    font-size: 3rem; 
+  } */
+}

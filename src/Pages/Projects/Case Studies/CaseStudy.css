@@ -1,0 +1,242 @@
+/* Case Study Component Styles */
+.case-study {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Back to Projects Button */
+.back-to-projects-btn {
+  background: none;
+  border: 1px solid #007acc;
+  color: #007acc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.back-to-projects-btn:hover {
+  background-color: #007acc;
+  color: white;
+}
+
+.back-to-projects-btn:focus {
+  outline: 2px solid #007acc;
+  outline-offset: 2px;
+}
+
+.back-icon {
+  margin-right: 0.5rem;
+}
+
+/* Case Study Header */
+.case-study h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.case-study-description {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+/* Case Study Image */
+.case-study-image {
+  margin: 2rem 0 3rem;
+  text-align: center;
+}
+
+.case-study-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Case Study Sections */
+.case-study-section {
+  margin-bottom: 3rem;
+}
+
+.case-study-section h2 {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e8f4fd;
+  padding-bottom: 0.5rem;
+}
+
+.case-study-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.case-study-section li {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.case-study-section li::before {
+  content: "•";
+  color: #007acc;
+  font-weight: bold;
+  position: absolute;
+  left: 0.5rem;
+}
+
+.case-study-section p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Technologies */
+.case-study-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.case-study-tech-tag {
+  background-color: #e8f4fd;
+  color: #007acc;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #007acc;
+}
+
+/* Testimonials */
+.case-study-testimonials {
+  margin-top: 1.5rem;
+}
+
+.testimonial-block {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #007acc;
+}
+
+.testimonial-block blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #444;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.testimonial-client {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.testimonial-company,
+.testimonial-title {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.testimonial-company::before {
+  content: " - ";
+}
+
+/* Process Documentation */
+.case-study-process-docs {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+/* Prototype Embed */
+.case-study-prototype-embed {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.case-study-prototype-embed iframe {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .case-study {
+    padding: 1rem;
+  }
+  
+  .case-study h1 {
+    font-size: 2rem;
+  }
+  
+  .case-study-description {
+    font-size: 1.1rem;
+  }
+  
+  .case-study-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .case-study-technologies {
+    gap: 0.5rem;
+  }
+  
+  .testimonial-client {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-study {
+    padding: 0.5rem;
+  }
+  
+  .back-to-projects-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .case-study-section li {
+    padding-left: 1.5rem;
+  }
+  
+  .testimonial-block {
+    padding: 1.5rem;
+  }
+}

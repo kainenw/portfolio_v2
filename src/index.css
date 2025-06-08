@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+  --off-white: #DDDDDD;
+  --light-gray: #C0C0C0;
+  --gray: #404040;
+  --dark-gray: #171717;
+  --off-black: #101010;
+  
+  /* Design spec colors */
+  --light-bg: #F8F9FA;
+  --light-text: #343A40;
+  --dark-bg: #1A202C;
+  --dark-text: #F7FAFC;
+  --primary-accent: #005A9C;
+  --secondary-accent: #778899;
+  --cta-light: #007BFF;
+  --cta-dark: #4299E1;
+}
+
+* {
+  margin: 0;
+  font-family: 'Open Sans', 'nunito sans', 'avenir', sans-serif; /* Open Sans first per spec */
+}
+
+html {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    min-height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+html::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+/* Global button cursor style - ensure all buttons have pointer cursor */
+/* This rule must come last to override component-specific styles */
+body button,
+body .tab-button,
+body .ThemeMenu,
+body .carousel-nav,
+body input[type="button"],
+body input[type="submit"],
+body input[type="reset"],
+body [role="button"] {
+  cursor: pointer !important;
+}
