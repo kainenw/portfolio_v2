@@ -1,124 +1,89 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { act } from 'react'
-import { MemoryRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
-import About from './About'
+import { render, screen, fireEvent } from '@testing-library/react';
+import { act } from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import About from './About';
 
 describe('About', () => {
+  const renderAbout = () => {
+    render(
+      <HelmetProvider>
+        <MemoryRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <About />
+        </MemoryRouter>
+      </HelmetProvider>
+    );
+  };
+
   it('renders the About page with key sections', () => {
     act(() => {
-      render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
-            <About />
-          </MemoryRouter>
-        </HelmetProvider>
-      )
-    })
-    expect(screen.getByText(/Design With Purpose/i)).toBeInTheDocument()
-    expect(screen.getByText(/User-centered thinking meets measurable impact/i)).toBeInTheDocument()
-    expect(screen.getByText(/My Work/i)).toBeInTheDocument()
-    expect(screen.getByText(/Skills:/i)).toBeInTheDocument()
-    expect(screen.getByText(/Experience:/i)).toBeInTheDocument()
-    expect(screen.getByText(/I'm Kainen/i)).toBeInTheDocument()
-  })
+      renderAbout();
+    });
+    expect(screen.getByText(/Design With Purpose/i)).toBeInTheDocument();
+    expect(screen.getByText(/User-centered thinking meets measurable impact/i)).toBeInTheDocument();
+    expect(screen.getByText(/My Work/i)).toBeInTheDocument();
+    expect(screen.getByText(/Skills:/i)).toBeInTheDocument();
+    expect(screen.getByText(/Experience:/i)).toBeInTheDocument();
+    expect(screen.getByText(/I'm Kainen/i)).toBeInTheDocument();
+  });
 
   it('renders the Start a Project button', () => {
     act(() => {
-      render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
-            <About />
-          </MemoryRouter>
-        </HelmetProvider>
-      )
-    })
-    expect(screen.getAllByRole('button', { name: /start a project/i })[0]).toBeInTheDocument()
-  })
+      renderAbout();
+    });
+    // Support both getByRole and getAllByRole for robustness
+    const btn = screen.queryByRole('button', { name: /start a project/i }) || screen.getAllByRole('button', { name: /start a project/i })[0];
+    expect(btn).toBeInTheDocument();
+  });
 
   it('opens the modal with contact form when Start a Project is clicked', () => {
     act(() => {
-      render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
-            <About />
-          </MemoryRouter>
-        </HelmetProvider>
-      )
-    })
+      renderAbout();
+    });
     act(() => {
-      fireEvent.click(screen.getAllByRole('button', { name: /start a project/i })[0])
-    })
-    expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/your name/i)).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/your message/i)).toBeInTheDocument()
-  })
+      // Support both getByRole and getAllByRole for robustness
+      const btn = screen.queryByRole('button', { name: /start a project/i }) || screen.getAllByRole('button', { name: /start a project/i })[0];
+      fireEvent.click(btn);
+    });
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/your name/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/your message/i)).toBeInTheDocument();
+  });
 
   it('closes the modal when overlay is clicked', () => {
     act(() => {
-      render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
-            <About />
-          </MemoryRouter>
-        </HelmetProvider>
-      )
-    })
+      renderAbout();
+    });
     act(() => {
-      fireEvent.click(screen.getAllByRole('button', { name: /start a project/i })[0])
-    })
-    // Click the overlay (not the dialog)
-    const overlay = screen.getByRole('button', { name: /close modal by clicking outside/i })
+      const btn = screen.queryByRole('button', { name: /start a project/i }) || screen.getAllByRole('button', { name: /start a project/i })[0];
+      fireEvent.click(btn);
+    });
+    // Click the overlay (button element with "Close modal by clicking outside" label)
+    const overlay = screen.getByLabelText(/close modal by clicking outside/i);
     act(() => {
-      fireEvent.click(overlay)
-    })
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  })
+      fireEvent.click(overlay);
+    });
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
 
   it('closes the modal when close button is clicked', () => {
     act(() => {
-      render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
-            <About />
-          </MemoryRouter>
-        </HelmetProvider>
-      )
-    })
+      renderAbout();
+    });
     act(() => {
-      fireEvent.click(screen.getAllByRole('button', { name: /start a project/i })[0])
-    })
-    // Only select the close button inside the dialog
-    const dialog = screen.getByRole('dialog')
-    const closeBtn = screen.getByRole('button', { name: /^close$/i, hidden: true })
+      const btn = screen.queryByRole('button', { name: /start a project/i }) || screen.getAllByRole('button', { name: /start a project/i })[0];
+      fireEvent.click(btn);
+    });
+    // Get the close button specifically with aria-label="Close"
+    const closeBtn = screen.getByRole('button', { name: /^close$/i });
     act(() => {
-      fireEvent.click(closeBtn)
-    })
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  })
-})
+      fireEvent.click(closeBtn);
+    });
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+});
