@@ -44,6 +44,7 @@ function Header(props) {
       {/* Contact CTA Button - Directly in App-header */}
       <CTAButton variant="primary" size="medium" className="header-nav-item">
         <Mail size={20} className="contact-icon" /> 
+        onClick={handleContactClick}
         <span className="contact-text">Contact Me</span>
       </CTAButton>
 
