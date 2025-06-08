@@ -1,7 +1,6 @@
 import '../_Pages.css';
 import React, { useState } from "react";
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
-import headshot from '../../img/headshot.webp';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
