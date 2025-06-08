@@ -116,6 +116,7 @@
 }
 
 /* ---- CTA and Hero Action Buttons ---- */
+<<<<<<< HEAD
   .hero-actions {
     display: flex;
     gap: 1rem;
@@ -123,6 +124,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+=======
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+>>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
 }
 .cta-btn {
   background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
@@ -295,7 +303,10 @@ button[type="submit"]:hover,
   margin-right: auto;
   padding: 0 var(--page-gutter, 1rem);
   box-sizing: border-box;
+<<<<<<< HEAD
   margin-top: 4rem;
+=======
+>>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
 }
 
 .info-group {
@@ -618,6 +629,14 @@ iframe :not(.active) { display: none; }
   border: 1px solid var(--gray);
 }
 
+<<<<<<< HEAD
+=======
+.App[data-theme="dark"] .Contact .contrast-section {
+  background: var(--dark-gray);
+  border-color: var(--gray);
+}
+
+>>>>>>> 2a1c9b78598e931bdf4eb1e8808cabcdd023a28b
 @media (max-width: 600px) {
   .Contact .contrast-section {
     padding: 1.5rem;
