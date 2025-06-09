@@ -251,25 +251,6 @@ function About() {
             </button>
           </div>
         </div>
-        
-        <div className="contrast-section">
-          <h2>Experience:</h2>
-          <div className="info-group">
-            <img className="icon" src={portfolio} alt="portfolio icon" loading="lazy" />
-            <div>
-              <ul>
-                <li>
-                  Freelance Work: Collaborated with local businesses to improve their websites through both design and
-                  development.
-                </li>
-                <li>
-                  Self-Directed Learning: Completed online courses and actively pursuing a deeper understanding of UX
-                  design and web development.{' '}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     {/* Modal Contact Window */}
     {modalOpen && (

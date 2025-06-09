@@ -200,7 +200,7 @@ function Contact() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <MapPin size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-label="Location" />
             <span>Location</span>
-            <span style={{ marginLeft: 'auto', color: '#444', fontWeight: 500 }}> Nashville, TN, USA <span style={{ fontStyle: 'italic', color: '#888' }}>(Remote Friendly)</span></span>
+            <span style={{ marginLeft: 'auto', color: '#444', fontWeight: 500, textAlign: 'right' }}> Nashville, TN, USA <span style={{ fontStyle: 'italic', color: '#888' }}>(Remote Friendly)</span></span>
           </div>
         </div>
       </section>

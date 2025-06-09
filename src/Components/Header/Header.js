@@ -23,9 +23,11 @@ function Header(props) {
   return (
     <header className="App-header" data-theme={theme}>
       {/* Logo/Brand - Directly in App-header */}
-      <Link to="/" className="header-logo header-nav-item">
-        <span className="logo-text">KW</span>
-      </Link>
+      <NavLink to="/" className="header-logo header-nav-item">
+        <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span className="logo-text">KW</span>
+        </span>
+      </NavLink>
 
       {/* Navigation Links - Directly in App-header */}
       <NavLink to="/projects" className="header-nav-item">
