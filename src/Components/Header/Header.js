@@ -42,10 +42,11 @@ function Header(props) {
       </NavLink>
 
       {/* Contact CTA Button - Directly in App-header */}
-      <CTAButton variant="primary" size="medium" className="header-nav-item">
-        <Mail size={20} className="contact-icon" /> 
-        onClick={handleContactClick}
-        <span className="contact-text">Contact Me</span>
+      <CTAButton variant="primary" size="medium" className="header-nav-item" onClick={handleContactClick}>
+        <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Mail size={20} className="contact-icon" />
+          <span className="contact-text">contact</span>
+        </span>
       </CTAButton>
 
       {/* Theme Toggle Button - Directly in App-header */}
