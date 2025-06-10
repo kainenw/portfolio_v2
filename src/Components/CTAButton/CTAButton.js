@@ -14,10 +14,22 @@ function CTAButton({
   const baseClasses = `cta-button cta-${variant} cta-${size} ${className}`;
   
   if (href) {
+    const handleLinkClick = (e) => {
+      // Prevent full page reload for internal links
+      if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('http')) {
+        e.preventDefault();
+        if (typeof window !== 'undefined') {
+          window.history.pushState({}, '', href);
+          window.dispatchEvent(new PopStateEvent('popstate'));
+        }
+      }
+      if (typeof onClick === 'function') onClick(e);
+    };
     return (
       <a 
         href={href}
         className={baseClasses}
+        onClick={handleLinkClick}
         {...props}
       >
         {children}

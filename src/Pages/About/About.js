@@ -85,13 +85,28 @@ function About() {
             </p>
           </div>
         </div>
-        <CTAButton variant="primary" size="medium" className="tab-button active" onClick={() => setModalOpen(true)}>
+        <CTAButton variant="primary" size="medium" onClick={() => setModalOpen(true)}>
           Start a Project
         </CTAButton>
         
         {/* Download Resume Button in Hero Section */}
         <div style={{ marginTop: '1rem' }}>
-          <DownloadResumeButton variant="secondary" />
+          <CTAButton
+            variant="secondary"
+            size="medium"
+            href="/KainenWhite_Resume.pdf"
+            download
+            className="download-resume-btn"
+            style={{ display: 'inline-flex', alignItems: 'center' }}
+          >
+            {/* Download icon from lucide-react */}
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              {/* Import Download icon at the top if not already */}
+              {/* <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" /> */}
+              {React.createElement(require('lucide-react').Download, { size: 20, style: { marginRight: '0.5rem' }, 'aria-hidden': true })}
+              Download Resume
+            </span>
+          </CTAButton>
         </div>
       </div>
 
