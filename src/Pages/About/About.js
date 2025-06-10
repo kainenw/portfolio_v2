@@ -5,7 +5,7 @@ import headshot from '../../img/headshot.webp';
 import design from '../../img/design.webp';
 import dev from '../../img/dev.webp';
 import designthinking from '../../img/designthinking.webp';
-import portfolio from '../../img/projects/portfolio.webp';
+// import portfolio from '../../img/projects/portfolio.webp';
 import DownloadResumeButton from '../../Components/DownloadResumeButton/DownloadResumeButton';
 import CTAButton from '../../Components/CTAButton/CTAButton';
 

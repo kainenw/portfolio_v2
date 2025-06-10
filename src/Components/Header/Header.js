@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FolderOpen, User, Mail } from 'lucide-react'; // Import Mail icon
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
 import './Header.css';
