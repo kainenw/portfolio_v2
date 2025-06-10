@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import '../_Pages.css';
 import Deck from '../../Components/Deck/Deck';
 import { FolderOpen } from 'lucide-react';
-import { designProjects, developmentProjects } from '../projectsData';
+import { designProjects, developmentProjects } from '../../Data/projectsData';
 
 function Projects() {
   const [activeTab, setActiveTab] = useState('design');

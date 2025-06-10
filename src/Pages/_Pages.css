@@ -663,7 +663,7 @@ iframe :not(.active) { display: none; }
 
 .service-card {
   background: var(--light-bg);
-  border: 1px solid var(--border-color, #e0e0e0);
+  border: 1px solid var(--border-color, #404040);
   border-radius: 12px;
   padding: 2rem;
   text-align: center;
@@ -757,7 +757,7 @@ iframe :not(.active) { display: none; }
 
 /* Dark theme styles for new sections */
 [data-theme="dark"] .service-card {
-  background: var(--card-background, #2a2a2a);
+  background: var(--dark-gray, #2a2a2a);
   border-color: var(--border-color, #444);
 }
 

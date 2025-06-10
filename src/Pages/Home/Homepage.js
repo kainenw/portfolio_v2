@@ -3,65 +3,11 @@ import { Helmet } from 'react-helmet-async';
 import Deck from '../../Components/Deck/Deck';
 import MetricsDisplay from '../../Components/MetricsDisplay/MetricsDisplay';
 import CTAButton from '../../Components/CTAButton/CTAButton';
-import { featuredProjects } from '../featuredProjectsData';
+import { featuredProjects } from '../../Data/featuredProjectsData';
 import { Sparkle, FolderOpen, Handshake, Quote } from 'lucide-react';
 import './Homepage.css'; // Import the new CSS file
-
-const testimonials = [
-	{
-		name: 'Sarah Lee',
-		company: 'Acme Corp',
-		photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-		quote: 'Working with Kainen was a game-changer. The new product design increased our user engagement by 40%.',
-		title: 'Product Manager',
-	},
-	{
-		name: 'Brad Smith',
-		company: 'Smith Digital',
-		photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-		quote: 'Kainen delivered exactly what we needed—on time and with a level of polish that impressed our whole team.',
-		title: 'CEO',
-	},
-	{
-		name: 'Priya Patel',
-		company: 'StartupX',
-		photo: 'https://randomuser.me/api/portraits/women/68.jpg',
-		quote: 'The design process was collaborative and insightful. Our conversion rate improved dramatically.',
-		title: 'Founder',
-	},
-];
-
-// Portfolio metrics data
-const portfolioMetrics = [
-	{
-		value: 55,
-		type: 'percentage',
-		label: 'Average Engagement Increase',
-		description: 'Across completed projects',
-		icon: 'increase',
-	},
-	{
-		value: 8,
-		type: 'number',
-		label: 'Projects Completed',
-		description: 'Design & development work',
-		icon: 'target',
-	},
-	{
-		value: 95,
-		type: 'percentage',
-		label: 'Client Satisfaction',
-		description: 'Based on project feedback',
-		icon: 'award',
-	},
-	{
-		value: 40,
-		type: 'percentage',
-		label: 'Average User Engagement Boost',
-		description: 'Measured post-launch',
-		icon: 'users',
-	},
-];
+import { testimonials } from '../../Data/testimonials';
+import { portfolioMetrics } from '../../Data/portfolioMetrics';
 
 function Homepage() {
 	return (
