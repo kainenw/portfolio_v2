@@ -15,7 +15,7 @@ export const portfolioMetrics = [
 		icon: 'target',
 	},
 	{
-		value: 95,
+		value: 100,
 		type: 'percentage',
 		label: 'Client Satisfaction',
 		description: 'Based on project feedback',

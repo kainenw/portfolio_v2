@@ -15,7 +15,7 @@
 }
 
 [data-theme='dark'] .testimonial-card {
-  background: var(--dark-card-bg, #1e1e1e);
+  background: var(--dark-gray, #101010);
   border: 1px solid var(--dark-card-border, #404040);
 }
 
