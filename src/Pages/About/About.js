@@ -183,35 +183,6 @@ function About() {
         </div>
       </div>
       <div>
-        <div className="non-contrast-section">
-          <h2>Skills:</h2>
-          <div className="info-group">
-            <img className="icon" src={designthinking} alt="design icon" loading="lazy" />
-            <div>
-              <h3>Design Thinking Process</h3>
-              <ul>
-                <li>Empathizing with users by creating empathy maps, personas, user stories, and user journey maps</li>
-                <li>Defining user pain points</li>
-                <li>Ideating design solutions using Crazy Eights, How Might We, and competitive audits</li>
-                <li>Creating wireframes and prototypes on paper and digitally</li>
-                <li>Developing mockups using visual design elements and principles</li>
-                <li>Designing in Figma and Adobe XD</li>
-                <li>Conducting interviews and usability studies</li>
-                <li>Considering accessibility at every point in the design process</li>
-              </ul>
-            </div>
-          </div>
-          <div className="info-group">
-            <img className="icon" src={dev} alt="programming icon" loading="lazy" />
-            <div>
-              <h3>Front-End</h3>
-              <ul>
-                <li>HTML, CSS, JavaScript, Responsive Design, Accessibility Standards</li>
-                <li>Version Control, Web Hosting, Familiarity with broader design and development concepts</li>
-              </ul>
-            </div>
-          </div>
-        </div>
         
         {/* Download Resume CTA Section */}
         <div className="contrast-section" style={{ textAlign: 'center', padding: '3rem 1rem' }}>

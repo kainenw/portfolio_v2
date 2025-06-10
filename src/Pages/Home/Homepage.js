@@ -124,6 +124,22 @@ function Homepage() {
 				</div>
 			</section>
 
+			{/* Portfolio Metrics Section */}
+			<section className="portfolio-metrics non-contrast-section" style={{ margin: '4rem 0', textAlign: 'center' }}>
+				<h2 style={{ marginBottom: '1rem' }}>Results That Matter</h2>
+				<p
+					style={{
+						marginBottom: '3rem',
+						maxWidth: '600px',
+						margin: '0 auto 3rem',
+						color: 'var(--secondary-text-color, #666)',
+					}}
+				>
+					Numbers that showcase the impact of user-centered design and strategic thinking.
+				</p>
+				<MetricsDisplay metrics={portfolioMetrics} layout="horizontal" variant="highlight" />
+			</section>
+
 			<section className="testimonials contrast-section" id="testimonials" style={{ margin: '3rem 0' }}>
 				<h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
 					<Quote size={32} style={{ verticalAlign: 'middle', marginRight: 8 }} />
@@ -156,22 +172,6 @@ function Homepage() {
 						</div>
 					))}
 				</div>
-			</section>
-
-			{/* Portfolio Metrics Section */}
-			<section className="portfolio-metrics non-contrast-section" style={{ margin: '4rem 0', textAlign: 'center' }}>
-				<h2 style={{ marginBottom: '1rem' }}>Results That Matter</h2>
-				<p
-					style={{
-						marginBottom: '3rem',
-						maxWidth: '600px',
-						margin: '0 auto 3rem',
-						color: 'var(--secondary-text-color, #666)',
-					}}
-				>
-					Numbers that showcase the impact of user-centered design and strategic thinking.
-				</p>
-				<MetricsDisplay metrics={portfolioMetrics} layout="horizontal" variant="highlight" />
 			</section>
 
 			<section className="homepage-cta non-contrast-section">
