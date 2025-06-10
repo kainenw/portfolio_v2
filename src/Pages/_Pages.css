@@ -21,7 +21,7 @@
 }
 .App[data-theme="light"] .project-card,
 [data-theme="light"] .project-card {
-  background: var(--light-gray) !important;
+  background: var(--light-bg) !important;
   border-color: var(--gray);
 }
 .project-image {
@@ -662,7 +662,7 @@ iframe :not(.active) { display: none; }
 }
 
 .service-card {
-  background: var(--card-background, #fff);
+  background: var(--light-bg);
   border: 1px solid var(--border-color, #e0e0e0);
   border-radius: 12px;
   padding: 2rem;

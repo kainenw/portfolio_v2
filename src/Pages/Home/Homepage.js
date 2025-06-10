@@ -181,7 +181,7 @@ function Homepage() {
 					Whether you have a project in mind, need a design consultation, or just want to connect, I&apos;d love to hear from you.
 				</p>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
-					<CTAButton href="/contact" variant="primary" size="large">
+					<CTAButton href="/contact" variant="primary" size="large" style={{ marginTop: '1rem' }}>
 						Get in Touch
 					</CTAButton>
 				</div>

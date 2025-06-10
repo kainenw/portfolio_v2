@@ -14,6 +14,11 @@
   margin-bottom: 1rem; /* Add some margin for when they stack */
 }
 
+[data-theme='dark'] .testimonial-card {
+  background: var(--dark-card-bg, #1e1e1e);
+  border: 1px solid var(--dark-card-border, #404040);
+}
+
 .testimonial-card img {
   width: 64px;
   height: 64px;

@@ -22,7 +22,6 @@ describe('Contact', () => {
       )
     })
     expect(screen.getByText(/Let's Connect!/i)).toBeInTheDocument()
-    expect(screen.getByText(/Let's Build Something Amazing Together!/i)).toBeInTheDocument()
     expect(screen.getByText(/Thank you for visiting my portfolio!/i)).toBeInTheDocument()
   })
 

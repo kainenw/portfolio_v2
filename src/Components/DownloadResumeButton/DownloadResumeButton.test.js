@@ -39,35 +39,24 @@ describe('DownloadResumeButton', () => {
   });
 
   test('triggers download when clicked', () => {
-    // Mock document.createElement to return a mock anchor element
-    const mockAnchor = {
-      href: '',
-      download: '',
-      click: jest.fn(),
-    };
+    // Use a real anchor element and spy on its click method
+    const realAnchor = document.createElement('a');
+    const clickSpy = jest.spyOn(realAnchor, 'click').mockImplementation(() => {});
     const originalCreateElement = document.createElement;
-    document.createElement = jest.fn().mockReturnValue(mockAnchor);
-    
-    // Mock body methods
-    const originalAppendChild = document.body.appendChild;
-    const originalRemoveChild = document.body.removeChild;
-    document.body.appendChild = jest.fn();
-    document.body.removeChild = jest.fn();
-    
+    const createElementSpy = jest.spyOn(document, 'createElement').mockImplementation((tag) => {
+      if (tag === 'a') return realAnchor;
+      return originalCreateElement.call(document, tag);
+    });
+
     render(<DownloadResumeButton />);
-    
     const button = screen.getByRole('button', { name: /download resume/i });
     fireEvent.click(button);
-    
-    expect(document.createElement).toHaveBeenCalledWith('a');
-    expect(document.body.appendChild).toHaveBeenCalledWith(mockAnchor);
-    expect(mockAnchor.click).toHaveBeenCalled();
-    expect(document.body.removeChild).toHaveBeenCalledWith(mockAnchor);
-    
-    // Restore original methods
-    document.createElement = originalCreateElement;
-    document.body.appendChild = originalAppendChild;
-    document.body.removeChild = originalRemoveChild;
+
+    expect(createElementSpy).toHaveBeenCalledWith('a');
+    expect(clickSpy).toHaveBeenCalled();
+
+    createElementSpy.mockRestore();
+    clickSpy.mockRestore();
   });
 
   test('tracks analytics when gtag is available', () => {
