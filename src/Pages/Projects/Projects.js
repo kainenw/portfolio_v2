@@ -33,7 +33,7 @@ function Projects() {
         <p>Explore my work in design and development through interactive case studies.</p>
         {/* Tab Toggle Switch */}
         <div className="projects-tab-container">
-          <div className="projects-tab-switch">
+          <div className={`projects-tab-switch${activeTab === 'development' ? ' development-active' : ''}`}> 
             <button 
               className={`tab-button ${activeTab === 'design' ? 'active' : ''}`}
               onClick={() => handleTabSwitch('design')}
@@ -48,7 +48,7 @@ function Projects() {
             >
               Development
             </button>
-            <div className={`tab-slider ${activeTab === 'development' ? 'right' : 'left'}`}></div>
+            <div className="tab-animated-slider"></div>
           </div>
         </div>
       </div>

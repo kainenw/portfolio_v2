@@ -91,7 +91,7 @@ function About() {
         {/* Download Resume Button in Hero Section */}
         <div style={{ marginTop: '1rem' }}>
           <CTAButton
-            variant="primary"
+            variant="secondary"
             size="medium"
             href="/KainenWhite_Resume.pdf"
             download

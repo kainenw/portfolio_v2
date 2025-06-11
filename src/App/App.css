@@ -27,7 +27,6 @@ div:has(.App[data-theme="light"]) {
 }
 
 .App {
-  padding: 1.5rem; /* Restored base padding */
   margin: 0 auto;
   min-height: 100vh;
   box-sizing: border-box;
@@ -88,7 +87,6 @@ main {
   }
 
   .App {
-    padding: 0.5rem !important; /* Restored padding */
     min-width: 0 !important;
     max-width: 100vw !important;
   }
