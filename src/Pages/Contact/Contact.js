@@ -2,6 +2,7 @@ import '../_Pages.css';
 import React, { useState } from "react";
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import CTAButton from '../../Components/CTAButton/CTAButton';
 
 function Contact() {
   const [formStatus, setFormStatus] = useState(''); // '', 'success', 'error', 'submitting'
@@ -155,9 +156,11 @@ function Contact() {
               <span className="error-message">{errors.message}</span>
             )}
           </div>
-          <button
+          <CTAButton
             type="submit"
-            className="cta-btn"
+            variant="primary"
+            size="medium"
+            className=""
             disabled={formStatus === 'submitting'}
             style={{ opacity: formStatus === 'submitting' ? 0.7 : 1, cursor: formStatus === 'submitting' ? 'not-allowed' : 'pointer', position: 'relative' }}
           >
@@ -177,7 +180,7 @@ function Contact() {
                 Sending...
               </>
             ) : 'Send Message'}
-          </button>
+          </CTAButton>
         </form>
       </div>
       <div className="non-contrast-section">
