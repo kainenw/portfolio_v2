@@ -6,7 +6,6 @@ import design from '../../img/design.webp';
 import dev from '../../img/dev.webp';
 import designthinking from '../../img/designthinking.webp';
 // import portfolio from '../../img/projects/portfolio.webp';
-import DownloadResumeButton from '../../Components/DownloadResumeButton/DownloadResumeButton';
 import CTAButton from '../../Components/CTAButton/CTAButton';
 
 function About() {
@@ -92,20 +91,15 @@ function About() {
         {/* Download Resume Button in Hero Section */}
         <div style={{ marginTop: '1rem' }}>
           <CTAButton
-            variant="secondary"
+            variant="primary"
             size="medium"
             href="/KainenWhite_Resume.pdf"
             download
+            showDownloadIcon
             className="download-resume-btn"
             style={{ display: 'inline-flex', alignItems: 'center' }}
           >
-            {/* Download icon from lucide-react */}
-            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-              {/* Import Download icon at the top if not already */}
-              {/* <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" /> */}
-              {React.createElement(require('lucide-react').Download, { size: 20, style: { marginRight: '0.5rem' }, 'aria-hidden': true })}
-              Download Resume
-            </span>
+            Download Resume
           </CTAButton>
         </div>
       </div>
@@ -206,7 +200,17 @@ function About() {
             Download my resume to see my full experience and qualifications, or start a conversation about your next project.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <DownloadResumeButton variant="primary" />
+            <CTAButton
+              variant="primary"
+              size="medium"
+              href="/KainenWhite_Resume.pdf"
+              download
+              showDownloadIcon
+              className="download-resume-btn"
+              style={{ display: 'inline-flex', alignItems: 'center' }}
+            >
+              Download Resume
+            </CTAButton>
             <button
               className="cta-btn outline"
               onClick={() => setModalOpen(true)}

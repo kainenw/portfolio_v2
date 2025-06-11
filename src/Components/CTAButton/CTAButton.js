@@ -1,49 +1,82 @@
 import React from 'react';
 import './CTAButton.css';
 
-function CTAButton({ 
-  children, 
+
+import { Download } from 'lucide-react';
+
+function CTAButton({
+  children,
   variant = 'primary', // 'primary' or 'secondary'
   size = 'medium', // 'small', 'medium', 'large'
-  onClick, 
+  onClick,
   href,
   disabled = false,
   className = '',
-  ...props 
+  download = false,
+  showDownloadIcon = false,
+  ...props
 }) {
   const baseClasses = `cta-button cta-${variant} cta-${size} ${className}`;
-  
-  if (href) {
-    const handleLinkClick = (e) => {
-      // Prevent full page reload for internal links
-      if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('http')) {
-        e.preventDefault();
-        if (typeof window !== 'undefined') {
-          window.history.pushState({}, '', href);
-          window.dispatchEvent(new PopStateEvent('popstate'));
-        }
+
+  // Download Resume functionality
+  const handleDownload = (e) => {
+    // If download prop is set, handle download logic
+    if (download) {
+      e.preventDefault();
+      // Google Analytics tracking for resume downloads
+      if (window.gtag) {
+        window.gtag('event', 'resume_download', {
+          event_category: 'Engagement',
+          event_label: 'Resume Download',
+          value: 1
+        });
       }
+      // Create download link
+      const link = document.createElement('a');
+      link.href = href || '/KainenWhite_Resume.pdf';
+      link.download = 'KainenWhite_Resume.pdf';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       if (typeof onClick === 'function') onClick(e);
-    };
+      return;
+    }
+    // Otherwise, handle as normal link
+    if (href && href.startsWith('/') && !href.startsWith('//') && !href.startsWith('http')) {
+      e.preventDefault();
+      if (typeof window !== 'undefined') {
+        window.history.pushState({}, '', href);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
+    }
+    if (typeof onClick === 'function') onClick(e);
+  };
+
+  if (href) {
     return (
-      <a 
+      <a
         href={href}
         className={baseClasses}
-        onClick={handleLinkClick}
+        onClick={handleDownload}
+        download={download ? 'KainenWhite_Resume.pdf' : undefined}
         {...props}
       >
+        {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}
         {children}
       </a>
     );
   }
 
   return (
-    <button 
+    <button
       className={baseClasses}
-      onClick={onClick}
+      onClick={download ? handleDownload : onClick}
       disabled={disabled}
       {...props}
     >
+      {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}
       {children}
     </button>
   );
