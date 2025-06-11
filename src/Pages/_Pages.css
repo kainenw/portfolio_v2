@@ -392,16 +392,19 @@ iframe :not(.active) { display: none; }
 
 /* Animated slider linking the two buttons */
 .tab-animated-slider {
+  display: none;
+}
+.projects-tab-switch.development-active .tab-animated-slider {
+  display: block;
   position: absolute;
   top: 2px;
   bottom: 2px;
-  left: 2px;
+  left: calc(50% + 1px);
   width: calc(50% - 3px);
   border-radius: 6px;
   background: rgba(0, 122, 204, 0.10);
-  border-radius: 6px;
-  left: 2px;
-  width: calc(50% - 3px);
+  z-index: 1;
+  transition: left 0.3s cubic-bezier(0.4,0,0.2,1), background 0.2s;
 }
 [data-theme="dark"] .projects-tab-switch {
   background: #191919;
