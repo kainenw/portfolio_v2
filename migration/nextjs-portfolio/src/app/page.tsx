@@ -25,13 +25,8 @@ export const metadata: Metadata = {
   },
 };
 
+import Homepage from './homepage';
+
 export default function Home() {
-  return (
-    <div className="homepage">
-      <div className="non-contrast-section hero">
-        <h1>Kainen White</h1>
-        <p>Product & UX Designer creating user-centered digital experiences.</p>
-      </div>
-    </div>
-  );
+  return <Homepage />;
 }

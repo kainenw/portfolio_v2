@@ -1,24 +1,18 @@
 'use client';
 
-import React from 'react';
-import { projects } from '../../data/projects';
+import React, { useState } from 'react';
+import Deck from '../../components/Deck/Deck';
+import { FolderOpen } from 'lucide-react';
+import { designProjects, developmentProjects } from '../../data/projects';
 
 export default function Projects() {
   // Add safety checks for data
-  if (!projects || !Array.isArray(projects)) {
-    return (
-      <div className="projects-page">
-        <div style={{ padding: '2rem', textAlign: 'center' }}>
-          <h1>Projects</h1>
-          <p>Loading projects...</p>
-        </div>
-      </div>
-    );
+  if (!designProjects || !Array.isArray(designProjects)) {
+    console.error('Design projects data not found or invalid');
   }
-
-  // Filter projects by category with safety checks
-  const designProjects = projects.filter(project => project && project.category === 'design') || [];
-  const developmentProjects = projects.filter(project => project && project.category === 'development') || [];
+  if (!developmentProjects || !Array.isArray(developmentProjects)) {
+    console.error('Development projects data not found or invalid');
+  }
 
   return (
     <div className="projects-page">

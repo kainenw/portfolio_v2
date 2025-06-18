@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axe Accessibility Report - about</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .violation { background: #ffebee; padding: 10px; margin: 10px 0; border-left: 4px solid #f44336; }
+        .pass { background: #e8f5e8; padding: 10px; margin: 10px 0; border-left: 4px solid #4caf50; }
+        .incomplete { background: #fff3e0; padding: 10px; margin: 10px 0; border-left: 4px solid #ff9800; }
+        .summary { background: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        h1, h2 { color: #333; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Axe Accessibility Report: About</h1>
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>URL:</strong> http://localhost:3000/about</p>
+        <p><strong>Violations:</strong> 2</p>
+        <p><strong>Passes:</strong> 26</p>
+        <p><strong>Incomplete:</strong> 1</p>
+        <p><strong>Test Date:</strong> 6/15/2025, 9:51:50 PM</p>
+    </div>
+    
+    
+    <h2>Violations (2)</h2>
+    
+        <div class="violation">
+            <h3>aria-required-children: Certain ARIA roles must contain particular children</h3>
+            <p><strong>Impact:</strong> critical</p>
+            <p><strong>Description:</strong> Ensure elements with an ARIA role that require child roles contain them</p>
+            <p><strong>Help URL:</strong> <a href="https://dequeuniversity.com/rules/axe/4.10/aria-required-children?application=playwright" target="_blank">https://dequeuniversity.com/rules/axe/4.10/aria-required-children?application=playwright</a></p>
+            <p><strong>Affected Elements:</strong> 1</p>
+            
+                <div style="margin-left: 20px; background: #fafafa; padding: 10px; margin: 5px 0;">
+                    <strong>Target:</strong> <code>.social-links</code><br>
+                    <strong>HTML:</strong> <code><div class="social-links" role="list" aria-label="Social media links"></code><br>
+                    <strong>Failure:</strong> Fix any of the following:
+  Element has children which are not allowed: a[aria-label]
+                </div>
+            
+        </div>
+    
+        <div class="violation">
+            <h3>color-contrast: Elements must meet minimum color contrast ratio thresholds</h3>
+            <p><strong>Impact:</strong> serious</p>
+            <p><strong>Description:</strong> Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds</p>
+            <p><strong>Help URL:</strong> <a href="https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=playwright" target="_blank">https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=playwright</a></p>
+            <p><strong>Affected Elements:</strong> 4</p>
+            
+                <div style="margin-left: 20px; background: #fafafa; padding: 10px; margin: 5px 0;">
+                    <strong>Target:</strong> <code>a[href$="#footer"]</code><br>
+                    <strong>HTML:</strong> <code><a href="#footer" class="skip-link">Skip to footer</a></code><br>
+                    <strong>Failure:</strong> Fix any of the following:
+  Element has insufficient color contrast of 3.97 (foreground color: #ffffff, background color: #007bff, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1
+                </div>
+            
+                <div style="margin-left: 20px; background: #fafafa; padding: 10px; margin: 5px 0;">
+                    <strong>Target:</strong> <code>.active > span > .nav-link-text</code><br>
+                    <strong>HTML:</strong> <code><span class="nav-link-text">about</span></code><br>
+                    <strong>Failure:</strong> Fix any of the following:
+  Element has insufficient color contrast of 4.02 (foreground color: #3182ce, background color: #ffffff, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1
+                </div>
+            
+                <div style="margin-left: 20px; background: #fafafa; padding: 10px; margin: 5px 0;">
+                    <strong>Target:</strong> <code>.contrast-section > div > .download-resume-btn[href$="KainenWhite_Resume.pdf"][download="KainenWhite_Resume.pdf"]</code><br>
+                    <strong>HTML:</strong> <code><a href="/KainenWhite_Resume.pdf" class="cta-button cta-primary cta-medium download-resume-btn" download="KainenWhite_Resume.pdf" aria-label="Download Kainen White Resume PDF" style="display: inline-flex; align-items: center;"></code><br>
+                    <strong>Failure:</strong> Fix any of the following:
+  Element has insufficient color contrast of 1.71 (foreground color: #343a40, background color: #000c16, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1
+                </div>
+            
+                <div style="margin-left: 20px; background: #fafafa; padding: 10px; margin: 5px 0;">
+                    <strong>Target:</strong> <code>.cta-btn</code><br>
+                    <strong>HTML:</strong> <code><button class="cta-btn outline" aria-label="Open contact form to start a project" style="background: transparent; color: var(--accent-color, #005A9C); border: 2px solid var(--accent-color, #005A9C); border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.2s; min-width: 180px;"></code><br>
+                    <strong>Failure:</strong> Fix any of the following:
+  Element has insufficient color contrast of 1.35 (foreground color: #ffffff, background color: #dddddd, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1
+                </div>
+            
+        </div>
+    
+    
+    
+    
+    <h2>Incomplete Tests (1)</h2>
+    <p>These tests could not be completed and may require manual verification:</p>
+    
+        <div class="incomplete">
+            <h3>color-contrast: Elements must meet minimum color contrast ratio thresholds</h3>
+            <p>Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds</p>
+        </div>
+    
+    
+    
+    <h2>Successful Tests (26)</h2>
+    <div class="pass">
+        <p>26 accessibility tests passed successfully.</p>
+        <details>
+            <summary>View passed tests</summary>
+            <ul>
+                <li>aria-allowed-attr: Elements must only use supported ARIA attributes</li><li>aria-conditional-attr: ARIA attributes must be used as specified for the element's role</li><li>aria-deprecated-role: Deprecated ARIA roles must not be used</li><li>aria-hidden-body: aria-hidden="true" must not be present on the document body</li><li>aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements</li><li>aria-prohibited-attr: Elements must only use permitted ARIA attributes</li><li>aria-required-attr: Required ARIA attributes must be provided</li><li>aria-required-children: Certain ARIA roles must contain particular children</li><li>aria-required-parent: Certain ARIA roles must be contained by particular parents</li><li>aria-roles: ARIA roles used must conform to valid values</li><li>aria-valid-attr-value: ARIA attributes must conform to valid values</li><li>aria-valid-attr: ARIA attributes must conform to valid names</li><li>avoid-inline-spacing: Inline text spacing must be adjustable with custom stylesheets</li><li>button-name: Buttons must have discernible text</li><li>bypass: Page must have means to bypass repeated blocks</li><li>color-contrast: Elements must meet minimum color contrast ratio thresholds</li><li>document-title: Documents must have <title> element to aid in navigation</li><li>html-has-lang: <html> element must have a lang attribute</li><li>html-lang-valid: <html> element must have a valid value for the lang attribute</li><li>image-alt: Images must have alternative text</li><li>link-name: Links must have discernible text</li><li>list: <ul> and <ol> must only directly contain <li>, <script> or <template> elements</li><li>listitem: <li> elements must be contained in a <ul> or <ol></li><li>meta-viewport: Zooming and scaling must not be disabled</li><li>nested-interactive: Interactive controls must not be nested</li><li>scrollable-region-focusable: Scrollable region must have keyboard access</li>
+            </ul>
+        </details>
+    </div>
+</body>
+</html>

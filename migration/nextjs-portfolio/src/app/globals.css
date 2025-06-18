@@ -366,3 +366,9 @@ textarea:focus-visible {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+/* Spinner animation for contact form */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

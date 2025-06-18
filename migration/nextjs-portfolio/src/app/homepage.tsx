@@ -7,6 +7,8 @@ import MetricsDisplay from '../components/MetricsDisplay/MetricsDisplay';
 import { getFeaturedProjects } from '../data/projects';
 import { testimonials } from '../data/testimonials';
 import { portfolioMetrics } from '../data/portfolioMetrics';
+import { Sparkle, FolderOpen, Handshake, Quote } from 'lucide-react';
+import './homepage.css';
 
 function Homepage() {
   const featuredProjects = getFeaturedProjects();
@@ -15,7 +17,7 @@ function Homepage() {
     <div className="Homepage Page">
       {/* Hero Section */}
       <section className="hero non-contrast-section" id="hero" style={{ padding: '4rem 2rem', textAlign: 'center' }}>
-        <span style={{ fontSize: '2.5rem', display: 'block', margin: '0 auto 12px', color: 'var(--primary-accent)' }} aria-hidden="true">✨</span>
+        <Sparkle size={40} style={{ display: 'block', margin: '0 auto 12px' }} aria-hidden="true" />
         <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--text-color)' }}>
           Crafting <span style={{ color: 'var(--primary-accent)' }}>User-Centric</span> Digital Experiences
         </h1>
@@ -52,8 +54,9 @@ function Homepage() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="featured-projects contrast-section" id="featured-projects" style={{ padding: '4rem 2rem', margin: '2rem 0' }}>
-        <span style={{ fontSize: '2rem', display: 'block', margin: '0 auto 8px', color: 'var(--primary-accent)' }} aria-hidden="true">📁</span>
+      <section className="featured-projects contrast-section" id="my-process" style={{ padding: '4rem 2rem', margin: '2rem 0' }}>
+        <FolderOpen size={32} style={{ display: 'block', margin: '0 auto 8px' }} aria-hidden="true" />
+        <h2 className="left-right-padding">Featured Projects</h2>
         <Deck 
           title="Featured Projects"
           description="Explore some of my most impactful design work and development projects."
@@ -78,82 +81,64 @@ function Homepage() {
         <h2 style={{ marginBottom: '1rem', color: 'var(--text-color)' }}>Results That Matter</h2>
         <p style={{
           marginBottom: '3rem',
-          fontSize: '1.1rem',
-          color: 'var(--secondary-accent)',
           maxWidth: '600px',
-          margin: '0 auto 3rem'
+          margin: '0 auto 3rem',
+          color: '#fff', // Fixed contrast ratio for WCAG 2.1 AA compliance
         }}>
-          Every project I take on is designed with measurable outcomes in mind, delivering real value to users and businesses alike.
+          Numbers that showcase the impact of user-centered design and strategic thinking.
         </p>
         <MetricsDisplay metrics={portfolioMetrics} layout="horizontal" variant="highlight" />
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials contrast-section" style={{ padding: '4rem 2rem', margin: '2rem 0' }}>
-        <span style={{ fontSize: '2rem', display: 'block', margin: '0 auto 8px', color: 'var(--primary-accent)' }} aria-hidden="true">💬</span>
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-color)' }}>What Clients Say</h2>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '2rem', 
-          maxWidth: '1200px', 
-          margin: '0 auto' 
-        }}>
-          {testimonials.map((testimonial, index) => (
-            <div key={index} style={{
-              background: 'var(--card-background)',
-              padding: '2rem',
-              borderRadius: '12px',
-              border: '1px solid var(--secondary-accent)',
-              textAlign: 'left'
-            }}>
-              <blockquote style={{
-                fontSize: '1.1rem',
-                fontStyle: 'italic',
-                marginBottom: '1.5rem',
-                color: 'var(--text-color)',
-                lineHeight: '1.6'
-              }}>
-                &ldquo;{testimonial.quote}&rdquo;
+      <section className="testimonials contrast-section" id="testimonials" style={{ margin: '3rem 0' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--text-color)' }}>
+          <Quote size={32} style={{ verticalAlign: 'middle', marginRight: 8 }} aria-hidden="true" />
+          What Clients Say
+        </h2>
+        <div className="testimonials-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }} role="list">
+          {testimonials.map((t, i) => (
+            <article
+              key={i}
+              className="testimonial-card"
+              role="listitem"
+            >
+              <img
+                src={t.photo}
+                alt={`${t.name}, ${t.title} at ${t.company}`}
+                className="testimonial-photo"
+                loading="lazy"
+              />
+              <blockquote className="quote">
+                &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <img 
-                  src={testimonial.photo} 
-                  alt={`Photo of ${testimonial.name}`}
-                  style={{
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    objectFit: 'cover'
-                  }}
-                />
-                <div>
-                  <div style={{ fontWeight: '600', color: 'var(--text-color)' }}>{testimonial.name}</div>
-                  <div style={{ color: 'var(--secondary-accent)', fontSize: '0.9rem' }}>
-                    {testimonial.title} - {testimonial.company}
-                  </div>
-                </div>
+              <div className="name">{t.name}</div>
+              <div className="title-company">
+                {t.title}, {t.company}
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="homepage-cta non-contrast-section" style={{ padding: '4rem 2rem', textAlign: 'center' }}>
-        <span style={{ fontSize: '2rem', display: 'block', margin: '0 auto 8px', color: 'var(--primary-accent)' }} aria-hidden="true">🤝</span>
+        <Handshake size={32} style={{ display: 'block', margin: '0 auto 8px' }} aria-hidden="true" />
         <h2 style={{ marginBottom: '1rem', color: 'var(--text-color)' }}>Ready to build something great together?</h2>
         <p style={{ marginBottom: '2rem', color: 'var(--text-color)' }}>
           Whether you have a project in mind, need a design consultation, or just want to connect, I&apos;d love to hear from you.
         </p>
-        <CTAButton 
-          href="/contact" 
-          variant="primary" 
-          size="large"
-          aria-label="Contact Kainen White to start a project"
-        >
-          Start a Project
-        </CTAButton>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <CTAButton 
+            href="/contact" 
+            variant="primary" 
+            size="large" 
+            style={{ marginTop: '1rem' }}
+            aria-label="Contact Kainen White to start working together"
+          >
+            Get in Touch
+          </CTAButton>
+        </div>
       </section>
     </div>
   );
