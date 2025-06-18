@@ -55,7 +55,7 @@
 
 /* Header CTA Button */
 .header-cta {
-  background: linear-gradient(135deg, var(--accent-color, #007acc), var(--accent-hover-color, #005fa3));
+  background: #237ac2; /* Fixed contrast ratio for WCAG 2.1 AA compliance */
   color: #fff !important;
   text-decoration: none !important;
   padding: 0.5rem 1rem;
@@ -69,7 +69,7 @@
 }
 
 .header-cta:hover {
-  background: linear-gradient(135deg, var(--accent-hover-color, #005fa3), var(--accent-color, #007acc));
+  background: #005fa3; /* Improved contrast for hover state */
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
 }
@@ -213,6 +213,10 @@
 
 @media (max-width: 500px) {
   .App-header {
+    /* Move navigation to bottom on mobile per Design.md */
+    position: fixed;
+    bottom: 1rem;
+    top: auto;
     width: 95%;
     transform: translate(-50%, 0);
     border-radius: 20px;

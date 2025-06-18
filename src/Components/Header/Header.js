@@ -21,32 +21,52 @@ function Header(props) {
 
   // NavLink handles active class automatically
   return (
-    <header className="App-header" data-theme={theme}>
+    <header className="App-header" data-theme={theme} role="banner">
       {/* Logo/Brand - Directly in App-header */}
-      <NavLink to="/" className="header-logo header-nav-item">
+      <NavLink 
+        to="/" 
+        className="header-logo header-nav-item"
+        aria-label="Home - Kainen White Portfolio"
+      >
         <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span className="logo-text">KW</span>
         </span>
       </NavLink>
 
       {/* Navigation Links - Directly in App-header */}
-      <NavLink to="/projects" className="header-nav-item">
-        <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <FolderOpen size={20} style={{ marginBottom: '2px' }} />
-          <span className="nav-link-text">projects</span>
-        </span>
-      </NavLink>
-      <NavLink to="/about" className="header-nav-item">
-        <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <User size={20} style={{ marginBottom: '2px' }} />
-          <span className="nav-link-text">about</span>
-        </span>
-      </NavLink>
+      <nav role="navigation" aria-label="Main navigation" style={{ display: 'contents' }}>
+        <NavLink 
+          to="/projects" 
+          className="header-nav-item"
+          aria-label="View projects portfolio"
+        >
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <FolderOpen size={20} style={{ marginBottom: '2px' }} aria-hidden="true" />
+            <span className="nav-link-text">projects</span>
+          </span>
+        </NavLink>
+        <NavLink 
+          to="/about" 
+          className="header-nav-item"
+          aria-label="Learn about Kainen White"
+        >
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <User size={20} style={{ marginBottom: '2px' }} aria-hidden="true" />
+            <span className="nav-link-text">about</span>
+          </span>
+        </NavLink>
+      </nav>
 
       {/* Contact CTA Button - Directly in App-header */}
-      <CTAButton variant="primary" size="medium" className="header-nav-item" onClick={handleContactClick}>
+      <CTAButton 
+        variant="primary" 
+        size="medium" 
+        className="header-nav-item" 
+        onClick={handleContactClick}
+        aria-label="Contact Kainen White for opportunities"
+      >
         <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Mail size={20} className="contact-icon" />
+          <Mail size={20} className="contact-icon" aria-hidden="true" />
           <span className="contact-text">contact</span>
         </span>
       </CTAButton>
@@ -55,13 +75,19 @@ function Header(props) {
       <button
         className="ThemeMenu header-nav-item"
         onClick={handleThemeToggle}
-        aria-label="Change Theme"
+        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        aria-pressed={theme === 'dark'}
+        type="button"
       >
         <img
           src={require(`../../img/themed/${theme}/theme-icon.webp`)} // Changed .png to .webp
-          alt="toggle theme button"
+          alt=""
           loading="lazy"
+          aria-hidden="true"
         />
+        <span className="sr-only">
+          Current theme: {theme === 'dark' ? 'Dark' : 'Light'} mode
+        </span>
       </button>
     </header>
   );

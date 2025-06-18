@@ -14,6 +14,8 @@ function CTAButton({
   className = '',
   download = false,
   showDownloadIcon = false,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }) {
   const baseClasses = `cta-button cta-${variant} cta-${size} ${className}`;
@@ -61,6 +63,10 @@ function CTAButton({
         className={baseClasses}
         onClick={handleDownload}
         download={download ? 'KainenWhite_Resume.pdf' : undefined}
+        aria-label={ariaLabel || (download ? 'Download Kainen White Resume PDF' : undefined)}
+        aria-describedby={ariaDescribedBy}
+        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        target={href.startsWith('http') ? '_blank' : undefined}
         {...props}
       >
         {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}
@@ -74,6 +80,9 @@ function CTAButton({
       className={baseClasses}
       onClick={download ? handleDownload : onClick}
       disabled={disabled}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
+      type="button"
       {...props}
     >
       {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}

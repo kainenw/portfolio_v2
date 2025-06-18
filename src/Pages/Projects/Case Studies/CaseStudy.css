@@ -4,14 +4,14 @@
   margin: 0 auto;
   padding: 2rem;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-color);
 }
 
 /* Back to Projects Button */
 .back-to-projects-btn {
   background: none;
-  border: 1px solid #007acc;
-  color: #007acc;
+  border: 1px solid var(--cta-color);
+  color: var(--cta-color);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
@@ -25,12 +25,12 @@
 }
 
 .back-to-projects-btn:hover {
-  background-color: #007acc;
+  background-color: var(--cta-color);
   color: white;
 }
 
 .back-to-projects-btn:focus {
-  outline: 2px solid #007acc;
+  outline: 2px solid var(--cta-color);
   outline-offset: 2px;
 }
 
@@ -41,7 +41,7 @@
 /* Case Study Header */
 .case-study h1 {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: var(--text-color);
   margin-bottom: 2rem;
   font-weight: 700;
   line-height: 1.2;
@@ -49,7 +49,7 @@
 
 .case-study-description {
   font-size: 1.25rem;
-  color: #555;
+  color: var(--text-color);
   margin-bottom: 3rem;
   line-height: 1.8;
 }
@@ -74,10 +74,10 @@
 
 .case-study-section h2 {
   font-size: 1.75rem;
-  color: #2c3e50;
+  color: var(--text-color);
   margin-bottom: 1.5rem;
   font-weight: 600;
-  border-bottom: 2px solid #e8f4fd;
+  border-bottom: 2px solid var(--secondary-accent);
   padding-bottom: 0.5rem;
 }
 
@@ -94,7 +94,7 @@
 
 .case-study-section li::before {
   content: "•";
-  color: #007acc;
+  color: var(--cta-color);
   font-weight: bold;
   position: absolute;
   left: 0.5rem;
@@ -102,7 +102,7 @@
 
 .case-study-section p {
   margin-bottom: 1rem;
-  color: #555;
+  color: var(--text-color);
 }
 
 /* Technologies */
@@ -114,13 +114,13 @@
 }
 
 .case-study-tech-tag {
-  background-color: #e8f4fd;
-  color: #007acc;
+  background-color: var(--card-background);
+  color: var(--cta-color);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
-  border: 1px solid #007acc;
+  border: 1px solid var(--cta-color);
 }
 
 /* Testimonials */
@@ -129,17 +129,17 @@
 }
 
 .testimonial-block {
-  background: #f8f9fa;
+  background: var(--card-background);
   padding: 2rem;
   border-radius: 12px;
   margin-bottom: 2rem;
-  border-left: 4px solid #007acc;
+  border-left: 4px solid var(--cta-color);
 }
 
 .testimonial-block blockquote {
   font-size: 1.1rem;
   font-style: italic;
-  color: #444;
+  color: var(--text-color);
   margin: 0 0 1.5rem 0;
   line-height: 1.6;
 }
@@ -159,12 +159,12 @@
 
 .testimonial-name {
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--text-color);
 }
 
 .testimonial-company,
 .testimonial-title {
-  color: #666;
+  color: var(--secondary-accent);
   font-size: 0.9rem;
 }
 
@@ -176,9 +176,9 @@
 .case-study-process-docs {
   margin-top: 2rem;
   padding: 2rem;
-  background: #f8f9fa;
+  background: var(--card-background);
   border-radius: 12px;
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--secondary-accent);
 }
 
 /* Prototype Embed */
@@ -190,7 +190,7 @@
 .case-study-prototype-embed iframe {
   max-width: 100%;
   border-radius: 12px;
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--secondary-accent);
 }
 
 /* Responsive Design */

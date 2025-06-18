@@ -7,14 +7,14 @@ function Card({ image, title, description, actions = [], dataTestId }) {
   const navigate = useNavigate();
 
   return (
-    <div className="project-card" data-testid={dataTestId}>
+    <article className="project-card" data-testid={dataTestId}>
       <div className="card-image">
-        <img src={image} alt={title} />
+        <img src={image} alt={`${title} project screenshot`} loading="lazy" />
       </div>
       <div className="card-content">
         <h3>{title}</h3>
         <p>{description}</p>
-        <div className="card-actions">
+        <div className="card-actions" role="group" aria-label={`Actions for ${title}`}>
           {actions.map((action, idx) => {
             const isInternal = action.href.startsWith('/') && !action.newTab;
             if (isInternal) {
@@ -25,6 +25,7 @@ function Card({ image, title, description, actions = [], dataTestId }) {
                   size="medium"
                   onClick={() => navigate(action.href)}
                   className="card-action-btn"
+                  aria-label={`${action.label} for ${title}`}
                 >
                   {action.label}
                 </CTAButton>
@@ -39,6 +40,7 @@ function Card({ image, title, description, actions = [], dataTestId }) {
                 target={action.newTab ? '_blank' : undefined}
                 rel={action.newTab ? 'noopener noreferrer' : undefined}
                 className="card-action-btn"
+                aria-label={`${action.label} for ${title}${action.newTab ? ' (opens in new tab)' : ''}`}
               >
                 {action.label}
               </CTAButton>
@@ -46,7 +48,7 @@ function Card({ image, title, description, actions = [], dataTestId }) {
           })}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

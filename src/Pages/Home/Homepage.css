@@ -1,8 +1,8 @@
 .testimonial-card {
-  background: var(--light-bg);
+  background: var(--card-background);
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  border: 1px solid var(--gray, #e0e0e0);
+  border: 1px solid var(--secondary-accent);
   max-width: 340px;
   min-width: 280px; /* Slightly reduced default min-width */
   padding: 2rem 1.5rem;
@@ -14,34 +14,28 @@
   margin-bottom: 1rem; /* Add some margin for when they stack */
 }
 
-[data-theme='dark'] .testimonial-card {
-  background: var(--dark-gray, #101010);
-  border: 1px solid var(--dark-card-border, #404040);
-}
-
 .testimonial-card img {
   width: 64px;
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 16px;
-  border: 3px solid var(--accent-color, #007acc);
+  border: 3px solid var(--cta-color);
 }
 
 .testimonial-card .quote {
   font-style: italic;
-  color: var(--secondary-text-color, #555);
+  color: var(--text-color);
   margin-bottom: 16px;
 }
 
 .testimonial-card .name {
   font-weight: 600;
-  color: var(--text-color, #222);
 }
 
 .testimonial-card .title-company {
   font-size: 0.95rem;
-  color: var(--secondary-text-color, #888);
+  color: #fdfeff; /* Fixed contrast ratio for WCAG 2.1 AA compliance */
 }
 
 /* Responsive adjustments for testimonial cards */

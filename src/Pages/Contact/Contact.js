@@ -1,5 +1,6 @@
 import '../_Pages.css';
 import React, { useState } from "react";
+import SEO from '../../Components/SEO/SEO';
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import CTAButton from '../../Components/CTAButton/CTAButton';
@@ -87,6 +88,12 @@ function Contact() {
 
   return (
     <div className="Contact Page">
+      <SEO 
+        title="Contact"
+        description="Get in touch with Kainen White for your next design project. Professional UX/UI design services focused on user-centered solutions and business results."
+        url="/contact"
+        type="website"
+      />
       <div className="non-contrast-section hero">
         <Mail size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
         <h1>Let&apos;s Connect!</h1>
@@ -94,14 +101,14 @@ function Contact() {
       </div>
       <div className="contrast-section" style={{ maxWidth: 400, margin: "2rem auto" }}>
         {formStatus === 'success' && (
-          <div className="form-notification success">
-            <CheckCircle size={20} />
+          <div className="form-notification success" role="alert" aria-live="polite">
+            <CheckCircle size={20} aria-hidden="true" />
             <span>Thank you! Your message has been sent successfully. I&apos;ll get back to you soon!</span>
           </div>
         )}
         {formStatus === 'error' && (
-          <div className="form-notification error">
-            <AlertCircle size={20} />
+          <div className="form-notification error" role="alert" aria-live="assertive">
+            <AlertCircle size={20} aria-hidden="true" />
             <span>Sorry, there was an error sending your message. Please try again, or email me directly at <a href="mailto:hello@example.com" style={{color:'#005A9C',textDecoration:'underline'}}>hello@example.com</a>.</span>
           </div>
         )}
@@ -110,10 +117,14 @@ function Contact() {
           method="POST"
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: 16 }}
+          aria-label="Contact form"
+          noValidate
         >
           <div>
+            <label htmlFor="contact-name" className="sr-only">Your Name</label>
             <input
               type="text"
+              id="contact-name"
               name="name"
               placeholder="Your Name"
               value={formData.name}
@@ -121,14 +132,18 @@ function Contact() {
               required
               className="form-input"
               style={{ borderColor: errors.name ? '#dc3545' : undefined }}
+              aria-invalid={errors.name ? 'true' : 'false'}
+              aria-describedby={errors.name ? 'name-error' : undefined}
             />
             {errors.name && (
-              <span className="error-message">{errors.name}</span>
+              <span id="name-error" className="error-message" role="alert" aria-live="polite">{errors.name}</span>
             )}
           </div>
           <div>
+            <label htmlFor="contact-email" className="sr-only">Your Email</label>
             <input
               type="email"
+              id="contact-email"
               name="email"
               placeholder="Your Email"
               value={formData.email}
@@ -136,13 +151,17 @@ function Contact() {
               required
               className="form-input"
               style={{ borderColor: errors.email ? '#dc3545' : undefined }}
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
             />
             {errors.email && (
-              <span className="error-message">{errors.email}</span>
+              <span id="email-error" className="error-message" role="alert" aria-live="polite">{errors.email}</span>
             )}
           </div>
           <div>
+            <label htmlFor="contact-message" className="sr-only">Your Message</label>
             <textarea
+              id="contact-message"
               name="message"
               placeholder="Your Message"
               rows="5"
@@ -151,9 +170,11 @@ function Contact() {
               required
               className="form-input"
               style={{ borderColor: errors.message ? '#dc3545' : undefined, resize: 'vertical', minHeight: '120px' }}
+              aria-invalid={errors.message ? 'true' : 'false'}
+              aria-describedby={errors.message ? 'message-error' : undefined}
             />
             {errors.message && (
-              <span className="error-message">{errors.message}</span>
+              <span id="message-error" className="error-message" role="alert" aria-live="polite">{errors.message}</span>
             )}
           </div>
           <CTAButton
@@ -163,6 +184,8 @@ function Contact() {
             className=""
             disabled={formStatus === 'submitting'}
             style={{ opacity: formStatus === 'submitting' ? 0.7 : 1, cursor: formStatus === 'submitting' ? 'not-allowed' : 'pointer', position: 'relative' }}
+            aria-label={formStatus === 'submitting' ? 'Sending message, please wait' : 'Send message to Kainen White'}
+            aria-describedby={formStatus === 'submitting' ? 'submit-status' : undefined}
           >
             {formStatus === 'submitting' ? (
               <>
@@ -176,8 +199,8 @@ function Contact() {
                   animation: 'spin 1s linear infinite',
                   marginRight: 8,
                   verticalAlign: 'middle',
-                }} />
-                Sending...
+                }} aria-hidden="true" />
+                <span id="submit-status">Sending...</span>
               </>
             ) : 'Send Message'}
           </CTAButton>
@@ -187,23 +210,23 @@ function Contact() {
         <p>Thank you for visiting my portfolio! I&apos;m excited to continue learning and growing in the field.</p>
       </div>
       <section className="contact-info-section contrast-section" style={{ maxWidth: 400, margin: '2rem auto 3rem auto', borderRadius: 16, boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Contact Information</h2>
+        <h2 id="contact-info-heading" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Contact Information</h2>
         <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>You can also reach me through these channels.</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', textAlign: 'left', padding: '1.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 0  }}>
-            <Mail size={22} style={{ verticalAlign: 'middle', minWidth: 22}} aria-label="Email" />
+        <div role="list" aria-labelledby="contact-info-heading" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', textAlign: 'left', padding: '1.5rem' }}>
+          <div role="listitem" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 0  }}>
+            <Mail size={22} style={{ verticalAlign: 'middle', minWidth: 22}} aria-hidden="true" />
             <span>Email</span>
-            <a href="mailto:hello@example.com" style={{ marginLeft: 'auto', color: 'var(--accent-color, #005A9C)', fontWeight: 500 }}>hello@example.com</a>
+            <a href="mailto:hello@example.com" style={{ marginLeft: 'auto', color: '#f9fdff', fontWeight: 500 }} aria-label="Send email to hello@example.com">hello@example.com</a>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 0  }}>
-            <Phone size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-label="Phone" />
+          <div role="listitem" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 0  }}>
+            <Phone size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-hidden="true" />
             <span>Phone</span>
-            <a href="tel:+1234567890" style={{ marginLeft: 'auto', color: 'var(--accent-color, #005A9C)', fontWeight: 500 }}>+1 (234) 567-890</a>
+            <a href="tel:+1234567890" style={{ marginLeft: 'auto', color: '#fff', fontWeight: 500 }} aria-label="Call +1 (234) 567-890">+1 (234) 567-890</a>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <MapPin size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-label="Location" />
+          <div role="listitem" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <MapPin size={22} style={{ verticalAlign: 'middle', minWidth: 22 }} aria-hidden="true" />
             <span>Location</span>
-            <span style={{ marginLeft: 'auto', color: '#444', fontWeight: 500, textAlign: 'right' }}> Nashville, TN, USA <span style={{ fontStyle: 'italic', color: '#888' }}>(Remote Friendly)</span></span>
+            <span style={{ marginLeft: 'auto', color: '#fff', fontWeight: 500, textAlign: 'right' }} aria-label="Located in Nashville, Tennessee, USA, remote friendly"> Nashville, TN, USA <span style={{ fontStyle: 'italic', color: '#888' }}>(Remote Friendly)</span></span>
           </div>
         </div>
       </section>

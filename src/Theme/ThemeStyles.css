@@ -1,16 +1,25 @@
-// define theme object for theme-dependent styling
+/* Theme Styles CSS */
+/* This file contains theme-specific CSS utilities */
 
-const theme = {
-  light: {
-    background: "DDDDDD",
-    foreground: "C0C0C0",
-    iconBrightness: ".25",
-  },
-  dark: {
-    background: "101010",
-    foreground: "171717",
-    iconBrightness: "1",
-  },
-};
+/* System preference detection support */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --page-background: #101010;
+    --card-background: #171717;
+    --text-color: #F7FAFC;
+    --primary-accent: #2B6CB0;
+    --secondary-accent: #4A5568;
+    --cta-color: #4299E1;
+  }
+}
 
-console.log(theme)
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --page-background: #DDDDDD;
+    --card-background: #FFFFFF;
+    --text-color: #343A40;
+    --primary-accent: #005A9C;
+    --secondary-accent: #778899;
+    --cta-color: #007BFF;
+  }
+}

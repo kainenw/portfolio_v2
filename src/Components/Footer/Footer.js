@@ -7,10 +7,10 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="site-footer">
+    <footer id="footer" className="site-footer" role="contentinfo">
       <div className="footer-content">
         {/* Quick Navigation Links */}
-        <nav className="footer-nav">
+        <nav className="footer-nav" aria-label="Footer navigation">
           <Link to="/" className="footer-link">Home</Link>
           <Link to="/projects" className="footer-link">Projects</Link>
           <Link to="/about" className="footer-link">About</Link>
@@ -18,40 +18,40 @@ function Footer() {
         </nav>
 
         {/* Social Media Links */}
-        <div className="social-links">
+        <div className="social-links" role="list" aria-label="Social media links">
           <a 
             href="https://github.com/kainenwhite" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"
-            aria-label="GitHub Profile"
+            aria-label="Visit Kainen White's GitHub profile (opens in new tab)"
           >
-            <Github size={20} />
+            <Github size={20} aria-hidden="true" />
           </a>
           <a 
             href="https://linkedin.com/in/kainenwhite" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"
-            aria-label="LinkedIn Profile"
+            aria-label="Visit Kainen White's LinkedIn profile (opens in new tab)"
           >
-            <Linkedin size={20} />
+            <Linkedin size={20} aria-hidden="true" />
           </a>
           <a 
             href="https://twitter.com/kainenwhite" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"
-            aria-label="Twitter Profile"
+            aria-label="Visit Kainen White's Twitter profile (opens in new tab)"
           >
-            <Twitter size={20} />
+            <Twitter size={20} aria-hidden="true" />
           </a>
           <a 
             href="mailto:kainen.white@gmail.com"
             className="social-link"
-            aria-label="Email Contact"
+            aria-label="Send email to Kainen White"
           >
-            <Mail size={20} />
+            <Mail size={20} aria-hidden="true" />
           </a>
         </div>
 

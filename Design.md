@@ -1,4 +1,5 @@
 # Project Design Specification: High-Converting Design Portfolio Website
+_Last Updated: June 15, 2025_
 
 ---
 # Part A: Project Foundation & Strategy
@@ -62,24 +63,7 @@ While the core message is consistent, the content will be nuanced to address the
 * **For Sarah (The Recruiter):** Content within case studies will highlight the **design process**, specific **methodologies** used (e.g., user research, usability testing), the designer's **role and contribution** within the team, and **lessons learned**. The goal is to demonstrate a rigorous, thoughtful, and collaborative approach.
 * **For Brad (The Client):** Content will be framed around **business value**. Headlines and project results will emphasize **ROI**, improvements in key metrics (conversion, efficiency, engagement), and how the design solution solved a critical business problem. Testimonials are key for this audience.
 
-### 3.4 Key Content Requirements by Page
-
-* **3.4a Homepage:**
-    * **Headline:** A powerful, benefit-oriented statement of the core value proposition.
-    * **Intro Paragraph:** A concise summary of who the designer is and what they do.
-    * **Featured Projects:** Each project needs a compelling title and a 1-2 sentence summary focused on the outcome.
-    * **Testimonials/Client Logos:** A section for social proof to build immediate trust.
-
-* **3.4b Project Case Study Screen:**
-    * This is the most critical content. Each case study must be a compelling **narrative** (storytelling) that walks the user from problem to impact.
-    * All claims in the "Impact/Results" section **must be quantified** with numbers, percentages, and graphs wherever possible. If quantitative data is unavailable, use strong qualitative evidence (e.g., direct quotes from user feedback).
-
-* **3.4c About Me Page:**
-    * **Bio:** A professional biography that tells a story, not just a list of jobs.
-    * **Design Philosophy:** A short section explaining the designer's approach and principles.
-    * **Services:** Clearly defined service offerings with brief descriptions of the value and deliverables for each.
-
-### 3.5 Visual Content Strategy
+### 3.4 Visual Content Strategy
 * **Authenticity is Key:** Absolutely **no generic stock photography**.
 * **Project Imagery:** High-resolution, polished mockups of the final designs.
 * **Process Artifacts:** Real, (curated) "messy" visuals like photos of whiteboard sessions, screenshots of FigJam/Miro boards, and early wireframe sketches. These are crucial for demonstrating the design process.
@@ -176,8 +160,9 @@ This section lists and describes the main reusable UI components of the website.
     * **Primary CTA:** A button with the label **"Contact Me"**, linking to the Contact page (`/contact`).
     * **Theme Toggle:** An icon button to switch between light and dark modes.
 * **Responsive Behavior:**
-    * **Desktop & Tablet (`>= 768px`):** Fixed to the **top** of the screen.
-    * **Mobile (`< 768px`):** The entire component is fixed to the **bottom** of the screen. On the narrowest viewports, text labels for "Projects" and "About" may be hidden, leaving only icons.
+    * **Desktop & Standard Mobile (`>= 500px`):** The component is fixed to the **top** of the screen as a traditional header.
+    * **Small Mobile (`< 500px`):** The entire component moves to be fixed at the **bottom** of the screen to ensure easy one-handed access.
+        * On the narrowest viewports, the text labels for "Projects" and "About" may be hidden to prevent crowding, leaving only their icons visible.
 
 ### 7.2 Hero Section
 * **Description:** The large, introductory section at the top of the Homepage.
@@ -287,6 +272,11 @@ All elements must function perfectly across the latest two versions of modern br
 
 ### 10.4 Security (HTTPS)
 The website must be served exclusively over HTTPS.
+
+### 10.5 Code Quality Standards
+* **10.5a Linting with ESLint:** The project will use ESLint to enforce consistent coding style and identify potential bugs in the JavaScript and React code.
+* **10.5b Automated Formatting with Prettier:** Prettier will be integrated as the official code formatter to ensure uniform style.
+* **10.5c Automated Checks:** Both ESLint and Prettier will be configured to run automatically as a pre-commit hook to maintain a clean codebase.
 
 ---
 # Part D: Governance & Supplemental Information

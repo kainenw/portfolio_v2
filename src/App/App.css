@@ -16,16 +16,6 @@ html, body, #root {
   overflow-x: hidden;
 }
 
-div:has(.App[data-theme="dark"]) {
-  background-color: var(--off-black);
-  min-height: 100vh;
-}
-
-div:has(.App[data-theme="light"]) {
-  background-color: var(--light-gray);
-  min-height: 100vh;
-}
-
 .App {
   margin: 0 auto;
   min-height: 100vh;
@@ -36,20 +26,11 @@ div:has(.App[data-theme="light"]) {
   width: 100%;
   max-width: 100vw; /* Ensures it doesn't exceed viewport */
   min-width: 0; /* Allows shrinking */
-}
-
-.App[data-theme="dark"] {
-  background-color: var(--dark-gray);
-  color: var(--off-white);
-  border-left: 1px solid var(--gray);
-  border-right: 1px solid var(--gray);
-}
-
-.App[data-theme="light"] {
-  background-color: var(--off-white);
-  color: var(--off-black);
-  border-left: 1px solid var(--gray);
-  border-right: 1px solid var(--gray);
+  background-color: var(--page-background);
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border-left: 1px solid var(--secondary-accent);
+  border-right: 1px solid var(--secondary-accent);
 }
 
 .contrast-section,
@@ -59,16 +40,9 @@ div:has(.App[data-theme="light"]) {
 }
 
 .contrast-section {
-  border: 1px solid #404040;
-}
-
-.App[data-theme="dark"] .contrast-section {
-  background-color: var(--off-black);
-  color: var(--off-white);
-}
-.App[data-theme="light"] .contrast-section {
-  background-color: var(--light-gray);
-  color: var(--off-black);
+  border: 1px solid var(--secondary-accent);
+  background-color: var(--page-background);
+  color: var(--text-color);
 }
 
 main {

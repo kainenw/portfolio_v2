@@ -1,15 +1,49 @@
 import '../_Pages.css'
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useState, useEffect, useRef } from 'react';
+import SEO from '../../Components/SEO/SEO';
 import headshot from '../../img/headshot.webp';
 import design from '../../img/design.webp';
 import dev from '../../img/dev.webp';
 import designthinking from '../../img/designthinking.webp';
 // import portfolio from '../../img/projects/portfolio.webp';
 import CTAButton from '../../Components/CTAButton/CTAButton';
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 function About() {
   const [modalOpen, setModalOpen] = useState(false);
+  const focusTrapRef = useFocusTrap(modalOpen);
+  const previouslyFocusedElement = useRef(null);
+
+  // Store the previously focused element when modal opens
+  useEffect(() => {
+    if (modalOpen) {
+      previouslyFocusedElement.current = document.activeElement;
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore focus and body scroll when modal closes
+      if (previouslyFocusedElement.current) {
+        previouslyFocusedElement.current.focus();
+      }
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [modalOpen]);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleModalKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      handleModalClose();
+    }
+  };
 
   // Contact form copied from Contact.js
   const contactForm = (
@@ -19,64 +53,43 @@ function About() {
       encType="text/plain"
       style={{ display: "flex", flexDirection: "column", gap: 12 }}
     >
+      <label htmlFor="modal-name" className="sr-only">Your Name</label>
       <input
+        id="modal-name"
         name="name"
         placeholder="Your Name"
         required
+        aria-required="true"
       />
+      <label htmlFor="modal-message" className="sr-only">Your Message</label>
       <textarea
+        id="modal-message"
         name="message"
         placeholder="Your Message"
         required
+        aria-required="true"
       />
-      <button type="submit">Send</button>
+      <button type="submit" aria-describedby="modal-submit-help">Send</button>
+      <span id="modal-submit-help" className="sr-only">This will open your default email client</span>
     </form>
   );
 
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kainen White",
-    "jobTitle": "Product & UX Designer",
-    "url": "https://www.yourdomain.com/about", // Replace with actual URL
-    "sameAs": [
-      "https://www.linkedin.com/in/yourprofile" // Replace with actual LinkedIn profile
-      // Add other relevant professional profiles here (e.g., GitHub, Dribbble)
-    ],
-    "image": "https://www.yourdomain.com/headshot.jpg" // Replace with actual headshot URL
-  };
-
   return (
     <>
-      <Helmet>
-        <title>About | Kainen White</title>
-        <meta name="description" content="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered." />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="About | Kainen White" />
-        <meta property="og:description" content="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered." />
-        <meta property="og:url" content="https://www.yourdomain.com/about" /> {/* Replace with actual URL */}
-        <meta property="og:image" content="https://www.yourdomain.com/og-image-about.png" /> {/* Replace with actual image URL */}
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About | Kainen White" />
-        <meta name="twitter:description" content="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered." />
-        <meta name="twitter:image" content="https://www.yourdomain.com/twitter-image-about.png" /> {/* Replace with actual image URL */}
-
-        {/* Schema.org JSON-LD for Person */}
-        <script type="application/ld+json">
-          {JSON.stringify(personSchema)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="About"
+        description="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered. Discover how user-centered design drives business growth."
+        url="/about"
+        type="website"
+        image={headshot}
+      />
       <div className="About Page">
-      <div className="non-contrast-section hero" style={{ position: 'relative' }}>
+      <section className="non-contrast-section hero" style={{ position: 'relative' }}>
         <h1>Design With Purpose. Built for Results.</h1>
         <h2>User-centered thinking meets measurable impact.</h2>
         
         <div className="info-group">
-          <img src={headshot} alt="Headshot of Kainen" loading="lazy" />
+          <img src={headshot} alt="Professional headshot of Kainen White, Product & UX Designer" loading="lazy" />
           <div>
             {/* <h3>About Me</h3> */}
             <p>
@@ -84,12 +97,17 @@ function About() {
             </p>
           </div>
         </div>
-        <CTAButton variant="primary" size="medium" onClick={() => setModalOpen(true)}>
-          Start a Project
-        </CTAButton>
-        
-        {/* Download Resume Button in Hero Section */}
-        <div style={{ marginTop: '1rem' }}>
+        <div className="hero-actions" role="group" aria-label="Main actions">
+          <CTAButton 
+            variant="primary" 
+            size="medium" 
+            onClick={() => setModalOpen(true)}
+            aria-label="Start a new project with Kainen White"
+          >
+            Start a Project
+          </CTAButton>
+          
+          {/* Download Resume Button in Hero Section */}
           <CTAButton
             variant="secondary"
             size="medium"
@@ -98,19 +116,20 @@ function About() {
             showDownloadIcon
             className="download-resume-btn"
             style={{ display: 'inline-flex', alignItems: 'center' }}
+            aria-label="Download Kainen White's resume PDF"
           >
             Download Resume
           </CTAButton>
         </div>
-      </div>
+      </section>
 
       {/* Services Section */}
-      <div className="contrast-section" id="services">
+      <section className="contrast-section" id="services">
         <h2>Services I Offer</h2>
-        <div className="services-grid">
-          <div className="service-card">
+        <div className="services-grid" role="list">
+          <article className="service-card" role="listitem">
             <div className="service-icon">
-              <img className="icon" src={designthinking} alt="UX Design icon" loading="lazy" />
+              <img className="icon" src={designthinking} alt="" loading="lazy" aria-hidden="true" />
             </div>
             <h3>UX/UI Design</h3>
             <p>User research, wireframing, prototyping, and visual design that creates intuitive and engaging experiences.</p>
@@ -120,11 +139,11 @@ function About() {
               <li>Visual design & branding</li>
               <li>Usability testing</li>
             </ul>
-          </div>
+          </article>
           
-          <div className="service-card">
+          <article className="service-card" role="listitem">
             <div className="service-icon">
-              <img className="icon" src={dev} alt="Development icon" loading="lazy" />
+              <img className="icon" src={dev} alt="" loading="lazy" aria-hidden="true" />
             </div>
             <h3>Frontend Development</h3>
             <p>Responsive, accessible websites and applications built with modern technologies and best practices.</p>
@@ -134,11 +153,11 @@ function About() {
               <li>Performance optimization</li>
               <li>Accessibility compliance</li>
             </ul>
-          </div>
+          </article>
           
-          <div className="service-card">
+          <article className="service-card" role="listitem">
             <div className="service-icon">
-              <img className="icon" src={design} alt="Consultation icon" loading="lazy" />
+              <img className="icon" src={design} alt="" loading="lazy" aria-hidden="true" />
             </div>
             <h3>Design Consultation</h3>
             <p>Strategic guidance to improve your digital presence and user experience through expert analysis and recommendations.</p>
@@ -148,49 +167,49 @@ function About() {
               <li>Conversion optimization</li>
               <li>Strategy & planning</li>
             </ul>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
 
       {/* How I Work Section */}
-      <div className="non-contrast-section" id="how-i-work">
+      <section className="non-contrast-section" id="how-i-work">
         <h2>How I Work</h2>
         <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 2rem' }}>
           My process is collaborative, iterative, and always focused on solving real user problems while achieving business goals.
         </p>
         
-        <div className="process-steps">
-          <div className="process-step">
-            <div className="step-number">1</div>
+        <div className="process-steps" role="list">
+          <article className="process-step" role="listitem">
+            <div className="step-number" aria-hidden="true">1</div>
             <h3>Discovery & Research</h3>
             <p>I start by understanding your users, business goals, and constraints through research, interviews, and competitive analysis.</p>
-          </div>
+          </article>
           
-          <div className="process-step">
-            <div className="step-number">2</div>
+          <article className="process-step" role="listitem">
+            <div className="step-number" aria-hidden="true">2</div>
             <h3>Strategy & Planning</h3>
             <p>Based on research insights, I develop a clear strategy and project plan that aligns user needs with business objectives.</p>
-          </div>
+          </article>
           
-          <div className="process-step">
-            <div className="step-number">3</div>
+          <article className="process-step" role="listitem">
+            <div className="step-number" aria-hidden="true">3</div>
             <h3>Design & Prototype</h3>
             <p>I create wireframes, prototypes, and high-fidelity designs, iterating based on feedback and testing throughout.</p>
-          </div>
+          </article>
           
-          <div className="process-step">
-            <div className="step-number">4</div>
+          <article className="process-step" role="listitem">
+            <div className="step-number" aria-hidden="true">4</div>
             <h3>Build & Test</h3>
             <p>I develop responsive, accessible solutions and conduct usability testing to ensure the best possible user experience.</p>
-          </div>
+          </article>
           
-          <div className="process-step">
-            <div className="step-number">5</div>
+          <article className="process-step" role="listitem">
+            <div className="step-number" aria-hidden="true">5</div>
             <h3>Launch & Optimize</h3>
             <p>After launch, I monitor performance, gather user feedback, and make data-driven improvements to maximize results.</p>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
       <div>
         
         {/* Download Resume CTA Section */}
@@ -214,6 +233,7 @@ function About() {
             <button
               className="cta-btn outline"
               onClick={() => setModalOpen(true)}
+              aria-label="Open contact form to start a project"
               style={{
                 background: 'transparent',
                 color: 'var(--accent-color, #005A9C)',
@@ -247,7 +267,6 @@ function About() {
       <div
         className="modal-overlay"
         role="button"
-        aria-label="Close modal by clicking outside"
         tabIndex={0}
         style={{
           position: 'fixed',
@@ -265,22 +284,26 @@ function About() {
         onClick={(e) => {
           // Only close if clicking the overlay itself, not its children
           if (e.target === e.currentTarget) {
-            setModalOpen(false);
+            handleModalClose();
           }
         }}
         onKeyDown={(e) => {
-          // Close modal on Escape key or Enter/Space when focused on overlay
-          if (e.key === 'Escape' || (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' '))) {
+          if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) {
             e.preventDefault();
-            setModalOpen(false);
+            handleModalClose();
           }
         }}
+        aria-label="Close modal overlay"
       >
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
         <div
+          ref={focusTrapRef}
           className="contrast-section modal-contact"
           role="dialog"
           aria-modal="true"
-          aria-label="Start a Project Contact Modal"
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
+          onKeyDown={handleModalKeyDown}
           style={{
             minWidth: 320,
             maxWidth: 400,
@@ -293,8 +316,8 @@ function About() {
           }}
         >
           <button
-            aria-label="Close"
-            onClick={() => setModalOpen(false)}
+            aria-label="Close dialog"
+            onClick={handleModalClose}
             style={{
               position: 'absolute',
               top: 12,
@@ -305,12 +328,20 @@ function About() {
               color: 'var(--contrast-fg)',
               cursor: 'pointer',
               fontWeight: 700,
-              lineHeight: 1
+              lineHeight: 1,
+              width: 32,
+              height: 32,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}
           >
             ×
           </button>
-          <h2 style={{ marginTop: 0 }}>Start a Project</h2>
+          <h2 id="modal-title" style={{ marginTop: 0 }}>Start a Project</h2>
+          <p id="modal-description" className="sr-only">
+            Contact form to reach out about starting a new project with Kainen White
+          </p>
           {contactForm}
         </div>
       </div>
