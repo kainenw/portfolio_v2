@@ -66,7 +66,6 @@ function CTAButton({
         className={baseClasses}
         aria-label={ariaLabel}
         style={style}
-        {...props}
       >
         {showDownloadIcon && (
           <span style={{ marginRight: '8px' }} aria-hidden="true">⬇</span>

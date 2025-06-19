@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ProjectsClientWorking from './ProjectsClientWorking';
+import ProjectsClient from './ProjectsClient';
 
 export const metadata: Metadata = {
   title: 'Design Portfolio & Case Studies - Kainen White',
@@ -17,5 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function Projects() {
-  return <ProjectsClientWorking />;
+  return <ProjectsClient />;
 }

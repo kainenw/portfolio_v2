@@ -1,18 +1,12 @@
 'use client';
 
 import React from 'react';
-import Card from '../Card/Card';
+import Card, { CardAction } from '../Card/Card';
 import './Deck.css';
 
-interface CardAction {
-  label: string;
-  href: string;
-  newTab: boolean;
-}
-
 interface DeckProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   items: Array<{
     id: string;
     title: string;
@@ -25,27 +19,27 @@ interface DeckProps {
     };
   }>;
   actionType: string;
-  analytics: {
+  analytics?: {
     category: string;
     action: string;
   };
 }
 
 function Deck({ title, description, items, actionType, analytics }: DeckProps) {
-  // Convert actionType string to array
-  const actionTypes = actionType.split(', ').map(type => type.trim());
+  // Convert actionType string to array - handle comma-separated values like original
+  const actionTypes = actionType.split(/[,\s]+/).map(type => type.trim()).filter(Boolean);
 
   const getActionLabel = (type: string) => {
     switch (type) {
-      case 'caseStudy': return 'View Case Study';
+      case 'caseStudy': return 'Case Study';
       case 'demo': return 'View Demo';
       case 'github': return 'View Code';
-      default: return 'View Project';
+      default: return type.charAt(0).toUpperCase() + type.slice(1);
     }
   };
 
   const getNewTab = (type: string) => {
-    return type === 'demo' || type === 'github';
+    return type !== 'caseStudy';
   };
 
   const getActionUrl = (type: string, item: DeckProps['items'][0]) => {
@@ -57,12 +51,16 @@ function Deck({ title, description, items, actionType, analytics }: DeckProps) {
 
   return (
     <div>
-      {/* Section Header */}
-      <h2 className="left-right-padding">{title}</h2>
-      <p className="left-right-padding">{description}</p>
+      {/* Section Header - only show if title or description provided */}
+      {(title || description) && (
+        <>
+          {title && <h2 className="left-right-padding">{title}</h2>}
+          {description && <p className="left-right-padding">{description}</p>}
+        </>
+      )}
       
       {/* Cards Grid */}
-      <div className="deck" role="list">
+      <div className="deck-grid" role="list">
         {items.map((item) => {
           const actions: CardAction[] = [];
           
@@ -74,7 +72,7 @@ function Deck({ title, description, items, actionType, analytics }: DeckProps) {
                   label: getActionLabel(type),
                   href: url,
                   newTab: getNewTab(type)
-                } as CardAction);
+                });
               }
             });
           }
@@ -100,7 +98,7 @@ function Deck({ title, description, items, actionType, analytics }: DeckProps) {
               image={item.image || (item.images && item.images[0])}
               title={item.title}
               description={item.description}
-              actions={actions as any}
+              actions={actions}
               dataTestId={dataTestId}
             />
           );

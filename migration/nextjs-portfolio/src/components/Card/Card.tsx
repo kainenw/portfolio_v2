@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import CTAButton from '../CTAButton/CTAButton';
 import './Card.css';
 
 export interface CardAction {
@@ -43,18 +42,31 @@ function Card({ image, images, title, description, actions = [], dataTestId, ana
         <p>{description}</p>
         <div className="card-actions" role="group" aria-label={`Actions for ${title}`}>
           {actions.map((action, idx) => {
-            return (
-              <CTAButton
-                key={idx}
-                variant="primary"
-                size="medium"
-                href={action.href}
-                className="card-action-btn"
-                aria-label={`${action.label} for ${title}`}
-              >
-                {action.label}
-              </CTAButton>
-            );
+            if (action.newTab) {
+              return (
+                <a
+                  key={idx}
+                  href={action.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-action-btn cta-button cta-primary cta-medium"
+                  aria-label={`${action.label} for ${title}`}
+                >
+                  {action.label}
+                </a>
+              );
+            } else {
+              return (
+                <a
+                  key={idx}
+                  href={action.href}
+                  className="card-action-btn cta-button cta-primary cta-medium"
+                  aria-label={`${action.label} for ${title}`}
+                >
+                  {action.label}
+                </a>
+              );
+            }
           })}
         </div>
       </div>
