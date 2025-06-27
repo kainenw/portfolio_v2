@@ -1,3 +1,5 @@
+"use client"
+
 import '../_Pages.css'
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';

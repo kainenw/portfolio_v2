@@ -1,3 +1,5 @@
+"use client"
+
 import '../_Pages.css';
 import React, { useState } from "react";
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';

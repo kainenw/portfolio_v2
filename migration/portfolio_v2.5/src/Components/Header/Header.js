@@ -1,28 +1,32 @@
-import React from 'react';
+"use client"; // The Header must be a client component to use context and handle clicks.
+
+import React, { useContext } from 'react';
 import Link from 'next/link'; // Replace react-router-dom imports
 import { FolderOpen, User, Mail } from 'lucide-react'; // Import Mail icon
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
+import { ThemeContext } from '../../context/ThemeContext'; // Adjust path
 import './Header.css';
 
-function Header(props) {
-  const { theme, changeTheme } = props;
+export default function Header() {
+  const { theme, changeTheme } = useContext(ThemeContext);
+
+  // Handle the case where context is not yet available
+  if (!theme) {
+    return null; // Or return a loading skeleton for the header
+  }
 
   const handleThemeToggle = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', nextTheme);
-    changeTheme(nextTheme);
-    localStorage.setItem('__theme', nextTheme);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    changeTheme(newTheme);
   };
 
-  // Update handleContactClick to use Next.js routing
   const handleContactClick = () => {
     window.location.href = '/contact';
   };
 
-  // NavLink handles active class automatically
   return (
     <header className="App-header" data-theme={theme} role="banner">
-      {/* Logo/Brand - Directly in App-header */}
+      {/* Logo/Brand */}
       <Link 
         href="/" 
         className="header-logo header-nav-item"
@@ -33,7 +37,7 @@ function Header(props) {
         </span>
       </Link>
 
-      {/* Navigation Links - Directly in App-header */}
+      {/* Navigation Links */}
       <nav role="navigation" aria-label="Main navigation" style={{ display: 'contents' }}>
         <Link 
           href="/projects" 
@@ -57,7 +61,7 @@ function Header(props) {
         </Link>
       </nav>
 
-      {/* Contact CTA Button - Directly in App-header */}
+      {/* Contact CTA Button */}
       <CTAButton 
         variant="primary" 
         size="medium" 
@@ -71,7 +75,7 @@ function Header(props) {
         </span>
       </CTAButton>
 
-      {/* Theme Toggle Button - Directly in App-header */}
+      {/* Theme Toggle Button */}
       <button
         className="ThemeMenu header-nav-item"
         onClick={handleThemeToggle}
@@ -92,5 +96,3 @@ function Header(props) {
     </header>
   );
 }
-
-export default Header;
