@@ -1,16 +1,19 @@
-"use client"
+"use client";
 
-import '../_Pages.css'
+const metadata = {
+  title: "About Kainen White",
+  description: "Learn more about Kainen White, a product and UX designer creating user-centered digital experiences."
+};
+
+import '../globals.css'
 import React, { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
-import SEO from '../../Components/SEO/SEO';
 import headshot from '../../img/headshot.webp';
 import design from '../../img/design.webp';
 import dev from '../../img/dev.webp';
 import designthinking from '../../img/designthinking.webp';
-// import portfolio from '../../img/projects/portfolio.webp';
 import CTAButton from '../../Components/CTAButton/CTAButton';
 import useFocusTrap from '../../hooks/useFocusTrap';
+import Image from 'next/image';
 
 function About() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -79,17 +82,13 @@ function About() {
 
   return (
     <>
-      <Head>
-        <title>About Kainen White</title>
-        <meta name="description" content="Learn more about Kainen White, a product and UX designer creating user-centered digital experiences." />
-      </Head>
       <div className="About Page">
       <section className="non-contrast-section hero" style={{ position: 'relative' }}>
         <h1>Design With Purpose. Built for Results.</h1>
         <h2>User-centered thinking meets measurable impact.</h2>
         
         <div className="info-group">
-          <img src={headshot} alt="Professional headshot of Kainen White, Product & UX Designer" loading="lazy" />
+          <Image src={headshot} alt="Professional headshot of Kainen White, Product & UX Designer" loading="lazy" />
           <div>
             {/* <h3>About Me</h3> */}
             <p>

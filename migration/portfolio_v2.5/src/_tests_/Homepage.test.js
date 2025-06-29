@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
-import Homepage from './Homepage'
+import Homepage from '../app/Home/Homepage'
 
 describe('Homepage', () => {
   it('renders hero section with headline and actions', () => {

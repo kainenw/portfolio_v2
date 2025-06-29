@@ -1,8 +1,8 @@
 "use client"; // The Header must be a client component to use context and handle clicks.
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Link from 'next/link'; // Replace react-router-dom imports
-import { FolderOpen, User, Mail } from 'lucide-react'; // Import Mail icon
+import { FolderOpen, User, Mail, Sun, Moon } from 'lucide-react'; // Import Mail, Sun, and Moon icons
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
 import { ThemeContext } from '../../context/ThemeContext'; // Adjust path
 import './Header.css';
@@ -18,7 +18,15 @@ export default function Header() {
   const handleThemeToggle = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     changeTheme(newTheme);
+    // Update global data-theme attribute
+    document.documentElement.setAttribute('data-theme', newTheme);
+    console.log(`Theme changed to: ${newTheme}`);
   };
+
+  // Sync context theme to data-theme on mount and when theme changes
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const handleContactClick = () => {
     window.location.href = '/contact';
@@ -83,12 +91,11 @@ export default function Header() {
         aria-pressed={theme === 'dark'}
         type="button"
       >
-        <img
-          src={require(`../../img/themed/${theme}/theme-icon.webp`)} // Changed .png to .webp
-          alt=""
-          loading="lazy"
-          aria-hidden="true"
-        />
+        {theme === 'dark' ? (
+          <Moon size={20} aria-hidden="true" />
+        ) : (
+          <Sun size={20} aria-hidden="true" />
+        )}
         <span className="sr-only">
           Current theme: {theme === 'dark' ? 'Dark' : 'Light'} mode
         </span>

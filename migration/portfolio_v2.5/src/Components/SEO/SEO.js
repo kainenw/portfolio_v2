@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 
 const SEO = ({ 
   title, 
@@ -68,7 +68,7 @@ const SEO = ({
   };
 
   return (
-    <Helmet>
+    <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={pageDescription} />
       
@@ -110,7 +110,7 @@ const SEO = ({
           ))}
         </>
       )}
-    </Helmet>
+    </Head>
   );
 };
 

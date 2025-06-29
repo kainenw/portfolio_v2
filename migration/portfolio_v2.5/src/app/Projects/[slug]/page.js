@@ -1,8 +1,12 @@
+"use client";
+
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../../../Components/SEO/SEO';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
+import { notFound } from 'next/navigation';
+import { getProjectBySlug } from '../../../Data/projects';
 import './CaseStudy.css';
 
 // Helper function to render list items with proper accessibility
@@ -79,29 +83,38 @@ const renderTeam = (team) => {
   return null;
 };
 
-function CaseStudy({ 
-  title, 
-  description, 
-  longDescription,
-  problem, 
-  role,
-  team,
-  process, 
-  solution, 
-  impact,
-  businessResults,
-  businessImpact,
-  testimonial,
-  testimonials,
-  technologies, 
-  images,
-  image,
-  learnings,
-  prototypeEmbed,
-  links,
-  galleryImages
-}) {
-  const navigate = useNavigate();
+export default function CaseStudyPage({ params }) {
+  const pathname = usePathname();
+  const slugFromUrl = pathname.split('/projects/')[1].split('-case-study')[0] || params.slug;
+  const project = getProjectBySlug(slugFromUrl);
+  if (!project) {
+    return <div style={{ padding: '2rem' }}>Case study not found.</div>;
+  }
+
+  const { 
+    title, 
+    description, 
+    longDescription,
+    problem, 
+    role,
+    team,
+    process, 
+    solution, 
+    impact,
+    businessResults,
+    businessImpact,
+    testimonial,
+    testimonials,
+    technologies, 
+    images,
+    image,
+    learnings,
+    prototypeEmbed,
+    links,
+    galleryImages 
+  } = project;
+
+  const router = useRouter();
   
   // Focus management for accessibility
   useEffect(() => {
@@ -187,7 +200,7 @@ function CaseStudy({
       
       <nav aria-label="Case study navigation">
         <button 
-          onClick={() => navigate('/projects')} 
+          onClick={() => router.push('/projects')} 
           className="back-to-projects-btn"
           aria-label="Return to all projects"
         >
@@ -412,5 +425,3 @@ function CaseStudy({
     </article>
   );
 }
-
-export default CaseStudy;

@@ -1,17 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation"; // Corrected import for App Router
 
 export default function usePageTracking() {
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "page_view", {
-        page_path: router.asPath,
+        page_path: pathname,
         page_title: document.title,
       });
     }
-  }, [router.asPath]);
+  }, [pathname]); // Dependency updated to pathname
 }

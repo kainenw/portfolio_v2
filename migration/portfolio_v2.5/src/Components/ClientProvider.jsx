@@ -10,6 +10,8 @@ import { ThemeContext } from '../context/ThemeContext'; // Import the new contex
 
 export default function ClientProvider({ children }) {
   const [theme, setTheme] = useState("light");
+
+  // Ensure usePageTracking is only called when the router is mounted
   usePageTracking();
 
   useEffect(() => {
@@ -43,9 +45,6 @@ export default function ClientProvider({ children }) {
     localStorage.setItem("__theme", newTheme);
   };
 
-  // The 'cloneElement' logic is removed.
-  // Instead, we wrap the children in the ThemeContext.Provider.
-  // Any component inside this provider can now access the theme state.
   return (
     <ThemeContext.Provider value={{ theme, changeTheme }}>
       {children}

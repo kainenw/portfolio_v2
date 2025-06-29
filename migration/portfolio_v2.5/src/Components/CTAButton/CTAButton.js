@@ -1,7 +1,8 @@
+"use client"
+
 import React from 'react';
+import Link from 'next/link';
 import './CTAButton.css';
-
-
 import { Download } from 'lucide-react';
 
 function CTAButton({
@@ -46,17 +47,28 @@ function CTAButton({
       return;
     }
     // Otherwise, handle as normal link
-    if (href && href.startsWith('/') && !href.startsWith('//') && !href.startsWith('http')) {
-      e.preventDefault();
-      if (typeof window !== 'undefined') {
-        window.history.pushState({}, '', href);
-        window.dispatchEvent(new PopStateEvent('popstate'));
-      }
-    }
     if (typeof onClick === 'function') onClick(e);
   };
 
-  if (href) {
+  // Use next/link for internal links
+  const isInternal = typeof href === 'string' && href.startsWith('/') && !href.startsWith('//') && !href.startsWith('http');
+
+  if (href && typeof href === 'string' && href.length > 0) {
+    if (isInternal && !download) {
+      return (
+        <Link href={href} legacyBehavior passHref>
+          <a
+            className={baseClasses}
+            aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
+            {...props}
+          >
+            {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}
+            {children}
+          </a>
+        </Link>
+      );
+    }
     return (
       <a
         href={href}

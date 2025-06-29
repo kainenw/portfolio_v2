@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Head from 'next/head';
-import '../_Pages.css';
+import '../globals.css';
 import Deck from '../../Components/Deck/Deck.js';
 import { FolderOpen } from 'lucide-react';
 import { designProjects, developmentProjects } from '../../Data/projects.ts';
