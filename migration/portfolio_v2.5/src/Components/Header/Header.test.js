@@ -1,18 +1,14 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import mockRouter from '../../test-utils/mockRouter'
 import Header from './Header'
 
 describe('Header', () => {
   it('renders all navigation links and logo', () => {
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <RouterContext.Provider value={mockRouter}>
         <Header theme="light" changeTheme={jest.fn()} />
-      </MemoryRouter>
+      </RouterContext.Provider>
     )
     // Logo/brand should be present
     expect(screen.getByText(/kw/i)).toBeInTheDocument()
@@ -24,14 +20,9 @@ describe('Header', () => {
 
   it('renders the theme toggle button', () => {
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <RouterContext.Provider value={mockRouter}>
         <Header theme="dark" changeTheme={jest.fn()} />
-      </MemoryRouter>
+      </RouterContext.Provider>
     )
     expect(screen.getByRole('button', { name: /change theme/i })).toBeInTheDocument()
   })
@@ -39,14 +30,9 @@ describe('Header', () => {
   it('calls changeTheme with the next theme', () => {
     const changeTheme = jest.fn()
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <RouterContext.Provider value={mockRouter}>
         <Header theme="dark" changeTheme={changeTheme} />
-      </MemoryRouter>
+      </RouterContext.Provider>
     )
     screen.getByRole('button', { name: /change theme/i }).click()
     expect(changeTheme).toHaveBeenCalledWith('light')

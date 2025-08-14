@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link'; // Replace react-router-dom imports
+import Link from 'next/link';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import './Footer.css';
 

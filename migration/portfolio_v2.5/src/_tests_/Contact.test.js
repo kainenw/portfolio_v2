@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { act } from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import mockRouter from '../test-utils/mockRouter'
 import Contact from './Contact'
 import userEvent from '@testing-library/user-event';
 import * as emailjs from '@emailjs/browser';
@@ -11,14 +12,9 @@ describe('Contact', () => {
   it('renders the Contact page with key sections', () => {
     act(() => {
       render(
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+        <RouterContext.Provider value={mockRouter}>
           <Contact />
-        </MemoryRouter>
+        </RouterContext.Provider>
       )
     })
     expect(screen.getByText(/Let's Connect!/i)).toBeInTheDocument()
@@ -27,14 +23,9 @@ describe('Contact', () => {
 
   it('shows validation errors for empty fields', async () => {
     render(
-      <MemoryRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <RouterContext.Provider value={mockRouter}>
         <Contact />
-      </MemoryRouter>
+      </RouterContext.Provider>
     );
     
     await act(async () => {
@@ -48,14 +39,9 @@ describe('Contact', () => {
 
   it('shows validation error for invalid email', async () => {
     render(
-      <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+      <RouterContext.Provider value={mockRouter}>
         <Contact />
-      </MemoryRouter>
+      </RouterContext.Provider>
     );
     
     await act(async () => {
@@ -71,14 +57,9 @@ describe('Contact', () => {
   it('submits the form and shows success message on EmailJS success', async () => {
     emailjs.send.mockResolvedValueOnce({ status: 200 });
     render(
-      <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+      <RouterContext.Provider value={mockRouter}>
         <Contact />
-      </MemoryRouter>
+      </RouterContext.Provider>
     );
     
     await act(async () => {
@@ -94,14 +75,9 @@ describe('Contact', () => {
   it('shows error message on EmailJS failure', async () => {
     emailjs.send.mockRejectedValueOnce(new Error('Email failed'));
     render(
-      <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+      <RouterContext.Provider value={mockRouter}>
         <Contact />
-      </MemoryRouter>
+      </RouterContext.Provider>
     );
     
     await act(async () => {

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import mockRouter from '../test-utils/mockRouter'
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import About from './About'
 
@@ -8,15 +9,10 @@ describe('About', () => {
   it('renders the About page with key sections', () => {
     act(() => {
       render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
+        <HelmetProvider>
+          <RouterContext.Provider value={mockRouter}>
             <About />
-          </MemoryRouter>
+          </RouterContext.Provider>
         </HelmetProvider>
       )
     })
@@ -29,15 +25,10 @@ describe('About', () => {
   it('renders the Start a Project button', () => {
     act(() => {
       render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
+        <HelmetProvider>
+          <RouterContext.Provider value={mockRouter}>
             <About />
-          </MemoryRouter>
+          </RouterContext.Provider>
         </HelmetProvider>
       )
     })
@@ -47,15 +38,10 @@ describe('About', () => {
   it('opens the modal with contact form when Start a Project is clicked', () => {
     act(() => {
       render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
+        <HelmetProvider>
+          <RouterContext.Provider value={mockRouter}>
             <About />
-          </MemoryRouter>
+          </RouterContext.Provider>
         </HelmetProvider>
       )
     })
@@ -72,15 +58,10 @@ describe('About', () => {
   it('closes the modal when overlay is clicked', () => {
     act(() => {
       render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
+        <HelmetProvider>
+          <RouterContext.Provider value={mockRouter}>
             <About />
-          </MemoryRouter>
+          </RouterContext.Provider>
         </HelmetProvider>
       )
     })
@@ -100,15 +81,10 @@ describe('About', () => {
   it('closes the modal when close button is clicked', () => {
     act(() => {
       render(
-        <HelmetProvider> {/* Wrap with HelmetProvider */}
-          <MemoryRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
-          >
+        <HelmetProvider>
+          <RouterContext.Provider value={mockRouter}>
             <About />
-          </MemoryRouter>
+          </RouterContext.Provider>
         </HelmetProvider>
       )
     })
