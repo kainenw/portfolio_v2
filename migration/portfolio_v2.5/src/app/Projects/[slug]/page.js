@@ -1,13 +1,45 @@
-"use client";
-
-import React, { useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import React from 'react';
 import { ArrowLeft } from 'lucide-react';
-import SEO from '../../../Components/SEO/SEO';
+import Link from 'next/link';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
 import { notFound } from 'next/navigation';
-import { getProjectBySlug } from '../../../Data/projects';
+import { projects, getProjectBySlug } from '../../../Data/projects';
 import './CaseStudy.css';
+
+export function generateStaticParams() {
+  return projects.map(project => ({ slug: `${project.slug}-case-study` }));
+}
+
+export function generateMetadata({ params }) {
+  const project = getProjectBySlug(params.slug.replace('-case-study', ''));
+  if (!project) {
+    return {
+      title: 'Case Study Not Found'
+    };
+  }
+
+  const { title, description, longDescription, images, image } = project;
+  const summary = description || longDescription;
+  const img = images?.[0] || image;
+
+  return {
+    title,
+    description: summary,
+    openGraph: {
+      title,
+      description: summary,
+      url: `/projects/${params.slug}`,
+      type: 'article',
+      images: img ? [img] : []
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: summary,
+      images: img ? [img] : []
+    }
+  };
+}
 
 // Helper function to render list items with proper accessibility
 const renderListItems = (items, type) => {
@@ -84,11 +116,10 @@ const renderTeam = (team) => {
 };
 
 export default function CaseStudyPage({ params }) {
-  const pathname = usePathname();
-  const slugFromUrl = pathname.split('/projects/')[1].split('-case-study')[0] || params.slug;
-  const project = getProjectBySlug(slugFromUrl);
+  const slug = params.slug.replace('-case-study', '');
+  const project = getProjectBySlug(slug);
   if (!project) {
-    return <div style={{ padding: '2rem' }}>Case study not found.</div>;
+    notFound();
   }
 
   const { 
@@ -114,24 +145,10 @@ export default function CaseStudyPage({ params }) {
     galleryImages 
   } = project;
 
-  const router = useRouter();
-  
-  // Focus management for accessibility
-  useEffect(() => {
-    // Set focus to the main heading when the case study loads
-    const mainHeading = document.querySelector('h1');
-    if (mainHeading) {
-      mainHeading.focus();
-    }
-    
-    // Update page title for screen readers
-    document.title = `${title} - Case Study | Kainen White`;
-  }, [title]);
-  
   // Convert impact array to MetricsDisplay format
   const convertImpactToMetrics = (impacts) => {
     if (!impacts || !Array.isArray(impacts)) return null;
-    
+
     return impacts.map((impactItem) => ({
       value: impactItem.value,
       label: impactItem.metric,
@@ -186,27 +203,15 @@ export default function CaseStudyPage({ params }) {
 
   return (
     <article className="case-study" role="main" aria-labelledby="case-study-title">
-      <SEO 
-        title={title}
-        description={description || longDescription || `A detailed case study of ${title}, showcasing the design process and measurable results.`}
-        url={`/projects/${title?.toLowerCase().replace(/\s+/g, '-')}`}
-        type="article"
-        image={images?.[0] || image}
-        article={{
-          datePublished: "2024-01-01", // You can make this dynamic
-          tags: technologies || []
-        }}
-      />
-      
       <nav aria-label="Case study navigation">
-        <button 
-          onClick={() => router.push('/projects')} 
+        <Link
+          href="/projects"
           className="back-to-projects-btn"
           aria-label="Return to all projects"
         >
           <ArrowLeft size={20} style={{ marginRight: '8px', verticalAlign: 'middle' }} aria-hidden="true" />
           Back to All Projects
-        </button>
+        </Link>
       </nav>
 
       {/* Project Overview Section */}
