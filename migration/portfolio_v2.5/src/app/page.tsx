@@ -9,7 +9,7 @@ import { getFeaturedProjects } from "../Data/projects";
 import { Sparkle, FolderOpen, Handshake, Quote } from "lucide-react";
 import { testimonials } from "../Data/testimonials";
 import { portfolioMetrics } from "../Data/portfolioMetrics";
-import themeStyles from "../Theme/themeStyles"; // If needed for styling
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Kainen White | Product & UX Designer",
@@ -188,10 +188,12 @@ export default function HomePage() {
         >
           {testimonials.map((t, i) => (
             <article key={i} className="testimonial-card" role="listitem">
-              <img
+              <Image
                 src={t.photo}
                 alt={`${t.name}, ${t.title} at ${t.company}`}
                 className="testimonial-photo"
+                width={50}
+                height={50}
                 loading="lazy"
               />
               <blockquote className="quote">&ldquo;{t.quote}&rdquo;</blockquote>

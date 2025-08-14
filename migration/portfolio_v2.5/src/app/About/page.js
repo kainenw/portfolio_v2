@@ -1,6 +1,6 @@
 "use client";
 
-const metadata = {
+export const metadata = {
   title: "About Kainen White",
   description: "Learn more about Kainen White, a product and UX designer creating user-centered digital experiences."
 };
@@ -128,7 +128,14 @@ function About() {
         <div className="services-grid" role="list">
           <article className="service-card" role="listitem">
             <div className="service-icon">
-              <img className="icon" src={designthinking} alt="" loading="lazy" aria-hidden="true" />
+              <Image
+                className="icon"
+                src={designthinking}
+                alt="Design thinking icon"
+                width={100}
+                height={100}
+                loading="lazy"
+              />
             </div>
             <h3>UX/UI Design</h3>
             <p>User research, wireframing, prototyping, and visual design that creates intuitive and engaging experiences.</p>
@@ -142,7 +149,14 @@ function About() {
           
           <article className="service-card" role="listitem">
             <div className="service-icon">
-              <img className="icon" src={dev} alt="" loading="lazy" aria-hidden="true" />
+              <Image
+                className="icon"
+                src={dev}
+                alt="Development icon"
+                width={100}
+                height={100}
+                loading="lazy"
+              />
             </div>
             <h3>Frontend Development</h3>
             <p>Responsive, accessible websites and applications built with modern technologies and best practices.</p>
@@ -156,7 +170,14 @@ function About() {
           
           <article className="service-card" role="listitem">
             <div className="service-icon">
-              <img className="icon" src={design} alt="" loading="lazy" aria-hidden="true" />
+              <Image
+                className="icon"
+                src={design}
+                alt="Design icon"
+                width={100}
+                height={100}
+                loading="lazy"
+              />
             </div>
             <h3>Design Consultation</h3>
             <p>Strategic guidance to improve your digital presence and user experience through expert analysis and recommendations.</p>

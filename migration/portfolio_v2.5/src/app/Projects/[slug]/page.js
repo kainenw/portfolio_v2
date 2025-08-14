@@ -5,9 +5,9 @@ import { useRouter, usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../../../Components/SEO/SEO';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
-import { notFound } from 'next/navigation';
 import { getProjectBySlug } from '../../../Data/projects';
 import './CaseStudy.css';
+import Image from 'next/image';
 
 // Helper function to render list items with proper accessibility
 const renderListItems = (items, type) => {
@@ -39,11 +39,13 @@ const renderTestimonial = (testimonial) => {
         <p>&ldquo;{testimonial.quote}&rdquo;</p>
         <footer className="testimonial-client">
           {testimonial.photo && (
-            <img 
-              src={testimonial.photo} 
+            <Image
+              src={testimonial.photo}
               alt={`${testimonial.name || testimonial.author}, ${testimonial.title} at ${testimonial.company}`}
-              className="testimonial-photo" 
-              loading="lazy" 
+              className="testimonial-photo"
+              width={50}
+              height={50}
+              loading="lazy"
             />
           )}
           <div className="testimonial-info">
@@ -214,9 +216,11 @@ export default function CaseStudyPage({ params }) {
         <h1 id="case-study-title" tabIndex={-1}>{title}</h1>
         {(images && images[0]) || image ? (
           <figure className="case-study-image">
-            <img 
-              src={(images && images[0]) || image} 
-              alt={`Main showcase for ${title} project`} 
+            <Image
+              src={(images && images[0]) || image}
+              alt={`Main showcase for ${title} project`}
+              width={800}
+              height={600}
               loading="lazy"
             />
           </figure>
@@ -333,11 +337,13 @@ export default function CaseStudyPage({ params }) {
                 <p>&ldquo;{testimonialItem.quote}&rdquo;</p>
                 <footer>
                   {testimonialItem.photo && (
-                    <img 
-                      src={testimonialItem.photo} 
-                      alt={`${testimonialItem.name || testimonialItem.author}, ${testimonialItem.title}`} 
-                      className="testimonial-photo" 
-                      loading="lazy" 
+                    <Image
+                      src={testimonialItem.photo}
+                      alt={`${testimonialItem.name || testimonialItem.author}, ${testimonialItem.title}`}
+                      className="testimonial-photo"
+                      width={50}
+                      height={50}
+                      loading="lazy"
                     />
                   )}
                   <cite>
@@ -404,18 +410,22 @@ export default function CaseStudyPage({ params }) {
           <h2 id="gallery-heading">Project Gallery</h2>
           <div className="gallery-grid" aria-label="Project screenshots gallery">
             {images && images.length > 1 && images.slice(1).map((imageUrl, index) => (
-              <img 
-                key={index} 
-                src={imageUrl} 
-                alt={`${title} screenshot ${index + 1}`} 
-                loading="lazy" 
+              <Image
+                key={index}
+                src={imageUrl}
+                alt={`${title} screenshot ${index + 1}`}
+                width={800}
+                height={600}
+                loading="lazy"
               />
             ))}
             {galleryImages && galleryImages.map((imageUrl, index) => (
-              <img 
-                key={index} 
-                src={imageUrl} 
-                alt={`${title} screenshot ${index + 1}`} 
+              <Image
+                key={index}
+                src={imageUrl}
+                alt={`${title} screenshot ${index + 1}`}
+                width={800}
+                height={600}
                 loading="lazy"
               />
             ))}
