@@ -1,13 +1,11 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import SEO from '../../../Components/SEO/SEO';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
 import { getProjectBySlug } from '../../../Data/projects';
 import './CaseStudy.css';
-import Image from 'next/image';
 
 // Helper function to render list items with proper accessibility
 const renderListItems = (items, type) => {
@@ -39,13 +37,11 @@ const renderTestimonial = (testimonial) => {
         <p>&ldquo;{testimonial.quote}&rdquo;</p>
         <footer className="testimonial-client">
           {testimonial.photo && (
-            <Image
-              src={testimonial.photo}
+            <img 
+              src={testimonial.photo} 
               alt={`${testimonial.name || testimonial.author}, ${testimonial.title} at ${testimonial.company}`}
-              className="testimonial-photo"
-              width={50}
-              height={50}
-              loading="lazy"
+              className="testimonial-photo" 
+              loading="lazy" 
             />
           )}
           <div className="testimonial-info">
@@ -85,25 +81,43 @@ const renderTeam = (team) => {
   return null;
 };
 
-export default function CaseStudyPage({ params }) {
-  const pathname = usePathname();
-  const slugFromUrl = pathname.split('/projects/')[1].split('-case-study')[0] || params.slug;
+export default function CaseStudyClient({ slug }) {
+  const router = useRouter();
+  const slugFromUrl = slug.split('-case-study')[0];
   const project = getProjectBySlug(slugFromUrl);
   if (!project) {
-    return {
-      title: 'Project Not Found',
-      description: 'Case study not found.'
-    };
+    return <div style={{ padding: '2rem' }}>Case study not found.</div>;
   }
-  return generateSEOMetadata({
-    title: project.title,
-    description: project.description || project.longDescription || `A detailed case study of ${project.title}, showcasing the design process and measurable results.`,
-    url: `/projects/${project.title?.toLowerCase().replace(/\s+/g, '-')}`,
-    type: 'article',
-    image: project.images?.[0] || project.image,
-    article: {
-      datePublished: '2024-01-01',
-      tags: project.technologies || []
+
+  const {
+    title, 
+    description, 
+    longDescription,
+    problem, 
+    role,
+    team,
+    process, 
+    solution, 
+    impact,
+    businessResults,
+    businessImpact,
+    testimonial,
+    testimonials,
+    technologies, 
+    images,
+    image,
+    learnings,
+    prototypeEmbed,
+    links,
+    galleryImages 
+  } = project;
+
+  // Focus management for accessibility
+  useEffect(() => {
+    // Set focus to the main heading when the case study loads
+    const mainHeading = document.querySelector('h1');
+    if (mainHeading) {
+      mainHeading.focus();
     }
     
     // Update page title for screen readers
@@ -168,21 +182,9 @@ export default function CaseStudyPage({ params }) {
 
   return (
     <article className="case-study" role="main" aria-labelledby="case-study-title">
-      <SEO 
-        title={title}
-        description={description || longDescription || `A detailed case study of ${title}, showcasing the design process and measurable results.`}
-        url={`/projects/${title?.toLowerCase().replace(/\s+/g, '-')}`}
-        type="article"
-        image={images?.[0] || image}
-        article={{
-          datePublished: "2024-01-01", // You can make this dynamic
-          tags: technologies || []
-        }}
-      />
-      
       <nav aria-label="Case study navigation">
-        <button 
-          onClick={() => router.push('/projects')} 
+        <button
+          onClick={() => router.push('/projects')}
           className="back-to-projects-btn"
           aria-label="Return to all projects"
         >
@@ -196,11 +198,9 @@ export default function CaseStudyPage({ params }) {
         <h1 id="case-study-title" tabIndex={-1}>{title}</h1>
         {(images && images[0]) || image ? (
           <figure className="case-study-image">
-            <Image
-              src={(images && images[0]) || image}
-              alt={`Main showcase for ${title} project`}
-              width={800}
-              height={600}
+            <img 
+              src={(images && images[0]) || image} 
+              alt={`Main showcase for ${title} project`} 
               loading="lazy"
             />
           </figure>
@@ -317,13 +317,11 @@ export default function CaseStudyPage({ params }) {
                 <p>&ldquo;{testimonialItem.quote}&rdquo;</p>
                 <footer>
                   {testimonialItem.photo && (
-                    <Image
-                      src={testimonialItem.photo}
-                      alt={`${testimonialItem.name || testimonialItem.author}, ${testimonialItem.title}`}
-                      className="testimonial-photo"
-                      width={50}
-                      height={50}
-                      loading="lazy"
+                    <img 
+                      src={testimonialItem.photo} 
+                      alt={`${testimonialItem.name || testimonialItem.author}, ${testimonialItem.title}`} 
+                      className="testimonial-photo" 
+                      loading="lazy" 
                     />
                   )}
                   <cite>
@@ -390,22 +388,18 @@ export default function CaseStudyPage({ params }) {
           <h2 id="gallery-heading">Project Gallery</h2>
           <div className="gallery-grid" aria-label="Project screenshots gallery">
             {images && images.length > 1 && images.slice(1).map((imageUrl, index) => (
-              <Image
-                key={index}
-                src={imageUrl}
-                alt={`${title} screenshot ${index + 1}`}
-                width={800}
-                height={600}
-                loading="lazy"
+              <img 
+                key={index} 
+                src={imageUrl} 
+                alt={`${title} screenshot ${index + 1}`} 
+                loading="lazy" 
               />
             ))}
             {galleryImages && galleryImages.map((imageUrl, index) => (
-              <Image
-                key={index}
-                src={imageUrl}
-                alt={`${title} screenshot ${index + 1}`}
-                width={800}
-                height={600}
+              <img 
+                key={index} 
+                src={imageUrl} 
+                alt={`${title} screenshot ${index + 1}`} 
                 loading="lazy"
               />
             ))}
