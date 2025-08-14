@@ -1,5 +1,6 @@
 import { render, screen, act } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import mockRouter from '../../test-utils/mockRouter'
 import { HelmetProvider } from 'react-helmet-async'
 import Header from '../../Components/Header/Header'
 import Resources from './Resources'
@@ -25,14 +26,9 @@ describe('Resources Page', () => {
   it('is not rendered or linked in the navigation', () => {
     render(
       <HelmetProvider>
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+        <RouterContext.Provider value={mockRouter}>
           <Header theme="light" changeTheme={jest.fn()} />
-        </MemoryRouter>
+        </RouterContext.Provider>
       </HelmetProvider>
     )
     expect(screen.queryByText(/resources/i)).not.toBeInTheDocument()

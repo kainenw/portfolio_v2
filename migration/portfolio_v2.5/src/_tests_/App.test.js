@@ -2,7 +2,8 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { act } from 'react'
 import App from '../App/App'
-import { MemoryRouter } from 'react-router-dom';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
+import mockRouter from '../test-utils/mockRouter';
 import { HelmetProvider } from 'react-helmet-async';
 
 it('renders about link', () => {
@@ -10,14 +11,9 @@ it('renders about link', () => {
   act(() => {
     ({ getAllByText } = render(
       <HelmetProvider>
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+        <RouterContext.Provider value={mockRouter}>
           <App />
-        </MemoryRouter>
+        </RouterContext.Provider>
       </HelmetProvider>
     ));
   });

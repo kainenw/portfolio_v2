@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Home, AlertCircle } from 'lucide-react';
 import Head from 'next/head';
 import '../_Pages.css';
@@ -50,7 +50,7 @@ function NotFound() {
           
           <nav aria-label="Error page navigation" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link 
-              to="/" 
+              href="/" 
               className="cta-btn" 
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
               aria-label="Return to homepage"
@@ -60,7 +60,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              to="/projects" 
+              href="/projects" 
               className="cta-btn" 
               style={{ background: 'transparent', color: 'var(--accent-color, #007acc)', border: '2px solid var(--accent-color, #007acc)' }}
               aria-label="View my design projects"
@@ -69,7 +69,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              to="/contact" 
+              href="/contact" 
               className="cta-btn" 
               style={{ background: 'transparent', color: 'var(--accent-color, #007acc)', border: '2px solid var(--accent-color, #007acc)' }}
               aria-label="Contact me for help"
@@ -89,7 +89,7 @@ function NotFound() {
             role="list"
           >
             <Link 
-              to="/" 
+              href="/" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -115,7 +115,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              to="/about" 
+              href="/about" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -141,7 +141,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              to="/projects" 
+              href="/projects" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -167,7 +167,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              to="/contact" 
+              href="/contact" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
