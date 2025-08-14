@@ -1,12 +1,16 @@
+"use client";
+
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import { FolderOpen, User, Mail } from 'lucide-react'; // Import Mail icon
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
 import './Header.css';
 
 function Header(props) {
   const { theme, changeTheme } = props;
-  const navigate = useNavigate(); // Instantiate useNavigate
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleThemeToggle = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
@@ -15,46 +19,45 @@ function Header(props) {
     localStorage.setItem('__theme', nextTheme);
   };
 
-  const handleContactClick = () => { // Handler for contact button
-    navigate('/contact');
+  const handleContactClick = () => {
+    router.push('/contact');
   };
 
-  // NavLink handles active class automatically
   return (
     <header className="App-header" data-theme={theme} role="banner">
       {/* Logo/Brand - Directly in App-header */}
-      <NavLink 
-        to="/" 
+      <Link
+        href="/"
         className="header-logo header-nav-item"
         aria-label="Home - Kainen White Portfolio"
       >
         <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span className="logo-text">KW</span>
         </span>
-      </NavLink>
+      </Link>
 
       {/* Navigation Links - Directly in App-header */}
       <nav role="navigation" aria-label="Main navigation" style={{ display: 'contents' }}>
-        <NavLink 
-          to="/projects" 
-          className="header-nav-item"
+        <Link
+          href="/projects"
+          className={`header-nav-item${pathname === '/projects' ? ' active' : ''}`}
           aria-label="View projects portfolio"
         >
           <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <FolderOpen size={20} style={{ marginBottom: '2px' }} aria-hidden="true" />
             <span className="nav-link-text">projects</span>
           </span>
-        </NavLink>
-        <NavLink 
-          to="/about" 
-          className="header-nav-item"
+        </Link>
+        <Link
+          href="/about"
+          className={`header-nav-item${pathname === '/about' ? ' active' : ''}`}
           aria-label="Learn about Kainen White"
         >
           <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <User size={20} style={{ marginBottom: '2px' }} aria-hidden="true" />
             <span className="nav-link-text">about</span>
           </span>
-        </NavLink>
+        </Link>
       </nav>
 
       {/* Contact CTA Button - Directly in App-header */}

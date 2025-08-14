@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Home, AlertCircle } from 'lucide-react';
 import SEO from '../../Components/SEO/SEO';
 import '../_Pages.css';
@@ -50,8 +52,8 @@ function NotFound() {
           </p>
           
           <nav aria-label="Error page navigation" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link 
-              to="/" 
+            <Link
+              href="/"
               className="cta-btn" 
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
               aria-label="Return to homepage"
@@ -60,8 +62,8 @@ function NotFound() {
               Go Home
             </Link>
             
-            <Link 
-              to="/projects" 
+            <Link
+              href="/projects"
               className="cta-btn" 
               style={{ background: 'transparent', color: 'var(--accent-color, #007acc)', border: '2px solid var(--accent-color, #007acc)' }}
               aria-label="View my design projects"
@@ -69,8 +71,8 @@ function NotFound() {
               View Projects
             </Link>
             
-            <Link 
-              to="/contact" 
+            <Link
+              href="/contact"
               className="cta-btn" 
               style={{ background: 'transparent', color: 'var(--accent-color, #007acc)', border: '2px solid var(--accent-color, #007acc)' }}
               aria-label="Contact me for help"
@@ -89,8 +91,8 @@ function NotFound() {
             style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', maxWidth: '800px', margin: '2rem auto' }}
             role="list"
           >
-            <Link 
-              to="/" 
+            <Link
+              href="/"
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -115,8 +117,8 @@ function NotFound() {
               <p style={{ margin: 0, fontSize: '0.9rem' }}>Start your journey here</p>
             </Link>
             
-            <Link 
-              to="/about" 
+            <Link
+              href="/about"
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -141,8 +143,8 @@ function NotFound() {
               <p style={{ margin: 0, fontSize: '0.9rem' }}>Learn about my background</p>
             </Link>
             
-            <Link 
-              to="/projects" 
+            <Link
+              href="/projects"
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -167,8 +169,8 @@ function NotFound() {
               <p style={{ margin: 0, fontSize: '0.9rem' }}>View my portfolio work</p>
             </Link>
             
-            <Link 
-              to="/contact" 
+            <Link
+              href="/contact"
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
