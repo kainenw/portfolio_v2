@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:accessibility": "./test-accessibility.sh",
+    "test:a11y": "npm run test:accessibility",
+    "precommit:accessibility": "npm run test:accessibility"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
