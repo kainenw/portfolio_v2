@@ -1,15 +1,11 @@
-"use client";
-
 import "./globals.css";
 import "./_old-styles_/_Pages.css";
 import "./_old-styles_/Homepage.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { useContext, useEffect } from "react";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
-import ClientProvider from "../Components/ClientProvider";
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -21,17 +17,15 @@ const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const { theme } = useContext(ThemeContext);
-
-  // keep <html data-theme> in sync after hydration
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
   return (
-    <html lang="en" data-theme={theme}>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ClientProvider>
+        <ThemeProvider
+          attribute="data-theme"
+          storageKey="__theme"
+          defaultTheme="system"
+          enableSystem
+        >
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
@@ -43,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <Footer />
-        </ClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

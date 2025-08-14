@@ -1,39 +1,29 @@
 "use client"; // The Header must be a client component to use context and handle clicks.
 
-import React, { useContext, useEffect } from 'react';
 import Link from 'next/link'; // Replace react-router-dom imports
 import { FolderOpen, User, Mail, Sun, Moon } from 'lucide-react'; // Import Mail, Sun, and Moon icons
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
-import { ThemeContext } from '../../context/ThemeContext'; // Adjust path
+import { useTheme } from 'next-themes';
 import './Header.css';
 
 export default function Header() {
-  const { theme, changeTheme } = useContext(ThemeContext);
+  const { resolvedTheme, setTheme } = useTheme();
 
-  // Handle the case where context is not yet available
-  if (!theme) {
+  if (!resolvedTheme) {
     return null; // Or return a loading skeleton for the header
   }
 
   const handleThemeToggle = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    changeTheme(newTheme);
-    // Update global data-theme attribute
-    document.documentElement.setAttribute('data-theme', newTheme);
-    console.log(`Theme changed to: ${newTheme}`);
+    const newTheme = resolvedTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
   };
-
-  // Sync context theme to data-theme on mount and when theme changes
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   const handleContactClick = () => {
     window.location.href = '/contact';
   };
 
   return (
-    <header className="App-header" data-theme={theme} role="banner">
+    <header className="App-header" data-theme={resolvedTheme} role="banner">
       {/* Logo/Brand */}
       <Link 
         href="/" 
@@ -87,17 +77,17 @@ export default function Header() {
       <button
         className="ThemeMenu header-nav-item"
         onClick={handleThemeToggle}
-        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        aria-pressed={theme === 'dark'}
+        aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
+        aria-pressed={resolvedTheme === 'dark'}
         type="button"
       >
-        {theme === 'dark' ? (
+        {resolvedTheme === 'dark' ? (
           <Moon size={20} aria-hidden="true" />
         ) : (
           <Sun size={20} aria-hidden="true" />
         )}
         <span className="sr-only">
-          Current theme: {theme === 'dark' ? 'Dark' : 'Light'} mode
+          Current theme: {resolvedTheme === 'dark' ? 'Dark' : 'Light'} mode
         </span>
       </button>
     </header>
