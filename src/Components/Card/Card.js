@@ -1,10 +1,10 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 import './Card.css';
 import CTAButton from '../CTAButton/CTAButton';
 
 function Card({ image, title, description, actions = [], dataTestId }) {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <article className="project-card" data-testid={dataTestId}>
@@ -23,7 +23,7 @@ function Card({ image, title, description, actions = [], dataTestId }) {
                   key={idx}
                   variant="primary"
                   size="medium"
-                  onClick={() => router.push(action.href)}
+                  onClick={() => navigate(action.href)}
                   aria-label={`${action.label} for ${title}`}
                 >
                   {action.label}
