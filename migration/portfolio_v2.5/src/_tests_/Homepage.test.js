@@ -1,20 +1,16 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import mockRouter from '../test-utils/mockRouter'
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import Homepage from '../app/Home/Homepage'
 
 describe('Homepage', () => {
   it('renders hero section with headline and actions', () => {
     render(
-      <HelmetProvider> {/* Wrap with HelmetProvider */}
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+      <HelmetProvider>
+        <RouterContext.Provider value={mockRouter}>
           <Homepage />
-        </MemoryRouter>
+        </RouterContext.Provider>
       </HelmetProvider>
     )
     expect(screen.getByRole('heading', { level: 1, name: /user-centric/i })).toBeInTheDocument()
@@ -32,15 +28,10 @@ describe('Homepage', () => {
 
   it('renders featured projects section and at least one project card', () => {
     render(
-      <HelmetProvider> {/* Wrap with HelmetProvider */}
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+      <HelmetProvider>
+        <RouterContext.Provider value={mockRouter}>
           <Homepage />
-        </MemoryRouter>
+        </RouterContext.Provider>
       </HelmetProvider>
     )
     expect(screen.getByRole('heading', { level: 2, name: /featured projects/i })).toBeInTheDocument()
@@ -52,15 +43,10 @@ describe('Homepage', () => {
 
   it('renders homepage CTA section with correct text and button', () => {
     render(
-      <HelmetProvider> {/* Wrap with HelmetProvider */}
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+      <HelmetProvider>
+        <RouterContext.Provider value={mockRouter}>
           <Homepage />
-        </MemoryRouter>
+        </RouterContext.Provider>
       </HelmetProvider>
     )
     expect(screen.getByRole('heading', { level: 2, name: /ready to build/i })).toBeInTheDocument()

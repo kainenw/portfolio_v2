@@ -1,6 +1,7 @@
 "use client"; // The Header must be a client component to use context and handle clicks.
 
-import Link from 'next/link'; // Replace react-router-dom imports
+import React, { useContext, useEffect } from 'react';
+import Link from 'next/link';
 import { FolderOpen, User, Mail, Sun, Moon } from 'lucide-react'; // Import Mail, Sun, and Moon icons
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
 import { useTheme } from 'next-themes';

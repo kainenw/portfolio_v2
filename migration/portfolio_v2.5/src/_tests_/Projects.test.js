@@ -1,7 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react'
 import '@testing-library/jest-dom'
-import { MemoryRouter } from 'react-router-dom'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import mockRouter from '../test-utils/mockRouter'
 import { HelmetProvider } from 'react-helmet-async';
 import Projects from '../app/Projects/Projects'
 
@@ -24,14 +25,9 @@ describe('Projects', () => {
   const renderProjects = () => {
     render(
       <HelmetProvider>
-        <MemoryRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
+        <RouterContext.Provider value={mockRouter}>
           <Projects />
-        </MemoryRouter>
+        </RouterContext.Provider>
       </HelmetProvider>
     );
   };

@@ -1,9 +1,8 @@
-import NotFoundClient from './NotFoundClient';
+"use client";
+
 import React, { useEffect } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Home, AlertCircle } from 'lucide-react';
-import Head from 'next/head';
-import '../_Pages.css';
 
 function NotFound() {
   // Announce to screen readers that this is an error page
@@ -18,15 +17,11 @@ function NotFound() {
 
   return (
     <>
-      <Head>
-        <title>404 - Page Not Found</title>
-        <meta name="description" content="The page you are looking for does not exist." />
-      </Head>
       <div className="NotFound Page">
         <main className="non-contrast-section" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
-          <AlertCircle 
-            size={64} 
-            style={{ color: 'var(--accent-color, #007acc)', margin: '0 auto 2rem' }} 
+          <AlertCircle
+            size={64}
+            style={{ color: 'var(--accent-color, #007acc)', margin: '0 auto 2rem' }}
             aria-hidden="true"
           />
           
@@ -49,7 +44,7 @@ function NotFound() {
           
           <nav aria-label="Error page navigation" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link 
-              href="/" 
+              to="/" 
               className="cta-btn" 
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
               aria-label="Return to homepage"
@@ -59,7 +54,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              href="/projects" 
+              to="/projects" 
               className="cta-btn" 
               style={{ background: 'transparent', color: 'var(--accent-color, #007acc)', border: '2px solid var(--accent-color, #007acc)' }}
               aria-label="View my design projects"
@@ -68,7 +63,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              href="/contact" 
+              to="/contact" 
               className="cta-btn" 
               style={{ background: 'transparent', color: 'var(--accent-color, #007acc)', border: '2px solid var(--accent-color, #007acc)' }}
               aria-label="Contact me for help"
@@ -88,7 +83,7 @@ function NotFound() {
             role="list"
           >
             <Link 
-              href="/" 
+              to="/" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -114,7 +109,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              href="/about" 
+              to="/about" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -140,7 +135,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              href="/projects" 
+              to="/projects" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -166,7 +161,7 @@ function NotFound() {
             </Link>
             
             <Link 
-              href="/contact" 
+              to="/contact" 
               style={{ 
                 padding: '1rem', 
                 background: 'var(--card-background, #fff)', 
@@ -196,3 +191,5 @@ function NotFound() {
     </>
   );
 }
+
+export default NotFound;
