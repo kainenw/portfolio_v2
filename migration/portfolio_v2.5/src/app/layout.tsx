@@ -3,7 +3,6 @@ import "./_old-styles_/_Pages.css";
 import "./_old-styles_/Homepage.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
 // Initialize fonts so `.variable` is available on the returned objects
 const geist = Geist({ subsets: ["latin"], variable: "--geist-font" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--geist-mono" });
@@ -60,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <Footer />
-        </ClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
