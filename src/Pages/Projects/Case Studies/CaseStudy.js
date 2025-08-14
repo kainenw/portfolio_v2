@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../../../Components/SEO/SEO';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
@@ -101,7 +103,7 @@ function CaseStudy({
   links,
   galleryImages
 }) {
-  const navigate = useNavigate();
+  const router = useRouter();
   
   // Focus management for accessibility
   useEffect(() => {
@@ -186,8 +188,8 @@ function CaseStudy({
       />
       
       <nav aria-label="Case study navigation">
-        <button 
-          onClick={() => navigate('/projects')} 
+        <button
+          onClick={() => router.push('/projects')}
           className="back-to-projects-btn"
           aria-label="Return to all projects"
         >

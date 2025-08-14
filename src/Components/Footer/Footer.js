@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import './Footer.css';
 
@@ -11,10 +11,10 @@ function Footer() {
       <div className="footer-content">
         {/* Quick Navigation Links */}
         <nav className="footer-nav" aria-label="Footer navigation">
-          <Link to="/" className="footer-link">Home</Link>
-          <Link to="/projects" className="footer-link">Projects</Link>
-          <Link to="/about" className="footer-link">About</Link>
-          <Link to="/contact" className="footer-link">Contact</Link>
+          <Link href="/" className="footer-link">Home</Link>
+          <Link href="/projects" className="footer-link">Projects</Link>
+          <Link href="/about" className="footer-link">About</Link>
+          <Link href="/contact" className="footer-link">Contact</Link>
         </nav>
 
         {/* Social Media Links */}

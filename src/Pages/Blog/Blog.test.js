@@ -15,6 +15,6 @@ describe('Blog', () => {
     // Use getAllByText for 'blog' since it appears multiple times
     expect(screen.getAllByText(/blog/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/highlighted posts/i)).toBeInTheDocument()
-    expect(screen.getByText(/Let\'s support Mozilla/i)).toBeInTheDocument()
+    expect(screen.getByText(/Let's support Mozilla/i)).toBeInTheDocument()
   })
 })
