@@ -1,6 +1,5 @@
 import '../_Pages.css';
 import React, { useState } from "react";
-import SEO from '../../Components/SEO/SEO';
 import { Mail, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import CTAButton from '../../Components/CTAButton/CTAButton';
@@ -88,12 +87,6 @@ function Contact() {
 
   return (
     <div className="Contact Page">
-      <SEO 
-        title="Contact"
-        description="Get in touch with Kainen White for your next design project. Professional UX/UI design services focused on user-centered solutions and business results."
-        url="/contact"
-        type="website"
-      />
       <div className="non-contrast-section hero">
         <Mail size={40} style={{ display: 'block', margin: '0 auto 12px' }} />
         <h1>Let&apos;s Connect!</h1>

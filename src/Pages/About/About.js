@@ -1,6 +1,5 @@
 import '../_Pages.css'
 import React, { useState, useEffect, useRef } from 'react';
-import SEO from '../../Components/SEO/SEO';
 import headshot from '../../img/headshot.webp';
 import design from '../../img/design.webp';
 import dev from '../../img/dev.webp';
@@ -75,14 +74,6 @@ function About() {
   );
 
   return (
-    <>
-      <SEO 
-        title="About"
-        description="Learn more about Kainen White's professional background, design philosophy, skills, and the services offered. Discover how user-centered design drives business growth."
-        url="/about"
-        type="website"
-        image={headshot}
-      />
       <div className="About Page">
       <section className="non-contrast-section hero" style={{ position: 'relative' }}>
         <h1>Design With Purpose. Built for Results.</h1>
@@ -347,7 +338,6 @@ function About() {
       </div>
     )}
     </div>
-    </>
   )
 }
 export default About
