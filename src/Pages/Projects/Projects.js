@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SEO from '../../Components/SEO/SEO';
 import '../_Pages.css';
 import Deck from '../../Components/Deck/Deck';
 import { FolderOpen } from 'lucide-react';
@@ -29,12 +28,6 @@ function Projects() {
 
   return (
     <div className="Projects Page">
-      <SEO 
-        title="Design Portfolio & Case Studies"
-        description="Explore a collection of detailed UX/UI design case studies from Kainen White, showcasing a rigorous process and measurable business results."
-        url="/projects"
-        type="website"
-      />
       <div className="non-contrast-section hero">
         <FolderOpen size={40} style={{ display: 'block', margin: '0 auto 12px' }} aria-hidden="true" />
         <h1>Projects</h1>

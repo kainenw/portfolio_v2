@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { Home, AlertCircle } from 'lucide-react';
-import SEO from '../../Components/SEO/SEO';
 import '../_Pages.css';
 
 function NotFound() {
@@ -18,14 +17,6 @@ function NotFound() {
   }, []);
 
   return (
-    <>
-      <SEO 
-        title="404 - Page Not Found"
-        description="The page you're looking for doesn't exist. Explore other sections of Kainen White's portfolio."
-        url="/404"
-        type="website"
-        robots="noindex, nofollow"
-      />
       <div className="NotFound Page">
         <main className="non-contrast-section" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
           <AlertCircle 
@@ -197,7 +188,6 @@ function NotFound() {
           </nav>
         </section>
       </div>
-    </>
   );
 }
 

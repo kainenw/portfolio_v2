@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import SEO from '../../../Components/SEO/SEO';
 import MetricsDisplay from '../../../Components/MetricsDisplay/MetricsDisplay';
 import './CaseStudy.css';
 
@@ -175,17 +174,6 @@ function CaseStudy({
 
   return (
     <article className="case-study" role="main" aria-labelledby="case-study-title">
-      <SEO 
-        title={title}
-        description={description || longDescription || `A detailed case study of ${title}, showcasing the design process and measurable results.`}
-        url={`/projects/${title?.toLowerCase().replace(/\s+/g, '-')}`}
-        type="article"
-        image={images?.[0] || image}
-        article={{
-          datePublished: "2024-01-01", // You can make this dynamic
-          tags: technologies || []
-        }}
-      />
       
       <nav aria-label="Case study navigation">
         <button
