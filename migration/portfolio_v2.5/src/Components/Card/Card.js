@@ -4,13 +4,17 @@ import { useRouter } from 'next/navigation';
 import './Card.css';
 import CTAButton from '../CTAButton/CTAButton';
 
-function Card({ image = '', title = '', description = '', actions = [], dataTestId }) {
+function Card({ image = '', images = [], title = '', description = '', actions = [], dataTestId }) {
   const router = useRouter();
+
+  // Ensure we always have a valid image src to avoid React/Next dev errors on <img>
+  const firstFromArray = Array.isArray(images) && images.length > 0 ? images[0] : '';
+  const displayImage = image || firstFromArray || '/window.svg'; // placeholder in /public
 
   return (
     <article className="project-card" data-testid={dataTestId}>
       <div className="card-image">
-        <img src={image} alt={title ? `${title} project screenshot` : 'Project screenshot'} loading="lazy" />
+        <img src={displayImage} alt={title ? `${title} project screenshot` : 'Project screenshot'} loading="lazy" />
       </div>
       <div className="card-content">
         <h3>{title}</h3>

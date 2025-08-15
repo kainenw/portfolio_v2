@@ -9,14 +9,15 @@ function CTAButton({
   children,
   variant = 'primary', // 'primary' or 'secondary'
   size = 'medium', // 'small', 'medium', 'large'
-  onClick,
-  href,
+  onClick = undefined,
+  href = undefined,
   disabled = false,
   className = '',
   download = false,
   showDownloadIcon = false,
+  type = 'button',
   'aria-label': ariaLabel,
-  'aria-describedby': ariaDescribedBy,
+  'aria-describedby': ariaDescribedBy = undefined,
   ...props
 }) {
   const baseClasses = `cta-button cta-${variant} cta-${size} ${className}`;
@@ -56,16 +57,15 @@ function CTAButton({
   if (href && typeof href === 'string' && href.length > 0) {
     if (isInternal && !download) {
       return (
-        <Link href={href} legacyBehavior passHref>
-          <a
-            className={baseClasses}
-            aria-label={ariaLabel}
-            aria-describedby={ariaDescribedBy}
-            {...props}
-          >
-            {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}
-            {children}
-          </a>
+        <Link
+          href={href}
+          className={baseClasses}
+          aria-label={ariaLabel}
+          aria-describedby={ariaDescribedBy}
+          {...props}
+        >
+          {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}
+          {children}
         </Link>
       );
     }
@@ -94,7 +94,7 @@ function CTAButton({
       disabled={disabled}
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedBy}
-      type="button"
+      type={type}
       {...props}
     >
       {showDownloadIcon && <Download size={20} style={{ marginRight: '0.5rem' }} aria-hidden="true" />}

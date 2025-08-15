@@ -1,4 +1,4 @@
-import ContactClient from './ContactClient';
+import ContactClient from '../Contact/ContactClient';
 
 export const metadata = {
   title: 'Contact Kainen White',

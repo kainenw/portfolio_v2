@@ -189,7 +189,7 @@ export default function HomePage() {
           {testimonials.map((t, i) => (
             <article key={i} className="testimonial-card" role="listitem">
               <Image
-                src={t.photo}
+                src={t.image || "/window.svg"}
                 alt={`${t.name}, ${t.title} at ${t.company}`}
                 className="testimonial-photo"
                 width={50}

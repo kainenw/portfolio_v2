@@ -19,18 +19,6 @@ export function getSystemTheme(): 'dark' | 'light' {
   return 'light';
 }
 
-// Inline script to run as early as possible on the client to set the theme
-// before React hydrates. Keeps server render as a light fallback.
-const setThemeScript = `
-(function(){
-  try {
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var theme = prefersDark ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-`;
-
 export const metadata: Metadata = {
   title: "Kainen White | Product & UX Designer",
   description:
@@ -41,25 +29,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const defaultTheme: 'dark' | 'light' = 'light';
 
   return (
-    <html lang="en" data-theme={defaultTheme}>
+    <html lang="en" data-theme={defaultTheme} suppressHydrationWarning>
       <head>
-        {/* Run the script as early as possible on the client to set the theme */}
-        <script dangerouslySetInnerHTML={{ __html: setThemeScript }} />
+        {/* Removed inline setThemeScript; next-themes now fully controls theme */}
       </head>
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         <ClientProvider>
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
-          <a href="#footer" className="skip-link">
-            Skip to footer
-          </a>
-          <Header />
-          <main id="main-content" role="main">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+          <div>
+            <a href="#main-content" className="skip-link">
+              Skip to main content
+            </a>
+            <a href="#footer" className="skip-link">
+              Skip to footer
+            </a>
+            <Header />
+            <main id="main-content" role="main">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ClientProvider>
       </body>
     </html>
   );

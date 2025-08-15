@@ -1,6 +1,6 @@
 "use client"; // The Header must be a client component to use context and handle clicks.
 
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FolderOpen, User, Mail, Sun, Moon } from 'lucide-react'; // Import Mail, Sun, and Moon icons
 import CTAButton from '../CTAButton/CTAButton'; // Import CTAButton component
@@ -9,9 +9,15 @@ import './Header.css';
 
 export default function Header() {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  if (!resolvedTheme) {
-    return null; // Or return a loading skeleton for the header
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Avoid rendering on the server to prevent hydration mismatches
+    return null;
   }
 
   const handleThemeToggle = () => {
@@ -24,7 +30,7 @@ export default function Header() {
   };
 
   return (
-    <header className="App-header" data-theme={resolvedTheme} role="banner">
+    <header className="App-header" role="banner" suppressHydrationWarning>
       {/* Logo/Brand */}
       <Link 
         href="/" 
